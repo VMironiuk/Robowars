@@ -12,6 +12,7 @@
 		3C0649F3284224A80039710D /* LaunchGameClientUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0649F2284224A80039710D /* LaunchGameClientUseCaseTests.swift */; };
 		3C0649F52842315C0039710D /* Robot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0649F42842315C0039710D /* Robot.swift */; };
 		3C0649F7284231A70039710D /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0649F6284231A70039710D /* GameMode.swift */; };
+		3C0649F9284231F20039710D /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0649F8284231F20039710D /* GameEngine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,7 @@
 		3C0649F2284224A80039710D /* LaunchGameClientUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchGameClientUseCaseTests.swift; sourceTree = "<group>"; };
 		3C0649F42842315C0039710D /* Robot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Robot.swift; sourceTree = "<group>"; };
 		3C0649F6284231A70039710D /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
+		3C0649F8284231F20039710D /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				3C0649DD284224620039710D /* Robowars.h */,
 				3C0649F42842315C0039710D /* Robot.swift */,
 				3C0649F6284231A70039710D /* GameMode.swift */,
+				3C0649F8284231F20039710D /* GameEngine.swift */,
 			);
 			path = Robowars;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C0649F7284231A70039710D /* GameMode.swift in Sources */,
+				3C0649F9284231F20039710D /* GameEngine.swift in Sources */,
 				3C0649F52842315C0039710D /* Robot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

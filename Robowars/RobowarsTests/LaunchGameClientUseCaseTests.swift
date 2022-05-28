@@ -8,10 +8,6 @@
 import XCTest
 import Robowars
 
-protocol GameEngine: AnyObject {
-    func start()
-}
-
 final class GameInteractor {
     private let gameEngine: GameEngine
     private var firstRobot: Robot?
