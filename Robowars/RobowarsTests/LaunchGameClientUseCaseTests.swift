@@ -50,37 +50,52 @@ final class GameInteractor {
 class LaunchGameClientUseCaseTests: XCTestCase {
     
     func test_start_doesNotInvokeOnGameInteractorInit() {
+        // Given
         let (_, gameEngine) = makeSUT()
+        // When
+        // Then
         XCTAssertEqual(gameEngine.startCallCount, .zero)
     }
     
     func test_start_doesNotInvokeIfThereAreNoRobots() {
+        // Given
         let (sut, gameEngine) = makeSUT()
+        // When
         sut.start()
+        // Then
         XCTAssertEqual(gameEngine.startCallCount, .zero)
     }
     
     func test_start_doesNotInvokeIfThereIsNoRobot() {
+        // Given
         let (sut, gameEngine) = makeSUT()
+        // When
         sut.setFirstRobot(DummyRobot())
         sut.start()
+        // Then
         XCTAssertEqual(gameEngine.startCallCount, .zero)
     }
     
     func test_start_doesNotInvokeIfThereIsNoGameMode() {
+        // Given
         let (sut, gameEngine) = makeSUT()
+        // When
         sut.setFirstRobot(DummyRobot())
         sut.setSecondRobot(DummyRobot())
         sut.start()
+        // Then
         XCTAssertEqual(gameEngine.startCallCount, .zero)
     }
     
     func test_start_doesNotInvokesIfRobotsAndGameModeAreSet() {
+        // Given
         let (sut, gameEngine) = makeSUT()
+        // When
         sut.setFirstRobot(DummyRobot())
         sut.setSecondRobot(DummyRobot())
         sut.setGameMode(.classic)
         sut.start()
+        // Then
         XCTAssertEqual(gameEngine.startCallCount, 1)
     }
     
