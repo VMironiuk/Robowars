@@ -54,4 +54,13 @@ class LaunchGameClientUseCaseTests: XCTestCase {
         sut.start()
         XCTAssertEqual(sut.startCallCount, .zero)
     }
+    
+    func test_start_doesNotInvokesIfRobotsAndGameModeAreSet() {
+        let sut = GameInteractor()
+        sut.firstRobot = DummyRobot()
+        sut.secondRobot = DummyRobot()
+        sut.gameMode = GameMode.classic
+        sut.start()
+        XCTAssertEqual(sut.startCallCount, 1)
+    }
 }
