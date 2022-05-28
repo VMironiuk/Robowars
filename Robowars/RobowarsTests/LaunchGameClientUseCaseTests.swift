@@ -11,13 +11,18 @@ protocol Robot {}
 
 class DummyRobot: Robot {}
 
+enum GameMode {
+    case classic
+}
+
 final class GameInteractor {
     var firstRobot: Robot?
     var secondRobot: Robot?
+    var gameMode: GameMode?
     var startCallCount: Int = .zero
     
     func start() {
-        guard firstRobot != nil, secondRobot != nil else { return }
+        guard firstRobot != nil, secondRobot != nil, gameMode != nil else { return }
         startCallCount += 1
     }
 }
@@ -38,6 +43,14 @@ class LaunchGameClientUseCaseTests: XCTestCase {
     func test_start_doesNotInvokeIfThereIsNoRobot() {
         let sut = GameInteractor()
         sut.firstRobot = DummyRobot()
+        sut.start()
+        XCTAssertEqual(sut.startCallCount, .zero)
+    }
+    
+    func test_start_doesNotInvokeIfThereIsNoGameMode() {
+        let sut = GameInteractor()
+        sut.firstRobot = DummyRobot()
+        sut.secondRobot = DummyRobot()
         sut.start()
         XCTAssertEqual(sut.startCallCount, .zero)
     }
