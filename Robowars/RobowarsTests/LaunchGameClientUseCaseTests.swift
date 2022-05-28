@@ -7,9 +7,7 @@
 
 import XCTest
 
-protocol Robot {}
-
-class DummyRobot: Robot {}
+protocol Robot: AnyObject {}
 
 enum GameMode {
     case classic
@@ -106,6 +104,8 @@ class LaunchGameClientUseCaseTests: XCTestCase {
         let sut = GameInteractor(gameEngine: gameEngine)
         return (sut, gameEngine)
     }
+    
+    private class DummyRobot: Robot {}
     
     private class GameEngineSpy: GameEngine {
         private(set) var startCallCount = 0
