@@ -13,6 +13,7 @@
 		3C0649F52842315C0039710D /* Robot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0649F42842315C0039710D /* Robot.swift */; };
 		3C0649F7284231A70039710D /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0649F6284231A70039710D /* GameMode.swift */; };
 		3C0649F9284231F20039710D /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0649F8284231F20039710D /* GameEngine.swift */; };
+		3C0649FB284232390039710D /* GameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0649FA284232390039710D /* GameInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,7 @@
 		3C0649F42842315C0039710D /* Robot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Robot.swift; sourceTree = "<group>"; };
 		3C0649F6284231A70039710D /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
 		3C0649F8284231F20039710D /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngine.swift; sourceTree = "<group>"; };
+		3C0649FA284232390039710D /* GameInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				3C0649F42842315C0039710D /* Robot.swift */,
 				3C0649F6284231A70039710D /* GameMode.swift */,
 				3C0649F8284231F20039710D /* GameEngine.swift */,
+				3C0649FA284232390039710D /* GameInteractor.swift */,
 			);
 			path = Robowars;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C0649FB284232390039710D /* GameInteractor.swift in Sources */,
 				3C0649F7284231A70039710D /* GameMode.swift in Sources */,
 				3C0649F9284231F20039710D /* GameEngine.swift in Sources */,
 				3C0649F52842315C0039710D /* Robot.swift in Sources */,

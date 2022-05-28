@@ -8,34 +8,6 @@
 import XCTest
 import Robowars
 
-final class GameInteractor {
-    private let gameEngine: GameEngine
-    private var firstRobot: Robot?
-    private var secondRobot: Robot?
-    private var gameMode: GameMode?
-    
-    init(gameEngine: GameEngine) {
-        self.gameEngine = gameEngine
-    }
-    
-    func start() {
-        guard firstRobot != nil, secondRobot != nil, gameMode != nil else { return }
-        gameEngine.start()
-    }
-    
-    func setFirstRobot(_ newFirstRobot: Robot) {
-        firstRobot = newFirstRobot
-    }
-    
-    func setSecondRobot(_ newSecondRobot: Robot) {
-        secondRobot = newSecondRobot
-    }
-    
-    func setGameMode(_ newGameMode: GameMode) {
-        gameMode = newGameMode
-    }
-}
-
 class LaunchGameClientUseCaseTests: XCTestCase {
     
     func test_start_doesNotInvokeOnGameInteractorInit() {
