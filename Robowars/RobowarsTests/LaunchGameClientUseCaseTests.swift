@@ -6,8 +6,7 @@
 //
 
 import XCTest
-
-protocol Robot: AnyObject {}
+import Robowars
 
 enum GameMode {
     case classic
