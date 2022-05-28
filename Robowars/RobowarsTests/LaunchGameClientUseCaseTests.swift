@@ -9,6 +9,8 @@ import XCTest
 
 protocol Robot {}
 
+class DummyRobot: Robot {}
+
 final class GameInteractor {
     var firstRobot: Robot?
     var secondRobot: Robot?
@@ -29,6 +31,13 @@ class LaunchGameClientUseCaseTests: XCTestCase {
     
     func test_start_doesNotInvokeIfThereAreNoRobots() {
         let sut = GameInteractor()
+        sut.start()
+        XCTAssertEqual(sut.startCallCount, .zero)
+    }
+    
+    func test_start_doesNotInvokeIfThereIsNoRobot() {
+        let sut = GameInteractor()
+        sut.firstRobot = DummyRobot()
         sut.start()
         XCTAssertEqual(sut.startCallCount, .zero)
     }
