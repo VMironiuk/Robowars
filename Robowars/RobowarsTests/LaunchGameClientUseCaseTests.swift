@@ -29,7 +29,7 @@ final class GameInteractor {
 
 class LaunchGameClientUseCaseTests: XCTestCase {
     
-    func test_start_doesNotInvokesOnGameInteractorInit() {
+    func test_start_doesNotInvokeOnGameInteractorInit() {
         let sut = GameInteractor()
         XCTAssertEqual(sut.startCallCount, .zero)
     }
