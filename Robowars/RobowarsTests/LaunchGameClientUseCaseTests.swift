@@ -21,11 +21,9 @@ protocol GameEngine: AnyObject {
 
 final class GameInteractor {
     private let gameEngine: GameEngine
-    
-    var firstRobot: Robot?
-    var secondRobot: Robot?
-    var gameMode: GameMode?
-    var startCallCount: Int = .zero
+    private var firstRobot: Robot?
+    private var secondRobot: Robot?
+    private var gameMode: GameMode?
     
     init(gameEngine: GameEngine) {
         self.gameEngine = gameEngine
@@ -34,6 +32,18 @@ final class GameInteractor {
     func start() {
         guard firstRobot != nil, secondRobot != nil, gameMode != nil else { return }
         gameEngine.start()
+    }
+    
+    func setFirstRobot(_ newFirstRobot: Robot) {
+        firstRobot = newFirstRobot
+    }
+    
+    func setSecondRobot(_ newSecondRobot: Robot) {
+        secondRobot = newSecondRobot
+    }
+    
+    func setGameMode(_ newGameMode: GameMode) {
+        gameMode = newGameMode
     }
 }
 
@@ -52,24 +62,24 @@ class LaunchGameClientUseCaseTests: XCTestCase {
     
     func test_start_doesNotInvokeIfThereIsNoRobot() {
         let (sut, gameEngine) = makeSUT()
-        sut.firstRobot = DummyRobot()
+        sut.setFirstRobot(DummyRobot())
         sut.start()
         XCTAssertEqual(gameEngine.startCallCount, .zero)
     }
     
     func test_start_doesNotInvokeIfThereIsNoGameMode() {
         let (sut, gameEngine) = makeSUT()
-        sut.firstRobot = DummyRobot()
-        sut.secondRobot = DummyRobot()
+        sut.setFirstRobot(DummyRobot())
+        sut.setSecondRobot(DummyRobot())
         sut.start()
         XCTAssertEqual(gameEngine.startCallCount, .zero)
     }
     
     func test_start_doesNotInvokesIfRobotsAndGameModeAreSet() {
         let (sut, gameEngine) = makeSUT()
-        sut.firstRobot = DummyRobot()
-        sut.secondRobot = DummyRobot()
-        sut.gameMode = GameMode.classic
+        sut.setFirstRobot(DummyRobot())
+        sut.setSecondRobot(DummyRobot())
+        sut.setGameMode(.classic)
         sut.start()
         XCTAssertEqual(gameEngine.startCallCount, 1)
     }
