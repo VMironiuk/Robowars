@@ -8,10 +8,6 @@
 import XCTest
 import Robowars
 
-enum GameMode {
-    case classic
-}
-
 protocol GameEngine: AnyObject {
     func start()
 }
