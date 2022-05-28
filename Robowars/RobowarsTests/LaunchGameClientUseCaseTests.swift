@@ -20,7 +20,7 @@ protocol GameEngine: AnyObject {
 }
 
 final class GameInteractor {
-    let gameEngine: GameEngine
+    private let gameEngine: GameEngine
     
     var firstRobot: Robot?
     var secondRobot: Robot?
