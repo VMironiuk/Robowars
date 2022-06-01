@@ -68,7 +68,11 @@ class LaunchGameClientUseCaseTests: XCTestCase {
         return (sut, gameEngine)
     }
     
-    private class DummyRobot: Robot {}
+    private class DummyRobot: Robot {
+        func set(battlefield: CGSize, ships: [CGSize]) -> [CGRect] {
+            []
+        }
+    }
     
     private class GameEngineSpy: GameEngine {
         private(set) var startCallCount = 0

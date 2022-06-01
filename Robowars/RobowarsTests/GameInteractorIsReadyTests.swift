@@ -21,11 +21,23 @@ class GameInteractorIsReadyTests: XCTestCase {
         XCTAssertFalse(sut.isReady)
     }
     
+    func test_isReady_returnsFalseOnEmptyListOfRobots() {
+        let sut = GameInteractor(gameEngine: DummyGameEngine())
+        let robot = DummyRobot()
+        sut.setFirstRobot(robot)
+        let _ = robot.set(battlefield: .zero, ships: [])
+        XCTAssertFalse(sut.isReady)
+    }
+    
     // MARK: - Helpers
     
     private class DummyGameEngine: GameEngine {
         func start() {}
     }
     
-    private class DummyRobot: Robot {}
+    private class DummyRobot: Robot {
+        func set(battlefield: CGSize, ships: [CGSize]) -> [CGRect] {
+            []
+        }
+    }
 }
