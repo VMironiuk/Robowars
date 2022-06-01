@@ -14,6 +14,7 @@
 		3C0649F7284231A70039710D /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0649F6284231A70039710D /* GameMode.swift */; };
 		3C0649F9284231F20039710D /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0649F8284231F20039710D /* GameEngine.swift */; };
 		3C0649FB284232390039710D /* GameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0649FA284232390039710D /* GameInteractor.swift */; };
+		3CE07CE22847C21000ED3CFB /* GameInteractorIsReadyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE07CE12847C21000ED3CFB /* GameInteractorIsReadyTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		3C0649F6284231A70039710D /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
 		3C0649F8284231F20039710D /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngine.swift; sourceTree = "<group>"; };
 		3C0649FA284232390039710D /* GameInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInteractor.swift; sourceTree = "<group>"; };
+		3CE07CE12847C21000ED3CFB /* GameInteractorIsReadyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInteractorIsReadyTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				3C0649F2284224A80039710D /* LaunchGameClientUseCaseTests.swift */,
+				3CE07CE12847C21000ED3CFB /* GameInteractorIsReadyTests.swift */,
 			);
 			path = RobowarsTests;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CE07CE22847C21000ED3CFB /* GameInteractorIsReadyTests.swift in Sources */,
 				3C0649F3284224A80039710D /* LaunchGameClientUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

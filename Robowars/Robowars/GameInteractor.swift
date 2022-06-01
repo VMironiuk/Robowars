@@ -13,6 +13,10 @@ public final class GameInteractor {
     private var secondRobot: Robot?
     private var gameMode: GameMode?
     
+    public var isReady: Bool {
+        false
+    }
+    
     public init(gameEngine: GameEngine) {
         self.gameEngine = gameEngine
     }
