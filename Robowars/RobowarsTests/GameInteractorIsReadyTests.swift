@@ -10,7 +10,7 @@ import Robowars
 
 class GameInteractorIsReadyTests: XCTestCase {
 
-    func test_isReady_returnsFalseInit() {
+    func test_isReady_returnsFalseOnInit() {
         let sut = GameInteractor(gameEngine: DummyGameEngine())
         XCTAssertFalse(sut.isReady)
     }
