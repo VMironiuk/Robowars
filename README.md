@@ -5,7 +5,7 @@ Desktop macOS client for the Robowars game
 
 ## BDD Specs
 
-### Story: User launches the game
+### Story: User launches the game (TODO: Update for IS_READY state)
 
 ### Narrative #1
 
