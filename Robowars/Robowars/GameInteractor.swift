@@ -14,7 +14,11 @@ public final class GameInteractor {
     private var gameMode: GameMode?
     
     public var isReady: Bool {
-        false
+        if firstRobot?.ships.isEmpty == false && secondRobot?.ships.isEmpty == false {
+            return true
+        }
+
+        return false
     }
     
     public init(gameEngine: GameEngine) {

@@ -8,5 +8,7 @@
 import Foundation
 
 public protocol Robot: AnyObject {
-    func set(battlefield: CGSize, ships: [CGSize]) -> [CGRect]
+    var ships: [CGRect] { get }
+
+    func set(battlefield: CGSize, ships: [CGSize])
 }

@@ -15,6 +15,17 @@ class GameInteractorIsReadyTests: XCTestCase {
         XCTAssertFalse(sut.isReady)
     }
     
+    func test_isReady_returnsTrueOnNonEmptyListsOfShips() {
+        let sut = GameInteractor(gameEngine: DummyGameEngine())
+        let firstRobot = DummyRobot()
+        let secondRobot = DummyRobot()
+        sut.setFirstRobot(firstRobot)
+        sut.setSecondRobot(secondRobot)
+        firstRobot.set(battlefield: CGSize(width: 1, height: 1), ships: [CGSize(width: 1, height: 1)])
+        secondRobot.set(battlefield: CGSize(width: 1, height: 1), ships: [CGSize(width: 1, height: 1)])
+        XCTAssertTrue(sut.isReady)
+    }
+
     func test_isReady_returnsFalseOnRobotSet() {
         let sut = GameInteractor(gameEngine: DummyGameEngine())
         sut.setFirstRobot(DummyRobot())
@@ -25,7 +36,7 @@ class GameInteractorIsReadyTests: XCTestCase {
         let sut = GameInteractor(gameEngine: DummyGameEngine())
         let robot = DummyRobot()
         sut.setFirstRobot(robot)
-        let _ = robot.set(battlefield: .zero, ships: [])
+        robot.set(battlefield: .zero, ships: [])
         XCTAssertFalse(sut.isReady)
     }
     
@@ -36,8 +47,9 @@ class GameInteractorIsReadyTests: XCTestCase {
     }
     
     private class DummyRobot: Robot {
-        func set(battlefield: CGSize, ships: [CGSize]) -> [CGRect] {
-            []
+        private(set) var ships: [CGRect] = []
+        func set(battlefield: CGSize, ships: [CGSize]) {
+            self.ships.append(CGRect(x: 0, y: 0, width: 1, height: 1))
         }
     }
 }

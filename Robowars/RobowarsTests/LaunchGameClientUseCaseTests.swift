@@ -69,9 +69,8 @@ class LaunchGameClientUseCaseTests: XCTestCase {
     }
     
     private class DummyRobot: Robot {
-        func set(battlefield: CGSize, ships: [CGSize]) -> [CGRect] {
-            []
-        }
+        let ships: [CGRect] = []
+        func set(battlefield: CGSize, ships: [CGSize]) {}
     }
     
     private class GameEngineSpy: GameEngine {
