@@ -15,9 +15,17 @@ class GameInteractorIsReadyTests: XCTestCase {
         XCTAssertFalse(sut.isReady)
     }
     
+    func test_isReady_returnsFalseOnRobotSet() {
+        let sut = GameInteractor(gameEngine: DummyGameEngine())
+        sut.setFirstRobot(DummyRobot())
+        XCTAssertFalse(sut.isReady)
+    }
+    
     // MARK: - Helpers
     
     private class DummyGameEngine: GameEngine {
         func start() {}
     }
+    
+    private class DummyRobot: Robot {}
 }
