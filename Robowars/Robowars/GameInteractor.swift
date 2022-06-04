@@ -14,11 +14,15 @@ public final class GameInteractor {
     private var gameMode: GameMode?
     
     public var isReady: Bool {
-        if firstRobot?.ships.isEmpty == false && secondRobot?.ships.isEmpty == false {
-            return true
+        guard gameMode != .none,
+              firstRobot != nil,
+              secondRobot != nil,
+              firstRobot?.ships.isEmpty == false,
+              secondRobot?.ships.isEmpty == false else {
+            return false
         }
 
-        return false
+        return true
     }
     
     public init(gameEngine: GameEngine) {
@@ -26,7 +30,7 @@ public final class GameInteractor {
     }
     
     public func start() {
-        guard firstRobot != nil, secondRobot != nil, gameMode != nil else { return }
+        guard isReady else { return }
         gameEngine.start()
     }
     

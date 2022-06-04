@@ -21,6 +21,7 @@ class GameInteractorIsReadyTests: XCTestCase {
         let secondRobot = DummyRobot()
         sut.setFirstRobot(firstRobot)
         sut.setSecondRobot(secondRobot)
+        sut.setGameMode(.classic)
         firstRobot.set(battlefield: CGSize(width: 1, height: 1), ships: [CGSize(width: 1, height: 1)])
         secondRobot.set(battlefield: CGSize(width: 1, height: 1), ships: [CGSize(width: 1, height: 1)])
         XCTAssertTrue(sut.isReady)

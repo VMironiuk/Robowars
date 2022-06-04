@@ -52,9 +52,13 @@ class LaunchGameClientUseCaseTests: XCTestCase {
         // Given
         let (sut, gameEngine) = makeSUT()
         // When
-        sut.setFirstRobot(DummyRobot())
-        sut.setSecondRobot(DummyRobot())
+        let firstRobot = DummyRobot()
+        let secondRobot = DummyRobot()
+        sut.setFirstRobot(firstRobot)
+        sut.setSecondRobot(secondRobot)
         sut.setGameMode(.classic)
+        firstRobot.set(battlefield: CGSize(width: 1, height: 1), ships: [CGSize(width: 1, height: 1)])
+        secondRobot.set(battlefield: CGSize(width: 1, height: 1), ships: [CGSize(width: 1, height: 1)])
         sut.start()
         // Then
         XCTAssertEqual(gameEngine.startCallCount, 1)
@@ -69,8 +73,10 @@ class LaunchGameClientUseCaseTests: XCTestCase {
     }
     
     private class DummyRobot: Robot {
-        let ships: [CGRect] = []
-        func set(battlefield: CGSize, ships: [CGSize]) {}
+        private(set) var ships: [CGRect] = []
+        func set(battlefield: CGSize, ships: [CGSize]) {
+            self.ships.append(CGRect(x: 0, y: 0, width: 1, height: 1))
+        }
     }
     
     private class GameEngineSpy: GameEngine {
