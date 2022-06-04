@@ -11,12 +11,17 @@ import Robowars
 class GameInteractorIsReadyTests: XCTestCase {
 
     func test_isReady_returnsFalseOnInit() {
+        // Given
         let sut = GameInteractor(gameEngine: DummyGameEngine())
+        // When
+        // Then
         XCTAssertFalse(sut.isReady)
     }
     
     func test_isReady_returnsTrueOnNonEmptyListsOfShips() {
+        // Given
         let sut = GameInteractor(gameEngine: DummyGameEngine())
+        // When
         let firstRobot = DummyRobot()
         let secondRobot = DummyRobot()
         sut.setFirstRobot(firstRobot)
@@ -24,20 +29,27 @@ class GameInteractorIsReadyTests: XCTestCase {
         sut.setGameMode(.classic)
         firstRobot.set(battlefield: CGSize(width: 1, height: 1), ships: [CGSize(width: 1, height: 1)])
         secondRobot.set(battlefield: CGSize(width: 1, height: 1), ships: [CGSize(width: 1, height: 1)])
+        // Then
         XCTAssertTrue(sut.isReady)
     }
 
     func test_isReady_returnsFalseOnRobotSet() {
+        // Given
         let sut = GameInteractor(gameEngine: DummyGameEngine())
+        // When
         sut.setFirstRobot(DummyRobot())
+        // Then
         XCTAssertFalse(sut.isReady)
     }
     
     func test_isReady_returnsFalseOnEmptyListOfRobots() {
+        // Given
         let sut = GameInteractor(gameEngine: DummyGameEngine())
+        // When
         let robot = DummyRobot()
         sut.setFirstRobot(robot)
         robot.set(battlefield: .zero, ships: [])
+        // Then
         XCTAssertFalse(sut.isReady)
     }
     
