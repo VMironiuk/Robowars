@@ -18,7 +18,7 @@ class GameInteractorIsReadyTests: XCTestCase {
         XCTAssertFalse(sut.isReady)
     }
     
-    func test_isReady_returnsTrueOnNonEmptyListsOfShips() {
+    func test_isReady_returnsTrueOnCorrectSetOfDependencies() {
         // Given
         let sut = GameInteractor(gameEngine: DummyGameEngine())
         // When
