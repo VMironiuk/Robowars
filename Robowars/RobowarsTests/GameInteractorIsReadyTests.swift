@@ -32,6 +32,20 @@ class GameInteractorIsReadyTests: XCTestCase {
         // Then
         XCTAssertTrue(sut.isReady)
     }
+    
+    func test_isReady_returnsFalseOnDependenciesSetExceptGameMode() {
+        // Given
+        let sut = GameInteractor(gameEngine: DummyGameEngine())
+        // When
+        let firstRobot = DummyRobot()
+        let secondRobot = DummyRobot()
+        sut.setFirstRobot(firstRobot)
+        sut.setSecondRobot(secondRobot)
+        firstRobot.set(battlefield: CGSize(width: 1, height: 1), ships: [CGSize(width: 1, height: 1)])
+        secondRobot.set(battlefield: CGSize(width: 1, height: 1), ships: [CGSize(width: 1, height: 1)])
+        // Then
+        XCTAssertFalse(sut.isReady)
+    }
 
     func test_isReady_returnsFalseOnRobotSet() {
         // Given
