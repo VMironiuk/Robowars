@@ -1,5 +1,5 @@
 //
-//  LaunchGameClientUseCaseTests.swift
+//  GameInteractorSrartTests.swift
 //  RobowarsTests
 //
 //  Created by Vladimir Mironiuk on 28.05.2022.
@@ -8,7 +8,7 @@
 import XCTest
 import Robowars
 
-class LaunchGameClientUseCaseTests: XCTestCase {
+class GameInteractorSrartTests: XCTestCase {
     
     func test_start_doesNotInvokeOnGameInteractorInit() {
         // Given
