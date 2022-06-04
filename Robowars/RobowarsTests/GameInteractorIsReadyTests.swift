@@ -60,26 +60,6 @@ class GameInteractorIsReadyTests: XCTestCase {
         // Then
         XCTAssertFalse(sut.isReady)
     }
-
-    func test_isReady_returnsFalseOnRobotSet() {
-        // Given
-        let sut = GameInteractor(gameEngine: DummyGameEngine())
-        // When
-        sut.setFirstRobot(DummyRobot())
-        // Then
-        XCTAssertFalse(sut.isReady)
-    }
-    
-    func test_isReady_returnsFalseOnEmptyListOfRobots() {
-        // Given
-        let sut = GameInteractor(gameEngine: DummyGameEngine())
-        // When
-        let robot = DummyRobot()
-        sut.setFirstRobot(robot)
-        robot.set(battlefield: .zero, ships: [])
-        // Then
-        XCTAssertFalse(sut.isReady)
-    }
     
     // MARK: - Helpers
     
