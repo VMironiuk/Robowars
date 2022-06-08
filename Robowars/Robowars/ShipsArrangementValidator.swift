@@ -8,10 +8,10 @@
 import Foundation
 
 public final class ShipsArrangementValidator {
-    private let battlefield: CGSize
+    private let battlefield: CGRect
     private let ships: [CGSize]
     
-    public init(battlefield: CGSize, ships: [CGSize]) {
+    public init(battlefield: CGRect, ships: [CGSize]) {
         self.battlefield = battlefield
         self.ships = ships
     }
@@ -32,9 +32,8 @@ public final class ShipsArrangementValidator {
     }
     
     private func isShipsInsideBattlefield(_ ships: [CGRect]) -> Bool {
-        let battleRect = CGRect(x: 0, y: 0, width: battlefield.width, height: battlefield.height)
         for ship in ships {
-            if !battleRect.contains(ship) {
+            if !battlefield.contains(ship) {
                 return false
             }
         }

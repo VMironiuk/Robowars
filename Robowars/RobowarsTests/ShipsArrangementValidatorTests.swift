@@ -12,7 +12,7 @@ class ShipsArrangementValidatorTests: XCTestCase {
     
     func test_isValid_returnsTrueForValidCountAndSizesOfShips() {
         // Given
-        let battlefield = CGSize(width: 10, height: 10)
+        let battlefield = CGRect(x: 0, y: 0, width: 10, height: 10)
         let ships = makeShips()
         let sut = ShipsArrangementValidator(battlefield: battlefield, ships: ships)
         // When
@@ -24,7 +24,7 @@ class ShipsArrangementValidatorTests: XCTestCase {
     
     func test_isValid_returnsFalseForInvalidCountOfShips() {
         // Given
-        let battlefield = CGSize(width: 10, height: 10)
+        let battlefield = CGRect(x: 0, y: 0, width: 10, height: 10)
         let ships = makeShips()
         let sut = ShipsArrangementValidator(battlefield: battlefield, ships: ships)
         // When
@@ -36,7 +36,7 @@ class ShipsArrangementValidatorTests: XCTestCase {
     
     func test_isValid_returnsFalseForInvalidSizesOfShips() {
         // Given
-        let battlefield = CGSize(width: 10, height: 10)
+        let battlefield = CGRect(x: 0, y: 0, width: 10, height: 10)
         let ships = makeShips()
         let sut = ShipsArrangementValidator(battlefield: battlefield, ships: ships)
         // When
@@ -48,7 +48,7 @@ class ShipsArrangementValidatorTests: XCTestCase {
     
     func test_isValid_returnsFalseOnShipsWithNegativeOriginX() {
         // Given
-        let battlefield = CGSize(width: 10, height: 10)
+        let battlefield = CGRect(x: 0, y: 0, width: 10, height: 10)
         let ships = makeShips()
         let sut = ShipsArrangementValidator(battlefield: battlefield, ships: ships)
         // When
@@ -60,7 +60,7 @@ class ShipsArrangementValidatorTests: XCTestCase {
     
     func test_isValid_returnsFalseOnShipsWithNegativeOriginY() {
         // Given
-        let battlefield = CGSize(width: 10, height: 10)
+        let battlefield = CGRect(x: 0, y: 0, width: 10, height: 10)
         let ships = makeShips()
         let sut = ShipsArrangementValidator(battlefield: battlefield, ships: ships)
         // When
@@ -72,7 +72,7 @@ class ShipsArrangementValidatorTests: XCTestCase {
     
     func test_isValid_returnsFalseOnShipsWithNegativeOrigin() {
         // Given
-        let battlefield = CGSize(width: 10, height: 10)
+        let battlefield = CGRect(x: 0, y: 0, width: 10, height: 10)
         let ships = makeShips()
         let sut = ShipsArrangementValidator(battlefield: battlefield, ships: ships)
         // When
@@ -84,7 +84,7 @@ class ShipsArrangementValidatorTests: XCTestCase {
     
     func test_isValid_returnsFalseOnShipsWithPositiveOriginXOutsideBattlefield() {
         // Given
-        let battlefield = CGSize(width: 10, height: 10)
+        let battlefield = CGRect(x: 0, y: 0, width: 10, height: 10)
         let ships = makeShips()
         let sut = ShipsArrangementValidator(battlefield: battlefield, ships: ships)
         // When
@@ -96,7 +96,7 @@ class ShipsArrangementValidatorTests: XCTestCase {
     
     func test_isValid_returnsFalseOnShipsWithPositiveOriginYOutsideBattlefield() {
         // Given
-        let battlefield = CGSize(width: 10, height: 10)
+        let battlefield = CGRect(x: 0, y: 0, width: 10, height: 10)
         let ships = makeShips()
         let sut = ShipsArrangementValidator(battlefield: battlefield, ships: ships)
         // When
@@ -108,7 +108,7 @@ class ShipsArrangementValidatorTests: XCTestCase {
     
     func test_isValid_returnsFalseOnShipsWithPositiveOriginOutsideBattlefield() {
         // Given
-        let battlefield = CGSize(width: 10, height: 10)
+        let battlefield = CGRect(x: 0, y: 0, width: 10, height: 10)
         let ships = makeShips()
         let sut = ShipsArrangementValidator(battlefield: battlefield, ships: ships)
         // When
@@ -120,7 +120,7 @@ class ShipsArrangementValidatorTests: XCTestCase {
     
     func test_isValid_returnsFalseOnShipsOutsideBattlefieldBottom() {
         // Given
-        let battlefield = CGSize(width: 10, height: 10)
+        let battlefield = CGRect(x: 0, y: 0, width: 10, height: 10)
         let ships = makeShips()
         let sut = ShipsArrangementValidator(battlefield: battlefield, ships: ships)
         // When
@@ -132,7 +132,7 @@ class ShipsArrangementValidatorTests: XCTestCase {
     
     func test_isValid_returnsFalseOnShipsOutsideBattlefieldRight() {
         // Given
-        let battlefield = CGSize(width: 10, height: 10)
+        let battlefield = CGRect(x: 0, y: 0, width: 10, height: 10)
         let ships = makeShips()
         let sut = ShipsArrangementValidator(battlefield: battlefield, ships: ships)
         // When
