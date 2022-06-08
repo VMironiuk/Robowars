@@ -11,11 +11,13 @@ import Robowars
 class ShipsArrangementValidatorTests: XCTestCase {
     
     func test_isValid_returnsTrueForValidCountAndSizesOfShips() {
-        assertThat(makeSUT(), returns: true, on: makeGivenShips())
+        assertThat(makeSUT(), returns: true, on: makeGivenShips(), message: "Expected \'true\' on default data set")
     }
     
     func test_isValid_onSadPaths() {
-        sadMappers().forEach { assertThat(makeSUT(), returns: false, on: $0(makeGivenShips())) }
+        sadMappers().forEach { (mapper, message) in
+            assertThat(makeSUT(), returns: false, on: mapper(makeGivenShips()), message: message)
+        }
     }
 
     // MARK: - Helpers
@@ -31,10 +33,11 @@ class ShipsArrangementValidatorTests: XCTestCase {
         _ sut: ShipsArrangementValidator,
         returns expectedResult: Bool,
         on givenShips: [CGRect],
+        message: String = "",
         file: StaticString = #filePath,
         line: UInt = #line
     ) {
-        XCTAssertEqual(expectedResult, sut.isValid(ships: givenShips), file: file, line: line)
+        XCTAssertEqual(expectedResult, sut.isValid(ships: givenShips), message, file: file, line: line)
     }
     
     private func makeShips() -> [CGSize] {
@@ -107,18 +110,18 @@ class ShipsArrangementValidatorTests: XCTestCase {
         ships.map { ($0.width == 4 || $0.height == 4) ? CGRect(x: 7, y: 6, width: 4, height: 1) : $0 }
     }
     
-    private func sadMappers() -> [([CGRect]) -> [CGRect]] {
+    private func sadMappers() -> [(([CGRect]) -> [CGRect], String)] {
         [
-            mapToInvalidCountOfShips,
-            mapToInvalidSizesOfShips,
-            mapToShipsWithNegativeOriginX,
-            mapToShipsWithNegativeOriginY,
-            mapToShipsWithNegativeOrigin,
-            mapToShipsWithPositiveOriginXOutsideBattlefield,
-            mapToShipsWithPositiveOriginYOutsideBattlefield,
-            mapToShipsWithPositiveOriginOutsideBattlefield,
-            mapToShipsOutsideBattlefieldBottom,
-            mapToShipsOutsideBattlefieldRight,
+            (mapToInvalidCountOfShips, "\'mapToInvalidCountOfShips\' mapper failed"),
+            (mapToInvalidSizesOfShips, "\'mapToInvalidSizesOfShips\' mapper failed"),
+            (mapToShipsWithNegativeOriginX, "\'mapToShipsWithNegativeOriginX\' mapper failed"),
+            (mapToShipsWithNegativeOriginY, "\'mapToShipsWithNegativeOriginY\' mapper failed"),
+            (mapToShipsWithNegativeOrigin, "\'mapToShipsWithNegativeOrigin\' mapper failed"),
+            (mapToShipsWithPositiveOriginXOutsideBattlefield, "\'mapToShipsWithPositiveOriginXOutsideBattlefield\' mapper failed"),
+            (mapToShipsWithPositiveOriginYOutsideBattlefield, "\'mapToShipsWithPositiveOriginYOutsideBattlefield\' mapper failed"),
+            (mapToShipsWithPositiveOriginOutsideBattlefield, "\'mapToShipsWithPositiveOriginOutsideBattlefield\' mapper failed"),
+            (mapToShipsOutsideBattlefieldBottom, "\'mapToShipsOutsideBattlefieldBottom\' mapper failed"),
+            (mapToShipsOutsideBattlefieldRight, "\'mapToShipsOutsideBattlefieldRight\' mapper failed"),
         ]
     }
 }
