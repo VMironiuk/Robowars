@@ -4,8 +4,10 @@ Desktop macOS client for the Robowars game
 # Launch Game Client Feature
 
 🟡 - Implement some kind of validator which have to validate ships returned by robots according to a specified game mode:
-     a. check that the count and size of ships returned is correct
-     b. check that the ships placed on correct positions (there are no collisions between ships positions and all ships are placed incide the battlefield)
+     [✅] a. check that the count and size of ships returned is correct
+     [-] b. check that the ships placed on correct positions:
+        [-] 1. all ships are placed incide the battlefield
+        [-] 2. there are no collisions between ships positions
 
 ## BDD Specs
 
