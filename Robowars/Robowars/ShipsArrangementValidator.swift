@@ -32,12 +32,7 @@ public final class ShipsArrangementValidator {
     }
     
     private func isShipsInsideBattlefield(_ ships: [CGRect]) -> Bool {
-        for ship in ships {
-            if !battlefield.contains(ship) {
-                return false
-            }
-        }
-        return true
+        ships.filter { !battlefield.contains($0) }.isEmpty
     }
 }
 
