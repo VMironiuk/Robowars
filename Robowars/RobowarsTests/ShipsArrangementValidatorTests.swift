@@ -58,17 +58,7 @@ class ShipsArrangementValidatorTests: XCTestCase {
         let ships = makeShips()
         let sut = ShipsArrangementValidator(battlefield: battlefield, ships: ships)
         // When
-        let givenShips = [
-            CGRect(x: 0, y: 0, width: 4, height: 1),
-            CGRect(x: 0, y: 0, width: 1, height: 1),
-            CGRect(x: 0, y: 0, width: 1, height: 1),
-            CGRect(x: 0, y: 0, width: 3, height: 1),
-            CGRect(x: 0, y: 0, width: 1, height: 3),
-            CGRect(x: 0, y: 0, width: 1, height: 1),
-            CGRect(x: 0, y: 0, width: 2, height: 1),
-            CGRect(x: 0, y: 0, width: 1, height: 2),
-            CGRect(x: 0, y: 0, width: 1, height: 1),
-        ]
+        let givenShips = mapToInvalidCountOfShips(from: makeGivenShips())
         let result = sut.isValid(ships: givenShips)
         // Then
         XCTAssertFalse(result)
@@ -127,5 +117,9 @@ class ShipsArrangementValidatorTests: XCTestCase {
             CGRect(x: 0, y: 0, width: 1, height: 1),
             CGRect(x: 0, y: 0, width: 2, height: 1),
         ]
+    }
+    
+    private func mapToInvalidCountOfShips(from ships: [CGRect]) -> [CGRect] {
+        ships.dropLast()
     }
 }
