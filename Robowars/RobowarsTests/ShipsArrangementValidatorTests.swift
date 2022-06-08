@@ -46,18 +46,7 @@ class ShipsArrangementValidatorTests: XCTestCase {
         let ships = makeShips()
         let sut = ShipsArrangementValidator(battlefield: battlefield, ships: ships)
         // When
-        let givenShips = [
-            CGRect(x: 0, y: 0, width: 4, height: 1),
-            CGRect(x: 0, y: 0, width: 1, height: 1),
-            CGRect(x: 0, y: 0, width: 1, height: 1),
-            CGRect(x: 0, y: 0, width: 3, height: 1),
-            CGRect(x: 0, y: 0, width: 1, height: 3),
-            CGRect(x: 0, y: 0, width: 1, height: 1),
-            CGRect(x: 0, y: 0, width: 2, height: 1),
-            CGRect(x: 0, y: 0, width: 1, height: 2),
-            CGRect(x: 0, y: 0, width: 1, height: 1),
-            CGRect(x: 0, y: 0, width: 2, height: 1),
-        ]
+        let givenShips = makeGivenShips()
         let result = sut.isValid(ships: givenShips)
         // Then
         XCTAssertTrue(result)
@@ -122,6 +111,21 @@ class ShipsArrangementValidatorTests: XCTestCase {
             CGSize(width: 3, height: 1),
             CGSize(width: 1, height: 3),
             CGSize(width: 1, height: 4),
+        ]
+    }
+    
+    private func makeGivenShips() -> [CGRect] {
+        [
+            CGRect(x: 0, y: 0, width: 4, height: 1),
+            CGRect(x: 0, y: 0, width: 1, height: 1),
+            CGRect(x: 0, y: 0, width: 1, height: 1),
+            CGRect(x: 0, y: 0, width: 3, height: 1),
+            CGRect(x: 0, y: 0, width: 1, height: 3),
+            CGRect(x: 0, y: 0, width: 1, height: 1),
+            CGRect(x: 0, y: 0, width: 2, height: 1),
+            CGRect(x: 0, y: 0, width: 1, height: 2),
+            CGRect(x: 0, y: 0, width: 1, height: 1),
+            CGRect(x: 0, y: 0, width: 2, height: 1),
         ]
     }
 }
