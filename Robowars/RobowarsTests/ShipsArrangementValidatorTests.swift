@@ -129,6 +129,18 @@ class ShipsArrangementValidatorTests: XCTestCase {
         // Then
         XCTAssertFalse(result)
     }
+    
+    func test_isValid_returnsFalseOnShipsOutsideBattlefieldRight() {
+        // Given
+        let battlefield = CGSize(width: 10, height: 10)
+        let ships = makeShips()
+        let sut = ShipsArrangementValidator(battlefield: battlefield, ships: ships)
+        // When
+        let givenShips = mapToShipsOutsideBattlefieldRight(from: makeGivenShips())
+        let result = sut.isValid(ships: givenShips)
+        // Then
+        XCTAssertFalse(result)
+    }
 
     // MARK: - Helpers
     
@@ -196,5 +208,9 @@ class ShipsArrangementValidatorTests: XCTestCase {
     
     private func mapToShipsOutsideBattlefieldBottom(from ships: [CGRect]) -> [CGRect] {
         ships.map { ($0.width == 4 || $0.height == 4) ? CGRect(x: 2, y: 7, width: 1, height: 4) : $0 }
+    }
+    
+    private func mapToShipsOutsideBattlefieldRight(from ships: [CGRect]) -> [CGRect] {
+        ships.map { ($0.width == 4 || $0.height == 4) ? CGRect(x: 7, y: 6, width: 4, height: 1) : $0 }
     }
 }
