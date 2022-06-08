@@ -106,4 +106,38 @@ class ShipsArrangementValidatorTests: XCTestCase {
         // Then
         XCTAssertFalse(result)
     }
+    
+    func test_isValid_returnsFalseForInvalidSizesOfShips() {
+        // Given
+        let battlefield = CGSize(width: 10, height: 10)
+        let ships = [
+            CGSize(width: 1, height: 1),
+            CGSize(width: 1, height: 1),
+            CGSize(width: 1, height: 1),
+            CGSize(width: 1, height: 1),
+            CGSize(width: 2, height: 1),
+            CGSize(width: 1, height: 2),
+            CGSize(width: 1, height: 2),
+            CGSize(width: 3, height: 1),
+            CGSize(width: 1, height: 3),
+            CGSize(width: 1, height: 4),
+        ]
+        let sut = ShipsArrangementValidator(battlefield: battlefield, ships: ships)
+        // When
+        let givenShips = [
+            CGRect(x: 0, y: 0, width: 4, height: 1),
+            CGRect(x: 0, y: 0, width: 1, height: 1),
+            CGRect(x: 0, y: 0, width: 1, height: 1),
+            CGRect(x: 0, y: 0, width: 3, height: 1),
+            CGRect(x: 0, y: 0, width: 1, height: 3),
+            CGRect(x: 0, y: 0, width: 2, height: 1),
+            CGRect(x: 0, y: 0, width: 2, height: 1),
+            CGRect(x: 0, y: 0, width: 1, height: 2),
+            CGRect(x: 0, y: 0, width: 1, height: 1),
+            CGRect(x: 0, y: 0, width: 2, height: 1),
+        ]
+        let result = sut.isValid(ships: givenShips)
+        // Then
+        XCTAssertFalse(result)
+    }
 }
