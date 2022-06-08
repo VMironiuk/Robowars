@@ -70,6 +70,18 @@ class ShipsArrangementValidatorTests: XCTestCase {
         XCTAssertFalse(result)
     }
     
+    func test_isValid_returnsFalseOnShipsWithNegativeOrigin() {
+        // Given
+        let battlefield = CGSize(width: 10, height: 10)
+        let ships = makeShips()
+        let sut = ShipsArrangementValidator(battlefield: battlefield, ships: ships)
+        // When
+        let givenShips = mapToShipsWithNegativeOrigin(from: makeGivenShips())
+        let result = sut.isValid(ships: givenShips)
+        // Then
+        XCTAssertFalse(result)
+    }
+    
     // MARK: - Helpers
     
     private func makeShips() -> [CGSize] {
@@ -116,5 +128,9 @@ class ShipsArrangementValidatorTests: XCTestCase {
     
     private func mapToShipsWithNegativeOriginY(from ships: [CGRect]) -> [CGRect] {
         ships.map { ($0.width == 4 || $0.height == 4) ? CGRect(x: 0, y: -1, width: $0.width, height: $0.height) : $0 }
+    }
+    
+    private func mapToShipsWithNegativeOrigin(from ships: [CGRect]) -> [CGRect] {
+        ships.map { ($0.width == 4 || $0.height == 4) ? CGRect(x: -1, y: -1, width: $0.width, height: $0.height) : $0 }
     }
 }
