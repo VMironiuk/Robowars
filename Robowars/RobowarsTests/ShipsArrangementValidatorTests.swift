@@ -46,7 +46,7 @@ class ShipsArrangementValidatorTests: XCTestCase {
         XCTAssertFalse(result)
     }
     
-    func test_isValid_returnsFalseOnShipsOutsideBattlefield() {
+    func test_isValid_returnsFalseOnShipsWithNegativeOriginX() {
         // Given
         let battlefield = CGSize(width: 10, height: 10)
         let ships = makeShips()
