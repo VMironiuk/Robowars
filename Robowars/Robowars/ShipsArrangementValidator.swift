@@ -17,7 +17,7 @@ public final class ShipsArrangementValidator {
     }
     
     public func isValid(ships: [CGRect]) -> Bool {
-        isValidCountAndSizesOf(ships: ships)
+        isValidCountAndSizesOf(ships: ships) && isShipsInsideBattlefield(ships)
     }
     
     private func isValidCountAndSizesOf(ships: [CGRect]) -> Bool {
@@ -29,6 +29,16 @@ public final class ShipsArrangementValidator {
             .sorted(by: <)
             .map { $0.width < $0.height ? CGSize(width: $0.height, height: $0.width) : $0 }
         return sortedGivenShips == sortedSelfShips
+    }
+    
+    private func isShipsInsideBattlefield(_ ships: [CGRect]) -> Bool {
+        let battleRect = CGRect(x: 0, y: 0, width: battlefield.width, height: battlefield.height)
+        for ship in ships {
+            if !battleRect.contains(ship) {
+                return false
+            }
+        }
+        return true
     }
 }
 
