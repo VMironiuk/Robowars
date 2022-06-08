@@ -11,13 +11,7 @@ import Robowars
 class ShipsArrangementValidatorTests: XCTestCase {
     
     func test_isValid_returnsTrueForValidCountAndSizesOfShips() {
-        // Given
-        let sut = makeSUT()
-        // When
-        let givenShips = makeGivenShips()
-        let result = sut.isValid(ships: givenShips)
-        // Then
-        XCTAssertTrue(result)
+        assertThat(makeSUT(), returns: true, on: makeGivenShips())
     }
     
     func test_isValid_onSadPaths() {
