@@ -43,18 +43,7 @@ class ShipsArrangementValidatorTests: XCTestCase {
     func test_isValid_returnsTrueForValidCountAndSizesOfShips() {
         // Given
         let battlefield = CGSize(width: 10, height: 10)
-        let ships = [
-            CGSize(width: 1, height: 1),
-            CGSize(width: 1, height: 1),
-            CGSize(width: 1, height: 1),
-            CGSize(width: 1, height: 1),
-            CGSize(width: 2, height: 1),
-            CGSize(width: 1, height: 2),
-            CGSize(width: 1, height: 2),
-            CGSize(width: 3, height: 1),
-            CGSize(width: 1, height: 3),
-            CGSize(width: 1, height: 4),
-        ]
+        let ships = makeShips()
         let sut = ShipsArrangementValidator(battlefield: battlefield, ships: ships)
         // When
         let givenShips = [
@@ -77,18 +66,7 @@ class ShipsArrangementValidatorTests: XCTestCase {
     func test_isValid_returnsFalseForInvalidCountOfShips() {
         // Given
         let battlefield = CGSize(width: 10, height: 10)
-        let ships = [
-            CGSize(width: 1, height: 1),
-            CGSize(width: 1, height: 1),
-            CGSize(width: 1, height: 1),
-            CGSize(width: 1, height: 1),
-            CGSize(width: 2, height: 1),
-            CGSize(width: 1, height: 2),
-            CGSize(width: 1, height: 2),
-            CGSize(width: 3, height: 1),
-            CGSize(width: 1, height: 3),
-            CGSize(width: 1, height: 4),
-        ]
+        let ships = makeShips()
         let sut = ShipsArrangementValidator(battlefield: battlefield, ships: ships)
         // When
         let givenShips = [
@@ -110,18 +88,7 @@ class ShipsArrangementValidatorTests: XCTestCase {
     func test_isValid_returnsFalseForInvalidSizesOfShips() {
         // Given
         let battlefield = CGSize(width: 10, height: 10)
-        let ships = [
-            CGSize(width: 1, height: 1),
-            CGSize(width: 1, height: 1),
-            CGSize(width: 1, height: 1),
-            CGSize(width: 1, height: 1),
-            CGSize(width: 2, height: 1),
-            CGSize(width: 1, height: 2),
-            CGSize(width: 1, height: 2),
-            CGSize(width: 3, height: 1),
-            CGSize(width: 1, height: 3),
-            CGSize(width: 1, height: 4),
-        ]
+        let ships = makeShips()
         let sut = ShipsArrangementValidator(battlefield: battlefield, ships: ships)
         // When
         let givenShips = [
@@ -139,5 +106,22 @@ class ShipsArrangementValidatorTests: XCTestCase {
         let result = sut.isValid(ships: givenShips)
         // Then
         XCTAssertFalse(result)
+    }
+    
+    // MARK: - Helpers
+    
+    private func makeShips() -> [CGSize] {
+        [
+            CGSize(width: 1, height: 1),
+            CGSize(width: 1, height: 1),
+            CGSize(width: 1, height: 1),
+            CGSize(width: 1, height: 1),
+            CGSize(width: 2, height: 1),
+            CGSize(width: 1, height: 2),
+            CGSize(width: 1, height: 2),
+            CGSize(width: 3, height: 1),
+            CGSize(width: 1, height: 3),
+            CGSize(width: 1, height: 4),
+        ]
     }
 }
