@@ -105,6 +105,18 @@ class ShipsArrangementValidatorTests: XCTestCase {
         // Then
         XCTAssertFalse(result)
     }
+    
+    func test_isValid_returnsFalseOnShipsWithPositiveOriginOutsideBattlefield() {
+        // Given
+        let battlefield = CGSize(width: 10, height: 10)
+        let ships = makeShips()
+        let sut = ShipsArrangementValidator(battlefield: battlefield, ships: ships)
+        // When
+        let givenShips = mapToShipsWithPositiveOriginOutsideBattlefield(from: makeGivenShips())
+        let result = sut.isValid(ships: givenShips)
+        // Then
+        XCTAssertFalse(result)
+    }
 
     // MARK: - Helpers
     
@@ -164,5 +176,9 @@ class ShipsArrangementValidatorTests: XCTestCase {
     
     private func mapToShipsWithPositiveOriginYOutsideBattlefield(from ships: [CGRect]) -> [CGRect] {
         ships.map { ($0.width == 4 || $0.height == 4) ? CGRect(x: 1, y: 11, width: $0.width, height: $0.height) : $0 }
+    }
+    
+    private func mapToShipsWithPositiveOriginOutsideBattlefield(from ships: [CGRect]) -> [CGRect] {
+        ships.map { ($0.width == 4 || $0.height == 4) ? CGRect(x: 12, y: 11, width: $0.width, height: $0.height) : $0 }
     }
 }
