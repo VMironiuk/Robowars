@@ -7,7 +7,7 @@ Desktop macOS client for the Robowars game
 
      [✅] a. check that the count and size of ships returned is correct
      [-] b. check that the ships placed on correct positions:
-        [-] 1. all ships are placed incide the battlefield
+        [✅] 1. all ships are placed incide the battlefield
         [-] 2. there are no collisions between ships positions
 
 ## BDD Specs
