@@ -14,6 +14,7 @@
 		3C0649F7284231A70039710D /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0649F6284231A70039710D /* GameMode.swift */; };
 		3C0649F9284231F20039710D /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0649F8284231F20039710D /* GameEngine.swift */; };
 		3C0649FB284232390039710D /* GameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0649FA284232390039710D /* GameInteractor.swift */; };
+		3C7F1B302850940800948F2D /* ShipsArrangementValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7F1B2F2850940800948F2D /* ShipsArrangementValidatorTests.swift */; };
 		3CCFE080284BC93C0007153B /* DummyRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCFE07F284BC93C0007153B /* DummyRobot.swift */; };
 		3CE07CE22847C21000ED3CFB /* GameInteractorIsReadyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE07CE12847C21000ED3CFB /* GameInteractorIsReadyTests.swift */; };
 /* End PBXBuildFile section */
@@ -37,6 +38,7 @@
 		3C0649F6284231A70039710D /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
 		3C0649F8284231F20039710D /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngine.swift; sourceTree = "<group>"; };
 		3C0649FA284232390039710D /* GameInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInteractor.swift; sourceTree = "<group>"; };
+		3C7F1B2F2850940800948F2D /* ShipsArrangementValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipsArrangementValidatorTests.swift; sourceTree = "<group>"; };
 		3CCFE07F284BC93C0007153B /* DummyRobot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyRobot.swift; sourceTree = "<group>"; };
 		3CE07CE12847C21000ED3CFB /* GameInteractorIsReadyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInteractorIsReadyTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +98,7 @@
 				3CCFE081284BC98B0007153B /* Helpers */,
 				3C0649F2284224A80039710D /* GameInteractorStartTests.swift */,
 				3CE07CE12847C21000ED3CFB /* GameInteractorIsReadyTests.swift */,
+				3C7F1B2F2850940800948F2D /* ShipsArrangementValidatorTests.swift */,
 			);
 			path = RobowarsTests;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				3CE07CE22847C21000ED3CFB /* GameInteractorIsReadyTests.swift in Sources */,
 				3CCFE080284BC93C0007153B /* DummyRobot.swift in Sources */,
 				3C0649F3284224A80039710D /* GameInteractorStartTests.swift in Sources */,
+				3C7F1B302850940800948F2D /* ShipsArrangementValidatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
