@@ -20,104 +20,8 @@ class ShipsArrangementValidatorTests: XCTestCase {
         XCTAssertTrue(result)
     }
     
-    func test_isValid_returnsFalseForInvalidCountOfShips() {
-        // Given
-        let sut = makeSUT()
-        // When
-        let givenShips = mapToInvalidCountOfShips(from: makeGivenShips())
-        let result = sut.isValid(ships: givenShips)
-        // Then
-        XCTAssertFalse(result)
-    }
-    
-    func test_isValid_returnsFalseForInvalidSizesOfShips() {
-        // Given
-        let sut = makeSUT()
-        // When
-        let givenShips = mapToInvalidSizesOfShips(from: makeGivenShips())
-        let result = sut.isValid(ships: givenShips)
-        // Then
-        XCTAssertFalse(result)
-    }
-    
-    func test_isValid_returnsFalseOnShipsWithNegativeOriginX() {
-        // Given
-        let sut = makeSUT()
-        // When
-        let givenShips = mapToShipsWithNegativeOriginX(from: makeGivenShips())
-        let result = sut.isValid(ships: givenShips)
-        // Then
-        XCTAssertFalse(result)
-    }
-    
-    func test_isValid_returnsFalseOnShipsWithNegativeOriginY() {
-        // Given
-        let sut = makeSUT()
-        // When
-        let givenShips = mapToShipsWithNegativeOriginY(from: makeGivenShips())
-        let result = sut.isValid(ships: givenShips)
-        // Then
-        XCTAssertFalse(result)
-    }
-    
-    func test_isValid_returnsFalseOnShipsWithNegativeOrigin() {
-        // Given
-        let sut = makeSUT()
-        // When
-        let givenShips = mapToShipsWithNegativeOrigin(from: makeGivenShips())
-        let result = sut.isValid(ships: givenShips)
-        // Then
-        XCTAssertFalse(result)
-    }
-    
-    func test_isValid_returnsFalseOnShipsWithPositiveOriginXOutsideBattlefield() {
-        // Given
-        let sut = makeSUT()
-        // When
-        let givenShips = mapToShipsWithPositiveOriginXOutsideBattlefield(from: makeGivenShips())
-        let result = sut.isValid(ships: givenShips)
-        // Then
-        XCTAssertFalse(result)
-    }
-    
-    func test_isValid_returnsFalseOnShipsWithPositiveOriginYOutsideBattlefield() {
-        // Given
-        let sut = makeSUT()
-        // When
-        let givenShips = mapToShipsWithPositiveOriginYOutsideBattlefield(from: makeGivenShips())
-        let result = sut.isValid(ships: givenShips)
-        // Then
-        XCTAssertFalse(result)
-    }
-    
-    func test_isValid_returnsFalseOnShipsWithPositiveOriginOutsideBattlefield() {
-        // Given
-        let sut = makeSUT()
-        // When
-        let givenShips = mapToShipsWithPositiveOriginOutsideBattlefield(from: makeGivenShips())
-        let result = sut.isValid(ships: givenShips)
-        // Then
-        XCTAssertFalse(result)
-    }
-    
-    func test_isValid_returnsFalseOnShipsOutsideBattlefieldBottom() {
-        // Given
-        let sut = makeSUT()
-        // When
-        let givenShips = mapToShipsOutsideBattlefieldBottom(from: makeGivenShips())
-        let result = sut.isValid(ships: givenShips)
-        // Then
-        XCTAssertFalse(result)
-    }
-    
-    func test_isValid_returnsFalseOnShipsOutsideBattlefieldRight() {
-        // Given
-        let sut = makeSUT()
-        // When
-        let givenShips = mapToShipsOutsideBattlefieldRight(from: makeGivenShips())
-        let result = sut.isValid(ships: givenShips)
-        // Then
-        XCTAssertFalse(result)
+    func test_isValid_onSadPaths() {
+        sadMappers().forEach { assertThat(makeSUT(), returns: false, on: $0(makeGivenShips())) }
     }
 
     // MARK: - Helpers
@@ -127,6 +31,16 @@ class ShipsArrangementValidatorTests: XCTestCase {
         let ships = makeShips()
         let sut = ShipsArrangementValidator(battlefield: battlefield, ships: ships)
         return sut
+    }
+    
+    private func assertThat(
+        _ sut: ShipsArrangementValidator,
+        returns expectedResult: Bool,
+        on givenShips: [CGRect],
+        file: StaticString = #filePath,
+        line: UInt = #line
+    ) {
+        XCTAssertEqual(expectedResult, sut.isValid(ships: givenShips), file: file, line: line)
     }
     
     private func makeShips() -> [CGSize] {
@@ -197,5 +111,20 @@ class ShipsArrangementValidatorTests: XCTestCase {
     
     private func mapToShipsOutsideBattlefieldRight(from ships: [CGRect]) -> [CGRect] {
         ships.map { ($0.width == 4 || $0.height == 4) ? CGRect(x: 7, y: 6, width: 4, height: 1) : $0 }
+    }
+    
+    private func sadMappers() -> [([CGRect]) -> [CGRect]] {
+        [
+            mapToInvalidCountOfShips,
+            mapToInvalidSizesOfShips,
+            mapToShipsWithNegativeOriginX,
+            mapToShipsWithNegativeOriginY,
+            mapToShipsWithNegativeOrigin,
+            mapToShipsWithPositiveOriginXOutsideBattlefield,
+            mapToShipsWithPositiveOriginYOutsideBattlefield,
+            mapToShipsWithPositiveOriginOutsideBattlefield,
+            mapToShipsOutsideBattlefieldBottom,
+            mapToShipsOutsideBattlefieldRight,
+        ]
     }
 }
