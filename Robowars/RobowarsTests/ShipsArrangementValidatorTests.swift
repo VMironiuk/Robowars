@@ -13,7 +13,7 @@ class ShipsArrangementValidatorTests: XCTestCase {
     func test_isValid_returnsTrueForValidCountAndSizesOfShips() {
         assertThat(makeSUT(), returns: true, on: makeGivenShips(), message: "Expected \'true\' on default data set")
     }
-    
+
     func test_isValid_onSadPaths() {
         sadMappers().forEach { (mapper, message) in
             assertThat(makeSUT(), returns: false, on: mapper(makeGivenShips()), message: message)
@@ -110,6 +110,14 @@ class ShipsArrangementValidatorTests: XCTestCase {
         ships.map { ($0.width == 4 || $0.height == 4) ? CGRect(x: 7, y: 6, width: 4, height: 1) : $0 }
     }
     
+    private func mapToOverlappedShips(from ships: [CGRect]) -> [CGRect] {
+        ships.map { ($0.width == 1 && $0.height == 1) ? CGRect(x: 9, y: 9, width: 1, height: 1) : $0 }
+    }
+    
+    private func mapToTouchedShips(from ships: [CGRect]) -> [CGRect] {
+        ships.map { ($0.width == 4 || $0.height == 4) ? CGRect(x: $0.minX, y: $0.minY + 1, width: $0.width, height: $0.height) : $0 }
+    }
+    
     private func sadMappers() -> [(([CGRect]) -> [CGRect], String)] {
         [
             (mapToInvalidCountOfShips, "\'mapToInvalidCountOfShips\' mapper failed"),
@@ -122,6 +130,8 @@ class ShipsArrangementValidatorTests: XCTestCase {
             (mapToShipsWithPositiveOriginOutsideBattlefield, "\'mapToShipsWithPositiveOriginOutsideBattlefield\' mapper failed"),
             (mapToShipsOutsideBattlefieldBottom, "\'mapToShipsOutsideBattlefieldBottom\' mapper failed"),
             (mapToShipsOutsideBattlefieldRight, "\'mapToShipsOutsideBattlefieldRight\' mapper failed"),
+            (mapToOverlappedShips, "\'mapToOverlappedShips\' mapper failed"),
+            (mapToTouchedShips, "\'mapToTouchedShips\' mapper failed"),
         ]
     }
 }

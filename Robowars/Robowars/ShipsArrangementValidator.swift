@@ -17,7 +17,7 @@ public final class ShipsArrangementValidator {
     }
     
     public func isValid(ships: [CGRect]) -> Bool {
-        isValidCountAndSizesOf(ships: ships) && isShipsInsideBattlefield(ships)
+        isValidCountAndSizesOf(ships: ships) && isShipsInsideBattlefield(ships) && !isCollisionBetween(ships: ships)
     }
     
     private func isValidCountAndSizesOf(ships: [CGRect]) -> Bool {
@@ -34,10 +34,29 @@ public final class ShipsArrangementValidator {
     private func isShipsInsideBattlefield(_ ships: [CGRect]) -> Bool {
         ships.filter { !battlefield.contains($0) }.isEmpty
     }
+    
+    private func isCollisionBetween(ships: [CGRect]) -> Bool {
+        for i in 0..<ships.count {
+            for j in (i + 1)..<ships.count {
+                if ships[i].intersects(ships[j]) || ships[i].touches(ships[j]) {
+                    return true
+                }
+            }
+        }
+        return false
+    }
 }
 
 extension CGSize: Comparable {
     public static func < (lhs: CGSize, rhs: CGSize) -> Bool {
         (lhs.width * lhs.height) < (rhs.width * rhs.height)
+    }
+}
+
+extension CGRect {
+    func touches(_ rect2: CGRect) -> Bool {
+        if minX > rect2.maxX || rect2.minX > maxX { return false }
+        if minY > rect2.maxY || rect2.minY > maxY { return false }
+        return true
     }
 }
