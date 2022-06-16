@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class ShipsArrangementValidator {
+public final class ShipsArrangementValidator: ShipsValidator {
     private let battlefield: CGRect
     private let ships: [CGSize]
     

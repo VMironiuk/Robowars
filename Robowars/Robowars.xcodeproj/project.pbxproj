@@ -16,6 +16,7 @@
 		3C0649FB284232390039710D /* GameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0649FA284232390039710D /* GameInteractor.swift */; };
 		3C7F1B302850940800948F2D /* ShipsArrangementValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7F1B2F2850940800948F2D /* ShipsArrangementValidatorTests.swift */; };
 		3C8F0AC22850B4A4007EAB70 /* ShipsArrangementValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8F0AC12850B4A4007EAB70 /* ShipsArrangementValidator.swift */; };
+		3CB69C62285B9AF700AD21F3 /* ShipsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB69C61285B9AF700AD21F3 /* ShipsValidator.swift */; };
 		3CCFE080284BC93C0007153B /* DummyRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCFE07F284BC93C0007153B /* DummyRobot.swift */; };
 		3CE07CE22847C21000ED3CFB /* GameInteractorIsReadyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE07CE12847C21000ED3CFB /* GameInteractorIsReadyTests.swift */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,7 @@
 		3C0649FA284232390039710D /* GameInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInteractor.swift; sourceTree = "<group>"; };
 		3C7F1B2F2850940800948F2D /* ShipsArrangementValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipsArrangementValidatorTests.swift; sourceTree = "<group>"; };
 		3C8F0AC12850B4A4007EAB70 /* ShipsArrangementValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipsArrangementValidator.swift; sourceTree = "<group>"; };
+		3CB69C61285B9AF700AD21F3 /* ShipsValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipsValidator.swift; sourceTree = "<group>"; };
 		3CCFE07F284BC93C0007153B /* DummyRobot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyRobot.swift; sourceTree = "<group>"; };
 		3CE07CE12847C21000ED3CFB /* GameInteractorIsReadyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInteractorIsReadyTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,6 +93,7 @@
 				3C0649F8284231F20039710D /* GameEngine.swift */,
 				3C0649FA284232390039710D /* GameInteractor.swift */,
 				3C8F0AC12850B4A4007EAB70 /* ShipsArrangementValidator.swift */,
+				3CB69C61285B9AF700AD21F3 /* ShipsValidator.swift */,
 			);
 			path = Robowars;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 			files = (
 				3C0649FB284232390039710D /* GameInteractor.swift in Sources */,
 				3C8F0AC22850B4A4007EAB70 /* ShipsArrangementValidator.swift in Sources */,
+				3CB69C62285B9AF700AD21F3 /* ShipsValidator.swift in Sources */,
 				3C0649F7284231A70039710D /* GameMode.swift in Sources */,
 				3C0649F9284231F20039710D /* GameEngine.swift in Sources */,
 				3C0649F52842315C0039710D /* Robot.swift in Sources */,
