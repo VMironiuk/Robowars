@@ -11,6 +11,8 @@ Desktop macOS client for the Robowars game
         [✅] 2. there are no collisions between ships positions
 
 🟡 - Implement shooting logic
+      [-] Ask a robot for coordinate of shooting
+      [-] Send a robot the result of shooting
 
 ## BDD Specs
 
