@@ -18,4 +18,7 @@ final class DummyRobot: Robot {
     func shoot() -> CGPoint {
         CGPoint(x: 0, y: 0)
     }
+    
+    func shootResult(_ result: ShootResult, for coordinate: CGPoint) {
+    }
 }
