@@ -11,4 +11,5 @@ public protocol Robot: AnyObject {
     var ships: [CGRect] { get }
 
     func set(battlefield: CGSize, ships: [CGSize])
+    func shoot() -> CGPoint
 }
