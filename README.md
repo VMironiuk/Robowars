@@ -10,6 +10,8 @@ Desktop macOS client for the Robowars game
         [✅] 1. all ships are placed incide the battlefield
         [✅] 2. there are no collisions between ships positions
 
+🟡 - Integrate ships validation into the GameInteractor
+
 🟡 - Implement shooting logic
       [-] Ask a robot for coordinate of shooting
       [-] Send a robot the result of shooting
