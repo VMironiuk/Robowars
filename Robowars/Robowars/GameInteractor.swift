@@ -9,6 +9,7 @@ import Foundation
 
 public final class GameInteractor {
     private let gameEngine: GameEngine
+    private let shipsValidator: ShipsValidator
     private var firstRobot: Robot?
     private var secondRobot: Robot?
     private var gameMode: GameMode?
@@ -25,8 +26,9 @@ public final class GameInteractor {
         return true
     }
     
-    public init(gameEngine: GameEngine) {
+    public init(gameEngine: GameEngine, shipsValidator: ShipsValidator) {
         self.gameEngine = gameEngine
+        self.shipsValidator = shipsValidator
     }
     
     public func start() {

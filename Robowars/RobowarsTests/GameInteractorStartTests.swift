@@ -68,7 +68,7 @@ class GameInteractorStartTests: XCTestCase {
     
     private func makeSUT() -> (GameInteractor, GameEngineSpy) {
         let gameEngine = GameEngineSpy()
-        let sut = GameInteractor(gameEngine: gameEngine)
+        let sut = GameInteractor(gameEngine: gameEngine, shipsValidator: DummyShipsValidator())
         return (sut, gameEngine)
     }
         

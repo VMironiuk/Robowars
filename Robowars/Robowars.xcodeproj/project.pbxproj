@@ -14,6 +14,7 @@
 		3C0649F7284231A70039710D /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0649F6284231A70039710D /* GameMode.swift */; };
 		3C0649F9284231F20039710D /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0649F8284231F20039710D /* GameEngine.swift */; };
 		3C0649FB284232390039710D /* GameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0649FA284232390039710D /* GameInteractor.swift */; };
+		3C6ED03A285E0A3300A61E09 /* DummyShipsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6ED039285E0A3300A61E09 /* DummyShipsValidator.swift */; };
 		3C7F1B302850940800948F2D /* ShipsArrangementValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7F1B2F2850940800948F2D /* ShipsArrangementValidatorTests.swift */; };
 		3C8F0AC22850B4A4007EAB70 /* ShipsArrangementValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8F0AC12850B4A4007EAB70 /* ShipsArrangementValidator.swift */; };
 		3CB69C62285B9AF700AD21F3 /* ShipsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB69C61285B9AF700AD21F3 /* ShipsValidator.swift */; };
@@ -40,6 +41,7 @@
 		3C0649F6284231A70039710D /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
 		3C0649F8284231F20039710D /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngine.swift; sourceTree = "<group>"; };
 		3C0649FA284232390039710D /* GameInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInteractor.swift; sourceTree = "<group>"; };
+		3C6ED039285E0A3300A61E09 /* DummyShipsValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyShipsValidator.swift; sourceTree = "<group>"; };
 		3C7F1B2F2850940800948F2D /* ShipsArrangementValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipsArrangementValidatorTests.swift; sourceTree = "<group>"; };
 		3C8F0AC12850B4A4007EAB70 /* ShipsArrangementValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipsArrangementValidator.swift; sourceTree = "<group>"; };
 		3CB69C61285B9AF700AD21F3 /* ShipsValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipsValidator.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				3CCFE07F284BC93C0007153B /* DummyRobot.swift */,
+				3C6ED039285E0A3300A61E09 /* DummyShipsValidator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CE07CE22847C21000ED3CFB /* GameInteractorIsReadyTests.swift in Sources */,
+				3C6ED03A285E0A3300A61E09 /* DummyShipsValidator.swift in Sources */,
 				3CCFE080284BC93C0007153B /* DummyRobot.swift in Sources */,
 				3C0649F3284224A80039710D /* GameInteractorStartTests.swift in Sources */,
 				3C7F1B302850940800948F2D /* ShipsArrangementValidatorTests.swift in Sources */,

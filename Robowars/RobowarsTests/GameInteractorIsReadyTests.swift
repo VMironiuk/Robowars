@@ -12,7 +12,7 @@ class GameInteractorIsReadyTests: XCTestCase {
 
     func test_isReady_returnsFalseOnInit() {
         // Given
-        let sut = GameInteractor(gameEngine: DummyGameEngine())
+        let sut = makeSUT()
         // When
         // Then
         XCTAssertFalse(sut.isReady)
@@ -20,7 +20,7 @@ class GameInteractorIsReadyTests: XCTestCase {
     
     func test_isReady_returnsTrueOnCorrectSetOfDependencies() {
         // Given
-        let sut = GameInteractor(gameEngine: DummyGameEngine())
+        let sut = makeSUT()
         // When
         let firstRobot = DummyRobot()
         let secondRobot = DummyRobot()
@@ -35,7 +35,7 @@ class GameInteractorIsReadyTests: XCTestCase {
     
     func test_isReady_returnsFalseOnDependenciesSetExceptGameMode() {
         // Given
-        let sut = GameInteractor(gameEngine: DummyGameEngine())
+        let sut = makeSUT()
         // When
         let firstRobot = DummyRobot()
         let secondRobot = DummyRobot()
@@ -49,7 +49,7 @@ class GameInteractorIsReadyTests: XCTestCase {
 
     func test_isReady_returnsFalseOnDependenciesSetExceptOneRobotSet() {
         // Given
-        let sut = GameInteractor(gameEngine: DummyGameEngine())
+        let sut = makeSUT()
         // When
         let firstRobot = DummyRobot()
         let secondRobot = DummyRobot()
@@ -62,6 +62,10 @@ class GameInteractorIsReadyTests: XCTestCase {
     }
     
     // MARK: - Helpers
+    
+    private func makeSUT() -> GameInteractor {
+        GameInteractor(gameEngine: DummyGameEngine(), shipsValidator: DummyShipsValidator())
+    }
     
     private class DummyGameEngine: GameEngine {
         func start() {}
