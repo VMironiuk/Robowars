@@ -16,10 +16,10 @@ public final class GameInteractor {
     
     public var isReady: Bool {
         guard gameMode != .none,
-              firstRobot != nil,
-              secondRobot != nil,
-              firstRobot?.ships.isEmpty == false,
-              secondRobot?.ships.isEmpty == false else {
+              let firstRobot = firstRobot,
+              let secondRobot = secondRobot,
+              shipsValidator.isValid(ships: firstRobot.ships),
+              shipsValidator.isValid(ships: secondRobot.ships) else {
             return false
         }
 

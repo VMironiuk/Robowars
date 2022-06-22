@@ -8,12 +8,10 @@
 import Foundation
 
 public final class ShipsArrangementValidator: ShipsValidator {
-    private let battlefield: CGRect
-    private let ships: [CGSize]
+    private let gameMode: GameMode
     
-    public init(battlefield: CGRect, ships: [CGSize]) {
-        self.battlefield = battlefield
-        self.ships = ships
+    public init(gameMode: GameMode) {
+        self.gameMode = gameMode
     }
     
     public func isValid(ships: [CGRect]) -> Bool {
@@ -25,14 +23,14 @@ public final class ShipsArrangementValidator: ShipsValidator {
             .map { CGSize(width: $0.width, height: $0.height) }
             .sorted(by: <)
             .map { $0.width < $0.height ? CGSize(width: $0.height, height: $0.width) : $0 }
-        let sortedSelfShips = self.ships
+        let sortedSelfShips = gameMode.ships()
             .sorted(by: <)
             .map { $0.width < $0.height ? CGSize(width: $0.height, height: $0.width) : $0 }
         return sortedGivenShips == sortedSelfShips
     }
     
     private func isShipsInsideBattlefield(_ ships: [CGRect]) -> Bool {
-        ships.filter { !battlefield.contains($0) }.isEmpty
+        ships.filter { !gameMode.battlefield().contains($0) }.isEmpty
     }
     
     private func isCollisionBetween(ships: [CGRect]) -> Bool {

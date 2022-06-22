@@ -51,14 +51,15 @@ class GameInteractorStartTests: XCTestCase {
     func test_start_doesNotInvokesIfRobotsAndGameModeAreSet() {
         // Given
         let (sut, gameEngine) = makeSUT()
+        let gameMode = GameMode.classic
         // When
         let firstRobot = DummyRobot()
         let secondRobot = DummyRobot()
         sut.setFirstRobot(firstRobot)
         sut.setSecondRobot(secondRobot)
-        sut.setGameMode(.classic)
-        firstRobot.set(battlefield: CGSize(width: 1, height: 1), ships: [CGSize(width: 1, height: 1)])
-        secondRobot.set(battlefield: CGSize(width: 1, height: 1), ships: [CGSize(width: 1, height: 1)])
+        sut.setGameMode(gameMode)
+        firstRobot.set(battlefield: gameMode.battlefield(), ships: gameMode.ships())
+        secondRobot.set(battlefield: gameMode.battlefield(), ships: gameMode.ships())
         sut.start()
         // Then
         XCTAssertEqual(gameEngine.startCallCount, 1)

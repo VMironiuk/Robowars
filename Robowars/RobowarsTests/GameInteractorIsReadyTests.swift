@@ -21,14 +21,15 @@ class GameInteractorIsReadyTests: XCTestCase {
     func test_isReady_returnsTrueOnCorrectSetOfDependencies() {
         // Given
         let sut = makeSUT()
+        let gameMode = GameMode.classic
         // When
         let firstRobot = DummyRobot()
         let secondRobot = DummyRobot()
         sut.setFirstRobot(firstRobot)
         sut.setSecondRobot(secondRobot)
-        sut.setGameMode(.classic)
-        firstRobot.set(battlefield: CGSize(width: 1, height: 1), ships: [CGSize(width: 1, height: 1)])
-        secondRobot.set(battlefield: CGSize(width: 1, height: 1), ships: [CGSize(width: 1, height: 1)])
+        sut.setGameMode(gameMode)
+        firstRobot.set(battlefield: gameMode.battlefield(), ships: gameMode.ships())
+        secondRobot.set(battlefield: gameMode.battlefield(), ships: gameMode.ships())
         // Then
         XCTAssertTrue(sut.isReady)
     }
@@ -36,13 +37,14 @@ class GameInteractorIsReadyTests: XCTestCase {
     func test_isReady_returnsFalseOnDependenciesSetExceptGameMode() {
         // Given
         let sut = makeSUT()
+        let gameMode = GameMode.classic
         // When
         let firstRobot = DummyRobot()
         let secondRobot = DummyRobot()
         sut.setFirstRobot(firstRobot)
         sut.setSecondRobot(secondRobot)
-        firstRobot.set(battlefield: CGSize(width: 1, height: 1), ships: [CGSize(width: 1, height: 1)])
-        secondRobot.set(battlefield: CGSize(width: 1, height: 1), ships: [CGSize(width: 1, height: 1)])
+        firstRobot.set(battlefield: gameMode.battlefield(), ships: gameMode.ships())
+        secondRobot.set(battlefield: gameMode.battlefield(), ships: gameMode.ships())
         // Then
         XCTAssertFalse(sut.isReady)
     }
@@ -50,13 +52,14 @@ class GameInteractorIsReadyTests: XCTestCase {
     func test_isReady_returnsFalseOnDependenciesSetExceptOneRobotSet() {
         // Given
         let sut = makeSUT()
+        let gameMode = GameMode.classic
         // When
         let firstRobot = DummyRobot()
         let secondRobot = DummyRobot()
         sut.setFirstRobot(firstRobot)
         sut.setSecondRobot(secondRobot)
-        sut.setGameMode(.classic)
-        firstRobot.set(battlefield: CGSize(width: 1, height: 1), ships: [CGSize(width: 1, height: 1)])
+        sut.setGameMode(gameMode)
+        firstRobot.set(battlefield: gameMode.battlefield(), ships: gameMode.ships())
         // Then
         XCTAssertFalse(sut.isReady)
     }
@@ -64,7 +67,7 @@ class GameInteractorIsReadyTests: XCTestCase {
     // MARK: - Helpers
     
     private func makeSUT() -> GameInteractor {
-        GameInteractor(gameEngine: DummyGameEngine(), shipsValidator: DummyShipsValidator())
+        GameInteractor(gameEngine: DummyGameEngine(), shipsValidator: ShipsArrangementValidator(gameMode: .classic))
     }
     
     private class DummyGameEngine: GameEngine {

@@ -23,9 +23,7 @@ class ShipsArrangementValidatorTests: XCTestCase {
     // MARK: - Helpers
     
     private func makeSUT() -> ShipsArrangementValidator {
-        let battlefield = CGRect(x: 0, y: 0, width: 10, height: 10)
-        let ships = makeShips()
-        let sut = ShipsArrangementValidator(battlefield: battlefield, ships: ships)
+        let sut = ShipsArrangementValidator(gameMode: .classic)
         return sut
     }
     
