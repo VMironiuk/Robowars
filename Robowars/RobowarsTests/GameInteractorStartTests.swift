@@ -37,17 +37,6 @@ class GameInteractorStartTests: XCTestCase {
         XCTAssertEqual(gameEngine.startCallCount, .zero)
     }
     
-    func test_start_doesNotInvokeIfThereIsNoGameMode() {
-        // Given
-        let (sut, gameEngine) = makeSUT()
-        // When
-        sut.setFirstRobot(DummyRobot())
-        sut.setSecondRobot(DummyRobot())
-        sut.start()
-        // Then
-        XCTAssertEqual(gameEngine.startCallCount, .zero)
-    }
-    
     func test_start_doesNotInvokesIfRobotsAndGameModeAreSet() {
         // Given
         let (sut, gameEngine) = makeSUT()
@@ -57,7 +46,6 @@ class GameInteractorStartTests: XCTestCase {
         let secondRobot = DummyRobot()
         sut.setFirstRobot(firstRobot)
         sut.setSecondRobot(secondRobot)
-        sut.setGameMode(gameMode)
         firstRobot.set(battlefield: gameMode.battlefield(), ships: gameMode.ships())
         secondRobot.set(battlefield: gameMode.battlefield(), ships: gameMode.ships())
         sut.start()

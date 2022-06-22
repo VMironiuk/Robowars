@@ -26,25 +26,10 @@ class GameInteractorIsReadyTests: XCTestCase {
         let secondRobot = DummyRobot()
         sut.setFirstRobot(firstRobot)
         sut.setSecondRobot(secondRobot)
-        sut.setGameMode(gameMode)
         firstRobot.set(battlefield: gameMode.battlefield(), ships: gameMode.ships())
         secondRobot.set(battlefield: gameMode.battlefield(), ships: gameMode.ships())
         // Then
         XCTAssertTrue(sut.isReady)
-    }
-    
-    func test_isReady_returnsFalseOnDependenciesSetExceptGameMode() {
-        // Given
-        let (sut, gameMode) = makeSUT()
-        // When
-        let firstRobot = DummyRobot()
-        let secondRobot = DummyRobot()
-        sut.setFirstRobot(firstRobot)
-        sut.setSecondRobot(secondRobot)
-        firstRobot.set(battlefield: gameMode.battlefield(), ships: gameMode.ships())
-        secondRobot.set(battlefield: gameMode.battlefield(), ships: gameMode.ships())
-        // Then
-        XCTAssertFalse(sut.isReady)
     }
 
     func test_isReady_returnsFalseOnDependenciesSetExceptOneRobotSet() {
@@ -55,7 +40,6 @@ class GameInteractorIsReadyTests: XCTestCase {
         let secondRobot = DummyRobot()
         sut.setFirstRobot(firstRobot)
         sut.setSecondRobot(secondRobot)
-        sut.setGameMode(gameMode)
         firstRobot.set(battlefield: gameMode.battlefield(), ships: gameMode.ships())
         // Then
         XCTAssertFalse(sut.isReady)

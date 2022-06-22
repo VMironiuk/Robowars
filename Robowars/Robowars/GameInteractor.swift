@@ -12,11 +12,9 @@ public final class GameInteractor {
     private let shipsValidator: ShipsValidator
     private var firstRobot: Robot?
     private var secondRobot: Robot?
-    private var gameMode: GameMode?
     
     public var isReady: Bool {
-        guard gameMode != .none,
-              let firstRobot = firstRobot,
+        guard let firstRobot = firstRobot,
               let secondRobot = secondRobot,
               shipsValidator.isValid(ships: firstRobot.ships),
               shipsValidator.isValid(ships: secondRobot.ships) else {
@@ -42,9 +40,5 @@ public final class GameInteractor {
     
     public func setSecondRobot(_ newSecondRobot: Robot) {
         secondRobot = newSecondRobot
-    }
-    
-    public func setGameMode(_ newGameMode: GameMode) {
-        gameMode = newGameMode
     }
 }
