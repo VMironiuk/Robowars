@@ -13,6 +13,7 @@ Desktop macOS client for the Robowars game
 🟡 - Integrate ships validation into the GameInteractor
 
 🟡 - Implement shooting logic
+
       [-] Ask a robot for coordinate of shooting
       [-] Send a robot the result of shooting
 
