@@ -58,35 +58,4 @@ class GameInteractorIsReadyTests: XCTestCase {
         )
         return (sut, gameMode)
     }
-    
-    private class DummyGameEngine: GameEngineProtocol {
-        private let shipsValidator: ShipsValidator
-        private var firstRobot: Robot?
-        private var secondRobot: Robot?
-        
-        var isValid: Bool {
-            guard let firstRobot = firstRobot,
-                  let secondRobot = secondRobot,
-                  shipsValidator.isValid(ships: firstRobot.ships),
-                  shipsValidator.isValid(ships: secondRobot.ships) else {
-                return false
-            }
-            
-            return true
-        }
-        
-        init(shipsValidator: ShipsValidator) {
-            self.shipsValidator = shipsValidator
-        }
-        
-        func start() {}
-        
-        func setFirstRobot(_ robot: Robot) {
-            firstRobot = robot
-        }
-        
-        func setSecondRobot(_ robot: Robot) {
-            secondRobot = robot
-        }
-    }
 }
