@@ -56,16 +56,42 @@ class GameInteractorStartTests: XCTestCase {
     // MARK: - Helpers
     
     private func makeSUT() -> (GameInteractor, GameEngineSpy) {
-        let gameEngine = GameEngineSpy()
-        let sut = GameInteractor(gameEngine: gameEngine, shipsValidator: DummyShipsValidator())
+        let gameEngine = GameEngineSpy(shipsValidator: DummyShipsValidator())
+        let sut = GameInteractor(gameEngine: gameEngine)
         return (sut, gameEngine)
     }
         
     private class GameEngineSpy: GameEngine {
+        private let shipsValidator: ShipsValidator
+        private var firstRobot: Robot?
+        private var secondRobot: Robot?
         private(set) var startCallCount = 0
+        
+        var isValid: Bool {
+            guard let firstRobot = firstRobot,
+                  let secondRobot = secondRobot,
+                  shipsValidator.isValid(ships: firstRobot.ships),
+                  shipsValidator.isValid(ships: secondRobot.ships) else {
+                return false
+            }
+            
+            return true
+        }
+        
+        init(shipsValidator: ShipsValidator) {
+            self.shipsValidator = shipsValidator
+        }
         
         func start() {
             startCallCount += 1
+        }
+        
+        func setFirstRobot(_ robot: Robot) {
+            firstRobot = robot
+        }
+        
+        func setSecondRobot(_ robot: Robot) {
+            secondRobot = robot
         }
     }
 }

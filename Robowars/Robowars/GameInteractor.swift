@@ -9,24 +9,13 @@ import Foundation
 
 public final class GameInteractor {
     private let gameEngine: GameEngine
-    private let shipsValidator: ShipsValidator
-    private var firstRobot: Robot?
-    private var secondRobot: Robot?
     
     public var isReady: Bool {
-        guard let firstRobot = firstRobot,
-              let secondRobot = secondRobot,
-              shipsValidator.isValid(ships: firstRobot.ships),
-              shipsValidator.isValid(ships: secondRobot.ships) else {
-            return false
-        }
-
-        return true
+        gameEngine.isValid
     }
     
-    public init(gameEngine: GameEngine, shipsValidator: ShipsValidator) {
+    public init(gameEngine: GameEngine) {
         self.gameEngine = gameEngine
-        self.shipsValidator = shipsValidator
     }
     
     public func start() {
@@ -35,10 +24,10 @@ public final class GameInteractor {
     }
     
     public func setFirstRobot(_ newFirstRobot: Robot) {
-        firstRobot = newFirstRobot
+        gameEngine.setFirstRobot(newFirstRobot)
     }
     
     public func setSecondRobot(_ newSecondRobot: Robot) {
-        secondRobot = newSecondRobot
+        gameEngine.setSecondRobot(newSecondRobot)
     }
 }

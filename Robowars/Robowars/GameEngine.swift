@@ -8,5 +8,9 @@
 import Foundation
 
 public protocol GameEngine: AnyObject {
+    var isValid: Bool { get }
+    
     func start()
+    func setFirstRobot(_ robot: Robot)
+    func setSecondRobot(_ robot: Robot)
 }
