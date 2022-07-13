@@ -61,37 +61,11 @@ class GameInteractorStartTests: XCTestCase {
         return (sut, gameEngine)
     }
         
-    private class GameEngineSpy: GameEngineProtocol {
-        private let shipsValidator: ShipsValidator
-        private var firstRobot: Robot?
-        private var secondRobot: Robot?
+    private class GameEngineSpy: DummyGameEngine {
         private(set) var startCallCount = 0
         
-        var isValid: Bool {
-            guard let firstRobot = firstRobot,
-                  let secondRobot = secondRobot,
-                  shipsValidator.isValid(ships: firstRobot.ships),
-                  shipsValidator.isValid(ships: secondRobot.ships) else {
-                return false
-            }
-            
-            return true
-        }
-        
-        init(shipsValidator: ShipsValidator) {
-            self.shipsValidator = shipsValidator
-        }
-        
-        func start() {
+        override func start() {
             startCallCount += 1
-        }
-        
-        func setFirstRobot(_ robot: Robot) {
-            firstRobot = robot
-        }
-        
-        func setSecondRobot(_ robot: Robot) {
-            secondRobot = robot
         }
     }
 }
