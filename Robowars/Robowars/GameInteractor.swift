@@ -8,13 +8,13 @@
 import Foundation
 
 public final class GameInteractor {
-    private let gameEngine: GameEngine
+    private let gameEngine: GameEngineProtocol
     
     public var isReady: Bool {
         gameEngine.isValid
     }
     
-    public init(gameEngine: GameEngine) {
+    public init(gameEngine: GameEngineProtocol) {
         self.gameEngine = gameEngine
     }
     

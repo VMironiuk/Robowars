@@ -61,7 +61,7 @@ class GameInteractorStartTests: XCTestCase {
         return (sut, gameEngine)
     }
         
-    private class GameEngineSpy: GameEngine {
+    private class GameEngineSpy: GameEngineProtocol {
         private let shipsValidator: ShipsValidator
         private var firstRobot: Robot?
         private var secondRobot: Robot?

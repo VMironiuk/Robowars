@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol GameEngine: AnyObject {
+public protocol GameEngineProtocol: AnyObject {
     var isValid: Bool { get }
     
     func start()

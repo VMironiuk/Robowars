@@ -59,7 +59,7 @@ class GameInteractorIsReadyTests: XCTestCase {
         return (sut, gameMode)
     }
     
-    private class DummyGameEngine: GameEngine {
+    private class DummyGameEngine: GameEngineProtocol {
         private let shipsValidator: ShipsValidator
         private var firstRobot: Robot?
         private var secondRobot: Robot?
