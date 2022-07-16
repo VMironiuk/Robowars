@@ -10,6 +10,7 @@ import Robowars
 
 class DummyGameEngine: GameEngineProtocol {
     private let gameEngine: GameEngine
+    var winner: Robot?
     
     var isValid: Bool {
         gameEngine.isValid

@@ -9,6 +9,7 @@ import Foundation
 
 public protocol GameEngineProtocol: AnyObject {
     var isValid: Bool { get }
+    var winner: Robot? { get }
     
     func start()
     func setFirstRobot(_ robot: Robot)
@@ -19,6 +20,7 @@ public final class GameEngine: GameEngineProtocol {
     private let shipsValidator: ShipsValidator
     private var firstRobot: Robot?
     private var secondRobot: Robot?
+    public var winner: Robot?
     
     public var isValid: Bool {
         guard let firstRobot = firstRobot,
@@ -35,7 +37,10 @@ public final class GameEngine: GameEngineProtocol {
         self.shipsValidator = shipsValidator
     }
     
-    public func start() {}
+    public func start() {
+        guard isValid else { return }
+        winner = firstRobot
+    }
     
     public func setFirstRobot(_ robot: Robot) {
         firstRobot = robot
