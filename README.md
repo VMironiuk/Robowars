@@ -12,10 +12,15 @@ Desktop macOS client for the Robowars game
 
 🟢 - Integrate ships validation into the GameEngine
 
-🟡 - Implement shooting logic
+🟢 - Implement shooting logic
 
-      [-] Ask a robot for coordinate of shooting
-      [-] Send a robot the result of shooting
+      [✅] Ask a robot for coordinate of shooting
+      [✅] Send a robot the result of shooting
+
+🟡 - Improve shooting logic
+
+      [-] Implement more real test cases
+      [-] Improve the code
 
 ## BDD Specs
 
