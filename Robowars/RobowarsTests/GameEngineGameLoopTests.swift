@@ -23,6 +23,19 @@ class GameEngineGameLoopTests: XCTestCase {
         XCTAssertTrue(sut.winner === firstRobot)
     }
     
+    func test_gameEngine_gameLoopFinishedWithSecondRobotAsWinner() {
+        // Given
+        let firstRobot = ShootingTestRobot(ship: CGRect(x: 2, y: 0, width: 1, height: 1))
+        let secondRobot = ShootingTestRobot(ship: CGRect(x: 1, y: 1, width: 1, height: 1))
+        let sut = GameEngine(shipsValidator: DummyShipsValidator())
+        sut.setFirstRobot(firstRobot)
+        sut.setSecondRobot(secondRobot)
+        // When
+        sut.start()
+        // Then
+        XCTAssertTrue(sut.winner === secondRobot)
+    }
+    
     // Helpers
     
     private final class ShootingTestRobot: Robot {
@@ -45,9 +58,9 @@ class GameEngineGameLoopTests: XCTestCase {
         func shoot() -> CGPoint {
             let nextShootPoint = shootPoint
             
-            shootPoint.x += (shootPoint.x + 1).truncatingRemainder(dividingBy: maxShootPointValue + 1)
+            shootPoint.x = (shootPoint.x + 1).truncatingRemainder(dividingBy: maxShootPointValue + 1)
             if nextShootPoint.x == maxShootPointValue {
-                shootPoint.y += (shootPoint.y + 1).truncatingRemainder(dividingBy: maxShootPointValue + 1)
+                shootPoint.y = (shootPoint.y + 1).truncatingRemainder(dividingBy: maxShootPointValue + 1)
             }
             
             return nextShootPoint

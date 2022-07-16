@@ -20,6 +20,8 @@ public final class GameEngine: GameEngineProtocol {
     private let shipsValidator: ShipsValidator
     private var firstRobot: Robot?
     private var secondRobot: Robot?
+    private var firstRobotShipsPoints: [[CGPoint]] = []
+    private var secondRobotShipsPoints: [[CGPoint]] = []
     public var winner: Robot?
     
     public var isValid: Bool {
@@ -38,15 +40,108 @@ public final class GameEngine: GameEngineProtocol {
     }
     
     public func start() {
-        guard isValid else { return }
-        winner = firstRobot
+        guard isValid, let firstRobot = firstRobot, let secondRobot = secondRobot else { return }
+        var shootingRobot = firstRobot
+        while true {
+            if shootingRobot === firstRobot {
+                let shootPoint = shootingRobot.shoot()
+                let shootResult = shootResult(of: shootPoint, to: secondRobot)
+                if secondRobotShipsPoints.isEmpty {
+                    winner = firstRobot
+                    return
+                }
+                shootingRobot.shootResult(shootResult, for: shootPoint)
+                if case .miss = shootResult {
+                    shootingRobot = secondRobot
+                }
+            }
+            else { // second robot have to shoot
+                let shootPoint = shootingRobot.shoot()
+                let shootResult = shootResult(of: shootPoint, to: firstRobot)
+                if firstRobotShipsPoints.isEmpty {
+                    winner = secondRobot
+                    return
+                }
+                shootingRobot.shootResult(shootResult, for: shootPoint)
+                if case .miss = shootResult {
+                    shootingRobot = firstRobot
+                }
+            }
+        }
     }
     
     public func setFirstRobot(_ robot: Robot) {
         firstRobot = robot
+        firstRobotShipsPoints = shipsPoints(from: robot.ships)
     }
     
     public func setSecondRobot(_ robot: Robot) {
         secondRobot = robot
+        secondRobotShipsPoints = shipsPoints(from: robot.ships)
+    }
+    
+    private func shipsPoints(from ships: [CGRect]) -> [[CGPoint]] {
+        var shipsPoints: [[CGPoint]] = []
+        for ship in ships {
+            var shipPoints: [CGPoint] = []
+            for x in .zero..<Int(ship.width) {
+                for y in .zero..<Int(ship.height) {
+                    shipPoints.append(CGPoint(x: Int(ship.minX) + x, y: Int(ship.minY) + y))
+                }
+            }
+            shipsPoints.append(shipPoints)
+        }
+        return shipsPoints
+    }
+    
+    private func shootResult(of shootPoint: CGPoint, to robot: Robot) -> ShootResult {
+        var shootResult: ShootResult = .miss
+        
+        if robot === firstRobot {
+            var shipPointsIndex: Int?
+            var shipPointIndex: Int?
+            for pointsIndex in .zero..<firstRobotShipsPoints.count {
+                let shipPoints = firstRobotShipsPoints[pointsIndex]
+                if let index = shipPoints.firstIndex(of: shootPoint) {
+                    shipPointsIndex = pointsIndex
+                    shipPointIndex = index
+                    break
+                }
+            }
+            if let shipPointsIndex = shipPointsIndex, let shipPointIndex = shipPointIndex {
+                firstRobotShipsPoints[shipPointsIndex].remove(at: shipPointIndex)
+                if firstRobotShipsPoints[shipPointsIndex].isEmpty {
+                    shootResult = .kill
+                    firstRobotShipsPoints.remove(at: shipPointsIndex)
+                }
+                else {
+                    shootResult = .hit
+                }
+            }
+        }
+        else {
+            var shipPointsIndex: Int?
+            var shipPointIndex: Int?
+            for pointsIndex in .zero..<secondRobotShipsPoints.count {
+                let shipPoints = secondRobotShipsPoints[pointsIndex]
+                if let index = shipPoints.firstIndex(of: shootPoint) {
+                    shipPointsIndex = pointsIndex
+                    shipPointIndex = index
+                    break
+                }
+            }
+            if let shipPointsIndex = shipPointsIndex, let shipPointIndex = shipPointIndex {
+                secondRobotShipsPoints[shipPointsIndex].remove(at: shipPointIndex)
+                if secondRobotShipsPoints[shipPointsIndex].isEmpty {
+                    shootResult = .kill
+                    secondRobotShipsPoints.remove(at: shipPointsIndex)
+                }
+                else {
+                    shootResult = .hit
+                }
+            }
+        }
+        
+        return shootResult
     }
 }
