@@ -53,7 +53,7 @@ class GameEngineGameLoopTests: XCTestCase {
         }
         
         func set(battlefield: CGRect, ships: [CGSize]) {
-            // Can be empty. For these tests 3x3 battlefiled with a single 1x1 ship are used
+            // Can be empty for these tests
         }
         
         func shoot() -> CGPoint {
