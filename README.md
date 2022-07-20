@@ -19,7 +19,7 @@ Desktop macOS client for the Robowars game
 
 🟡 - Improve shooting logic
 
-      [-] Implement more real test cases
+      [✅] Implement more real test cases
       [-] Improve the code
 
 ## BDD Specs
