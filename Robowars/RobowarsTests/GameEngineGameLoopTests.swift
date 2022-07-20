@@ -12,8 +12,8 @@ class GameEngineGameLoopTests: XCTestCase {
     
     func test_gameEngine_gameLoopFinishedWithFirstRobotAsWinner() {
         // Given
-        let firstRobot = ShootingTestRobot(ship: CGRect(x: 1, y: 1, width: 1, height: 1))
-        let secondRobot = ShootingTestRobot(ship: CGRect(x: 1, y: 1, width: 1, height: 1))
+        let firstRobot = ShootingTestRobot(ship: CGRect(x: 1, y: 1, width: 1, height: 1), maxBattlefieldSize: 2)
+        let secondRobot = ShootingTestRobot(ship: CGRect(x: 1, y: 1, width: 1, height: 1), maxBattlefieldSize: 2)
         let sut = GameEngine(shipsValidator: DummyShipsValidator())
         sut.setFirstRobot(firstRobot)
         sut.setSecondRobot(secondRobot)
@@ -25,8 +25,8 @@ class GameEngineGameLoopTests: XCTestCase {
     
     func test_gameEngine_gameLoopFinishedWithSecondRobotAsWinner() {
         // Given
-        let firstRobot = ShootingTestRobot(ship: CGRect(x: 2, y: 0, width: 1, height: 1))
-        let secondRobot = ShootingTestRobot(ship: CGRect(x: 1, y: 1, width: 1, height: 1))
+        let firstRobot = ShootingTestRobot(ship: CGRect(x: 2, y: 0, width: 1, height: 1), maxBattlefieldSize: 2)
+        let secondRobot = ShootingTestRobot(ship: CGRect(x: 1, y: 1, width: 1, height: 1), maxBattlefieldSize: 2)
         let sut = GameEngine(shipsValidator: DummyShipsValidator())
         sut.setFirstRobot(firstRobot)
         sut.setSecondRobot(secondRobot)
@@ -40,11 +40,12 @@ class GameEngineGameLoopTests: XCTestCase {
     
     private final class ShootingTestRobot: Robot {
         private var shootPoint: CGPoint = .zero
-        private let maxShootPointValue: CGFloat = 2
+        private let maxBattlefieldSize: CGFloat
         private let ship: CGRect
         
-        init(ship: CGRect) {
+        init(ship: CGRect, maxBattlefieldSize: CGFloat) {
             self.ship = ship
+            self.maxBattlefieldSize = maxBattlefieldSize
         }
         
         var ships: [CGRect] {
@@ -58,9 +59,9 @@ class GameEngineGameLoopTests: XCTestCase {
         func shoot() -> CGPoint {
             let nextShootPoint = shootPoint
             
-            shootPoint.x = (shootPoint.x + 1).truncatingRemainder(dividingBy: maxShootPointValue + 1)
-            if nextShootPoint.x == maxShootPointValue {
-                shootPoint.y = (shootPoint.y + 1).truncatingRemainder(dividingBy: maxShootPointValue + 1)
+            shootPoint.x = (shootPoint.x + 1).truncatingRemainder(dividingBy: maxBattlefieldSize + 1)
+            if nextShootPoint.x == maxBattlefieldSize {
+                shootPoint.y = (shootPoint.y + 1).truncatingRemainder(dividingBy: maxBattlefieldSize + 1)
             }
             
             return nextShootPoint
