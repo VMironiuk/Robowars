@@ -40,36 +40,22 @@ public final class GameEngine: GameEngineProtocol {
     }
     
     public func start() {
-        guard isValid, let firstRobot = firstRobot, let secondRobot = secondRobot else { return }
+        guard isValid, let firstRobot = firstRobot else { return }
         var shootingRobot = firstRobot
         while true {
-            if shootingRobot === firstRobot {
-                let shootPoint = shootingRobot.shoot()
-                let shootResult = shootResult(of: shootPoint, to: secondRobot)
-                if secondRobotShipsPoints.isEmpty {
-                    winner = firstRobot
-                    return
-                }
-                shootingRobot.shootResult(shootResult, for: shootPoint)
-                if case .miss = shootResult {
-                    shootingRobot = secondRobot
-                }
+            let shootPoint = shootingRobot.shoot()
+            let shootResult = shootResult(of: shootPoint, to: oppositeRobot(to: shootingRobot))
+            if firstRobotShipsPoints.isEmpty || secondRobotShipsPoints.isEmpty {
+                winner = shootingRobot
+                return
             }
-            else { // second robot have to shoot
-                let shootPoint = shootingRobot.shoot()
-                let shootResult = shootResult(of: shootPoint, to: firstRobot)
-                if firstRobotShipsPoints.isEmpty {
-                    winner = secondRobot
-                    return
-                }
-                shootingRobot.shootResult(shootResult, for: shootPoint)
-                if case .miss = shootResult {
-                    shootingRobot = firstRobot
-                }
+            shootingRobot.shootResult(shootResult, for: shootPoint)
+            if case .miss = shootResult {
+                shootingRobot = oppositeRobot(to: shootingRobot)
             }
         }
     }
-    
+        
     public func setFirstRobot(_ robot: Robot) {
         firstRobot = robot
         firstRobotShipsPoints = shipsPoints(from: robot.ships)
@@ -80,6 +66,13 @@ public final class GameEngine: GameEngineProtocol {
         secondRobotShipsPoints = shipsPoints(from: robot.ships)
     }
     
+    private func oppositeRobot(to robot: Robot) -> Robot {
+        guard let firstRobot = firstRobot, let secondRobot = secondRobot else {
+            fatalError("Robot cannot be nil")
+        }
+        return robot === firstRobot ? secondRobot : firstRobot
+    }
+
     private func shipsPoints(from ships: [CGRect]) -> [[CGPoint]] {
         var shipsPoints: [[CGPoint]] = []
         for ship in ships {
