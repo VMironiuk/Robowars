@@ -17,10 +17,12 @@ Desktop macOS client for the Robowars game
       [✅] Ask a robot for coordinate of shooting
       [✅] Send a robot the result of shooting
 
-🟡 - Improve shooting logic
+🟢 - Improve shooting logic
 
       [✅] Implement more real test cases
-      [-] Improve the code
+      [✅] Improve the code
+
+🟡 - Add a delegate for GameEngine
 
 ## BDD Specs
 
