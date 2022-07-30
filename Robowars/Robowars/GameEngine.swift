@@ -19,6 +19,7 @@ public protocol GameEngineProtocol: AnyObject {
 
 public protocol GameEngineDelegate: AnyObject {
     func gameEngine(_ gameEngine: GameEngine, didChangeFirstRobotWithShips ships: [CGRect])
+    func gameEngine(_ gameEngine: GameEngine, didChangeSecondRobotWithShips ships: [CGRect])
 }
 
 public final class GameEngine: GameEngineProtocol {
@@ -70,6 +71,7 @@ public final class GameEngine: GameEngineProtocol {
     
     public func setSecondRobot(_ robot: Robot) {
         secondRobot = robot
+        delegate?.gameEngine(self, didChangeSecondRobotWithShips: robot.ships)
         secondRobotShipsPoints = shipsPoints(from: robot.ships)
     }
     

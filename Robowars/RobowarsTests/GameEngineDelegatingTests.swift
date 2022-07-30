@@ -21,13 +21,29 @@ class GameEngineDelegatingTests: XCTestCase {
         XCTAssertEqual(gameEngineDelegateSpy.firstRobotDidChangeCallCount, 1)
     }
     
+    func test_gameEngineInformsItsDelegateWhenSecondRobotDidChange() {
+        // Given
+        let sut = GameEngine(shipsValidator: DummyShipsValidator())
+        let gameEngineDelegateSpy = GameEngineDelegateSpy()
+        sut.delegate = gameEngineDelegateSpy
+        // When
+        sut.setSecondRobot(DummyRobot())
+        // Then
+        XCTAssertEqual(gameEngineDelegateSpy.secondRobotDidChangeCallCount, 1)
+    }
+    
     // Helpers
     
     private class GameEngineDelegateSpy: GameEngineDelegate {
         private(set) var firstRobotDidChangeCallCount: Int = .zero
+        private(set) var secondRobotDidChangeCallCount: Int = .zero
         
         func gameEngine(_ gameEngine: GameEngine, didChangeFirstRobotWithShips ships: [CGRect]) {
             firstRobotDidChangeCallCount += 1
+        }
+        
+        func gameEngine(_ gameEngine: GameEngine, didChangeSecondRobotWithShips ships: [CGRect]) {
+            secondRobotDidChangeCallCount += 1
         }
     }
 }
