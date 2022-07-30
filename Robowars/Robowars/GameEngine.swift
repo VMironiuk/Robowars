@@ -10,10 +10,15 @@ import Foundation
 public protocol GameEngineProtocol: AnyObject {
     var isValid: Bool { get }
     var winner: Robot? { get }
+    var delegate: GameEngineDelegate? { get set }
     
     func start()
     func setFirstRobot(_ robot: Robot)
     func setSecondRobot(_ robot: Robot)
+}
+
+public protocol GameEngineDelegate: AnyObject {
+    func gameEngine(_ gameEngine: GameEngine, didChangeFirstRobotWithShips ships: [CGRect])
 }
 
 public final class GameEngine: GameEngineProtocol {
@@ -22,6 +27,7 @@ public final class GameEngine: GameEngineProtocol {
     private var secondRobot: Robot?
     private var firstRobotShipsPoints: [[CGPoint]] = []
     private var secondRobotShipsPoints: [[CGPoint]] = []
+    public var delegate: GameEngineDelegate?
     public var winner: Robot?
     
     public var isValid: Bool {
@@ -58,6 +64,7 @@ public final class GameEngine: GameEngineProtocol {
         
     public func setFirstRobot(_ robot: Robot) {
         firstRobot = robot
+        delegate?.gameEngine(self, didChangeFirstRobotWithShips: robot.ships)
         firstRobotShipsPoints = shipsPoints(from: robot.ships)
     }
     
