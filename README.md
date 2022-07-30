@@ -24,7 +24,6 @@ Desktop macOS client for the Robowars game
 
 🟡 - Add a delegate for GameEngine
 
-      [-] Emmit the `game mode did change` event
       [-] Emmit the `robot 1 did change` event
       [-] Emmit the `robot 2 did change` event
       [-] Emmit the `did fail` event in case of incorrect ships placement by any robot
@@ -34,6 +33,8 @@ Desktop macOS client for the Robowars game
       [-] Emit the `robot 2 did win` event
       [-] Emit the `robot 1 did lose` event
       [-] Emit the `robot 2 did lose` event
+
+🟡 - Emmit the `game mode did change` event
 
 ## BDD Specs
 
