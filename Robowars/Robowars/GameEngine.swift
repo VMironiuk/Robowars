@@ -81,6 +81,9 @@ public final class GameEngine: GameEngineProtocol {
         secondRobot = robot
         delegate?.gameEngine(self, didChangeSecondRobotWithShips: robot.ships)
         secondRobotShipsPoints = shipsPoints(from: robot.ships)
+        if !shipsValidator.isValid(ships: robot.ships) {
+            delegate?.gameEngine(self, didFailWithError: GameEngineError.secondRobotError)
+        }
     }
     
     private func oppositeRobot(to robot: Robot) -> Robot {

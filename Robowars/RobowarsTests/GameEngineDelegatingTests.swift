@@ -69,6 +69,17 @@ class GameEngineDelegatingTests: XCTestCase {
         XCTAssertEqual(gameEngineDelegateSpy.didFailCallCount, 1)
     }
     
+    func test_gameEngineInformsItsDelegateWhenSecondRobotHasIncorrectShipsPlacement() {
+        // Given
+        let sut = GameEngine(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
+        let gameEngineDelegateSpy = GameEngineDelegateSpy()
+        sut.delegate = gameEngineDelegateSpy
+        // When
+        sut.setSecondRobot(BrokenRobot())
+        // Then
+        XCTAssertEqual(gameEngineDelegateSpy.didFailCallCount, 1)
+    }
+    
     // Helpers
     
     private class GameEngineDelegateSpy: GameEngineDelegate {
