@@ -67,6 +67,7 @@ class GameEngineDelegatingTests: XCTestCase {
         sut.setFirstRobot(BrokenRobot())
         // Then
         XCTAssertEqual(gameEngineDelegateSpy.didFailCallCount, 1)
+        XCTAssertNotNil(gameEngineDelegateSpy.errors[.zero])
     }
     
     func test_gameEngineInformsItsDelegateTwiceWhenFirstRobotWithIncorrectShipsPlacementChangedTwice() {
@@ -79,6 +80,8 @@ class GameEngineDelegatingTests: XCTestCase {
         sut.setFirstRobot(BrokenRobot())
         // Then
         XCTAssertEqual(gameEngineDelegateSpy.didFailCallCount, 2)
+        XCTAssertNotNil(gameEngineDelegateSpy.errors[.zero])
+        XCTAssertNotNil(gameEngineDelegateSpy.errors[1])
     }
     
     func test_gameEngineInformsItsDelegateWhenSecondRobotHasIncorrectShipsPlacement() {
@@ -90,6 +93,7 @@ class GameEngineDelegatingTests: XCTestCase {
         sut.setSecondRobot(BrokenRobot())
         // Then
         XCTAssertEqual(gameEngineDelegateSpy.didFailCallCount, 1)
+        XCTAssertNotNil(gameEngineDelegateSpy.errors[.zero])
     }
     
     func test_gameEngineInformsItsDelegateTwiceWhenSecondRobotWithIncorrectShipsPlacementChangedTwice() {
@@ -102,6 +106,8 @@ class GameEngineDelegatingTests: XCTestCase {
         sut.setSecondRobot(BrokenRobot())
         // Then
         XCTAssertEqual(gameEngineDelegateSpy.didFailCallCount, 2)
+        XCTAssertNotNil(gameEngineDelegateSpy.errors[.zero])
+        XCTAssertNotNil(gameEngineDelegateSpy.errors[1])
     }
     
     func test_gameEngineInformsItsDelegateTwiceWhenFirstAndSecondRobotsHaveIncorrectShipsPlacement() {
@@ -114,6 +120,8 @@ class GameEngineDelegatingTests: XCTestCase {
         sut.setSecondRobot(BrokenRobot())
         // Then
         XCTAssertEqual(gameEngineDelegateSpy.didFailCallCount, 2)
+        XCTAssertNotNil(gameEngineDelegateSpy.errors[.zero])
+        XCTAssertNotNil(gameEngineDelegateSpy.errors[1])
     }
 
     func test_gameEngineInformsItsDelegateFourTimesWhenFirstAndSecondRobotsWithIncorrectShipsPlacementChangedTwice() {
@@ -128,6 +136,10 @@ class GameEngineDelegatingTests: XCTestCase {
         sut.setSecondRobot(BrokenRobot())
         // Then
         XCTAssertEqual(gameEngineDelegateSpy.didFailCallCount, 4)
+        XCTAssertNotNil(gameEngineDelegateSpy.errors[.zero])
+        XCTAssertNotNil(gameEngineDelegateSpy.errors[1])
+        XCTAssertNotNil(gameEngineDelegateSpy.errors[2])
+        XCTAssertNotNil(gameEngineDelegateSpy.errors[3])
     }
 
     // Helpers
