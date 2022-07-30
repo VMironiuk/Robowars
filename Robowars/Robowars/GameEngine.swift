@@ -7,15 +7,17 @@
 
 import Foundation
 
-public struct GameEngineError: LocalizedError {
+public struct GameEngineError: Error {
     private let robotName: String
-    
-    public var errorDescription: String? {
-        "\(robotName) has incorrect ships placement"
-    }
-    
+
     public init(robotName: String) {
         self.robotName = robotName
+    }
+}
+
+extension GameEngineError: LocalizedError {
+    public var errorDescription: String? {
+        "\(robotName) has incorrect ships placement"
     }
 }
 
@@ -32,7 +34,7 @@ public protocol GameEngineProtocol: AnyObject {
 public protocol GameEngineDelegate: AnyObject {
     func gameEngine(_ gameEngine: GameEngine, didChangeFirstRobotWithShips ships: [CGRect])
     func gameEngine(_ gameEngine: GameEngine, didChangeSecondRobotWithShips ships: [CGRect])
-    func gameEngine(_ gameEngine: GameEngine, didFailWithError error: LocalizedError?)
+    func gameEngine(_ gameEngine: GameEngine, didFailWithError error: Error?)
 }
 
 public final class GameEngine: GameEngineProtocol {

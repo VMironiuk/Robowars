@@ -155,8 +155,8 @@ class GameEngineDelegatingTests: XCTestCase {
         sut.setFirstRobot(firstBrokenRobot)
         sut.setSecondRobot(secondBrokenRobot)
         // Then
-        XCTAssertEqual(gameEngineDelegateSpy.errors[.zero]!.errorDescription, expectedFirstError.errorDescription)
-        XCTAssertEqual(gameEngineDelegateSpy.errors[1]!.errorDescription, expectedSecondError.errorDescription)
+        XCTAssertEqual(gameEngineDelegateSpy.errors[.zero]!.localizedDescription, expectedFirstError.localizedDescription)
+        XCTAssertEqual(gameEngineDelegateSpy.errors[1]!.localizedDescription, expectedSecondError.localizedDescription)
     }
 
     // Helpers
@@ -164,7 +164,7 @@ class GameEngineDelegatingTests: XCTestCase {
     private class GameEngineDelegateSpy: GameEngineDelegate {
         private(set) var firstRobotDidChangeCallCount: Int = .zero
         private(set) var secondRobotDidChangeCallCount: Int = .zero
-        private(set) var errors: [LocalizedError?] = []
+        private(set) var errors: [Error?] = []
         var didFailCallCount: Int {
             errors.count
         }
@@ -177,7 +177,7 @@ class GameEngineDelegatingTests: XCTestCase {
             secondRobotDidChangeCallCount += 1
         }
         
-        func gameEngine(_ gameEngine: GameEngine, didFailWithError error: LocalizedError?) {
+        func gameEngine(_ gameEngine: GameEngine, didFailWithError error: Error?) {
             errors.append(error)
         }
     }
