@@ -10,6 +10,9 @@ import Robowars
 
 final class DummyRobot: Robot {
     private(set) var ships: [CGRect] = []
+    var name: String {
+        ""
+    }
     
     func set(battlefield: CGRect, ships: [CGSize]) {
         self.ships = [

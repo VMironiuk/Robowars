@@ -68,6 +68,9 @@ class GameEngineGameLoopTests: XCTestCase {
         private var shootPoint: CGPoint = .zero
         private let maxBattlefieldSize: CGFloat
         private let _ships: [CGRect]
+        var name: String {
+            ""
+        }
         
         init(ships: [CGRect], maxBattlefieldSize: CGFloat) {
             self._ships = ships

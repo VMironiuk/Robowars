@@ -7,8 +7,16 @@
 
 import Foundation
 
-private enum GameEngineError: Error {
-    case firstRobotError, secondRobotError
+public struct GameEngineError: LocalizedError {
+    private let robotName: String
+    
+    public var errorDescription: String? {
+        "\(robotName) has incorrect ships placement"
+    }
+    
+    public init(robotName: String) {
+        self.robotName = robotName
+    }
 }
 
 public protocol GameEngineProtocol: AnyObject {
@@ -24,7 +32,7 @@ public protocol GameEngineProtocol: AnyObject {
 public protocol GameEngineDelegate: AnyObject {
     func gameEngine(_ gameEngine: GameEngine, didChangeFirstRobotWithShips ships: [CGRect])
     func gameEngine(_ gameEngine: GameEngine, didChangeSecondRobotWithShips ships: [CGRect])
-    func gameEngine(_ gameEngine: GameEngine, didFailWithError error: Error?)
+    func gameEngine(_ gameEngine: GameEngine, didFailWithError error: LocalizedError?)
 }
 
 public final class GameEngine: GameEngineProtocol {
@@ -73,7 +81,7 @@ public final class GameEngine: GameEngineProtocol {
         delegate?.gameEngine(self, didChangeFirstRobotWithShips: robot.ships)
         firstRobotShipsPoints = shipsPoints(from: robot.ships)
         if !shipsValidator.isValid(ships: robot.ships) {
-            delegate?.gameEngine(self, didFailWithError: GameEngineError.firstRobotError)
+            delegate?.gameEngine(self, didFailWithError: GameEngineError(robotName: robot.name))
         }
     }
     
@@ -82,7 +90,7 @@ public final class GameEngine: GameEngineProtocol {
         delegate?.gameEngine(self, didChangeSecondRobotWithShips: robot.ships)
         secondRobotShipsPoints = shipsPoints(from: robot.ships)
         if !shipsValidator.isValid(ships: robot.ships) {
-            delegate?.gameEngine(self, didFailWithError: GameEngineError.secondRobotError)
+            delegate?.gameEngine(self, didFailWithError: GameEngineError(robotName: robot.name))
         }
     }
     

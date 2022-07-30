@@ -13,6 +13,7 @@ public enum ShootResult {
 
 public protocol Robot: AnyObject {
     var ships: [CGRect] { get }
+    var name: String { get }
 
     func set(battlefield: CGRect, ships: [CGSize])
     func shoot() -> CGPoint

@@ -141,13 +141,30 @@ class GameEngineDelegatingTests: XCTestCase {
         XCTAssertNotNil(gameEngineDelegateSpy.errors[2])
         XCTAssertNotNil(gameEngineDelegateSpy.errors[3])
     }
+    
+    func test_gameEngineInformsItsDelegateWithProperErrorDescriptionWhenFirstAndSecondRobotsHasIncorrectShipsPlacement() {
+        // Given
+        let sut = GameEngine(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
+        let firstBrokenRobot = BrokenRobot(name: "FirstBrokenRobot")
+        let secondBrokenRobot = BrokenRobot(name: "SecondBrokenRobot")
+        let expectedFirstError = GameEngineError(robotName: firstBrokenRobot.name)
+        let expectedSecondError = GameEngineError(robotName: secondBrokenRobot.name)
+        let gameEngineDelegateSpy = GameEngineDelegateSpy()
+        sut.delegate = gameEngineDelegateSpy
+        // When
+        sut.setFirstRobot(firstBrokenRobot)
+        sut.setSecondRobot(secondBrokenRobot)
+        // Then
+        XCTAssertEqual(gameEngineDelegateSpy.errors[.zero]!.errorDescription, expectedFirstError.errorDescription)
+        XCTAssertEqual(gameEngineDelegateSpy.errors[1]!.errorDescription, expectedSecondError.errorDescription)
+    }
 
     // Helpers
     
     private class GameEngineDelegateSpy: GameEngineDelegate {
         private(set) var firstRobotDidChangeCallCount: Int = .zero
         private(set) var secondRobotDidChangeCallCount: Int = .zero
-        private(set) var errors: [Error?] = []
+        private(set) var errors: [LocalizedError?] = []
         var didFailCallCount: Int {
             errors.count
         }
@@ -160,7 +177,7 @@ class GameEngineDelegatingTests: XCTestCase {
             secondRobotDidChangeCallCount += 1
         }
         
-        func gameEngine(_ gameEngine: GameEngine, didFailWithError error: Error?) {
+        func gameEngine(_ gameEngine: GameEngine, didFailWithError error: LocalizedError?) {
             errors.append(error)
         }
     }
@@ -168,6 +185,11 @@ class GameEngineDelegatingTests: XCTestCase {
     private class BrokenRobot: Robot {
         var ships: [CGRect] {
             []
+        }
+        let name: String
+        
+        init(name: String = "") {
+            self.name = name
         }
         
         func set(battlefield: CGRect, ships: [CGSize]) {}
