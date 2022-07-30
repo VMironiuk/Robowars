@@ -45,6 +45,19 @@ class GameEngineDelegatingTests: XCTestCase {
         XCTAssertEqual(gameEngineDelegateSpy.secondRobotDidChangeCallCount, 1)
     }
     
+    func test_gameEngineInformsItsDelegateWhenSecondRobotDidChangeThreeTimes() {
+        // Given
+        let sut = GameEngine(shipsValidator: DummyShipsValidator())
+        let gameEngineDelegateSpy = GameEngineDelegateSpy()
+        sut.delegate = gameEngineDelegateSpy
+        // When
+        sut.setSecondRobot(DummyRobot())
+        sut.setSecondRobot(DummyRobot())
+        sut.setSecondRobot(DummyRobot())
+        // Then
+        XCTAssertEqual(gameEngineDelegateSpy.secondRobotDidChangeCallCount, 3)
+    }
+    
     // Helpers
     
     private class GameEngineDelegateSpy: GameEngineDelegate {
