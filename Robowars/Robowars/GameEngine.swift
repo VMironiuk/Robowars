@@ -7,6 +7,10 @@
 
 import Foundation
 
+private enum GameEngineError: Error {
+    case firstRobotError, secondRobotError
+}
+
 public protocol GameEngineProtocol: AnyObject {
     var isValid: Bool { get }
     var winner: Robot? { get }
@@ -20,6 +24,7 @@ public protocol GameEngineProtocol: AnyObject {
 public protocol GameEngineDelegate: AnyObject {
     func gameEngine(_ gameEngine: GameEngine, didChangeFirstRobotWithShips ships: [CGRect])
     func gameEngine(_ gameEngine: GameEngine, didChangeSecondRobotWithShips ships: [CGRect])
+    func gameEngine(_ gameEngine: GameEngine, didFailWithError error: Error?)
 }
 
 public final class GameEngine: GameEngineProtocol {
@@ -67,6 +72,9 @@ public final class GameEngine: GameEngineProtocol {
         firstRobot = robot
         delegate?.gameEngine(self, didChangeFirstRobotWithShips: robot.ships)
         firstRobotShipsPoints = shipsPoints(from: robot.ships)
+        if !shipsValidator.isValid(ships: robot.ships) {
+            delegate?.gameEngine(self, didFailWithError: GameEngineError.firstRobotError)
+        }
     }
     
     public func setSecondRobot(_ robot: Robot) {

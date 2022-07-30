@@ -58,11 +58,23 @@ class GameEngineDelegatingTests: XCTestCase {
         XCTAssertEqual(gameEngineDelegateSpy.secondRobotDidChangeCallCount, 3)
     }
     
+    func test_gameEngineInformsItsDelegateWhenFirstRobotHasIncorrectShipsPlacement() {
+        // Given
+        let sut = GameEngine(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
+        let gameEngineDelegateSpy = GameEngineDelegateSpy()
+        sut.delegate = gameEngineDelegateSpy
+        // When
+        sut.setFirstRobot(BrokenRobot())
+        // Then
+        XCTAssertEqual(gameEngineDelegateSpy.didFailCallCount, 1)
+    }
+    
     // Helpers
     
     private class GameEngineDelegateSpy: GameEngineDelegate {
         private(set) var firstRobotDidChangeCallCount: Int = .zero
         private(set) var secondRobotDidChangeCallCount: Int = .zero
+        private(set) var didFailCallCount: Int = .zero
         
         func gameEngine(_ gameEngine: GameEngine, didChangeFirstRobotWithShips ships: [CGRect]) {
             firstRobotDidChangeCallCount += 1
@@ -71,5 +83,19 @@ class GameEngineDelegatingTests: XCTestCase {
         func gameEngine(_ gameEngine: GameEngine, didChangeSecondRobotWithShips ships: [CGRect]) {
             secondRobotDidChangeCallCount += 1
         }
+        
+        func gameEngine(_ gameEngine: GameEngine, didFailWithError error: Error?) {
+            didFailCallCount += 1
+        }
+    }
+    
+    private class BrokenRobot: Robot {
+        var ships: [CGRect] {
+            []
+        }
+        
+        func set(battlefield: CGRect, ships: [CGSize]) {}
+        func shoot() -> CGPoint { .zero }
+        func shootResult(_ result: ShootResult, for coordinate: CGPoint) {}
     }
 }
