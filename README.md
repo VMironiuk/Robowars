@@ -36,6 +36,10 @@ Desktop macOS client for the Robowars game
 
 🟡 - Emmit the `game mode did change` event
 
+🟡 - Add memory leak test
+
+🟡 - Setup CI
+
 ## BDD Specs
 
 ### Story: User launches the game
