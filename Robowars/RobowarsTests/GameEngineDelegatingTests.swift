@@ -158,12 +158,28 @@ class GameEngineDelegatingTests: XCTestCase {
         XCTAssertEqual(gameEngineDelegateSpy.errors[.zero]!.localizedDescription, expectedFirstError.localizedDescription)
         XCTAssertEqual(gameEngineDelegateSpy.errors[1]!.localizedDescription, expectedSecondError.localizedDescription)
     }
+    
+    func test_gameEngineInformsItsDelegateWhenFirstRobotDidShoot() {
+        // Given
+        let sut = GameEngine(shipsValidator: DummyShipsValidator())
+        let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
+        let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
+        let gameEngineDelegateSpy = GameEngineDelegateSpy()
+        sut.delegate = gameEngineDelegateSpy
+        sut.setFirstRobot(firstShootingRobot)
+        sut.setSecondRobot(secondShootingRobot)
+        // When
+        sut.start()
+        // Then
+        XCTAssertEqual(gameEngineDelegateSpy.firstRobotShootsCount, 1)
+    }
 
     // Helpers
     
     private class GameEngineDelegateSpy: GameEngineDelegate {
         private(set) var firstRobotDidChangeCallCount: Int = .zero
         private(set) var secondRobotDidChangeCallCount: Int = .zero
+        private(set) var firstRobotShootsCount: Int = .zero
         private(set) var errors: [Error?] = []
         var didFailCallCount: Int {
             errors.count
@@ -180,6 +196,10 @@ class GameEngineDelegatingTests: XCTestCase {
         func gameEngine(_ gameEngine: GameEngine, didFailWithError error: Error?) {
             errors.append(error)
         }
+        
+        func gameEngine(_ gameEngine: GameEngine, firstRobotDidShootWithResult result: ShootResult) {
+            firstRobotShootsCount += 1
+        }
     }
     
     private class BrokenRobot: Robot {
@@ -195,5 +215,28 @@ class GameEngineDelegatingTests: XCTestCase {
         func set(battlefield: CGRect, ships: [CGSize]) {}
         func shoot() -> CGPoint { .zero }
         func shootResult(_ result: ShootResult, for coordinate: CGPoint) {}
+    }
+    
+    private class ShootingRobot: Robot {
+        private let shoots: [CGPoint] = [.zero, CGPoint(x: 1, y: 0)]
+        private var currenntShoot: Int = .zero
+        let ships: [CGRect]
+        let name: String = ""
+        
+        init(ships: [CGRect]) {
+            self.ships = ships
+        }
+        
+        func set(battlefield: CGRect, ships: [CGSize]) {
+        }
+        
+        func shoot() -> CGPoint {
+            let shoot = shoots[currenntShoot]
+            currenntShoot = (currenntShoot + 1) % shoots.count
+            return shoot
+        }
+        
+        func shootResult(_ result: ShootResult, for coordinate: CGPoint) {
+        }
     }
 }
