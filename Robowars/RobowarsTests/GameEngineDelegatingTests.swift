@@ -194,11 +194,17 @@ class GameEngineDelegatingTests: XCTestCase {
     private class GameEngineDelegateSpy: GameEngineDelegate {
         private(set) var firstRobotDidChangeCallCount: Int = .zero
         private(set) var secondRobotDidChangeCallCount: Int = .zero
-        private(set) var firstRobotShootsCount: Int = .zero
-        private(set) var secondRobotShootsCount: Int = .zero
+        private(set) var firstRobotShootResults: [ShootResult] = []
+        private(set) var secondRobotShootResults: [ShootResult] = []
         private(set) var errors: [Error?] = []
         var didFailCallCount: Int {
             errors.count
+        }
+        var firstRobotShootsCount: Int {
+            firstRobotShootResults.count
+        }
+        var secondRobotShootsCount: Int {
+            secondRobotShootResults.count
         }
         
         func gameEngine(_ gameEngine: GameEngine, didChangeFirstRobotWithShips ships: [CGRect]) {
@@ -214,11 +220,11 @@ class GameEngineDelegatingTests: XCTestCase {
         }
         
         func gameEngine(_ gameEngine: GameEngine, firstRobotDidShootWithResult result: ShootResult) {
-            firstRobotShootsCount += 1
+            firstRobotShootResults.append(result)
         }
         
         func gameEngine(_ gameEngine: GameEngine, secondRobotDidShootWithResult result: ShootResult) {
-            secondRobotShootsCount += 1
+            secondRobotShootResults.append(result)
         }
     }
     
