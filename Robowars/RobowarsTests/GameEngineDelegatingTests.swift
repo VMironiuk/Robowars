@@ -173,6 +173,21 @@ class GameEngineDelegatingTests: XCTestCase {
         // Then
         XCTAssertEqual(gameEngineDelegateSpy.firstRobotShootsCount, 1)
     }
+    
+    func test_gameEngineInformsItsDelegateWhenSecondRobotDidShoot() {
+        // Given
+        let sut = GameEngine(shipsValidator: DummyShipsValidator())
+        let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
+        let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 1, y: 0, width: 1, height: 1)])
+        let gameEngineDelegateSpy = GameEngineDelegateSpy()
+        sut.delegate = gameEngineDelegateSpy
+        sut.setFirstRobot(firstShootingRobot)
+        sut.setSecondRobot(secondShootingRobot)
+        // When
+        sut.start()
+        // Then
+        XCTAssertEqual(gameEngineDelegateSpy.secondRobotShootsCount, 1)
+    }
 
     // Helpers
     
@@ -180,6 +195,7 @@ class GameEngineDelegatingTests: XCTestCase {
         private(set) var firstRobotDidChangeCallCount: Int = .zero
         private(set) var secondRobotDidChangeCallCount: Int = .zero
         private(set) var firstRobotShootsCount: Int = .zero
+        private(set) var secondRobotShootsCount: Int = .zero
         private(set) var errors: [Error?] = []
         var didFailCallCount: Int {
             errors.count
@@ -199,6 +215,10 @@ class GameEngineDelegatingTests: XCTestCase {
         
         func gameEngine(_ gameEngine: GameEngine, firstRobotDidShootWithResult result: ShootResult) {
             firstRobotShootsCount += 1
+        }
+        
+        func gameEngine(_ gameEngine: GameEngine, secondRobotDidShootWithResult result: ShootResult) {
+            secondRobotShootsCount += 1
         }
     }
     

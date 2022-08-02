@@ -35,6 +35,7 @@ public protocol GameEngineDelegate: AnyObject {
     func gameEngine(_ gameEngine: GameEngine, didChangeFirstRobotWithShips ships: [CGRect])
     func gameEngine(_ gameEngine: GameEngine, didChangeSecondRobotWithShips ships: [CGRect])
     func gameEngine(_ gameEngine: GameEngine, firstRobotDidShootWithResult result: ShootResult)
+    func gameEngine(_ gameEngine: GameEngine, secondRobotDidShootWithResult result: ShootResult)
     func gameEngine(_ gameEngine: GameEngine, didFailWithError error: Error?)
 }
 
@@ -122,6 +123,7 @@ public final class GameEngine: GameEngineProtocol {
         var result: ShootResult = .miss
         if robot === firstRobot {
             result = shootResult(for: shootPoint, with: &firstRobotShipsPoints)
+            delegate?.gameEngine(self, secondRobotDidShootWithResult: result)
         }
         else {
             result = shootResult(for: shootPoint, with: &secondRobotShipsPoints)

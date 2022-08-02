@@ -28,7 +28,7 @@ Desktop macOS client for the Robowars game
       [✅] Emmit the `robot 2 did change` event
       [✅] Emmit the `did fail` event in case of incorrect ships placement by any robot
       [✅] Emit the `robot 1 did shoot` event
-      [-] Emit the `robot 2 did shoot` event
+      [✅] Emit the `robot 2 did shoot` event
       [-] Emit the `robot 1 did win` event
       [-] Emit the `robot 2 did win` event
       [-] Emit the `robot 1 did lose` event
