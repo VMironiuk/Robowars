@@ -188,6 +188,24 @@ class GameEngineDelegatingTests: XCTestCase {
         // Then
         XCTAssertEqual(gameEngineDelegateSpy.secondRobotShootsCount, 1)
     }
+    
+    func test_gameEngineInformsItsDelegateWithProperShootResults() {
+        // Given
+        let sut = GameEngine(shipsValidator: DummyShipsValidator())
+        let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 1, y: 0, width: 2, height: 1)])
+        let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 1, y: 0, width: 2, height: 1)])
+        let expectedFirstRobotShootResults: [ShootResult] = [.miss, .hit, .kill]
+        let expectedSecondRobotShootResults: [ShootResult] = [.miss]
+        let gameEngineDelegateSpy = GameEngineDelegateSpy()
+        sut.delegate = gameEngineDelegateSpy
+        sut.setFirstRobot(firstShootingRobot)
+        sut.setSecondRobot(secondShootingRobot)
+        // When
+        sut.start()
+        // Then
+        XCTAssertEqual(gameEngineDelegateSpy.firstRobotShootResults, expectedFirstRobotShootResults)
+        XCTAssertEqual(gameEngineDelegateSpy.secondRobotShootResults, expectedSecondRobotShootResults)
+    }
 
     // Helpers
     
@@ -244,7 +262,7 @@ class GameEngineDelegatingTests: XCTestCase {
     }
     
     private class ShootingRobot: Robot {
-        private let shoots: [CGPoint] = [.zero, CGPoint(x: 1, y: 0)]
+        private let shoots: [CGPoint] = [.zero, CGPoint(x: 1, y: 0), CGPoint(x: 2, y: 0)]
         private var currenntShoot: Int = .zero
         let ships: [CGRect]
         let name: String = ""
