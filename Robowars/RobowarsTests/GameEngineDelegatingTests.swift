@@ -206,14 +206,34 @@ class GameEngineDelegatingTests: XCTestCase {
         XCTAssertEqual(gameEngineDelegateSpy.firstRobotShootResults, expectedFirstRobotShootResults)
         XCTAssertEqual(gameEngineDelegateSpy.secondRobotShootResults, expectedSecondRobotShootResults)
     }
+    
+    func test_gameEngineInformsItsDelegateWhenFirstRobotWon() {
+        // Given
+        let sut = GameEngine(shipsValidator: DummyShipsValidator())
+        let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
+        let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
+        let gameEngineDelegateSpy = GameEngineDelegateSpy()
+        sut.delegate = gameEngineDelegateSpy
+        sut.setFirstRobot(firstShootingRobot)
+        sut.setSecondRobot(secondShootingRobot)
+        // When
+        sut.start()
+        // Then
+        XCTAssertEqual(gameEngineDelegateSpy.winner, .firstRobot)
+    }
 
     // Helpers
+    
+    private enum Winner {
+        case none, firstRobot, secondRobot
+    }
     
     private class GameEngineDelegateSpy: GameEngineDelegate {
         private(set) var firstRobotDidChangeCallCount: Int = .zero
         private(set) var secondRobotDidChangeCallCount: Int = .zero
         private(set) var firstRobotShootResults: [ShootResult] = []
         private(set) var secondRobotShootResults: [ShootResult] = []
+        private(set) var winner: Winner = .none
         private(set) var errors: [Error?] = []
         var didFailCallCount: Int {
             errors.count
@@ -244,6 +264,14 @@ class GameEngineDelegatingTests: XCTestCase {
         func gameEngine(_ gameEngine: GameEngine, secondRobotDidShootWithResult result: ShootResult) {
             secondRobotShootResults.append(result)
         }
+        
+        func gameEngine(_ gameEngine: GameEngine, firstRobotDidWinWithMessage message: String) {
+            winner = .firstRobot
+        }
+        
+        func gameEngine(_ gameEngine: GameEngine, secondRobotDidWinWithMessage message: String) {
+            winner = .secondRobot
+        }
     }
     
     private class BrokenRobot: Robot {
@@ -251,6 +279,7 @@ class GameEngineDelegatingTests: XCTestCase {
             []
         }
         let name: String
+        let winnerMessage: String = ""
         
         init(name: String = "") {
             self.name = name
@@ -266,9 +295,11 @@ class GameEngineDelegatingTests: XCTestCase {
         private var currenntShoot: Int = .zero
         let ships: [CGRect]
         let name: String = ""
+        let winnerMessage: String
         
-        init(ships: [CGRect]) {
+        init(ships: [CGRect], winnerMessage: String = "") {
             self.ships = ships
+            self.winnerMessage = winnerMessage
         }
         
         func set(battlefield: CGRect, ships: [CGSize]) {

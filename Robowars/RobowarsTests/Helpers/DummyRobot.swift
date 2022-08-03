@@ -13,6 +13,9 @@ final class DummyRobot: Robot {
     var name: String {
         ""
     }
+    var winnerMessage: String {
+        ""
+    }
     
     func set(battlefield: CGRect, ships: [CGSize]) {
         self.ships = [
