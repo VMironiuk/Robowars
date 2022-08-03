@@ -221,6 +221,21 @@ class GameEngineDelegatingTests: XCTestCase {
         // Then
         XCTAssertEqual(gameEngineDelegateSpy.winner, .firstRobot)
     }
+    
+    func test_gameEngineInformsItsDelegateWhenSecondRobotWon() {
+        // Given
+        let sut = GameEngine(shipsValidator: DummyShipsValidator())
+        let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
+        let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 1, y: 0, width: 1, height: 1)])
+        let gameEngineDelegateSpy = GameEngineDelegateSpy()
+        sut.delegate = gameEngineDelegateSpy
+        sut.setFirstRobot(firstShootingRobot)
+        sut.setSecondRobot(secondShootingRobot)
+        // When
+        sut.start()
+        // Then
+        XCTAssertEqual(gameEngineDelegateSpy.winner, .secondRobot)
+    }
 
     // Helpers
     
