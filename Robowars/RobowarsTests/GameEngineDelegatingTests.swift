@@ -210,7 +210,7 @@ class GameEngineDelegatingTests: XCTestCase {
     func test_gameEngineInformsItsDelegateWhenFirstRobotWon() {
         // Given
         let sut = GameEngine(shipsValidator: DummyShipsValidator())
-        let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
+        let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)], winnerMessage: "first won")
         let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
         let gameEngineDelegateSpy = GameEngineDelegateSpy()
         sut.delegate = gameEngineDelegateSpy
@@ -220,13 +220,14 @@ class GameEngineDelegatingTests: XCTestCase {
         sut.start()
         // Then
         XCTAssertEqual(gameEngineDelegateSpy.winner, .firstRobot)
+        XCTAssertEqual(gameEngineDelegateSpy.winnerMessage, firstShootingRobot.winnerMessage)
     }
     
     func test_gameEngineInformsItsDelegateWhenSecondRobotWon() {
         // Given
         let sut = GameEngine(shipsValidator: DummyShipsValidator())
         let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
-        let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 1, y: 0, width: 1, height: 1)])
+        let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 1, y: 0, width: 1, height: 1)], winnerMessage: "second won")
         let gameEngineDelegateSpy = GameEngineDelegateSpy()
         sut.delegate = gameEngineDelegateSpy
         sut.setFirstRobot(firstShootingRobot)
@@ -235,6 +236,7 @@ class GameEngineDelegatingTests: XCTestCase {
         sut.start()
         // Then
         XCTAssertEqual(gameEngineDelegateSpy.winner, .secondRobot)
+        XCTAssertEqual(gameEngineDelegateSpy.winnerMessage, secondShootingRobot.winnerMessage)
     }
 
     // Helpers
@@ -249,6 +251,7 @@ class GameEngineDelegatingTests: XCTestCase {
         private(set) var firstRobotShootResults: [ShootResult] = []
         private(set) var secondRobotShootResults: [ShootResult] = []
         private(set) var winner: Winner = .none
+        private(set) var winnerMessage: String = ""
         private(set) var errors: [Error?] = []
         var didFailCallCount: Int {
             errors.count
@@ -282,10 +285,12 @@ class GameEngineDelegatingTests: XCTestCase {
         
         func gameEngine(_ gameEngine: GameEngine, firstRobotDidWinWithMessage message: String) {
             winner = .firstRobot
+            winnerMessage = message
         }
         
         func gameEngine(_ gameEngine: GameEngine, secondRobotDidWinWithMessage message: String) {
             winner = .secondRobot
+            winnerMessage = message
         }
     }
     
