@@ -76,7 +76,7 @@ public final class GameEngine: GameEngineProtocol {
             if firstRobotShipsPoints.isEmpty {
                 winner = shootingRobot
                 delegate?.gameEngine(self, secondRobotDidWinWithMessage: shootingRobot.winnerMessage)
-                delegate?.gameEngine(self, firstRobotDidLoseWithMessage: firstRobot.loserMessage)
+                delegate?.gameEngine(self, firstRobotDidLoseWithMessage: oppositeRobot(to: shootingRobot).loserMessage)
                 return
             }
             if secondRobotShipsPoints.isEmpty {
