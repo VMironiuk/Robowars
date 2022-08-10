@@ -74,6 +74,9 @@ class GameEngineGameLoopTests: XCTestCase {
         var winnerMessage: String {
             ""
         }
+        var loserMessage: String {
+            ""
+        }
         
         init(ships: [CGRect], maxBattlefieldSize: CGFloat) {
             self._ships = ships
