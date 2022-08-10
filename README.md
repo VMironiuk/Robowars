@@ -22,7 +22,7 @@ Desktop macOS client for the Robowars game
       [✅] Implement more real test cases
       [✅] Improve the code
 
-🟡 - Add a delegate for GameEngine
+🟢 - Add a delegate for GameEngine
 
       [✅] Emmit the `robot 1 did change` event
       [✅] Emmit the `robot 2 did change` event
@@ -31,8 +31,8 @@ Desktop macOS client for the Robowars game
       [✅] Emit the `robot 2 did shoot` event
       [✅] Emit the `robot 1 did win` event
       [✅] Emit the `robot 2 did win` event
-      [-] Emit the `robot 1 did lose` event
-      [-] Emit the `robot 2 did lose` event
+      [✅] Emit the `robot 1 did lose` event
+      [✅] Emit the `robot 2 did lose` event
 
 🟡 - Emmit the `game mode did change` event
 
