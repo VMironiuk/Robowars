@@ -255,6 +255,22 @@ class GameEngineDelegatingTests: XCTestCase {
         XCTAssertEqual(gameEngineDelegateSpy.loserMessage, firstShootingRobot.loserMessage)
     }
 
+    func test_gameEngineInformsItsDelegateWhenSecondRobotDidLose() {
+        // Given
+        let sut = GameEngine(shipsValidator: DummyShipsValidator())
+        let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
+        let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)], loserMessage: "second lost")
+        let gameEngineDelegateSpy = GameEngineDelegateSpy()
+        sut.delegate = gameEngineDelegateSpy
+        sut.setFirstRobot(firstShootingRobot)
+        sut.setSecondRobot(secondShootingRobot)
+        // When
+        sut.start()
+        // Then
+        XCTAssertEqual(gameEngineDelegateSpy.loser, .secondRobot)
+        XCTAssertEqual(gameEngineDelegateSpy.loserMessage, secondShootingRobot.loserMessage)
+    }
+
     // Helpers
     
     private enum Winner {
@@ -317,6 +333,11 @@ class GameEngineDelegatingTests: XCTestCase {
         
         func gameEngine(_ gameEngine: GameEngine, firstRobotDidLoseWithMessage message: String) {
             loser = .firstRobot
+            loserMessage = message
+        }
+        
+        func gameEngine(_ gameEngine: GameEngine, secondRobotDidLoseWithMessage message: String) {
+            loser = .secondRobot
             loserMessage = message
         }
     }

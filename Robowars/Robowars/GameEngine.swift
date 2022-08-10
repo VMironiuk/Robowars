@@ -39,6 +39,7 @@ public protocol GameEngineDelegate: AnyObject {
     func gameEngine(_ gameEngine: GameEngine, firstRobotDidWinWithMessage message: String)
     func gameEngine(_ gameEngine: GameEngine, secondRobotDidWinWithMessage message: String)
     func gameEngine(_ gameEngine: GameEngine, firstRobotDidLoseWithMessage message: String)
+    func gameEngine(_ gameEngine: GameEngine, secondRobotDidLoseWithMessage message: String)
     func gameEngine(_ gameEngine: GameEngine, didFailWithError error: Error?)
 }
 
@@ -81,6 +82,7 @@ public final class GameEngine: GameEngineProtocol {
             if secondRobotShipsPoints.isEmpty {
                 winner = shootingRobot
                 delegate?.gameEngine(self, firstRobotDidWinWithMessage: shootingRobot.winnerMessage)
+                delegate?.gameEngine(self, secondRobotDidLoseWithMessage: oppositeRobot(to: shootingRobot).loserMessage)
                 return
             }
             shootingRobot.shootResult(shootResult, for: shootPoint)
