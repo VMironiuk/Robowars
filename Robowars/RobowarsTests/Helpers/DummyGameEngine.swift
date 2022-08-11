@@ -30,4 +30,7 @@ class DummyGameEngine: GameEngineProtocol {
     func setSecondRobot(_ robot: Robot) {
         gameEngine.setSecondRobot(robot)
     }
+    
+    func update(gameMode: GameMode) {
+    }
 }

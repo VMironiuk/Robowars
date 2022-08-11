@@ -271,6 +271,23 @@ class GameEngineDelegatingTests: XCTestCase {
         XCTAssertEqual(gameEngineDelegateSpy.loserMessage, secondShootingRobot.loserMessage)
     }
 
+    func test_gameEngineInformsItsDelegateWhenGameModeDidChange() {
+        // Given
+        let sut = GameEngine(shipsValidator: DummyShipsValidator())
+        let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
+        let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
+        let gameEngineDelegateSpy = GameEngineDelegateSpy()
+        sut.delegate = gameEngineDelegateSpy
+        sut.setFirstRobot(firstShootingRobot)
+        sut.setSecondRobot(secondShootingRobot)
+        // When
+        sut.update(gameMode: .classic)
+        // Then
+        XCTAssertEqual(gameEngineDelegateSpy.gameModeDidChangeCallCount, 1)
+        XCTAssertEqual(gameEngineDelegateSpy.firstRobotDidChangeCallCount, 2)
+        XCTAssertEqual(gameEngineDelegateSpy.secondRobotDidChangeCallCount, 2)
+    }
+    
     // Helpers
     
     private enum Winner {
@@ -284,6 +301,7 @@ class GameEngineDelegatingTests: XCTestCase {
     private class GameEngineDelegateSpy: GameEngineDelegate {
         private(set) var firstRobotDidChangeCallCount: Int = .zero
         private(set) var secondRobotDidChangeCallCount: Int = .zero
+        private(set) var gameModeDidChangeCallCount: Int = .zero
         private(set) var firstRobotShootResults: [ShootResult] = []
         private(set) var secondRobotShootResults: [ShootResult] = []
         private(set) var winner: Winner = .none
@@ -339,6 +357,10 @@ class GameEngineDelegatingTests: XCTestCase {
         func gameEngine(_ gameEngine: GameEngine, secondRobotDidLoseWithMessage message: String) {
             loser = .secondRobot
             loserMessage = message
+        }
+        
+        func gameEngine(_ gameEngine: GameEngine, didChangeGameModeWithBattleField battlefield: CGRect) {
+            gameModeDidChangeCallCount += 1
         }
     }
     

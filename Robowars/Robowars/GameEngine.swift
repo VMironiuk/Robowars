@@ -29,6 +29,7 @@ public protocol GameEngineProtocol: AnyObject {
     func start()
     func setFirstRobot(_ robot: Robot)
     func setSecondRobot(_ robot: Robot)
+    func update(gameMode: GameMode)
 }
 
 public protocol GameEngineDelegate: AnyObject {
@@ -40,6 +41,7 @@ public protocol GameEngineDelegate: AnyObject {
     func gameEngine(_ gameEngine: GameEngine, secondRobotDidWinWithMessage message: String)
     func gameEngine(_ gameEngine: GameEngine, firstRobotDidLoseWithMessage message: String)
     func gameEngine(_ gameEngine: GameEngine, secondRobotDidLoseWithMessage message: String)
+    func gameEngine(_ gameEngine: GameEngine, didChangeGameModeWithBattleField battlefield: CGRect)
     func gameEngine(_ gameEngine: GameEngine, didFailWithError error: Error?)
 }
 
@@ -108,6 +110,17 @@ public final class GameEngine: GameEngineProtocol {
         if !shipsValidator.isValid(ships: robot.ships) {
             delegate?.gameEngine(self, didFailWithError: GameEngineError(robotName: robot.name))
         }
+    }
+    
+    public func update(gameMode: GameMode) {
+        shipsValidator.update(gameMode: gameMode)
+        delegate?.gameEngine(self, didChangeGameModeWithBattleField: gameMode.battlefield())
+        
+        guard let firstRobot = firstRobot, let secondRobot = secondRobot else {
+            fatalError("Robot cannot be nil")
+        }
+        setFirstRobot(firstRobot)
+        setSecondRobot(secondRobot)
     }
     
     private func oppositeRobot(to robot: Robot) -> Robot {

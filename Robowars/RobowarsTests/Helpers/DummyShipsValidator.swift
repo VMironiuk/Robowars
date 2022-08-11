@@ -12,4 +12,7 @@ final class DummyShipsValidator: ShipsValidator {
     func isValid(ships: [CGRect]) -> Bool {
         true
     }
+    
+    func update(gameMode: GameMode) {
+    }
 }

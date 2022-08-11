@@ -8,7 +8,7 @@
 import Foundation
 
 public final class ShipsArrangementValidator: ShipsValidator {
-    private let gameMode: GameMode
+    private var gameMode: GameMode
     
     public init(gameMode: GameMode) {
         self.gameMode = gameMode
@@ -16,6 +16,10 @@ public final class ShipsArrangementValidator: ShipsValidator {
     
     public func isValid(ships: [CGRect]) -> Bool {
         isValidCountAndSizesOf(ships: ships) && isShipsInsideBattlefield(ships) && !isCollisionBetween(ships: ships)
+    }
+    
+    public func update(gameMode: GameMode) {
+        self.gameMode = gameMode
     }
     
     private func isValidCountAndSizesOf(ships: [CGRect]) -> Bool {

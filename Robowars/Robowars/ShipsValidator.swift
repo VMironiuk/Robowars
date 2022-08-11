@@ -9,4 +9,5 @@ import Foundation
 
 public protocol ShipsValidator: AnyObject {
     func isValid(ships: [CGRect]) -> Bool
+    func update(gameMode: GameMode)
 }
