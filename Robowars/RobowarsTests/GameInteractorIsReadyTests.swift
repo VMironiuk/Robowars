@@ -47,15 +47,14 @@ class GameInteractorIsReadyTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private func makeSUT() -> (GameInteractor, GameMode) {
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (GameInteractor, GameMode) {
         let gameMode: GameMode = .classic
-        let sut =  GameInteractor(
-            gameEngine: DummyGameEngine(
-                shipsValidator: ShipsArrangementValidator(
-                    gameMode: gameMode
-                )
-            )
-        )
+        let shipsValidator = ShipsArrangementValidator(gameMode: gameMode)
+        let gameEngine = DummyGameEngine(shipsValidator: shipsValidator)
+        let sut =  GameInteractor(gameEngine: gameEngine)
+        trackForMemoryLeak(sut, file: file, line: line)
+        trackForMemoryLeak(shipsValidator, file: file, line: line)
+        trackForMemoryLeak(gameEngine, file: file, line: line)
         return (sut, gameMode)
     }
 }
