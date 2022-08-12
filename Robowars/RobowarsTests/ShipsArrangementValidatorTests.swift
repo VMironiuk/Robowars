@@ -22,8 +22,9 @@ class ShipsArrangementValidatorTests: XCTestCase {
 
     // MARK: - Helpers
     
-    private func makeSUT() -> ShipsArrangementValidator {
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> ShipsArrangementValidator {
         let sut = ShipsArrangementValidator(gameMode: .classic)
+        trackForMemoryLeak(sut, file: file, line: line)
         return sut
     }
     
