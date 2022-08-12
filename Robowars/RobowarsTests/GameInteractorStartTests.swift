@@ -55,9 +55,11 @@ class GameInteractorStartTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private func makeSUT() -> (GameInteractor, GameEngineSpy) {
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (GameInteractor, GameEngineSpy) {
         let gameEngine = GameEngineSpy(shipsValidator: DummyShipsValidator())
         let sut = GameInteractor(gameEngine: gameEngine)
+        trackForMemoryLeak(gameEngine, file: file, line: line)
+        trackForMemoryLeak(sut, file: file, line: line)
         return (sut, gameEngine)
     }
         
