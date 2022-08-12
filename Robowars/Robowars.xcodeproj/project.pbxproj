@@ -10,6 +10,7 @@
 		2E119D94287E9FE400B52CD2 /* DummyGameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E119D93287E9FE400B52CD2 /* DummyGameEngine.swift */; };
 		2E4D0C2B2894EFBA002027B5 /* GameEngineDelegatingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4D0C2A2894EFBA002027B5 /* GameEngineDelegatingTests.swift */; };
 		2E7602052882C7BA00F45FD0 /* GameEngineGameLoopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7602042882C7BA00F45FD0 /* GameEngineGameLoopTests.swift */; };
+		2E7982A228A62BB600F10D91 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7982A128A62BB600F10D91 /* XCTestCase+MemoryLeakTracking.swift */; };
 		3C0649E3284224620039710D /* Robowars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0649DA284224620039710D /* Robowars.framework */; };
 		3C0649E9284224620039710D /* Robowars.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C0649DD284224620039710D /* Robowars.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3C0649F3284224A80039710D /* GameInteractorStartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0649F2284224A80039710D /* GameInteractorStartTests.swift */; };
@@ -39,6 +40,7 @@
 		2E119D93287E9FE400B52CD2 /* DummyGameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyGameEngine.swift; sourceTree = "<group>"; };
 		2E4D0C2A2894EFBA002027B5 /* GameEngineDelegatingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngineDelegatingTests.swift; sourceTree = "<group>"; };
 		2E7602042882C7BA00F45FD0 /* GameEngineGameLoopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngineGameLoopTests.swift; sourceTree = "<group>"; };
+		2E7982A128A62BB600F10D91 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		3C0649DA284224620039710D /* Robowars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Robowars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C0649DD284224620039710D /* Robowars.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Robowars.h; sourceTree = "<group>"; };
 		3C0649E2284224620039710D /* RobowarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RobowarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +127,7 @@
 				3CCFE07F284BC93C0007153B /* DummyRobot.swift */,
 				3C6ED039285E0A3300A61E09 /* DummyShipsValidator.swift */,
 				2E119D93287E9FE400B52CD2 /* DummyGameEngine.swift */,
+				2E7982A128A62BB600F10D91 /* XCTestCase+MemoryLeakTracking.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 			files = (
 				3CE07CE22847C21000ED3CFB /* GameInteractorIsReadyTests.swift in Sources */,
 				2E4D0C2B2894EFBA002027B5 /* GameEngineDelegatingTests.swift in Sources */,
+				2E7982A228A62BB600F10D91 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 				3C6ED03A285E0A3300A61E09 /* DummyShipsValidator.swift in Sources */,
 				3CCFE080284BC93C0007153B /* DummyRobot.swift in Sources */,
 				2E7602052882C7BA00F45FD0 /* GameEngineGameLoopTests.swift in Sources */,
