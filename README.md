@@ -36,7 +36,7 @@ Desktop macOS client for the Robowars game
 
 🟢 - Emmit the `game mode did change` event
 
-🟡 - Add memory leak test
+🟢 - Add memory leak test
 
 🟡 - Do refactoring (system design mostlys)
 
