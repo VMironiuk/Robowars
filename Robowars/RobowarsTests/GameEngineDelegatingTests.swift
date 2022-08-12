@@ -12,8 +12,7 @@ class GameEngineDelegatingTests: XCTestCase {
     
     func test_gameEngineInformsItsDelegateWhenFirstRobotDidChange() {
         // Given
-        let sut = GameEngine(shipsValidator: DummyShipsValidator())
-        let gameEngineDelegateSpy = GameEngineDelegateSpy()
+        let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
         sut.delegate = gameEngineDelegateSpy
         // When
         sut.setFirstRobot(DummyRobot())
@@ -23,8 +22,7 @@ class GameEngineDelegatingTests: XCTestCase {
     
     func test_gameEngineInformsItsDelegateWhenFirstRobotDidChangeThreeTimes() {
         // Given
-        let sut = GameEngine(shipsValidator: DummyShipsValidator())
-        let gameEngineDelegateSpy = GameEngineDelegateSpy()
+        let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
         sut.delegate = gameEngineDelegateSpy
         // When
         sut.setFirstRobot(DummyRobot())
@@ -36,8 +34,7 @@ class GameEngineDelegatingTests: XCTestCase {
     
     func test_gameEngineInformsItsDelegateWhenSecondRobotDidChange() {
         // Given
-        let sut = GameEngine(shipsValidator: DummyShipsValidator())
-        let gameEngineDelegateSpy = GameEngineDelegateSpy()
+        let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
         sut.delegate = gameEngineDelegateSpy
         // When
         sut.setSecondRobot(DummyRobot())
@@ -47,8 +44,7 @@ class GameEngineDelegatingTests: XCTestCase {
     
     func test_gameEngineInformsItsDelegateWhenSecondRobotDidChangeThreeTimes() {
         // Given
-        let sut = GameEngine(shipsValidator: DummyShipsValidator())
-        let gameEngineDelegateSpy = GameEngineDelegateSpy()
+        let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
         sut.delegate = gameEngineDelegateSpy
         // When
         sut.setSecondRobot(DummyRobot())
@@ -60,8 +56,7 @@ class GameEngineDelegatingTests: XCTestCase {
     
     func test_gameEngineInformsItsDelegateWhenFirstRobotHasIncorrectShipsPlacement() {
         // Given
-        let sut = GameEngine(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
-        let gameEngineDelegateSpy = GameEngineDelegateSpy()
+        let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
         sut.delegate = gameEngineDelegateSpy
         // When
         sut.setFirstRobot(BrokenRobot())
@@ -72,8 +67,7 @@ class GameEngineDelegatingTests: XCTestCase {
     
     func test_gameEngineInformsItsDelegateTwiceWhenFirstRobotWithIncorrectShipsPlacementChangedTwice() {
         // Given
-        let sut = GameEngine(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
-        let gameEngineDelegateSpy = GameEngineDelegateSpy()
+        let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
         sut.delegate = gameEngineDelegateSpy
         // When
         sut.setFirstRobot(BrokenRobot())
@@ -86,8 +80,7 @@ class GameEngineDelegatingTests: XCTestCase {
     
     func test_gameEngineInformsItsDelegateWhenSecondRobotHasIncorrectShipsPlacement() {
         // Given
-        let sut = GameEngine(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
-        let gameEngineDelegateSpy = GameEngineDelegateSpy()
+        let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
         sut.delegate = gameEngineDelegateSpy
         // When
         sut.setSecondRobot(BrokenRobot())
@@ -98,8 +91,7 @@ class GameEngineDelegatingTests: XCTestCase {
     
     func test_gameEngineInformsItsDelegateTwiceWhenSecondRobotWithIncorrectShipsPlacementChangedTwice() {
         // Given
-        let sut = GameEngine(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
-        let gameEngineDelegateSpy = GameEngineDelegateSpy()
+        let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
         sut.delegate = gameEngineDelegateSpy
         // When
         sut.setSecondRobot(BrokenRobot())
@@ -112,8 +104,7 @@ class GameEngineDelegatingTests: XCTestCase {
     
     func test_gameEngineInformsItsDelegateTwiceWhenFirstAndSecondRobotsHaveIncorrectShipsPlacement() {
         // Given
-        let sut = GameEngine(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
-        let gameEngineDelegateSpy = GameEngineDelegateSpy()
+        let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
         sut.delegate = gameEngineDelegateSpy
         // When
         sut.setFirstRobot(BrokenRobot())
@@ -126,8 +117,7 @@ class GameEngineDelegatingTests: XCTestCase {
 
     func test_gameEngineInformsItsDelegateFourTimesWhenFirstAndSecondRobotsWithIncorrectShipsPlacementChangedTwice() {
         // Given
-        let sut = GameEngine(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
-        let gameEngineDelegateSpy = GameEngineDelegateSpy()
+        let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
         sut.delegate = gameEngineDelegateSpy
         // When
         sut.setFirstRobot(BrokenRobot())
@@ -144,12 +134,11 @@ class GameEngineDelegatingTests: XCTestCase {
     
     func test_gameEngineInformsItsDelegateWithProperErrorDescriptionWhenFirstAndSecondRobotsHasIncorrectShipsPlacement() {
         // Given
-        let sut = GameEngine(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
+        let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
         let firstBrokenRobot = BrokenRobot(name: "FirstBrokenRobot")
         let secondBrokenRobot = BrokenRobot(name: "SecondBrokenRobot")
         let expectedFirstError = GameEngineError(robotName: firstBrokenRobot.name)
         let expectedSecondError = GameEngineError(robotName: secondBrokenRobot.name)
-        let gameEngineDelegateSpy = GameEngineDelegateSpy()
         sut.delegate = gameEngineDelegateSpy
         // When
         sut.setFirstRobot(firstBrokenRobot)
@@ -161,10 +150,9 @@ class GameEngineDelegatingTests: XCTestCase {
     
     func test_gameEngineInformsItsDelegateWhenFirstRobotDidShoot() {
         // Given
-        let sut = GameEngine(shipsValidator: DummyShipsValidator())
+        let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
         let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
         let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
-        let gameEngineDelegateSpy = GameEngineDelegateSpy()
         sut.delegate = gameEngineDelegateSpy
         sut.setFirstRobot(firstShootingRobot)
         sut.setSecondRobot(secondShootingRobot)
@@ -176,10 +164,9 @@ class GameEngineDelegatingTests: XCTestCase {
     
     func test_gameEngineInformsItsDelegateWhenSecondRobotDidShoot() {
         // Given
-        let sut = GameEngine(shipsValidator: DummyShipsValidator())
+        let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
         let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
         let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 1, y: 0, width: 1, height: 1)])
-        let gameEngineDelegateSpy = GameEngineDelegateSpy()
         sut.delegate = gameEngineDelegateSpy
         sut.setFirstRobot(firstShootingRobot)
         sut.setSecondRobot(secondShootingRobot)
@@ -191,12 +178,11 @@ class GameEngineDelegatingTests: XCTestCase {
     
     func test_gameEngineInformsItsDelegateWithProperShootResults() {
         // Given
-        let sut = GameEngine(shipsValidator: DummyShipsValidator())
+        let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
         let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 1, y: 0, width: 2, height: 1)])
         let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 1, y: 0, width: 2, height: 1)])
         let expectedFirstRobotShootResults: [ShootResult] = [.miss, .hit, .kill]
         let expectedSecondRobotShootResults: [ShootResult] = [.miss]
-        let gameEngineDelegateSpy = GameEngineDelegateSpy()
         sut.delegate = gameEngineDelegateSpy
         sut.setFirstRobot(firstShootingRobot)
         sut.setSecondRobot(secondShootingRobot)
@@ -209,10 +195,9 @@ class GameEngineDelegatingTests: XCTestCase {
     
     func test_gameEngineInformsItsDelegateWhenFirstRobotWon() {
         // Given
-        let sut = GameEngine(shipsValidator: DummyShipsValidator())
+        let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
         let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)], winnerMessage: "first won")
         let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
-        let gameEngineDelegateSpy = GameEngineDelegateSpy()
         sut.delegate = gameEngineDelegateSpy
         sut.setFirstRobot(firstShootingRobot)
         sut.setSecondRobot(secondShootingRobot)
@@ -225,10 +210,9 @@ class GameEngineDelegatingTests: XCTestCase {
     
     func test_gameEngineInformsItsDelegateWhenSecondRobotWon() {
         // Given
-        let sut = GameEngine(shipsValidator: DummyShipsValidator())
+        let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
         let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
         let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 1, y: 0, width: 1, height: 1)], winnerMessage: "second won")
-        let gameEngineDelegateSpy = GameEngineDelegateSpy()
         sut.delegate = gameEngineDelegateSpy
         sut.setFirstRobot(firstShootingRobot)
         sut.setSecondRobot(secondShootingRobot)
@@ -241,10 +225,9 @@ class GameEngineDelegatingTests: XCTestCase {
 
     func test_gameEngineInformsItsDelegateWhenFirstDidLose() {
         // Given
-        let sut = GameEngine(shipsValidator: DummyShipsValidator())
+        let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
         let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)], loserMessage: "first lost")
         let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 1, y: 0, width: 1, height: 1)])
-        let gameEngineDelegateSpy = GameEngineDelegateSpy()
         sut.delegate = gameEngineDelegateSpy
         sut.setFirstRobot(firstShootingRobot)
         sut.setSecondRobot(secondShootingRobot)
@@ -257,10 +240,9 @@ class GameEngineDelegatingTests: XCTestCase {
 
     func test_gameEngineInformsItsDelegateWhenSecondRobotDidLose() {
         // Given
-        let sut = GameEngine(shipsValidator: DummyShipsValidator())
+        let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
         let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
         let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)], loserMessage: "second lost")
-        let gameEngineDelegateSpy = GameEngineDelegateSpy()
         sut.delegate = gameEngineDelegateSpy
         sut.setFirstRobot(firstShootingRobot)
         sut.setSecondRobot(secondShootingRobot)
@@ -273,10 +255,9 @@ class GameEngineDelegatingTests: XCTestCase {
 
     func test_gameEngineInformsItsDelegateWhenGameModeDidChange() {
         // Given
-        let sut = GameEngine(shipsValidator: DummyShipsValidator())
+        let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
         let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
         let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
-        let gameEngineDelegateSpy = GameEngineDelegateSpy()
         sut.delegate = gameEngineDelegateSpy
         sut.setFirstRobot(firstShootingRobot)
         sut.setSecondRobot(secondShootingRobot)
@@ -289,6 +270,18 @@ class GameEngineDelegatingTests: XCTestCase {
     }
     
     // Helpers
+    
+    private func makeSUT(
+        shipsValidator: ShipsValidator,
+        file: StaticString = #filePath,
+        line: UInt = #line
+    ) -> (GameEngineProtocol, GameEngineDelegateSpy) {
+        let sut = GameEngine(shipsValidator: shipsValidator)
+        let delegate = GameEngineDelegateSpy()
+        trackForMemoryLeak(sut, file: file, line: line)
+        trackForMemoryLeak(delegate, file: file, line: line)
+        return (sut, delegate)
+    }
     
     private enum Winner {
         case none, firstRobot, secondRobot

@@ -51,7 +51,7 @@ public final class GameEngine: GameEngineProtocol {
     private var secondRobot: Robot?
     private var firstRobotShipsPoints: [[CGPoint]] = []
     private var secondRobotShipsPoints: [[CGPoint]] = []
-    public var delegate: GameEngineDelegate?
+    public weak var delegate: GameEngineDelegate?
     public var winner: Robot?
     
     public var isValid: Bool {
