@@ -12,9 +12,10 @@ class GameEngineGameLoopTests: XCTestCase {
     
     func test_gameEngine_gameLoopFinishedWithFirstRobotAsWinner() {
         // Given
-        let firstRobot = ShootingTestRobot(ships: [CGRect(x: 1, y: 1, width: 1, height: 1)], maxBattlefieldSize: 2)
-        let secondRobot = ShootingTestRobot(ships: [CGRect(x: 1, y: 1, width: 1, height: 1)], maxBattlefieldSize: 2)
-        let sut = GameEngine(shipsValidator: DummyShipsValidator())
+        let (sut, firstRobot, secondRobot) = makeSUT(
+            firstRobotShips: [CGRect(x: 1, y: 1, width: 1, height: 1)],
+            secondRobotShips: [CGRect(x: 1, y: 1, width: 1, height: 1)],
+            maxBattlefieldSize: 2)
         sut.setFirstRobot(firstRobot)
         sut.setSecondRobot(secondRobot)
         // When
@@ -25,9 +26,10 @@ class GameEngineGameLoopTests: XCTestCase {
     
     func test_gameEngine_gameLoopFinishedWithSecondRobotAsWinner() {
         // Given
-        let firstRobot = ShootingTestRobot(ships: [CGRect(x: 2, y: 0, width: 1, height: 1)], maxBattlefieldSize: 2)
-        let secondRobot = ShootingTestRobot(ships: [CGRect(x: 1, y: 1, width: 1, height: 1)], maxBattlefieldSize: 2)
-        let sut = GameEngine(shipsValidator: DummyShipsValidator())
+        let (sut, firstRobot, secondRobot) = makeSUT(
+            firstRobotShips: [CGRect(x: 2, y: 0, width: 1, height: 1)],
+            secondRobotShips: [CGRect(x: 1, y: 1, width: 1, height: 1)],
+            maxBattlefieldSize: 2)
         sut.setFirstRobot(firstRobot)
         sut.setSecondRobot(secondRobot)
         // When
@@ -38,9 +40,10 @@ class GameEngineGameLoopTests: XCTestCase {
     
     func test_gameEngine_gameLoopForMoreRealisticGameFinishedWithFirstRobotAsWinner() {
         // Given
-        let firstRobot = ShootingTestRobot(ships: makeShipsInGoodWay(), maxBattlefieldSize: 10)
-        let secondRobot = ShootingTestRobot(ships: makeShipsInGoodWay(), maxBattlefieldSize: 10)
-        let sut = GameEngine(shipsValidator: DummyShipsValidator())
+        let (sut, firstRobot, secondRobot) = makeSUT(
+            firstRobotShips: makeShipsInGoodWay(),
+            secondRobotShips: makeShipsInGoodWay(),
+            maxBattlefieldSize: 10)
         sut.setFirstRobot(firstRobot)
         sut.setSecondRobot(secondRobot)
         // When
@@ -51,9 +54,10 @@ class GameEngineGameLoopTests: XCTestCase {
     
     func test_gameEngine_gameLoopForMoreRealisticGameFinishedWithSecondRobotAsWinner() {
         // Given
-        let firstRobot = ShootingTestRobot(ships: makeShipsInBadWay(), maxBattlefieldSize: 10)
-        let secondRobot = ShootingTestRobot(ships: makeShipsInGoodWay(), maxBattlefieldSize: 10)
-        let sut = GameEngine(shipsValidator: DummyShipsValidator())
+        let (sut, firstRobot, secondRobot) = makeSUT(
+            firstRobotShips: makeShipsInBadWay(),
+            secondRobotShips: makeShipsInGoodWay(),
+            maxBattlefieldSize: 10)
         sut.setFirstRobot(firstRobot)
         sut.setSecondRobot(secondRobot)
         // When
@@ -63,6 +67,29 @@ class GameEngineGameLoopTests: XCTestCase {
     }
 
     // Helpers
+    
+    private func makeSUT(
+        firstRobotShips: [CGRect],
+        secondRobotShips: [CGRect],
+        maxBattlefieldSize: CGFloat,
+        file: StaticString = #filePath,
+        line: UInt = #line
+    ) -> (
+        gameEngine: GameEngineProtocol,
+        firstRobot: Robot,
+        secondRobot: Robot
+    ) {
+        let firstRobot = ShootingTestRobot(ships: firstRobotShips, maxBattlefieldSize: maxBattlefieldSize)
+        let secondRobot = ShootingTestRobot(ships: secondRobotShips, maxBattlefieldSize: maxBattlefieldSize)
+        let shipsValidator = DummyShipsValidator()
+        let sut = GameEngine(shipsValidator: shipsValidator)
+        
+        trackForMemoryLeak(sut, file: file, line: line)
+        trackForMemoryLeak(firstRobot, file: file, line: line)
+        trackForMemoryLeak(secondRobot, file: file, line: line)
+
+        return (sut, firstRobot, secondRobot)
+    }
     
     private final class ShootingTestRobot: Robot {
         private var shootPoint: CGPoint = .zero
