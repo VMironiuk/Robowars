@@ -1,5 +1,5 @@
 //
-//  GameEngineTests.swift
+//  GameEngineStartTests.swift
 //  RobowarsTests
 //
 //  Created by Volodymyr Myroniuk on 16.07.2022.
@@ -8,7 +8,7 @@
 import XCTest
 import Robowars
 
-class GameEngineTests: XCTestCase {
+class GameEngineStartTests: XCTestCase {
     
     func test_gameEngine_start_assertsErrorIfNoRobotsAreSpecified() {
         // Given
