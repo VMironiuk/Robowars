@@ -28,7 +28,6 @@ extension GameEngineError: LocalizedError {
 
 public protocol GameEngineProtocol: AnyObject {
     var isValid: Bool { get }
-    var winner: Robot? { get }
     var delegate: GameEngineDelegate? { get set }
     
     func start()
@@ -57,8 +56,7 @@ public final class GameEngine: GameEngineProtocol {
     private var firstRobotShipsPoints: [[CGPoint]] = []
     private var secondRobotShipsPoints: [[CGPoint]] = []
     public weak var delegate: GameEngineDelegate?
-    public var winner: Robot?
-    
+
     public var isValid: Bool {
         guard let firstRobot = firstRobot,
               let secondRobot = secondRobot,
@@ -83,13 +81,11 @@ public final class GameEngine: GameEngineProtocol {
             let shootPoint = shootingRobot.shoot()
             let shootResult = shootResult(for: shootPoint, to: oppositeRobot(to: shootingRobot))
             if firstRobotShipsPoints.isEmpty {
-                winner = shootingRobot
                 delegate?.gameEngine(self, secondRobotDidWinWithMessage: shootingRobot.winnerMessage)
                 delegate?.gameEngine(self, firstRobotDidLoseWithMessage: oppositeRobot(to: shootingRobot).loserMessage)
                 return
             }
             if secondRobotShipsPoints.isEmpty {
-                winner = shootingRobot
                 delegate?.gameEngine(self, firstRobotDidWinWithMessage: shootingRobot.winnerMessage)
                 delegate?.gameEngine(self, secondRobotDidLoseWithMessage: oppositeRobot(to: shootingRobot).loserMessage)
                 return

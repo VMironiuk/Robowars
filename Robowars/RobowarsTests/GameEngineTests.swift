@@ -66,62 +66,6 @@ class GameEngineTests: XCTestCase {
             expectedError.localizedDescription)
     }
 
-    func test_gameEngine_gameLoopFinishedWithFirstRobotAsWinner() {
-        // Given
-        let (sut, firstRobot, secondRobot) = makeSUT(
-            firstRobotShips: [CGRect(x: 1, y: 1, width: 1, height: 1)],
-            secondRobotShips: [CGRect(x: 1, y: 1, width: 1, height: 1)],
-            maxBattlefieldSize: 2)
-        sut.setFirstRobot(firstRobot)
-        sut.setSecondRobot(secondRobot)
-        // When
-        sut.start()
-        // Then
-        XCTAssertTrue(sut.winner === firstRobot)
-    }
-    
-    func test_gameEngine_gameLoopFinishedWithSecondRobotAsWinner() {
-        // Given
-        let (sut, firstRobot, secondRobot) = makeSUT(
-            firstRobotShips: [CGRect(x: 2, y: 0, width: 1, height: 1)],
-            secondRobotShips: [CGRect(x: 1, y: 1, width: 1, height: 1)],
-            maxBattlefieldSize: 2)
-        sut.setFirstRobot(firstRobot)
-        sut.setSecondRobot(secondRobot)
-        // When
-        sut.start()
-        // Then
-        XCTAssertTrue(sut.winner === secondRobot)
-    }
-    
-    func test_gameEngine_gameLoopForMoreRealisticGameFinishedWithFirstRobotAsWinner() {
-        // Given
-        let (sut, firstRobot, secondRobot) = makeSUT(
-            firstRobotShips: makeShipsInGoodWay(),
-            secondRobotShips: makeShipsInGoodWay(),
-            maxBattlefieldSize: 10)
-        sut.setFirstRobot(firstRobot)
-        sut.setSecondRobot(secondRobot)
-        // When
-        sut.start()
-        // Then
-        XCTAssertTrue(sut.winner === firstRobot)
-    }
-    
-    func test_gameEngine_gameLoopForMoreRealisticGameFinishedWithSecondRobotAsWinner() {
-        // Given
-        let (sut, firstRobot, secondRobot) = makeSUT(
-            firstRobotShips: makeShipsInBadWay(),
-            secondRobotShips: makeShipsInGoodWay(),
-            maxBattlefieldSize: 10)
-        sut.setFirstRobot(firstRobot)
-        sut.setSecondRobot(secondRobot)
-        // When
-        sut.start()
-        // Then
-        XCTAssertTrue(sut.winner === secondRobot)
-    }
-
     // Helpers
     
     private func makeSUT(
