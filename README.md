@@ -38,7 +38,7 @@ Desktop macOS client for the Robowars game
 
 🟢 - Add memory leak test
 
-🟡 - Do refactoring (system design mostlys)
+🟢 - Do refactoring (system design mostlys)
 
 🟡 - Setup CI
 
