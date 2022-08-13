@@ -15,7 +15,7 @@ class GameEngineDelegatingTests: XCTestCase {
         let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
         sut.delegate = gameEngineDelegateSpy
         // When
-        sut.setFirstRobot(DummyRobot())
+        sut.update(firstRobot: DummyRobot())
         // Then
         XCTAssertEqual(gameEngineDelegateSpy.firstRobotDidChangeCallCount, 1)
     }
@@ -25,9 +25,9 @@ class GameEngineDelegatingTests: XCTestCase {
         let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
         sut.delegate = gameEngineDelegateSpy
         // When
-        sut.setFirstRobot(DummyRobot())
-        sut.setFirstRobot(DummyRobot())
-        sut.setFirstRobot(DummyRobot())
+        sut.update(firstRobot: DummyRobot())
+        sut.update(firstRobot: DummyRobot())
+        sut.update(firstRobot: DummyRobot())
         // Then
         XCTAssertEqual(gameEngineDelegateSpy.firstRobotDidChangeCallCount, 3)
     }
@@ -37,7 +37,7 @@ class GameEngineDelegatingTests: XCTestCase {
         let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
         sut.delegate = gameEngineDelegateSpy
         // When
-        sut.setSecondRobot(DummyRobot())
+        sut.update(secondRobot: DummyRobot())
         // Then
         XCTAssertEqual(gameEngineDelegateSpy.secondRobotDidChangeCallCount, 1)
     }
@@ -47,9 +47,9 @@ class GameEngineDelegatingTests: XCTestCase {
         let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
         sut.delegate = gameEngineDelegateSpy
         // When
-        sut.setSecondRobot(DummyRobot())
-        sut.setSecondRobot(DummyRobot())
-        sut.setSecondRobot(DummyRobot())
+        sut.update(secondRobot: DummyRobot())
+        sut.update(secondRobot: DummyRobot())
+        sut.update(secondRobot: DummyRobot())
         // Then
         XCTAssertEqual(gameEngineDelegateSpy.secondRobotDidChangeCallCount, 3)
     }
@@ -59,7 +59,7 @@ class GameEngineDelegatingTests: XCTestCase {
         let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
         sut.delegate = gameEngineDelegateSpy
         // When
-        sut.setFirstRobot(BrokenRobot())
+        sut.update(firstRobot: BrokenRobot())
         // Then
         XCTAssertEqual(gameEngineDelegateSpy.didFailCallCount, 1)
         XCTAssertNotNil(gameEngineDelegateSpy.errors[.zero])
@@ -70,8 +70,8 @@ class GameEngineDelegatingTests: XCTestCase {
         let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
         sut.delegate = gameEngineDelegateSpy
         // When
-        sut.setFirstRobot(BrokenRobot())
-        sut.setFirstRobot(BrokenRobot())
+        sut.update(firstRobot: BrokenRobot())
+        sut.update(firstRobot: BrokenRobot())
         // Then
         XCTAssertEqual(gameEngineDelegateSpy.didFailCallCount, 2)
         XCTAssertNotNil(gameEngineDelegateSpy.errors[.zero])
@@ -83,7 +83,7 @@ class GameEngineDelegatingTests: XCTestCase {
         let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
         sut.delegate = gameEngineDelegateSpy
         // When
-        sut.setSecondRobot(BrokenRobot())
+        sut.update(secondRobot: BrokenRobot())
         // Then
         XCTAssertEqual(gameEngineDelegateSpy.didFailCallCount, 1)
         XCTAssertNotNil(gameEngineDelegateSpy.errors[.zero])
@@ -94,8 +94,8 @@ class GameEngineDelegatingTests: XCTestCase {
         let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
         sut.delegate = gameEngineDelegateSpy
         // When
-        sut.setSecondRobot(BrokenRobot())
-        sut.setSecondRobot(BrokenRobot())
+        sut.update(secondRobot: BrokenRobot())
+        sut.update(secondRobot: BrokenRobot())
         // Then
         XCTAssertEqual(gameEngineDelegateSpy.didFailCallCount, 2)
         XCTAssertNotNil(gameEngineDelegateSpy.errors[.zero])
@@ -107,8 +107,8 @@ class GameEngineDelegatingTests: XCTestCase {
         let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
         sut.delegate = gameEngineDelegateSpy
         // When
-        sut.setFirstRobot(BrokenRobot())
-        sut.setSecondRobot(BrokenRobot())
+        sut.update(firstRobot: BrokenRobot())
+        sut.update(secondRobot: BrokenRobot())
         // Then
         XCTAssertEqual(gameEngineDelegateSpy.didFailCallCount, 2)
         XCTAssertNotNil(gameEngineDelegateSpy.errors[.zero])
@@ -120,10 +120,10 @@ class GameEngineDelegatingTests: XCTestCase {
         let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
         sut.delegate = gameEngineDelegateSpy
         // When
-        sut.setFirstRobot(BrokenRobot())
-        sut.setSecondRobot(BrokenRobot())
-        sut.setFirstRobot(BrokenRobot())
-        sut.setSecondRobot(BrokenRobot())
+        sut.update(firstRobot: BrokenRobot())
+        sut.update(secondRobot: BrokenRobot())
+        sut.update(firstRobot: BrokenRobot())
+        sut.update(secondRobot: BrokenRobot())
         // Then
         XCTAssertEqual(gameEngineDelegateSpy.didFailCallCount, 4)
         XCTAssertNotNil(gameEngineDelegateSpy.errors[.zero])
@@ -141,8 +141,8 @@ class GameEngineDelegatingTests: XCTestCase {
         let expectedSecondError: GameEngineError = .invalidSecondRobotShipsArrangement
         sut.delegate = gameEngineDelegateSpy
         // When
-        sut.setFirstRobot(firstBrokenRobot)
-        sut.setSecondRobot(secondBrokenRobot)
+        sut.update(firstRobot: firstBrokenRobot)
+        sut.update(secondRobot: secondBrokenRobot)
         // Then
         XCTAssertEqual(gameEngineDelegateSpy.errors[.zero]!.localizedDescription, expectedFirstError.localizedDescription)
         XCTAssertEqual(gameEngineDelegateSpy.errors[1]!.localizedDescription, expectedSecondError.localizedDescription)
@@ -154,8 +154,8 @@ class GameEngineDelegatingTests: XCTestCase {
         let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
         let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
         sut.delegate = gameEngineDelegateSpy
-        sut.setFirstRobot(firstShootingRobot)
-        sut.setSecondRobot(secondShootingRobot)
+        sut.update(firstRobot: firstShootingRobot)
+        sut.update(secondRobot: secondShootingRobot)
         // When
         sut.start()
         // Then
@@ -168,8 +168,8 @@ class GameEngineDelegatingTests: XCTestCase {
         let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
         let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 1, y: 0, width: 1, height: 1)])
         sut.delegate = gameEngineDelegateSpy
-        sut.setFirstRobot(firstShootingRobot)
-        sut.setSecondRobot(secondShootingRobot)
+        sut.update(firstRobot: firstShootingRobot)
+        sut.update(secondRobot: secondShootingRobot)
         // When
         sut.start()
         // Then
@@ -184,8 +184,8 @@ class GameEngineDelegatingTests: XCTestCase {
         let expectedFirstRobotShootResults: [ShootResult] = [.miss, .hit, .kill]
         let expectedSecondRobotShootResults: [ShootResult] = [.miss]
         sut.delegate = gameEngineDelegateSpy
-        sut.setFirstRobot(firstShootingRobot)
-        sut.setSecondRobot(secondShootingRobot)
+        sut.update(firstRobot: firstShootingRobot)
+        sut.update(secondRobot: secondShootingRobot)
         // When
         sut.start()
         // Then
@@ -199,8 +199,8 @@ class GameEngineDelegatingTests: XCTestCase {
         let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)], winnerMessage: "first won")
         let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
         sut.delegate = gameEngineDelegateSpy
-        sut.setFirstRobot(firstShootingRobot)
-        sut.setSecondRobot(secondShootingRobot)
+        sut.update(firstRobot: firstShootingRobot)
+        sut.update(secondRobot: secondShootingRobot)
         // When
         sut.start()
         // Then
@@ -214,8 +214,8 @@ class GameEngineDelegatingTests: XCTestCase {
         let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
         let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 1, y: 0, width: 1, height: 1)], winnerMessage: "second won")
         sut.delegate = gameEngineDelegateSpy
-        sut.setFirstRobot(firstShootingRobot)
-        sut.setSecondRobot(secondShootingRobot)
+        sut.update(firstRobot: firstShootingRobot)
+        sut.update(secondRobot: secondShootingRobot)
         // When
         sut.start()
         // Then
@@ -229,8 +229,8 @@ class GameEngineDelegatingTests: XCTestCase {
         let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)], loserMessage: "first lost")
         let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 1, y: 0, width: 1, height: 1)])
         sut.delegate = gameEngineDelegateSpy
-        sut.setFirstRobot(firstShootingRobot)
-        sut.setSecondRobot(secondShootingRobot)
+        sut.update(firstRobot: firstShootingRobot)
+        sut.update(secondRobot: secondShootingRobot)
         // When
         sut.start()
         // Then
@@ -244,8 +244,8 @@ class GameEngineDelegatingTests: XCTestCase {
         let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
         let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)], loserMessage: "second lost")
         sut.delegate = gameEngineDelegateSpy
-        sut.setFirstRobot(firstShootingRobot)
-        sut.setSecondRobot(secondShootingRobot)
+        sut.update(firstRobot: firstShootingRobot)
+        sut.update(secondRobot: secondShootingRobot)
         // When
         sut.start()
         // Then
@@ -259,8 +259,8 @@ class GameEngineDelegatingTests: XCTestCase {
         let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
         let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 0, y: 0, width: 1, height: 1)])
         sut.delegate = gameEngineDelegateSpy
-        sut.setFirstRobot(firstShootingRobot)
-        sut.setSecondRobot(secondShootingRobot)
+        sut.update(firstRobot: firstShootingRobot)
+        sut.update(secondRobot: secondShootingRobot)
         // When
         sut.update(gameMode: .classic)
         // Then

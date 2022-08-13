@@ -28,7 +28,7 @@ class GameEngineTests: XCTestCase {
         let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
         let expectedError: GameEngineError = .invalidConstruction
         sut.delegate = gameEngineDelegateSpy
-        sut.setSecondRobot(DummyRobot())
+        sut.update(secondRobot: DummyRobot())
         // When
         sut.start()
         // Then
@@ -42,7 +42,7 @@ class GameEngineTests: XCTestCase {
         let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
         let expectedError: GameEngineError = .invalidConstruction
         sut.delegate = gameEngineDelegateSpy
-        sut.setFirstRobot(DummyRobot())
+        sut.update(firstRobot: DummyRobot())
         // When
         sut.start()
         // Then
@@ -56,8 +56,8 @@ class GameEngineTests: XCTestCase {
         let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
         let expectedError: GameEngineError = .invalidConstruction
         sut.delegate = gameEngineDelegateSpy
-        sut.setFirstRobot(DummyRobot())
-        sut.setSecondRobot(DummyRobot())
+        sut.update(firstRobot: DummyRobot())
+        sut.update(secondRobot: DummyRobot())
         // When
         sut.start()
         // Then

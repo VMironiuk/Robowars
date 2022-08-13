@@ -55,7 +55,7 @@ public final class GameEngine: GameEngineProtocol {
         }
     }
         
-    public func setFirstRobot(_ robot: Robot) {
+    public func update(firstRobot robot: Robot) {
         firstRobot = robot
         delegate?.gameEngine(self, didChangeFirstRobotWithShips: robot.ships)
         firstRobotShipsPoints = shipsPoints(from: robot.ships)
@@ -64,7 +64,7 @@ public final class GameEngine: GameEngineProtocol {
         }
     }
     
-    public func setSecondRobot(_ robot: Robot) {
+    public func update(secondRobot robot: Robot) {
         secondRobot = robot
         delegate?.gameEngine(self, didChangeSecondRobotWithShips: robot.ships)
         secondRobotShipsPoints = shipsPoints(from: robot.ships)
@@ -80,8 +80,8 @@ public final class GameEngine: GameEngineProtocol {
         guard let firstRobot = firstRobot, let secondRobot = secondRobot else {
             fatalError("Robot cannot be nil")
         }
-        setFirstRobot(firstRobot)
-        setSecondRobot(secondRobot)
+        update(firstRobot: firstRobot)
+        update(secondRobot: secondRobot)
     }
     
     private func oppositeRobot(to robot: Robot) -> Robot {
