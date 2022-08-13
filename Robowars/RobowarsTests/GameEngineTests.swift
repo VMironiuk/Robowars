@@ -1,5 +1,5 @@
 //
-//  GameEngineGameLoopTests.swift
+//  GameEngineTests.swift
 //  RobowarsTests
 //
 //  Created by Volodymyr Myroniuk on 16.07.2022.
@@ -8,7 +8,7 @@
 import XCTest
 import Robowars
 
-class GameEngineGameLoopTests: XCTestCase {
+class GameEngineTests: XCTestCase {
     
     func test_gameEngine_gameLoopFinishedWithFirstRobotAsWinner() {
         // Given
