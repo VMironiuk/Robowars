@@ -37,6 +37,20 @@ class GameEngineTests: XCTestCase {
             expectedError.localizedDescription)
     }
     
+    func test_gameEngine_start_assertsErrorIfSecondRobotsIsNotSpecified() {
+        // Given
+        let (sut, gameEngineDelegateSpy) = makeSUT()
+        let expectedError = GameEngineGeneralError()
+        sut.delegate = gameEngineDelegateSpy
+        sut.setFirstRobot(DummyRobot())
+        // When
+        sut.start()
+        // Then
+        XCTAssertEqual(
+            gameEngineDelegateSpy.errors[.zero]!.localizedDescription,
+            expectedError.localizedDescription)
+    }
+
     func test_gameEngine_gameLoopFinishedWithFirstRobotAsWinner() {
         // Given
         let (sut, firstRobot, secondRobot) = makeSUT(
