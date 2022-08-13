@@ -10,11 +10,25 @@ import Robowars
 
 class GameEngineTests: XCTestCase {
     
-    func test_gameEngine_start_assertsErrorIfNoRobotsAndGameModeSpecified() {
+    func test_gameEngine_start_assertsErrorIfNoRobotsSpecified() {
         // Given
         let (sut, gameEngineDelegateSpy) = makeSUT()
         let expectedError = GameEngineGeneralError()
         sut.delegate = gameEngineDelegateSpy
+        // When
+        sut.start()
+        // Then
+        XCTAssertEqual(
+            gameEngineDelegateSpy.errors[.zero]!.localizedDescription,
+            expectedError.localizedDescription)
+    }
+    
+    func test_gameEngine_start_assertsErrorIfFirstRobotsIsNotSpecified() {
+        // Given
+        let (sut, gameEngineDelegateSpy) = makeSUT()
+        let expectedError = GameEngineGeneralError()
+        sut.delegate = gameEngineDelegateSpy
+        sut.setSecondRobot(DummyRobot())
         // When
         sut.start()
         // Then
