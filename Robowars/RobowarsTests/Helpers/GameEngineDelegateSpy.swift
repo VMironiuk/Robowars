@@ -37,47 +37,47 @@ class GameEngineDelegateSpy: GameEngineDelegate {
         secondRobotShootResults.count
     }
     
-    func gameEngine(_ gameEngine: GameEngine, didChangeFirstRobotWithShips ships: [CGRect]) {
+    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeFirstRobotWithShips ships: [CGRect]) {
         firstRobotDidChangeCallCount += 1
     }
     
-    func gameEngine(_ gameEngine: GameEngine, didChangeSecondRobotWithShips ships: [CGRect]) {
+    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeSecondRobotWithShips ships: [CGRect]) {
         secondRobotDidChangeCallCount += 1
     }
     
-    func gameEngine(_ gameEngine: GameEngine, didFailWithError error: Error?) {
+    func gameEngine(_ gameEngine: GameEngineProtocol, didFailWithError error: Error?) {
         errors.append(error)
     }
     
-    func gameEngine(_ gameEngine: GameEngine, firstRobotDidShootWithResult result: ShootResult) {
+    func gameEngine(_ gameEngine: GameEngineProtocol, firstRobotDidShootWithResult result: ShootResult) {
         firstRobotShootResults.append(result)
     }
     
-    func gameEngine(_ gameEngine: GameEngine, secondRobotDidShootWithResult result: ShootResult) {
+    func gameEngine(_ gameEngine: GameEngineProtocol, secondRobotDidShootWithResult result: ShootResult) {
         secondRobotShootResults.append(result)
     }
     
-    func gameEngine(_ gameEngine: GameEngine, firstRobotDidWinWithMessage message: String) {
+    func gameEngine(_ gameEngine: GameEngineProtocol, firstRobotDidWinWithMessage message: String) {
         winner = .firstRobot
         winnerMessage = message
     }
     
-    func gameEngine(_ gameEngine: GameEngine, secondRobotDidWinWithMessage message: String) {
+    func gameEngine(_ gameEngine: GameEngineProtocol, secondRobotDidWinWithMessage message: String) {
         winner = .secondRobot
         winnerMessage = message
     }
     
-    func gameEngine(_ gameEngine: GameEngine, firstRobotDidLoseWithMessage message: String) {
+    func gameEngine(_ gameEngine: GameEngineProtocol, firstRobotDidLoseWithMessage message: String) {
         loser = .firstRobot
         loserMessage = message
     }
     
-    func gameEngine(_ gameEngine: GameEngine, secondRobotDidLoseWithMessage message: String) {
+    func gameEngine(_ gameEngine: GameEngineProtocol, secondRobotDidLoseWithMessage message: String) {
         loser = .secondRobot
         loserMessage = message
     }
     
-    func gameEngine(_ gameEngine: GameEngine, didChangeGameModeWithBattleField battlefield: CGRect) {
+    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeGameModeWithBattleField battlefield: CGRect) {
         gameModeDidChangeCallCount += 1
     }
 }

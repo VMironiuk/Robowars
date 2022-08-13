@@ -7,29 +7,6 @@
 
 import Foundation
 
-public protocol GameEngineProtocol: AnyObject {
-    var isValid: Bool { get }
-    var delegate: GameEngineDelegate? { get set }
-    
-    func start()
-    func setFirstRobot(_ robot: Robot)
-    func setSecondRobot(_ robot: Robot)
-    func update(gameMode: GameMode)
-}
-
-public protocol GameEngineDelegate: AnyObject {
-    func gameEngine(_ gameEngine: GameEngine, didChangeFirstRobotWithShips ships: [CGRect])
-    func gameEngine(_ gameEngine: GameEngine, didChangeSecondRobotWithShips ships: [CGRect])
-    func gameEngine(_ gameEngine: GameEngine, firstRobotDidShootWithResult result: ShootResult)
-    func gameEngine(_ gameEngine: GameEngine, secondRobotDidShootWithResult result: ShootResult)
-    func gameEngine(_ gameEngine: GameEngine, firstRobotDidWinWithMessage message: String)
-    func gameEngine(_ gameEngine: GameEngine, secondRobotDidWinWithMessage message: String)
-    func gameEngine(_ gameEngine: GameEngine, firstRobotDidLoseWithMessage message: String)
-    func gameEngine(_ gameEngine: GameEngine, secondRobotDidLoseWithMessage message: String)
-    func gameEngine(_ gameEngine: GameEngine, didChangeGameModeWithBattleField battlefield: CGRect)
-    func gameEngine(_ gameEngine: GameEngine, didFailWithError error: Error?)
-}
-
 public final class GameEngine: GameEngineProtocol {
     private let shipsValidator: ShipsValidator
     private var firstRobot: Robot?
