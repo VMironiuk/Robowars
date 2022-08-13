@@ -8,7 +8,7 @@
 import Foundation
 
 public final class GameEngine: GameEngineProtocol {
-    private let shipsValidator: ShipsValidator
+    private let shipsValidator: ShipsValidatorProtocol
     private var firstRobot: Robot?
     private var secondRobot: Robot?
     private var firstRobotShipsPoints: [[CGPoint]] = []
@@ -26,7 +26,7 @@ public final class GameEngine: GameEngineProtocol {
         return true
     }
     
-    public init(shipsValidator: ShipsValidator) {
+    public init(shipsValidator: ShipsValidatorProtocol) {
         self.shipsValidator = shipsValidator
     }
     

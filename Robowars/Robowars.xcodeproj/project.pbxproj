@@ -21,7 +21,7 @@
 		3C6ED03A285E0A3300A61E09 /* DummyShipsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6ED039285E0A3300A61E09 /* DummyShipsValidator.swift */; };
 		3C7F1B302850940800948F2D /* ShipsArrangementValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7F1B2F2850940800948F2D /* ShipsArrangementValidatorTests.swift */; };
 		3C8F0AC22850B4A4007EAB70 /* ShipsArrangementValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8F0AC12850B4A4007EAB70 /* ShipsArrangementValidator.swift */; };
-		3CB69C62285B9AF700AD21F3 /* ShipsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB69C61285B9AF700AD21F3 /* ShipsValidator.swift */; };
+		3CB69C62285B9AF700AD21F3 /* ShipsValidatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB69C61285B9AF700AD21F3 /* ShipsValidatorProtocol.swift */; };
 		3CCFE080284BC93C0007153B /* DummyRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCFE07F284BC93C0007153B /* DummyRobot.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +51,7 @@
 		3C6ED039285E0A3300A61E09 /* DummyShipsValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyShipsValidator.swift; sourceTree = "<group>"; };
 		3C7F1B2F2850940800948F2D /* ShipsArrangementValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipsArrangementValidatorTests.swift; sourceTree = "<group>"; };
 		3C8F0AC12850B4A4007EAB70 /* ShipsArrangementValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipsArrangementValidator.swift; sourceTree = "<group>"; };
-		3CB69C61285B9AF700AD21F3 /* ShipsValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipsValidator.swift; sourceTree = "<group>"; };
+		3CB69C61285B9AF700AD21F3 /* ShipsValidatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipsValidatorProtocol.swift; sourceTree = "<group>"; };
 		3CCFE07F284BC93C0007153B /* DummyRobot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyRobot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +84,15 @@
 			path = GameEngine;
 			sourceTree = "<group>";
 		};
+		2E964E6828A781720054C6BD /* ShipsValidator */ = {
+			isa = PBXGroup;
+			children = (
+				3C8F0AC12850B4A4007EAB70 /* ShipsArrangementValidator.swift */,
+				3CB69C61285B9AF700AD21F3 /* ShipsValidatorProtocol.swift */,
+			);
+			path = ShipsValidator;
+			sourceTree = "<group>";
+		};
 		3C0649D0284224610039710D = {
 			isa = PBXGroup;
 			children = (
@@ -109,8 +118,7 @@
 				3C0649F42842315C0039710D /* Robot.swift */,
 				3C0649F6284231A70039710D /* GameMode.swift */,
 				2E964E6328A7807B0054C6BD /* GameEngine */,
-				3C8F0AC12850B4A4007EAB70 /* ShipsArrangementValidator.swift */,
-				3CB69C61285B9AF700AD21F3 /* ShipsValidator.swift */,
+				2E964E6828A781720054C6BD /* ShipsValidator */,
 			);
 			path = Robowars;
 			sourceTree = "<group>";
@@ -250,7 +258,7 @@
 			files = (
 				2E964E6528A7809B0054C6BD /* GameEngineError.swift in Sources */,
 				3C8F0AC22850B4A4007EAB70 /* ShipsArrangementValidator.swift in Sources */,
-				3CB69C62285B9AF700AD21F3 /* ShipsValidator.swift in Sources */,
+				3CB69C62285B9AF700AD21F3 /* ShipsValidatorProtocol.swift in Sources */,
 				2E964E6728A780EA0054C6BD /* GameEngineProtocol.swift in Sources */,
 				3C0649F7284231A70039710D /* GameMode.swift in Sources */,
 				3C0649F9284231F20039710D /* GameEngine.swift in Sources */,

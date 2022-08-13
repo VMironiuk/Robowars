@@ -69,7 +69,7 @@ class GameEngineTests: XCTestCase {
     // Helpers
     
     private func makeSUT(
-        shipsValidator: ShipsValidator,
+        shipsValidator: ShipsValidatorProtocol,
         file: StaticString = #filePath,
         line: UInt = #line
     ) -> (

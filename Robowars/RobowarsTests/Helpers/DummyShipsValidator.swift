@@ -8,7 +8,7 @@
 import Foundation
 import Robowars
 
-final class DummyShipsValidator: ShipsValidator {
+final class DummyShipsValidator: ShipsValidatorProtocol {
     func isValid(ships: [CGRect]) -> Bool {
         true
     }

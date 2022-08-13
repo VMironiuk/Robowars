@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class ShipsArrangementValidator: ShipsValidator {
+public final class ShipsArrangementValidator: ShipsValidatorProtocol {
     private var gameMode: GameMode
     
     public init(gameMode: GameMode) {
