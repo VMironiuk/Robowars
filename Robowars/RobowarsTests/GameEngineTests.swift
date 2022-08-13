@@ -13,7 +13,7 @@ class GameEngineTests: XCTestCase {
     func test_gameEngine_start_assertsErrorIfNoRobotsAreSpecified() {
         // Given
         let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
-        let expectedError = GameEngineGeneralError()
+        let expectedError: GameEngineError = .invalidConstruction
         sut.delegate = gameEngineDelegateSpy
         // When
         sut.start()
@@ -26,7 +26,7 @@ class GameEngineTests: XCTestCase {
     func test_gameEngine_start_assertsErrorIfFirstRobotIsNotSpecified() {
         // Given
         let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
-        let expectedError = GameEngineGeneralError()
+        let expectedError: GameEngineError = .invalidConstruction
         sut.delegate = gameEngineDelegateSpy
         sut.setSecondRobot(DummyRobot())
         // When
@@ -40,7 +40,7 @@ class GameEngineTests: XCTestCase {
     func test_gameEngine_start_assertsErrorIfSecondRobotIsNotSpecified() {
         // Given
         let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
-        let expectedError = GameEngineGeneralError()
+        let expectedError: GameEngineError = .invalidConstruction
         sut.delegate = gameEngineDelegateSpy
         sut.setFirstRobot(DummyRobot())
         // When
@@ -54,7 +54,7 @@ class GameEngineTests: XCTestCase {
     func test_gameEngine_start_doesNotAssertErrorIfRobotsAreSpecified() {
         // Given
         let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
-        let expectedError = GameEngineGeneralError()
+        let expectedError: GameEngineError = .invalidConstruction
         sut.delegate = gameEngineDelegateSpy
         sut.setFirstRobot(DummyRobot())
         sut.setSecondRobot(DummyRobot())

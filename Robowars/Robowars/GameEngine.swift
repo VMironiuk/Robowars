@@ -7,27 +7,22 @@
 
 import Foundation
 
-public struct GameEngineError: Error {
-    private let robotName: String
-
-    public init(robotName: String) {
-        self.robotName = robotName
-    }
+public enum GameEngineError: Error {
+    case invalidFirstRobotShipsArrangement
+    case invalidSecondRobotShipsArrangement
+    case invalidConstruction
 }
 
 extension GameEngineError: LocalizedError {
     public var errorDescription: String? {
-        "\(robotName) has incorrect ships placement"
-    }
-}
-
-public struct GameEngineGeneralError: Error {
-    public init() {}
-}
-
-extension GameEngineGeneralError: LocalizedError {
-    public var errorDescription: String? {
-        "Game engine did not constructed completely"
+        switch self {
+        case .invalidFirstRobotShipsArrangement:
+            return "First robot has incorrect ships placement"
+        case .invalidSecondRobotShipsArrangement:
+            return "Second robot has incorrect ships placement"
+        case .invalidConstruction:
+            return "Game engine did not constructed completely"
+        }
     }
 }
 
@@ -81,7 +76,7 @@ public final class GameEngine: GameEngineProtocol {
     
     public func start() {
         guard isValid, let firstRobot = firstRobot else {
-            return { delegate?.gameEngine(self, didFailWithError: GameEngineGeneralError()) }()
+            return { delegate?.gameEngine(self, didFailWithError: GameEngineError.invalidConstruction) }()
         }
         var shootingRobot = firstRobot
         while true {
@@ -111,7 +106,7 @@ public final class GameEngine: GameEngineProtocol {
         delegate?.gameEngine(self, didChangeFirstRobotWithShips: robot.ships)
         firstRobotShipsPoints = shipsPoints(from: robot.ships)
         if !shipsValidator.isValid(ships: robot.ships) {
-            delegate?.gameEngine(self, didFailWithError: GameEngineError(robotName: robot.name))
+            delegate?.gameEngine(self, didFailWithError: GameEngineError.invalidFirstRobotShipsArrangement)
         }
     }
     
@@ -120,7 +115,7 @@ public final class GameEngine: GameEngineProtocol {
         delegate?.gameEngine(self, didChangeSecondRobotWithShips: robot.ships)
         secondRobotShipsPoints = shipsPoints(from: robot.ships)
         if !shipsValidator.isValid(ships: robot.ships) {
-            delegate?.gameEngine(self, didFailWithError: GameEngineError(robotName: robot.name))
+            delegate?.gameEngine(self, didFailWithError: GameEngineError.invalidSecondRobotShipsArrangement)
         }
     }
     

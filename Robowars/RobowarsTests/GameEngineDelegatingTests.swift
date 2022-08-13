@@ -137,8 +137,8 @@ class GameEngineDelegatingTests: XCTestCase {
         let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
         let firstBrokenRobot = BrokenRobot(name: "FirstBrokenRobot")
         let secondBrokenRobot = BrokenRobot(name: "SecondBrokenRobot")
-        let expectedFirstError = GameEngineError(robotName: firstBrokenRobot.name)
-        let expectedSecondError = GameEngineError(robotName: secondBrokenRobot.name)
+        let expectedFirstError: GameEngineError = .invalidFirstRobotShipsArrangement
+        let expectedSecondError: GameEngineError = .invalidSecondRobotShipsArrangement
         sut.delegate = gameEngineDelegateSpy
         // When
         sut.setFirstRobot(firstBrokenRobot)
