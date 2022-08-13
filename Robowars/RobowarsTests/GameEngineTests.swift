@@ -10,9 +10,9 @@ import Robowars
 
 class GameEngineTests: XCTestCase {
     
-    func test_gameEngine_start_assertsErrorIfNoRobotsSpecified() {
+    func test_gameEngine_start_assertsErrorIfNoRobotsAreSpecified() {
         // Given
-        let (sut, gameEngineDelegateSpy) = makeSUT()
+        let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
         let expectedError = GameEngineGeneralError()
         sut.delegate = gameEngineDelegateSpy
         // When
@@ -23,9 +23,9 @@ class GameEngineTests: XCTestCase {
             expectedError.localizedDescription)
     }
     
-    func test_gameEngine_start_assertsErrorIfFirstRobotsIsNotSpecified() {
+    func test_gameEngine_start_assertsErrorIfFirstRobotIsNotSpecified() {
         // Given
-        let (sut, gameEngineDelegateSpy) = makeSUT()
+        let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
         let expectedError = GameEngineGeneralError()
         sut.delegate = gameEngineDelegateSpy
         sut.setSecondRobot(DummyRobot())
@@ -37,9 +37,9 @@ class GameEngineTests: XCTestCase {
             expectedError.localizedDescription)
     }
     
-    func test_gameEngine_start_assertsErrorIfSecondRobotsIsNotSpecified() {
+    func test_gameEngine_start_assertsErrorIfSecondRobotIsNotSpecified() {
         // Given
-        let (sut, gameEngineDelegateSpy) = makeSUT()
+        let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
         let expectedError = GameEngineGeneralError()
         sut.delegate = gameEngineDelegateSpy
         sut.setFirstRobot(DummyRobot())
@@ -47,6 +47,21 @@ class GameEngineTests: XCTestCase {
         sut.start()
         // Then
         XCTAssertEqual(
+            gameEngineDelegateSpy.errors[.zero]!.localizedDescription,
+            expectedError.localizedDescription)
+    }
+    
+    func test_gameEngine_start_doesNotAssertErrorIfRobotsAreSpecified() {
+        // Given
+        let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: ShipsArrangementValidator(gameMode: .classic))
+        let expectedError = GameEngineGeneralError()
+        sut.delegate = gameEngineDelegateSpy
+        sut.setFirstRobot(DummyRobot())
+        sut.setSecondRobot(DummyRobot())
+        // When
+        sut.start()
+        // Then
+        XCTAssertNotEqual(
             gameEngineDelegateSpy.errors[.zero]!.localizedDescription,
             expectedError.localizedDescription)
     }
@@ -110,13 +125,14 @@ class GameEngineTests: XCTestCase {
     // Helpers
     
     private func makeSUT(
+        shipsValidator: ShipsValidator,
         file: StaticString = #filePath,
         line: UInt = #line
     ) -> (
         GameEngineProtocol,
         GameEngineDelegateSpy
     ) {
-        let sut = GameEngine(shipsValidator: DummyShipsValidator())
+        let sut = GameEngine(shipsValidator: shipsValidator)
         let delegate = GameEngineDelegateSpy()
         trackForMemoryLeak(sut, file: file, line: line)
         trackForMemoryLeak(delegate, file: file, line: line)
