@@ -21,6 +21,16 @@ extension GameEngineError: LocalizedError {
     }
 }
 
+public struct GameEngineGeneralError: Error {
+    public init() {}
+}
+
+extension GameEngineGeneralError: LocalizedError {
+    public var errorDescription: String? {
+        "Game engine did not constructed completely"
+    }
+}
+
 public protocol GameEngineProtocol: AnyObject {
     var isValid: Bool { get }
     var winner: Robot? { get }
@@ -70,7 +80,9 @@ public final class GameEngine: GameEngineProtocol {
     }
     
     public func start() {
-        guard isValid, let firstRobot = firstRobot else { return }
+        guard isValid, let firstRobot = firstRobot else {
+            return { delegate?.gameEngine(self, didFailWithError: GameEngineGeneralError()) }()
+        }
         var shootingRobot = firstRobot
         while true {
             let shootPoint = shootingRobot.shoot()

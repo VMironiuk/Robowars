@@ -10,6 +10,19 @@ import Robowars
 
 class GameEngineTests: XCTestCase {
     
+    func test_gameEngine_start_assertsErrorIfNoRobotsAndGameModeSpecified() {
+        // Given
+        let (sut, gameEngineDelegateSpy) = makeSUT()
+        let expectedError = GameEngineGeneralError()
+        sut.delegate = gameEngineDelegateSpy
+        // When
+        sut.start()
+        // Then
+        XCTAssertEqual(
+            gameEngineDelegateSpy.errors[.zero]!.localizedDescription,
+            expectedError.localizedDescription)
+    }
+    
     func test_gameEngine_gameLoopFinishedWithFirstRobotAsWinner() {
         // Given
         let (sut, firstRobot, secondRobot) = makeSUT(
@@ -67,6 +80,20 @@ class GameEngineTests: XCTestCase {
     }
 
     // Helpers
+    
+    private func makeSUT(
+        file: StaticString = #filePath,
+        line: UInt = #line
+    ) -> (
+        GameEngineProtocol,
+        GameEngineDelegateSpy
+    ) {
+        let sut = GameEngine(shipsValidator: DummyShipsValidator())
+        let delegate = GameEngineDelegateSpy()
+        trackForMemoryLeak(sut, file: file, line: line)
+        trackForMemoryLeak(delegate, file: file, line: line)
+        return (sut, delegate)
+    }
     
     private func makeSUT(
         firstRobotShips: [CGRect],
@@ -162,5 +189,79 @@ class GameEngineTests: XCTestCase {
             CGRect(x: 5, y: 4, width: 1, height: 1),
             CGRect(x: 7, y: 4, width: 1, height: 1),
         ]
+    }
+    
+    private enum Winner {
+        case none, firstRobot, secondRobot
+    }
+    
+    private enum Loser {
+        case none, firstRobot, secondRobot
+    }
+    
+    private class GameEngineDelegateSpy: GameEngineDelegate {
+        private(set) var firstRobotDidChangeCallCount: Int = .zero
+        private(set) var secondRobotDidChangeCallCount: Int = .zero
+        private(set) var gameModeDidChangeCallCount: Int = .zero
+        private(set) var firstRobotShootResults: [ShootResult] = []
+        private(set) var secondRobotShootResults: [ShootResult] = []
+        private(set) var winner: Winner = .none
+        private(set) var loser: Loser = .none
+        private(set) var winnerMessage: String = ""
+        private(set) var loserMessage: String = ""
+        private(set) var errors: [Error?] = []
+        var didFailCallCount: Int {
+            errors.count
+        }
+        var firstRobotShootsCount: Int {
+            firstRobotShootResults.count
+        }
+        var secondRobotShootsCount: Int {
+            secondRobotShootResults.count
+        }
+        
+        func gameEngine(_ gameEngine: GameEngine, didChangeFirstRobotWithShips ships: [CGRect]) {
+            firstRobotDidChangeCallCount += 1
+        }
+        
+        func gameEngine(_ gameEngine: GameEngine, didChangeSecondRobotWithShips ships: [CGRect]) {
+            secondRobotDidChangeCallCount += 1
+        }
+        
+        func gameEngine(_ gameEngine: GameEngine, didFailWithError error: Error?) {
+            errors.append(error)
+        }
+        
+        func gameEngine(_ gameEngine: GameEngine, firstRobotDidShootWithResult result: ShootResult) {
+            firstRobotShootResults.append(result)
+        }
+        
+        func gameEngine(_ gameEngine: GameEngine, secondRobotDidShootWithResult result: ShootResult) {
+            secondRobotShootResults.append(result)
+        }
+        
+        func gameEngine(_ gameEngine: GameEngine, firstRobotDidWinWithMessage message: String) {
+            winner = .firstRobot
+            winnerMessage = message
+        }
+        
+        func gameEngine(_ gameEngine: GameEngine, secondRobotDidWinWithMessage message: String) {
+            winner = .secondRobot
+            winnerMessage = message
+        }
+        
+        func gameEngine(_ gameEngine: GameEngine, firstRobotDidLoseWithMessage message: String) {
+            loser = .firstRobot
+            loserMessage = message
+        }
+        
+        func gameEngine(_ gameEngine: GameEngine, secondRobotDidLoseWithMessage message: String) {
+            loser = .secondRobot
+            loserMessage = message
+        }
+        
+        func gameEngine(_ gameEngine: GameEngine, didChangeGameModeWithBattleField battlefield: CGRect) {
+            gameModeDidChangeCallCount += 1
+        }
     }
 }
