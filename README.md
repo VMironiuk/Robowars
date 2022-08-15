@@ -42,6 +42,8 @@ Desktop macOS client for the Robowars game
 
 🟡 - Setup CI
 
+🟡 - Make a prototype app
+
 ## BDD Specs
 
 ### Story: User launches the game
