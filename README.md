@@ -1,6 +1,8 @@
 # Robowars
 Desktop macOS client for the Robowars game
 
+[![CI](https://github.com/VMironiuk/Robowars/actions/workflows/CI.yml/badge.svg)](https://github.com/VMironiuk/Robowars/actions/workflows/CI.yml)
+
 # Launch Game Client Feature
 
 🟢 - Implement some kind of validator which have to validate ships returned by robots according to a specified game mode:
