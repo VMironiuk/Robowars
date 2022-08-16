@@ -42,7 +42,7 @@ Desktop macOS client for the Robowars game
 
 🟢 - Do refactoring (system design mostlys)
 
-🟡 - Setup CI
+🟢 - Setup CI
 
 🟡 - Make a prototype app
 
