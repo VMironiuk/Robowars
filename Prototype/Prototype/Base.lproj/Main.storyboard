@@ -685,7 +685,7 @@
         <scene sceneID="pRr-y7-5vQ">
             <objects>
                 <windowController id="tRQ-XX-YgK" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="aho-Qd-848">
+                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="aho-Qd-848">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="245" y="301" width="480" height="270"/>
@@ -694,21 +694,6 @@
                             <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </view>
-                        <toolbar key="toolbar" implicitIdentifier="09D11707-F4A3-4FD5-970E-AC5832E91C2B" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="Rk0-yP-KAN">
-                            <allowedToolbarItems>
-                                <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="CZR-6W-Y0w"/>
-                                <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="U9i-zA-9vb"/>
-                                <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="Xg2-Dp-IPj"/>
-                                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="Ah8-PI-viy"/>
-                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="Uke-lb-Kq5"/>
-                            </allowedToolbarItems>
-                            <defaultToolbarItems>
-                                <toolbarItem reference="CZR-6W-Y0w"/>
-                                <toolbarItem reference="U9i-zA-9vb"/>
-                                <toolbarItem reference="Uke-lb-Kq5"/>
-                                <toolbarItem reference="Xg2-Dp-IPj"/>
-                            </defaultToolbarItems>
-                        </toolbar>
                         <connections>
                             <outlet property="delegate" destination="tRQ-XX-YgK" id="dQd-j3-Hg5"/>
                         </connections>
@@ -906,20 +891,65 @@
             </objects>
             <point key="canvasLocation" x="1342" y="45"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="zeu-qT-CWd">
             <objects>
-                <viewController id="HnX-Nq-icD" sceneMemberID="viewController">
+                <viewController id="HnX-Nq-icD" customClass="MainViewController" customModule="Prototype" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="hR1-fG-BnX">
-                        <rect key="frame" x="0.0" y="0.0" width="302" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="521" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="q1K-1Z-DkV">
+                                <rect key="frame" x="0.0" y="250" width="521" height="50"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="onM-vB-wMA">
+                                        <rect key="frame" x="18" y="15" width="459" height="21"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Game engine did not constructed completely" id="aOD-6T-ecE">
+                                            <font key="font" metaFont="systemBold" size="18"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="Jsu-vl-Ncz">
+                                        <rect key="frame" x="483" y="9" width="26" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Jsu-vl-Ncz" secondAttribute="height" multiplier="1:1" id="IZp-ZS-DFi"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSStopProgressFreestandingTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="7Ca-Cx-8ZJ">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="onM-vB-wMA" firstAttribute="centerY" secondItem="q1K-1Z-DkV" secondAttribute="centerY" id="YFJ-ps-Ptd"/>
+                                    <constraint firstItem="onM-vB-wMA" firstAttribute="leading" secondItem="q1K-1Z-DkV" secondAttribute="leading" constant="20" symbolic="YES" id="cOH-Qn-dY7"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jsu-vl-Ncz" secondAttribute="trailing" constant="12" id="kBK-4A-ILe"/>
+                                    <constraint firstItem="Jsu-vl-Ncz" firstAttribute="top" secondItem="q1K-1Z-DkV" secondAttribute="top" constant="12" id="m84-wh-1jS"/>
+                                    <constraint firstAttribute="bottom" secondItem="Jsu-vl-Ncz" secondAttribute="bottom" constant="12" id="mGT-g8-wh4"/>
+                                    <constraint firstItem="Jsu-vl-Ncz" firstAttribute="leading" secondItem="onM-vB-wMA" secondAttribute="trailing" constant="8" symbolic="YES" id="oJM-Vq-Vau"/>
+                                    <constraint firstAttribute="height" constant="50" id="uuf-GT-v49"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="q1K-1Z-DkV" secondAttribute="trailing" id="JwM-xt-oNy"/>
+                            <constraint firstItem="q1K-1Z-DkV" firstAttribute="top" secondItem="hR1-fG-BnX" secondAttribute="top" id="aIL-Gj-97G"/>
+                            <constraint firstItem="q1K-1Z-DkV" firstAttribute="leading" secondItem="xBL-is-xQR" secondAttribute="leading" id="y3j-fu-KD2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="xBL-is-xQR"/>
                         <viewLayoutGuide key="layoutMargins" id="aRs-6f-IOJ"/>
                     </view>
+                    <connections>
+                        <outlet property="errorView" destination="q1K-1Z-DkV" id="jga-Wp-miz"/>
+                    </connections>
                 </viewController>
                 <customObject id="3VM-lz-J0L" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1372" y="417"/>
+            <point key="canvasLocation" x="1460.5" y="417"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSStopProgressFreestandingTemplate" width="15" height="15"/>
+    </resources>
 </document>
