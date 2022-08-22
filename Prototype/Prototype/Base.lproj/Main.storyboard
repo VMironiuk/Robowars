@@ -899,6 +899,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="521" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
+                            <box horizontalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="qpW-vu-1By">
+                                <rect key="frame" x="258" y="0.0" width="5" height="300"/>
+                            </box>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="q1K-1Z-DkV">
                                 <rect key="frame" x="0.0" y="250" width="521" height="50"/>
                                 <subviews>
@@ -934,8 +937,11 @@
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="q1K-1Z-DkV" secondAttribute="trailing" id="JwM-xt-oNy"/>
+                            <constraint firstItem="qpW-vu-1By" firstAttribute="centerX" secondItem="hR1-fG-BnX" secondAttribute="centerX" id="Rv0-t1-AbJ"/>
                             <constraint firstItem="q1K-1Z-DkV" firstAttribute="top" secondItem="hR1-fG-BnX" secondAttribute="top" id="aIL-Gj-97G"/>
+                            <constraint firstAttribute="bottom" secondItem="qpW-vu-1By" secondAttribute="bottom" id="mgZ-Pa-JcG"/>
                             <constraint firstItem="q1K-1Z-DkV" firstAttribute="leading" secondItem="xBL-is-xQR" secondAttribute="leading" id="y3j-fu-KD2"/>
+                            <constraint firstItem="qpW-vu-1By" firstAttribute="top" secondItem="hR1-fG-BnX" secondAttribute="top" id="zh0-bT-KE7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xBL-is-xQR"/>
                         <viewLayoutGuide key="layoutMargins" id="aRs-6f-IOJ"/>
