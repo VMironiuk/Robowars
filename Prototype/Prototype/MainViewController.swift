@@ -20,9 +20,9 @@ class MainViewController: NSViewController {
         errorView.layer?.backgroundColor = NSColor(named: "ErrorViewColor")?.cgColor
         
         firstRobotBattlefieldView.wantsLayer = true
-        firstRobotBattlefieldView.layer?.backgroundColor = NSColor.cyan.cgColor
+        firstRobotBattlefieldView.layer?.backgroundColor = NSColor(named: "BattlefieldColor")?.cgColor
         
         secondRobotBattlefieldView.wantsLayer = true
-        secondRobotBattlefieldView.layer?.backgroundColor = NSColor.cyan.cgColor
+        secondRobotBattlefieldView.layer?.backgroundColor = NSColor(named: "BattlefieldColor")?.cgColor
     }
 }
