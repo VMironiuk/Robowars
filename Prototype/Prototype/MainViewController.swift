@@ -10,19 +10,13 @@ import Cocoa
 class MainViewController: NSViewController {
     
     @IBOutlet private weak var errorView: NSView!
-    @IBOutlet private weak var firstRobotBattlefieldView: NSView!
-    @IBOutlet private weak var secondRobotBattlefieldView: NSView!
+    @IBOutlet private weak var firstRobotBattlefieldView: BattlefieldView!
+    @IBOutlet private weak var secondRobotBattlefieldView: BattlefieldView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         errorView.wantsLayer = true
         errorView.layer?.backgroundColor = NSColor(named: "ErrorViewColor")?.cgColor
-        
-        firstRobotBattlefieldView.wantsLayer = true
-        firstRobotBattlefieldView.layer?.backgroundColor = NSColor(named: "BattlefieldColor")?.cgColor
-        
-        secondRobotBattlefieldView.wantsLayer = true
-        secondRobotBattlefieldView.layer?.backgroundColor = NSColor(named: "BattlefieldColor")?.cgColor
     }
 }

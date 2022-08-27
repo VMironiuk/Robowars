@@ -1013,7 +1013,7 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Mvq-ZJ-Flr">
                                 <rect key="frame" x="0.0" y="80" width="371" height="269"/>
                                 <subviews>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="ElB-Jr-HvZ">
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="ElB-Jr-HvZ" customClass="BattlefieldView" customModule="Prototype" customModuleProvider="target">
                                         <rect key="frame" x="50" y="-1" width="271" height="271"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ElB-Jr-HvZ" secondAttribute="height" multiplier="1:1" id="jz1-eS-ely"/>
@@ -1029,7 +1029,7 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Tni-sg-itP">
                                 <rect key="frame" x="372" y="80" width="370" height="269"/>
                                 <subviews>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="Njk-f2-aLQ">
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="Njk-f2-aLQ" customClass="BattlefieldView" customModule="Prototype" customModuleProvider="target">
                                         <rect key="frame" x="50" y="-1" width="270" height="271"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Njk-f2-aLQ" secondAttribute="height" multiplier="1:1" id="rw2-8e-wU5"/>
