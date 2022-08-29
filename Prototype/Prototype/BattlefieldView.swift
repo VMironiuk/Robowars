@@ -40,6 +40,10 @@ class BattlefieldView: NSView {
                 let tile = tiles[row * 10 + column]
                 tile.frame = NSRect(x: x, y: y, width: tileWidth, height: tileHeight)
                 x += tileWidth + 1
+                
+                if row == 1 && column == 1 {
+                    tile.layer?.backgroundColor = NSColor(named: "ShipColor")?.cgColor
+                }
             }
             y += tileHeight + 1
             x = 1
