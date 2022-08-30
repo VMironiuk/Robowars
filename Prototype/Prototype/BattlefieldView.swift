@@ -43,6 +43,16 @@ class BattlefieldView: NSView {
                 
                 if row == 1 && column == 1 {
                     tile.layer?.backgroundColor = NSColor(named: "ShipColor")?.cgColor
+
+                    if tile.layer?.sublayers == .none {
+                        let subLayer = CALayer()
+                        subLayer.frame = tile.layer!.bounds
+                        subLayer.backgroundColor = NSColor(named: "DamagedShipColor")?.cgColor
+                        subLayer.opacity = 0.5
+                        tile.layer?.addSublayer(subLayer)
+                    } else {
+                        tile.layer?.sublayers?.forEach { $0.frame = tile.layer!.bounds }
+                    }
                 }
             }
             y += tileHeight + 1
