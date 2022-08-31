@@ -41,18 +41,16 @@ class BattlefieldView: NSView {
                 tile.frame = NSRect(x: x, y: y, width: tileWidth, height: tileHeight)
                 x += tileWidth + 1
                 
+                if row == 0 && column == 0 || row == 2 && column == 1 || row == 4 && column == 6 {
+                    tile.layer?.backgroundColor = NSColor(named: "MissedShotColor")?.cgColor
+                }
+                
                 if row == 1 && column == 1 {
+                    tile.layer?.backgroundColor = NSColor(named: "DamagedShipColor")?.cgColor
+                }
+                
+                if row == 1 && column == 2 || row == 1 && column == 3 || row == 1 && column == 4{
                     tile.layer?.backgroundColor = NSColor(named: "ShipColor")?.cgColor
-
-                    if tile.layer?.sublayers == .none {
-                        let subLayer = CALayer()
-                        subLayer.frame = tile.layer!.bounds
-                        subLayer.backgroundColor = NSColor(named: "DamagedShipColor")?.cgColor
-                        subLayer.opacity = 0.5
-                        tile.layer?.addSublayer(subLayer)
-                    } else {
-                        tile.layer?.sublayers?.forEach { $0.frame = tile.layer!.bounds }
-                    }
                 }
             }
             y += tileHeight + 1
@@ -62,7 +60,7 @@ class BattlefieldView: NSView {
     
     private func setup() {
         wantsLayer = true
-        layer?.backgroundColor = .black
+        layer?.backgroundColor = NSColor(named: "Window Background Color")?.cgColor
         tiles.forEach { addSubview($0) }
     }
     
@@ -72,6 +70,7 @@ class BattlefieldView: NSView {
             let tile = NSView()
             tile.wantsLayer = true
             tile.layer?.backgroundColor = NSColor(named: "BattlefieldColor")?.cgColor
+            tile.layer?.cornerRadius = 5
             tempTiles.append(tile)
         }
         return tempTiles
