@@ -9,20 +9,15 @@ import Cocoa
 
 class BattlefieldView: NSView {
     
-    private let tiles: [NSView]
     private static let rowsCount: CGFloat = 10
     private static let columnsCount: CGFloat = 10
     
     override init(frame frameRect: NSRect) {
-        tiles = Self.makeTiles()
-
         super.init(frame: frameRect)
         setup()
     }
     
     required init?(coder: NSCoder) {
-        tiles = Self.makeTiles()
-
         super.init(coder: coder)
         setup()
     }
@@ -37,7 +32,7 @@ class BattlefieldView: NSView {
 
         for row in .zero..<Int(Self.rowsCount) {
             for column in .zero..<Int(Self.columnsCount) {
-                let tile = tiles[row * 10 + column]
+                let tile = subviews[row * 10 + column]
                 tile.frame = NSRect(x: x, y: y, width: tileWidth, height: tileHeight)
                 x += tileWidth + 1
                 
@@ -61,18 +56,13 @@ class BattlefieldView: NSView {
     private func setup() {
         wantsLayer = true
         layer?.backgroundColor = NSColor(named: "Window Background Color")?.cgColor
-        tiles.forEach { addSubview($0) }
-    }
-    
-    private static func makeTiles() -> [NSView] {
-        var tempTiles: [NSView] = []
+        
         for _ in .zero..<Int(Self.rowsCount * Self.columnsCount) {
             let tile = NSView()
             tile.wantsLayer = true
             tile.layer?.backgroundColor = NSColor(named: "BattlefieldColor")?.cgColor
             tile.layer?.cornerRadius = 5
-            tempTiles.append(tile)
+            addSubview(tile)
         }
-        return tempTiles
     }
 }
