@@ -12,6 +12,10 @@ class BattlefieldView: NSView {
     private let rowsCount: CGFloat = 10
     private let columnsCount: CGFloat = 10
     
+    override var isFlipped: Bool {
+        true
+    }
+    
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         setup()
