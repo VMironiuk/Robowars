@@ -727,10 +727,10 @@
             </objects>
             <point key="canvasLocation" x="776" y="231"/>
         </scene>
-        <!--View Controller-->
+        <!--Sidebar View Controller-->
         <scene sceneID="Qkn-bb-11G">
             <objects>
-                <viewController id="Yf1-1x-0I3" sceneMemberID="viewController">
+                <viewController id="Yf1-1x-0I3" customClass="SidebarViewController" customModule="Prototype" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="EFL-AQ-Vm1">
                         <rect key="frame" x="0.0" y="0.0" width="242" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -759,9 +759,9 @@
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <objectValues>
-                                                        <string>Item 1</string>
-                                                        <string>Item 2</string>
-                                                        <string>Item 3</string>
+                                                        <string>Mr. Robot</string>
+                                                        <string>Starscream</string>
+                                                        <string>Voltron</string>
                                                     </objectValues>
                                                 </comboBoxCell>
                                             </comboBox>
@@ -796,9 +796,9 @@
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <objectValues>
-                                                        <string>Item 1</string>
-                                                        <string>Item 2</string>
-                                                        <string>Item 3</string>
+                                                        <string>Mr. Robot</string>
+                                                        <string>Starscream</string>
+                                                        <string>Voltron</string>
                                                     </objectValues>
                                                 </comboBoxCell>
                                             </comboBox>
@@ -833,9 +833,8 @@
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <objectValues>
-                                                        <string>Item 1</string>
-                                                        <string>Item 2</string>
-                                                        <string>Item 3</string>
+                                                        <string>Classic</string>
+                                                        <string>Heavyweight</string>
                                                     </objectValues>
                                                 </comboBoxCell>
                                             </comboBox>
@@ -886,6 +885,11 @@
                         <viewLayoutGuide key="safeArea" id="ud8-h5-qX4"/>
                         <viewLayoutGuide key="layoutMargins" id="eev-aN-iRh"/>
                     </view>
+                    <connections>
+                        <outlet property="firstRobotComboBox" destination="b1R-7A-gmz" id="t5N-L1-uWN"/>
+                        <outlet property="gameModeComboBox" destination="kcg-PV-XmV" id="c1h-51-0GA"/>
+                        <outlet property="secondRobotComboBox" destination="Qia-Nr-ohC" id="CbM-dx-uFB"/>
+                    </connections>
                 </viewController>
                 <customObject id="x06-UI-nK8" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
