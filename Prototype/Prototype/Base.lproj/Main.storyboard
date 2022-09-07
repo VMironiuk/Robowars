@@ -759,9 +759,7 @@
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <objectValues>
-                                                        <string>Mr. Robot</string>
                                                         <string>Starscream</string>
-                                                        <string>Voltron</string>
                                                     </objectValues>
                                                 </comboBoxCell>
                                             </comboBox>
@@ -796,8 +794,6 @@
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <objectValues>
-                                                        <string>Mr. Robot</string>
-                                                        <string>Starscream</string>
                                                         <string>Voltron</string>
                                                     </objectValues>
                                                 </comboBoxCell>
@@ -834,7 +830,6 @@
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <objectValues>
                                                         <string>Classic</string>
-                                                        <string>Heavyweight</string>
                                                     </objectValues>
                                                 </comboBoxCell>
                                             </comboBox>
@@ -942,9 +937,9 @@
                                 <rect key="frame" x="0.0" y="349" width="371" height="80"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Uu6-Uj-pzd">
-                                        <rect key="frame" x="-2" y="28" width="375" height="24"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Robot #1" id="hb3-cs-qvS">
-                                            <font key="font" metaFont="systemBold" size="20"/>
+                                        <rect key="frame" x="-2" y="21" width="375" height="38"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Starscream" id="hb3-cs-qvS">
+                                            <font key="font" metaFont="systemBold" size="32"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -962,7 +957,7 @@
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mAb-os-ncd">
                                         <rect key="frame" x="-2" y="31" width="375" height="19"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Robot #1 messages" id="ozH-mV-246">
+                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="I'm not tired of winning!" id="ozH-mV-246">
                                             <font key="font" metaFont="systemBold" size="16"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -980,9 +975,9 @@
                                 <rect key="frame" x="372" y="349" width="370" height="80"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NL5-kW-9ON">
-                                        <rect key="frame" x="-2" y="28" width="374" height="24"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Robot #2" id="E8k-Qj-lWR">
-                                            <font key="font" metaFont="systemBold" size="20"/>
+                                        <rect key="frame" x="-2" y="21" width="374" height="38"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Voltron" id="E8k-Qj-lWR">
+                                            <font key="font" metaFont="systemBold" size="32"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -1000,7 +995,7 @@
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qFr-eu-OXe">
                                         <rect key="frame" x="-2" y="31" width="374" height="19"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Robot #2 messages" id="nMb-uU-CSt">
+                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Next time =[" id="nMb-uU-CSt">
                                             <font key="font" metaFont="systemBold" size="16"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
