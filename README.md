@@ -48,6 +48,7 @@ Desktop macOS client for the Robowars game
       [-] Add 'Samples' panel
             [-] Show/hide error message
             [-] Start game
+            [-] In progress game
             [-] Finished game
 
 ## BDD Specs
