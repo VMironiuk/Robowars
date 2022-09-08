@@ -865,55 +865,97 @@
                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="R82-lz-m5E">
                                 <rect key="frame" x="0.0" y="247" width="314" height="5"/>
                             </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="llw-DV-gA2">
-                                <rect key="frame" x="12" y="103" width="125" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="HSm-sy-V8l">
+                                <rect key="frame" x="0.0" y="140" width="314" height="5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="GWu-rI-vpL"/>
+                                </constraints>
+                            </box>
+                            <stackView distribution="fill" orientation="vertical" alignment="trailing" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0lR-Am-y0I">
+                                <rect key="frame" x="4" y="52" width="306" height="47"/>
+                                <subviews>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4hS-KW-b7A">
+                                        <rect key="frame" x="64" y="31" width="242" height="16"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ej9-R6-aE9">
+                                                <rect key="frame" x="-2" y="0.0" width="92" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Error Message" id="ql8-8G-1on">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eVa-Ub-aPg">
+                                                <rect key="frame" x="90" y="-1" width="152" height="18"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="uow-bj-0Kz"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="check" title="Show Error Message" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="012-IH-p0Y">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                            </button>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t2Y-si-UAX">
+                                        <rect key="frame" x="77" y="0.0" width="229" height="19"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="34w-Yq-coc">
+                                                <rect key="frame" x="-2" y="3" width="79" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Game Stage" id="fO9-hu-FbS">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ozf-lg-OZ0">
+                                                <rect key="frame" x="79" y="-4" width="153" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="n62-i4-kFA"/>
+                                                </constraints>
+                                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="CYg-mQ-Cc1">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    <objectValues>
+                                                        <string>Item 1</string>
+                                                        <string>Item 2</string>
+                                                        <string>Item 3</string>
+                                                    </objectValues>
+                                                </comboBoxCell>
+                                            </comboBox>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="llw-DV-gA2">
+                                <rect key="frame" x="2" y="111" width="310" height="19"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="TEST SAMPLES" id="Zgv-UO-arn">
                                     <font key="font" metaFont="systemBold" size="16"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="HSm-sy-V8l">
-                                <rect key="frame" x="0.0" y="128" width="242" height="5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </box>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eVa-Ub-aPg">
-                                <rect key="frame" x="162" y="78" width="152" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="check" title="Show Error Message" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="012-IH-p0Y">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ej9-R6-aE9">
-                                <rect key="frame" x="66" y="79" width="92" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Error Message" id="ql8-8G-1on">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ozf-lg-OZ0">
-                                <rect key="frame" x="160" y="48" width="153" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="CYg-mQ-Cc1">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    <objectValues>
-                                        <string>Item 1</string>
-                                        <string>Item 2</string>
-                                        <string>Item 3</string>
-                                    </objectValues>
-                                </comboBoxCell>
-                            </comboBox>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="34w-Yq-coc">
-                                <rect key="frame" x="78" y="52" width="79" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Game Stage" id="fO9-hu-FbS">
-                                    <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -921,14 +963,23 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="R82-lz-m5E" firstAttribute="leading" secondItem="EFL-AQ-Vm1" secondAttribute="leading" id="4po-Im-Deo"/>
+                            <constraint firstAttribute="trailing" secondItem="HSm-sy-V8l" secondAttribute="trailing" id="7ha-Y1-MuX"/>
                             <constraint firstItem="rFl-YX-NF6" firstAttribute="leading" secondItem="EFL-AQ-Vm1" secondAttribute="leading" constant="12" id="9eg-iw-d8Q"/>
                             <constraint firstItem="ud8-h5-qX4" firstAttribute="bottom" secondItem="rFl-YX-NF6" secondAttribute="bottom" constant="12" id="F3V-Dg-7AV"/>
                             <constraint firstItem="ud8-h5-qX4" firstAttribute="trailing" secondItem="H5E-i2-9C5" secondAttribute="trailing" constant="4" id="Kok-Fi-fLV"/>
+                            <constraint firstItem="0lR-Am-y0I" firstAttribute="top" secondItem="llw-DV-gA2" secondAttribute="bottom" constant="12" id="LNF-c5-6od"/>
+                            <constraint firstItem="rFl-YX-NF6" firstAttribute="top" secondItem="0lR-Am-y0I" secondAttribute="bottom" constant="20" id="N2w-pm-0Nk"/>
                             <constraint firstItem="H5E-i2-9C5" firstAttribute="top" secondItem="R82-lz-m5E" secondAttribute="bottom" constant="12" id="NSD-za-MME"/>
+                            <constraint firstItem="HSm-sy-V8l" firstAttribute="leading" secondItem="EFL-AQ-Vm1" secondAttribute="leading" id="Ocg-VC-5UU"/>
                             <constraint firstAttribute="trailing" secondItem="R82-lz-m5E" secondAttribute="trailing" id="TsE-Kz-h4y"/>
+                            <constraint firstItem="ud8-h5-qX4" firstAttribute="trailing" secondItem="llw-DV-gA2" secondAttribute="trailing" constant="4" id="VpF-wz-Xwe"/>
                             <constraint firstItem="H5E-i2-9C5" firstAttribute="leading" secondItem="ud8-h5-qX4" secondAttribute="leading" constant="4" id="dJ1-Ac-Lck"/>
+                            <constraint firstItem="llw-DV-gA2" firstAttribute="leading" secondItem="ud8-h5-qX4" secondAttribute="leading" constant="4" id="f0I-co-dbo"/>
+                            <constraint firstItem="ud8-h5-qX4" firstAttribute="trailing" secondItem="0lR-Am-y0I" secondAttribute="trailing" constant="4" id="ihk-6Q-jzl"/>
                             <constraint firstItem="R82-lz-m5E" firstAttribute="top" secondItem="EFL-AQ-Vm1" secondAttribute="top" constant="50" id="mYm-ug-Ve9"/>
+                            <constraint firstItem="0lR-Am-y0I" firstAttribute="leading" secondItem="ud8-h5-qX4" secondAttribute="leading" constant="4" id="pgt-a6-EkP"/>
                             <constraint firstAttribute="trailing" secondItem="rFl-YX-NF6" secondAttribute="trailing" constant="12" id="tqq-NI-Xzp"/>
+                            <constraint firstItem="llw-DV-gA2" firstAttribute="top" secondItem="HSm-sy-V8l" secondAttribute="bottom" constant="12" id="ujC-qg-grm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ud8-h5-qX4"/>
                         <viewLayoutGuide key="layoutMargins" id="eev-aN-iRh"/>
