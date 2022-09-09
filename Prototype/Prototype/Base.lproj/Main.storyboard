@@ -890,10 +890,13 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="uow-bj-0Kz"/>
                                                 </constraints>
-                                                <buttonCell key="cell" type="check" title="Show Error Message" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="012-IH-p0Y">
+                                                <buttonCell key="cell" type="check" title="Show Error Message" bezelStyle="regularSquare" imagePosition="left" inset="2" id="012-IH-p0Y">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="showErrorCheckBoxAction:" target="Yf1-1x-0I3" id="pv1-Ip-ogP"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <visibilityPriorities>
@@ -988,6 +991,7 @@
                         <outlet property="firstRobotComboBox" destination="b1R-7A-gmz" id="t5N-L1-uWN"/>
                         <outlet property="gameModeComboBox" destination="kcg-PV-XmV" id="c1h-51-0GA"/>
                         <outlet property="secondRobotComboBox" destination="Qia-Nr-ohC" id="CbM-dx-uFB"/>
+                        <outlet property="showErrorCheckBox" destination="eVa-Ub-aPg" id="kNT-xa-h3L"/>
                     </connections>
                 </viewController>
                 <customObject id="x06-UI-nK8" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

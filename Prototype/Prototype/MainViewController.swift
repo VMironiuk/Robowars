@@ -21,6 +21,24 @@ class MainViewController: NSViewController {
         
         firstRobotBattlefieldView.update(state: firstRobotState())
         secondRobotBattlefieldView.update(state: secondRobotState())
+        
+        registerNotifications()
+    }
+    
+    private func registerNotifications() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(onToggleErrorNotification(_:)),
+            name: Constants.Notifications.Name.toggleError,
+            object: nil)
+    }
+    
+    @objc private func onToggleErrorNotification(_ notification: Notification) {
+        guard let shouldShowError = notification.userInfo?[Constants.Notifications.UserInfo.Key.showError] as? Bool else {
+            return
+        }
+        
+        print(shouldShowError)
     }
     
     private func firstRobotState() -> BattlefieldViewState {

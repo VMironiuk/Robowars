@@ -12,6 +12,7 @@
 		2E4189B828ACB7AB00BDDE8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E4189B628ACB7AB00BDDE8A /* Main.storyboard */; };
 		2E88AF1328C863FD00F0E64B /* SidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E88AF1228C863FD00F0E64B /* SidebarViewController.swift */; };
 		2EA2C86228B0E70100284D58 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA2C86128B0E70100284D58 /* MainViewController.swift */; };
+		2EABE7B028CB10B000FE2203 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EABE7AF28CB10B000FE2203 /* Constants.swift */; };
 		2EC8EAB228BA02CA00DE32E9 /* BattlefieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC8EAB128BA02CA00DE32E9 /* BattlefieldView.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		2E4189B928ACB7AB00BDDE8A /* Prototype.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Prototype.entitlements; sourceTree = "<group>"; };
 		2E88AF1228C863FD00F0E64B /* SidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewController.swift; sourceTree = "<group>"; };
 		2EA2C86128B0E70100284D58 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		2EABE7AF28CB10B000FE2203 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2EC8EAB128BA02CA00DE32E9 /* BattlefieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattlefieldView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,6 +62,7 @@
 				2EA2C86128B0E70100284D58 /* MainViewController.swift */,
 				2E88AF1228C863FD00F0E64B /* SidebarViewController.swift */,
 				2EC8EAB128BA02CA00DE32E9 /* BattlefieldView.swift */,
+				2EABE7AF28CB10B000FE2203 /* Constants.swift */,
 				2E4189B428ACB7AB00BDDE8A /* Assets.xcassets */,
 				2E4189B628ACB7AB00BDDE8A /* Main.storyboard */,
 				2E4189B928ACB7AB00BDDE8A /* Prototype.entitlements */,
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EABE7B028CB10B000FE2203 /* Constants.swift in Sources */,
 				2E4189B128ACB7A800BDDE8A /* AppDelegate.swift in Sources */,
 				2EA2C86228B0E70100284D58 /* MainViewController.swift in Sources */,
 				2EC8EAB228BA02CA00DE32E9 /* BattlefieldView.swift in Sources */,
