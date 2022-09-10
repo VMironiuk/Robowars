@@ -20,9 +20,6 @@ class MainViewController: NSViewController {
         errorView.wantsLayer = true
         errorView.layer?.backgroundColor = NSColor(named: "ErrorViewColor")?.cgColor
         
-        firstRobotBattlefieldView.update(state: firstRobotStateForStartedGameStage())
-        secondRobotBattlefieldView.update(state: secondRobotStateForStartedGameStage())
-
         registerNotifications()
     }
     

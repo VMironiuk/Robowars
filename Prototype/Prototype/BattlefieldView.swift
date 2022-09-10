@@ -68,6 +68,7 @@ class BattlefieldView: NSView {
     
     func update(state: BattlefieldViewState) {
         self.state = state
+        needsLayout = true
         layoutSubtreeIfNeeded()
     }
     
