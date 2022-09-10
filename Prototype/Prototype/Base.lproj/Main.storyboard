@@ -1175,7 +1175,7 @@
                             <constraint firstItem="qpW-vu-1By" firstAttribute="leading" secondItem="ltb-eJ-zgL" secondAttribute="trailing" id="peq-ey-Mb9"/>
                             <constraint firstItem="sov-HJ-5ma" firstAttribute="top" secondItem="hR1-fG-BnX" secondAttribute="top" constant="50" id="uCQ-bG-8bK"/>
                             <constraint firstAttribute="bottom" secondItem="tgx-rG-4xJ" secondAttribute="bottom" id="vvE-vV-vB6"/>
-                            <constraint firstItem="q1K-1Z-DkV" firstAttribute="leading" secondItem="xBL-is-xQR" secondAttribute="leading" id="y3j-fu-KD2"/>
+                            <constraint firstItem="q1K-1Z-DkV" firstAttribute="leading" secondItem="hR1-fG-BnX" secondAttribute="leading" id="y3j-fu-KD2"/>
                             <constraint firstItem="qpW-vu-1By" firstAttribute="top" secondItem="hR1-fG-BnX" secondAttribute="top" id="zh0-bT-KE7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xBL-is-xQR"/>
