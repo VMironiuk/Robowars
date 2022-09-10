@@ -1010,7 +1010,7 @@
                                 <rect key="frame" x="369" y="0.0" width="5" height="479"/>
                             </box>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="q1K-1Z-DkV">
-                                <rect key="frame" x="0.0" y="429" width="742" height="50"/>
+                                <rect key="frame" x="0.0" y="479" width="742" height="50"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="onM-vB-wMA">
                                         <rect key="frame" x="18" y="15" width="680" height="21"/>
@@ -1166,7 +1166,7 @@
                             <constraint firstAttribute="trailing" secondItem="Tni-sg-itP" secondAttribute="trailing" id="PVA-EF-dNI"/>
                             <constraint firstItem="qpW-vu-1By" firstAttribute="centerX" secondItem="hR1-fG-BnX" secondAttribute="centerX" id="Rv0-t1-AbJ"/>
                             <constraint firstAttribute="trailing" secondItem="sov-HJ-5ma" secondAttribute="trailing" id="S0l-5A-3nE"/>
-                            <constraint firstItem="q1K-1Z-DkV" firstAttribute="top" secondItem="hR1-fG-BnX" secondAttribute="top" id="aIL-Gj-97G"/>
+                            <constraint firstItem="q1K-1Z-DkV" firstAttribute="top" secondItem="hR1-fG-BnX" secondAttribute="top" constant="-50" id="aIL-Gj-97G"/>
                             <constraint firstAttribute="trailing" secondItem="tgx-rG-4xJ" secondAttribute="trailing" id="af8-Sl-aqQ"/>
                             <constraint firstItem="qpW-vu-1By" firstAttribute="leading" secondItem="Mvq-ZJ-Flr" secondAttribute="trailing" id="bU9-UJ-Yqm"/>
                             <constraint firstItem="s9d-K5-33R" firstAttribute="leading" secondItem="hR1-fG-BnX" secondAttribute="leading" id="cGL-D7-RaM"/>
@@ -1183,6 +1183,7 @@
                     </view>
                     <connections>
                         <outlet property="errorView" destination="q1K-1Z-DkV" id="jga-Wp-miz"/>
+                        <outlet property="errorViewTopConstraint" destination="aIL-Gj-97G" id="3vM-KN-xag"/>
                         <outlet property="firstRobotBattlefieldView" destination="ElB-Jr-HvZ" id="sOh-KI-y6a"/>
                         <outlet property="secondRobotBattlefieldView" destination="Njk-f2-aLQ" id="5cs-bm-BLG"/>
                     </connections>

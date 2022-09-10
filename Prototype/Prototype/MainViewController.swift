@@ -12,6 +12,7 @@ class MainViewController: NSViewController {
     @IBOutlet private weak var errorView: NSView!
     @IBOutlet private weak var firstRobotBattlefieldView: BattlefieldView!
     @IBOutlet private weak var secondRobotBattlefieldView: BattlefieldView!
+    @IBOutlet private weak var errorViewTopConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,10 @@ class MainViewController: NSViewController {
             return
         }
         
-        print(shouldShowError)
+        NSAnimationContext.runAnimationGroup { context in
+            context.duration = 0.2
+            errorViewTopConstraint.animator().constant = shouldShowError ? .zero : -50
+        }
     }
     
     private func firstRobotState() -> BattlefieldViewState {
