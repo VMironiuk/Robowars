@@ -17,6 +17,7 @@ struct Constants {
             private init() {}
             
             static let toggleError = Notification.Name(rawValue: "RBWToggleError")
+            static let gameStateDidChange = Notification.Name(rawValue: "RBWGameStateDidChange")
         }
         
         struct UserInfo {
@@ -26,6 +27,7 @@ struct Constants {
                 private init() {}
                 
                 static let showError: String = "RBWShowError"
+                static let gameStateDidChange: String = "RBWGameStateDidChange"
             }
         }
     }
