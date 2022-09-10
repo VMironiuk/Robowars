@@ -1189,7 +1189,9 @@
                         <outlet property="errorView" destination="q1K-1Z-DkV" id="jga-Wp-miz"/>
                         <outlet property="errorViewTopConstraint" destination="aIL-Gj-97G" id="3vM-KN-xag"/>
                         <outlet property="firstRobotBattlefieldView" destination="ElB-Jr-HvZ" id="sOh-KI-y6a"/>
+                        <outlet property="firstRobotMessageLabel" destination="mAb-os-ncd" id="Lkc-ZD-bwT"/>
                         <outlet property="secondRobotBattlefieldView" destination="Njk-f2-aLQ" id="5cs-bm-BLG"/>
+                        <outlet property="secondRobotMessageLabel" destination="qFr-eu-OXe" id="Q7z-Z4-zqu"/>
                     </connections>
                 </viewController>
                 <customObject id="3VM-lz-J0L" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

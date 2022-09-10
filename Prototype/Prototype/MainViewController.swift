@@ -13,6 +13,8 @@ class MainViewController: NSViewController {
     @IBOutlet private weak var firstRobotBattlefieldView: BattlefieldView!
     @IBOutlet private weak var secondRobotBattlefieldView: BattlefieldView!
     @IBOutlet private weak var errorViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var firstRobotMessageLabel: NSTextField!
+    @IBOutlet private weak var secondRobotMessageLabel: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,12 +59,18 @@ class MainViewController: NSViewController {
         case .started:
             firstRobotBattlefieldView.update(state: firstRobotStateForStartedGameStage())
             secondRobotBattlefieldView.update(state: secondRobotStateForStartedGameStage())
+            firstRobotMessageLabel.stringValue = ""
+            secondRobotMessageLabel.stringValue = ""
         case .inProgress:
             firstRobotBattlefieldView.update(state: firstRobotStateForInProgressGameStage())
             secondRobotBattlefieldView.update(state: secondRobotStateForInProgressGameStage())
+            firstRobotMessageLabel.stringValue = ""
+            secondRobotMessageLabel.stringValue = ""
         case .finished:
             firstRobotBattlefieldView.update(state: firstRobotStateForFinishedGameStage())
             secondRobotBattlefieldView.update(state: secondRobotStateForFinishedGameStage())
+            firstRobotMessageLabel.stringValue = "I'm not tired of winning!"
+            secondRobotMessageLabel.stringValue = "Next time =["
         }
     }
     
