@@ -45,11 +45,12 @@ Desktop macOS client for the Robowars game
 🟢 - Setup CI
 
 🟡 - Make a prototype app
-      [✅] Add 'Samples' panel
+      [-] Add 'Samples' panel
             [✅] Show/hide error message
             [✅] Start game
             [✅] In progress game
-            [✅] Finished game
+            [-] Finished game
+                  [-] Show winner message
       [-] Battlefield colors
 
 ## BDD Specs
