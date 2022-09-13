@@ -16,6 +16,8 @@ class MainViewController: NSViewController {
     @IBOutlet private weak var firstRobotMessageLabel: NSTextField!
     @IBOutlet private weak var secondRobotMessageLabel: NSTextField!
     
+    private let finishedGamePopupViewController = FinishedGamePopupViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,17 +63,39 @@ class MainViewController: NSViewController {
             secondRobotBattlefieldView.update(state: secondRobotStateForStartedGameStage())
             firstRobotMessageLabel.stringValue = ""
             secondRobotMessageLabel.stringValue = ""
+            closeFinishedGamePopupView()
         case .inProgress:
             firstRobotBattlefieldView.update(state: firstRobotStateForInProgressGameStage())
             secondRobotBattlefieldView.update(state: secondRobotStateForInProgressGameStage())
             firstRobotMessageLabel.stringValue = ""
             secondRobotMessageLabel.stringValue = ""
+            closeFinishedGamePopupView()
         case .finished:
             firstRobotBattlefieldView.update(state: firstRobotStateForFinishedGameStage())
             secondRobotBattlefieldView.update(state: secondRobotStateForFinishedGameStage())
             firstRobotMessageLabel.stringValue = "I'm not tired of winning!"
             secondRobotMessageLabel.stringValue = "Next time =["
+            showFinishedGamePopupView()
         }
+    }
+    
+    private func showFinishedGamePopupView() {
+        addChild(finishedGamePopupViewController)
+        view.addSubview(finishedGamePopupViewController.view)
+        finishedGamePopupViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            finishedGamePopupViewController.view.leadingAnchor.constraint(
+                equalTo: view.leadingAnchor),
+            finishedGamePopupViewController.view.topAnchor.constraint(
+                equalTo: view.topAnchor),
+            finishedGamePopupViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            finishedGamePopupViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+    
+    private func closeFinishedGamePopupView() {
+        finishedGamePopupViewController.view.removeFromSuperview()
+        finishedGamePopupViewController.removeFromParent()
     }
     
     private func firstRobotStateForStartedGameStage() -> BattlefieldViewState {

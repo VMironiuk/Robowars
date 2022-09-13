@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E1459F728D0354D007A5263 /* FinishedGamePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1459F628D0354D007A5263 /* FinishedGamePopupViewController.swift */; };
+		2E1459F928D0356C007A5263 /* FinishedGamePopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E1459F828D0356C007A5263 /* FinishedGamePopupView.xib */; };
 		2E4189B128ACB7A800BDDE8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4189B028ACB7A800BDDE8A /* AppDelegate.swift */; };
 		2E4189B528ACB7AB00BDDE8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E4189B428ACB7AB00BDDE8A /* Assets.xcassets */; };
 		2E4189B828ACB7AB00BDDE8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E4189B628ACB7AB00BDDE8A /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E1459F628D0354D007A5263 /* FinishedGamePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedGamePopupViewController.swift; sourceTree = "<group>"; };
+		2E1459F828D0356C007A5263 /* FinishedGamePopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinishedGamePopupView.xib; sourceTree = "<group>"; };
 		2E4189AD28ACB7A800BDDE8A /* Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4189B028ACB7A800BDDE8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E4189B428ACB7AB00BDDE8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,6 +65,8 @@
 				2E4189B028ACB7A800BDDE8A /* AppDelegate.swift */,
 				2EA2C86128B0E70100284D58 /* MainViewController.swift */,
 				2E88AF1228C863FD00F0E64B /* SidebarViewController.swift */,
+				2E1459F628D0354D007A5263 /* FinishedGamePopupViewController.swift */,
+				2E1459F828D0356C007A5263 /* FinishedGamePopupView.xib */,
 				2EC8EAB128BA02CA00DE32E9 /* BattlefieldView.swift */,
 				2EABE7AF28CB10B000FE2203 /* Constants.swift */,
 				2E4189B428ACB7AB00BDDE8A /* Assets.xcassets */,
@@ -128,6 +134,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E1459F928D0356C007A5263 /* FinishedGamePopupView.xib in Resources */,
 				2E4189B528ACB7AB00BDDE8A /* Assets.xcassets in Resources */,
 				2E4189B828ACB7AB00BDDE8A /* Main.storyboard in Resources */,
 			);
@@ -141,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EABE7B028CB10B000FE2203 /* Constants.swift in Sources */,
+				2E1459F728D0354D007A5263 /* FinishedGamePopupViewController.swift in Sources */,
 				2E4189B128ACB7A800BDDE8A /* AppDelegate.swift in Sources */,
 				2EA2C86228B0E70100284D58 /* MainViewController.swift in Sources */,
 				2EC8EAB228BA02CA00DE32E9 /* BattlefieldView.swift in Sources */,
