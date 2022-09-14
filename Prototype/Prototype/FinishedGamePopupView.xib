@@ -7,6 +7,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="FinishedGamePopupViewController" customModule="Prototype" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundView" destination="fSI-rs-Aam" id="TWd-yV-xXb"/>
+                <outlet property="popupView" destination="Kit-EH-DVh" id="wYs-jp-ubC"/>
                 <outlet property="view" destination="c22-O7-iKe" id="PxW-ZP-jb5"/>
             </connections>
         </customObject>
@@ -15,7 +17,49 @@
         <customView id="c22-O7-iKe">
             <rect key="frame" x="0.0" y="0.0" width="784" height="464"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="fSI-rs-Aam">
+                    <rect key="frame" x="0.0" y="0.0" width="784" height="464"/>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Kit-EH-DVh">
+                    <rect key="frame" x="242" y="132" width="300" height="200"/>
+                    <subviews>
+                        <button translatesAutoresizingMaskIntoConstraints="NO" id="Ua9-c5-ZYa">
+                            <rect key="frame" x="272" y="169" width="24" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="24" id="WiW-xy-yhk"/>
+                                <constraint firstAttribute="height" constant="24" id="zSG-tU-fbB"/>
+                            </constraints>
+                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSStopProgressFreestandingTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="9PL-fo-L7L">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <color key="contentTintColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                            <connections>
+                                <action selector="closeButtonAction:" target="-2" id="Tmz-hR-UUW"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="300" id="ACI-TX-1s7"/>
+                        <constraint firstAttribute="height" constant="200" id="Dir-ws-mtL"/>
+                        <constraint firstItem="Ua9-c5-ZYa" firstAttribute="top" secondItem="Kit-EH-DVh" secondAttribute="top" constant="4" id="bWX-LD-jHJ"/>
+                        <constraint firstAttribute="trailing" secondItem="Ua9-c5-ZYa" secondAttribute="trailing" constant="4" id="nIo-DN-bha"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="fSI-rs-Aam" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="Tei-Go-pPi"/>
+                <constraint firstItem="Kit-EH-DVh" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="bi3-ef-sXN"/>
+                <constraint firstAttribute="trailing" secondItem="fSI-rs-Aam" secondAttribute="trailing" id="hZU-MS-XHQ"/>
+                <constraint firstItem="Kit-EH-DVh" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="hgI-FC-1cg"/>
+                <constraint firstAttribute="bottom" secondItem="fSI-rs-Aam" secondAttribute="bottom" id="kUO-ZH-xXN"/>
+                <constraint firstItem="fSI-rs-Aam" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="qtE-Kb-zht"/>
+            </constraints>
             <point key="canvasLocation" x="291" y="250"/>
         </customView>
     </objects>
+    <resources>
+        <image name="NSStopProgressFreestandingTemplate" width="15" height="15"/>
+    </resources>
 </document>
