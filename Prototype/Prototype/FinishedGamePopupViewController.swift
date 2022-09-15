@@ -32,6 +32,8 @@ class FinishedGamePopupViewController: NSViewController {
     }
     
     func show(in parentViewController: NSViewController) {
+        view.alphaValue = 0.0
+        
         parentViewController.addChild(self)
         parentViewController.view.addSubview(self.view)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -41,11 +43,20 @@ class FinishedGamePopupViewController: NSViewController {
             view.trailingAnchor.constraint(equalTo: parentViewController.view.trailingAnchor),
             view.bottomAnchor.constraint(equalTo: parentViewController.view.bottomAnchor)
         ])
+        
+        NSAnimationContext.runAnimationGroup { [weak self] context in
+            context.duration = 0.25
+            self?.view.animator().alphaValue = 1.0
+        }
     }
     
     func hide() {
-        removeFromParent()
-        view.removeFromSuperview()
+        NSAnimationContext.runAnimationGroup { [weak self] context in
+            self?.view.animator().alphaValue = 0.0
+        } completionHandler: { [weak self] in
+            self?.removeFromParent()
+            self?.view.removeFromSuperview()
+        }
     }
     
     private func setupBackgroundView() {
