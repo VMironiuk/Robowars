@@ -50,7 +50,9 @@ Desktop macOS client for the Robowars game
             [✅] Start game
             [✅] In progress game
             [-] Finished game
-                  [-] Show winner message
+                  [✅] Show winner message
+                  [-] Set colors
+                  [-] Set image (optional)
       [-] Battlefield colors
 
 ## BDD Specs
