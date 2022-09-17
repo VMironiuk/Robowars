@@ -67,7 +67,7 @@ class FinishedGamePopupViewController: NSViewController {
     
     private func setupPopupView() {
         popupView.wantsLayer = true
-        popupView.layer?.backgroundColor = .white
+        popupView.layer?.backgroundColor = NSColor.windowBackgroundColor.cgColor
         popupView.layer?.cornerRadius = 10
     }
     
