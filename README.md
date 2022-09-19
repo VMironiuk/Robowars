@@ -49,11 +49,14 @@ Desktop macOS client for the Robowars game
             [✅] Show/hide error message
             [✅] Start game
             [✅] In progress game
-            [-] Finished game
+            [✅] Finished game
                   [✅] Show winner message
                   [✅] Set colors
                   [-] Set image (optional)
       [-] Battlefield colors
+            [✅] Colors
+            [-] Draw 'X' for hit shots
+            [-] Draw 'O' for missed shots
 
 ## BDD Specs
 
