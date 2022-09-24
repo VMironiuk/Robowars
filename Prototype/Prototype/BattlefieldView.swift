@@ -45,20 +45,23 @@ class BattlefieldView: NSView {
 
         for row in .zero..<Int(rowsCount) {
             for column in .zero..<Int(columnsCount) {
-                let tile = subviews[row * 10 + column]
+                let tile = subviews[row * 10 + column] as! TileView
                 tile.frame = NSRect(x: x, y: y, width: tileWidth, height: tileHeight)
                 x += tileWidth + 1
                 
                 if state.missedShots.contains(CGPoint(x: column, y: row)) {
                     tile.layer?.backgroundColor = NSColor(named: "MissedShotColor")?.cgColor
+                    tile.state = .missed
                 }
                 
                 if state.hitShots.contains(CGPoint(x: column, y: row)) {
                     tile.layer?.backgroundColor = NSColor(named: "DamagedShipColor")?.cgColor
+                    tile.state = .damaged
                 }
                 
                 if state.ships.contains(CGPoint(x: column, y: row)) {
                     tile.layer?.backgroundColor = NSColor(named: "ShipColor")?.cgColor
+                    tile.state = .normal
                 }
             }
             y += tileHeight + 1
@@ -77,7 +80,7 @@ class BattlefieldView: NSView {
         layer?.backgroundColor = NSColor(named: "Window Background Color")?.cgColor
         
         for _ in .zero..<Int(rowsCount * columnsCount) {
-            let tile = NSView()
+            let tile = TileView()
             tile.wantsLayer = true
             tile.layer?.backgroundColor = NSColor(named: "BattlefieldColor")?.cgColor
             tile.layer?.cornerRadius = 5
