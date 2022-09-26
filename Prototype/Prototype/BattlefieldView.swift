@@ -52,15 +52,14 @@ class BattlefieldView: NSView {
                 if state.missedShots.contains(CGPoint(x: column, y: row)) {
                     tile.layer?.backgroundColor = NSColor(named: "MissedShotColor")?.cgColor
                     tile.state = .missed
-                }
-                
-                if state.hitShots.contains(CGPoint(x: column, y: row)) {
+                } else if state.hitShots.contains(CGPoint(x: column, y: row)) {
                     tile.layer?.backgroundColor = NSColor(named: "DamagedShipColor")?.cgColor
                     tile.state = .damaged
-                }
-                
-                if state.ships.contains(CGPoint(x: column, y: row)) {
+                } else if state.ships.contains(CGPoint(x: column, y: row)) {
                     tile.layer?.backgroundColor = NSColor(named: "ShipColor")?.cgColor
+                    tile.state = .normal
+                } else {
+                    tile.layer?.backgroundColor = NSColor(named: "BattlefieldColor")?.cgColor
                     tile.state = .normal
                 }
             }
