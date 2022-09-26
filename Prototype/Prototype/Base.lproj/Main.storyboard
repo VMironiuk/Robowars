@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="tRQ-XX-YgK">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="tRQ-XX-YgK">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21225"/>
         <capability name="NSView safe area layout guides" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1049,9 +1050,9 @@
                                 <rect key="frame" x="0.0" y="349" width="371" height="80"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Uu6-Uj-pzd">
-                                        <rect key="frame" x="-2" y="21" width="375" height="38"/>
+                                        <rect key="frame" x="-2" y="17" width="375" height="47"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Starscream" id="hb3-cs-qvS">
-                                            <font key="font" metaFont="systemBold" size="32"/>
+                                            <font key="font" metaFont="systemBlack" size="40"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -1087,9 +1088,9 @@
                                 <rect key="frame" x="372" y="349" width="370" height="80"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NL5-kW-9ON">
-                                        <rect key="frame" x="-2" y="21" width="374" height="38"/>
+                                        <rect key="frame" x="-2" y="17" width="374" height="47"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Voltron" id="E8k-Qj-lWR">
-                                            <font key="font" metaFont="systemBold" size="32"/>
+                                            <font key="font" metaFont="systemBlack" size="40"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
