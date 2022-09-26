@@ -44,7 +44,22 @@ Desktop macOS client for the Robowars game
 
 🟢 - Setup CI
 
-🟡 - Make a prototype app
+🟢 - Make a prototype app
+      [✅] Add 'Samples' panel
+            [✅] Show/hide error message
+            [✅] Start game
+            [✅] In progress game
+            [✅] Finished game
+                  [✅] Show winner message
+                  [✅] Set colors
+      [✅] Battlefield colors
+            [✅] Colors
+            [✅] Draw 'X' for hit shots
+            [✅] Draw 'O' for missed shots
+
+🟡 - the initial system design
+
+🟡 - dummy robot
 
 ## BDD Specs
 
