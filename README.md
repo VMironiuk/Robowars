@@ -45,6 +45,7 @@ Desktop macOS client for the Robowars game
 🟢 - Setup CI
 
 🟢 - Make a prototype app
+
       [✅] Add 'Samples' panel
             [✅] Show/hide error message
             [✅] Start game
