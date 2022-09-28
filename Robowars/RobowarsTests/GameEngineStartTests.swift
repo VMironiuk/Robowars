@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import Robowars
+@testable import Robowars
 
 class GameEngineStartTests: XCTestCase {
     

@@ -7,15 +7,15 @@
 
 import Foundation
 
-public final class GameEngine: GameEngineProtocol {
+final class GameEngine: GameEngineProtocol {
     private let shipsValidator: ShipsValidatorProtocol
     private var firstRobot: RobotProtocol?
     private var secondRobot: RobotProtocol?
     private var firstRobotShipsPoints: [[CGPoint]] = []
     private var secondRobotShipsPoints: [[CGPoint]] = []
-    public weak var delegate: GameEngineDelegate?
+    weak var delegate: GameEngineDelegate?
 
-    public var isValid: Bool {
+    var isValid: Bool {
         guard let firstRobot = firstRobot,
               let secondRobot = secondRobot,
               shipsValidator.isValid(ships: firstRobot.ships),
@@ -26,11 +26,11 @@ public final class GameEngine: GameEngineProtocol {
         return true
     }
     
-    public init(shipsValidator: ShipsValidatorProtocol) {
+    init(shipsValidator: ShipsValidatorProtocol) {
         self.shipsValidator = shipsValidator
     }
     
-    public func start() {
+    func start() {
         guard isValid, let firstRobot = firstRobot else {
             return { delegate?.gameEngine(self, didFailWithError: GameEngineError.invalidConstruction) }()
         }
@@ -55,7 +55,7 @@ public final class GameEngine: GameEngineProtocol {
         }
     }
         
-    public func update(firstRobot robot: RobotProtocol) {
+    func update(firstRobot robot: RobotProtocol) {
         firstRobot = robot
         delegate?.gameEngine(self, didChangeFirstRobotWithShips: robot.ships)
         firstRobotShipsPoints = shipsPoints(from: robot.ships)
@@ -64,7 +64,7 @@ public final class GameEngine: GameEngineProtocol {
         }
     }
     
-    public func update(secondRobot robot: RobotProtocol) {
+    func update(secondRobot robot: RobotProtocol) {
         secondRobot = robot
         delegate?.gameEngine(self, didChangeSecondRobotWithShips: robot.ships)
         secondRobotShipsPoints = shipsPoints(from: robot.ships)
@@ -73,7 +73,7 @@ public final class GameEngine: GameEngineProtocol {
         }
     }
     
-    public func update(gameMode: GameMode) {
+    func update(gameMode: GameMode) {
         shipsValidator.update(gameMode: gameMode)
         delegate?.gameEngine(self, didChangeGameModeWithBattleField: gameMode.battlefield())
         

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Robowars
+@testable import Robowars
 
 final class DummyShipsValidator: ShipsValidatorProtocol {
     func isValid(ships: [CGRect]) -> Bool {
