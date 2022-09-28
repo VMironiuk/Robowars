@@ -91,8 +91,8 @@ class GameEngineStartTests: XCTestCase {
         line: UInt = #line
     ) -> (
         gameEngine: GameEngineProtocol,
-        firstRobot: Robot,
-        secondRobot: Robot
+        firstRobot: RobotProtocol,
+        secondRobot: RobotProtocol
     ) {
         let firstRobot = ShootingTestRobot(ships: firstRobotShips, maxBattlefieldSize: maxBattlefieldSize)
         let secondRobot = ShootingTestRobot(ships: secondRobotShips, maxBattlefieldSize: maxBattlefieldSize)
@@ -106,7 +106,7 @@ class GameEngineStartTests: XCTestCase {
         return (sut, firstRobot, secondRobot)
     }
     
-    private final class ShootingTestRobot: Robot {
+    private final class ShootingTestRobot: RobotProtocol {
         private var shootPoint: CGPoint = .zero
         private let maxBattlefieldSize: CGFloat
         private let _ships: [CGRect]

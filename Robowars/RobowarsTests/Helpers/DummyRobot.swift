@@ -8,7 +8,7 @@
 import Foundation
 import Robowars
 
-final class DummyRobot: Robot {
+final class DummyRobot: RobotProtocol {
     private(set) var ships: [CGRect] = []
     var name: String {
         ""

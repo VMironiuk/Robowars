@@ -9,8 +9,8 @@ import Foundation
 
 public final class GameEngine: GameEngineProtocol {
     private let shipsValidator: ShipsValidatorProtocol
-    private var firstRobot: Robot?
-    private var secondRobot: Robot?
+    private var firstRobot: RobotProtocol?
+    private var secondRobot: RobotProtocol?
     private var firstRobotShipsPoints: [[CGPoint]] = []
     private var secondRobotShipsPoints: [[CGPoint]] = []
     public weak var delegate: GameEngineDelegate?
@@ -55,7 +55,7 @@ public final class GameEngine: GameEngineProtocol {
         }
     }
         
-    public func update(firstRobot robot: Robot) {
+    public func update(firstRobot robot: RobotProtocol) {
         firstRobot = robot
         delegate?.gameEngine(self, didChangeFirstRobotWithShips: robot.ships)
         firstRobotShipsPoints = shipsPoints(from: robot.ships)
@@ -64,7 +64,7 @@ public final class GameEngine: GameEngineProtocol {
         }
     }
     
-    public func update(secondRobot robot: Robot) {
+    public func update(secondRobot robot: RobotProtocol) {
         secondRobot = robot
         delegate?.gameEngine(self, didChangeSecondRobotWithShips: robot.ships)
         secondRobotShipsPoints = shipsPoints(from: robot.ships)
@@ -84,7 +84,7 @@ public final class GameEngine: GameEngineProtocol {
         update(secondRobot: secondRobot)
     }
     
-    private func oppositeRobot(to robot: Robot) -> Robot {
+    private func oppositeRobot(to robot: RobotProtocol) -> RobotProtocol {
         guard let firstRobot = firstRobot, let secondRobot = secondRobot else {
             fatalError("Robot cannot be nil")
         }
@@ -105,7 +105,7 @@ public final class GameEngine: GameEngineProtocol {
         return shipsPoints
     }
     
-    private func shootResult(for shootPoint: CGPoint, to robot: Robot) -> ShootResult {
+    private func shootResult(for shootPoint: CGPoint, to robot: RobotProtocol) -> ShootResult {
         var result: ShootResult = .miss
         if robot === firstRobot {
             result = shootResult(for: shootPoint, with: &firstRobotShipsPoints)
