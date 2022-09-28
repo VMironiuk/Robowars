@@ -79,7 +79,6 @@
 			children = (
 				3C0649F8284231F20039710D /* GameEngine.swift */,
 				2E964E6428A7809B0054C6BD /* GameEngineError.swift */,
-				2E964E6628A780EA0054C6BD /* GameEngineProtocol.swift */,
 			);
 			path = GameEngine;
 			sourceTree = "<group>";
@@ -87,8 +86,8 @@
 		2E964E6828A781720054C6BD /* ShipsValidator */ = {
 			isa = PBXGroup;
 			children = (
-				3C8F0AC12850B4A4007EAB70 /* ShipsArrangementValidator.swift */,
 				3CB69C61285B9AF700AD21F3 /* ShipsValidatorProtocol.swift */,
+				3C8F0AC12850B4A4007EAB70 /* ShipsArrangementValidator.swift */,
 			);
 			path = ShipsValidator;
 			sourceTree = "<group>";
@@ -115,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				3C0649DD284224620039710D /* Robowars.h */,
+				2E964E6628A780EA0054C6BD /* GameEngineProtocol.swift */,
 				3C0649F42842315C0039710D /* RobotProtocol.swift */,
 				3C0649F6284231A70039710D /* GameMode.swift */,
 				2E964E6328A7807B0054C6BD /* GameEngine */,
