@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol ShipsValidatorProtocol: AnyObject {
+protocol ShipsValidatorProtocol: AnyObject {
     func isValid(ships: [CGRect]) -> Bool
     func update(gameMode: GameMode)
 }

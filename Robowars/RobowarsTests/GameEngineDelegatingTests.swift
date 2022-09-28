@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import Robowars
+@testable import Robowars
 
 class GameEngineDelegatingTests: XCTestCase {
     
@@ -283,7 +283,7 @@ class GameEngineDelegatingTests: XCTestCase {
         return (sut, delegate)
     }
 
-    private class BrokenRobot: Robot {
+    private class BrokenRobot: RobotProtocol {
         var ships: [CGRect] {
             []
         }
@@ -300,7 +300,7 @@ class GameEngineDelegatingTests: XCTestCase {
         func shootResult(_ result: ShootResult, for coordinate: CGPoint) {}
     }
     
-    private class ShootingRobot: Robot {
+    private class ShootingRobot: RobotProtocol {
         private let shoots: [CGPoint] = [.zero, CGPoint(x: 1, y: 0), CGPoint(x: 2, y: 0)]
         private var currenntShoot: Int = .zero
         let ships: [CGRect]

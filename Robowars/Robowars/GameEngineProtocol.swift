@@ -12,8 +12,8 @@ public protocol GameEngineProtocol: AnyObject {
     var delegate: GameEngineDelegate? { get set }
     
     func start()
-    func update(firstRobot robot: Robot)
-    func update(secondRobot robot: Robot)
+    func update(firstRobot robot: RobotProtocol)
+    func update(secondRobot robot: RobotProtocol)
     func update(gameMode: GameMode)
 }
 

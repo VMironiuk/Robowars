@@ -7,14 +7,14 @@
 
 import Foundation
 
-public enum GameEngineError: Error {
+enum GameEngineError: Error {
     case invalidFirstRobotShipsArrangement
     case invalidSecondRobotShipsArrangement
     case invalidConstruction
 }
 
 extension GameEngineError: LocalizedError {
-    public var errorDescription: String? {
+    var errorDescription: String? {
         switch self {
         case .invalidFirstRobotShipsArrangement:
             return "First robot has incorrect ships placement"
