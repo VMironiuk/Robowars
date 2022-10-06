@@ -15,7 +15,7 @@ final class ChooseRobotsViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.view)
     }
     
-    func test_chooseRobotsVC_doesNotInformDelegateIfNoRobots() {
+    func test_chooseRobotsVC_doesNotInformDelegateOnAssignmentIfThereAreNoRobots() {
         let sut = ChooseRobotsViewController(robots: [])
         let chooseRobotsSpy = ChooseRobotsSpy()
         
