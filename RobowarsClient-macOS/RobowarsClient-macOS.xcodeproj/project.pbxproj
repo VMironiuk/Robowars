@@ -80,8 +80,7 @@
 			children = (
 				2E11D8BA28ED594F003CC71B /* AppDelegate.swift */,
 				2E11D8BC28ED594F003CC71B /* ViewController.swift */,
-				2E11D8E728ED5C34003CC71B /* ChooseRobotsViewController.swift */,
-				2E11D8E928ED60C7003CC71B /* ChooseRobotsView.xib */,
+				2E11D8EC28ED61D5003CC71B /* ChooseRobots */,
 				2E11D8BE28ED5951003CC71B /* Assets.xcassets */,
 				2E11D8C028ED5951003CC71B /* Main.storyboard */,
 				2E11D8C328ED5951003CC71B /* RobowarsClient_macOS.entitlements */,
@@ -95,6 +94,15 @@
 				2E11D8E528ED5B8F003CC71B /* ChooseRobotsViewControllerTests.swift */,
 			);
 			path = "RobowarsClient-macOSTests";
+			sourceTree = "<group>";
+		};
+		2E11D8EC28ED61D5003CC71B /* ChooseRobots */ = {
+			isa = PBXGroup;
+			children = (
+				2E11D8E728ED5C34003CC71B /* ChooseRobotsViewController.swift */,
+				2E11D8E928ED60C7003CC71B /* ChooseRobotsView.xib */,
+			);
+			path = ChooseRobots;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

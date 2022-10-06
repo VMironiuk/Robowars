@@ -11,7 +11,25 @@ import XCTest
 final class ChooseRobotsViewControllerTests: XCTestCase {
     
     func test_chooseRobotsVC_init_createsView() {
-        let sut = ChooseRobotsViewController()
+        let sut = ChooseRobotsViewController(robots: [])
         XCTAssertNotNil(sut.view)
+    }
+    
+    func test_chooseRobotsVC_doesNotInformDelegateIfNoRobots() {
+        let sut = ChooseRobotsViewController(robots: [])
+        let chooseRobotsSpy = ChooseRobotsSpy()
+        
+        _ = sut.view
+        sut.delegate = chooseRobotsSpy
+        
+        XCTAssertTrue(chooseRobotsSpy.firstRobotDidChangeCallCount == .zero)
+        XCTAssertTrue(chooseRobotsSpy.secondRobotDidChangeCallCount == .zero)
+    }
+    
+    // MARK: - Helpers
+    
+    private final class ChooseRobotsSpy: ChooseRobotsViewControllerDelegate {
+        private(set) var firstRobotDidChangeCallCount: Int = .zero
+        private(set) var secondRobotDidChangeCallCount: Int = .zero
     }
 }

@@ -6,14 +6,19 @@
 //
 
 import Cocoa
+import Robowars
+
+protocol ChooseRobotsViewControllerDelegate: AnyObject {}
 
 final class ChooseRobotsViewController: NSViewController {
+    
+    weak var delegate: ChooseRobotsViewControllerDelegate?
     
     override var nibName: NSNib.Name? {
         "ChooseRobotsView"
     }
     
-    convenience init() {
+    convenience init(robots: [RobotProtocol]) {
         self.init(nibName: nil, bundle: nil)
     }
     
