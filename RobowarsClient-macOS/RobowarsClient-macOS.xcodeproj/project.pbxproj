@@ -14,6 +14,8 @@
 		2E11D8E628ED5B8F003CC71B /* ChooseRobotsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E11D8E528ED5B8F003CC71B /* ChooseRobotsViewControllerTests.swift */; };
 		2E11D8E828ED5C34003CC71B /* ChooseRobotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E11D8E728ED5C34003CC71B /* ChooseRobotsViewController.swift */; };
 		2E11D8EA28ED60C7003CC71B /* ChooseRobotsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E11D8E928ED60C7003CC71B /* ChooseRobotsView.xib */; };
+		2EA5838C28F00555006E7BB3 /* Robowars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA5838B28F00555006E7BB3 /* Robowars.framework */; };
+		2EA5838D28F00555006E7BB3 /* Robowars.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA5838B28F00555006E7BB3 /* Robowars.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2EA5838E28F00555006E7BB3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2EA5838D28F00555006E7BB3 /* Robowars.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2E11D8B728ED594F003CC71B /* RobowarsClient-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RobowarsClient-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E11D8BA28ED594F003CC71B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +53,7 @@
 		2E11D8E528ED5B8F003CC71B /* ChooseRobotsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRobotsViewControllerTests.swift; sourceTree = "<group>"; };
 		2E11D8E728ED5C34003CC71B /* ChooseRobotsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRobotsViewController.swift; sourceTree = "<group>"; };
 		2E11D8E928ED60C7003CC71B /* ChooseRobotsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseRobotsView.xib; sourceTree = "<group>"; };
+		2EA5838B28F00555006E7BB3 /* Robowars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Robowars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EA5838C28F00555006E7BB3 /* Robowars.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +81,7 @@
 				2E11D8B928ED594F003CC71B /* RobowarsClient-macOS */,
 				2E11D8CB28ED5951003CC71B /* RobowarsClient-macOSTests */,
 				2E11D8B828ED594F003CC71B /* Products */,
+				2EA5838A28F00555006E7BB3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +124,14 @@
 			path = ChooseRobots;
 			sourceTree = "<group>";
 		};
+		2EA5838A28F00555006E7BB3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2EA5838B28F00555006E7BB3 /* Robowars.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -115,6 +142,7 @@
 				2E11D8B328ED594F003CC71B /* Sources */,
 				2E11D8B428ED594F003CC71B /* Frameworks */,
 				2E11D8B528ED594F003CC71B /* Resources */,
+				2EA5838E28F00555006E7BB3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
