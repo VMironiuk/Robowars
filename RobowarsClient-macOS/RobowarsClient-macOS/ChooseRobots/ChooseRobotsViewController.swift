@@ -51,5 +51,20 @@ final class ChooseRobotsViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        firstRobotComboBox.usesDataSource = true
+        firstRobotComboBox.dataSource = self
+        secondRobotComboBox.usesDataSource = true
+        secondRobotComboBox.dataSource = self
+    }
+}
+
+extension ChooseRobotsViewController: NSComboBoxDataSource {
+    func numberOfItems(in comboBox: NSComboBox) -> Int {
+        robots.count
+    }
+    
+    func comboBox(_ comboBox: NSComboBox, objectValueForItemAt index: Int) -> Any? {
+        robots[index].name
     }
 }
