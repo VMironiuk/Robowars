@@ -8,6 +8,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ChooseRobotsViewController" customModule="RobowarsClient_macOS" customModuleProvider="target">
             <connections>
+                <outlet property="firstRobotComboBox" destination="qZr-jO-j9B" id="p8Y-hK-syY"/>
+                <outlet property="secondRobotComboBox" destination="nf1-U4-nKX" id="Aiz-er-sZf"/>
                 <outlet property="view" destination="c22-O7-iKe" id="KRZ-wU-yq9"/>
             </connections>
         </customObject>
@@ -40,9 +42,6 @@
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        <objectValues>
-                                            <string>Starscream</string>
-                                        </objectValues>
                                     </comboBoxCell>
                                 </comboBox>
                             </subviews>
@@ -75,9 +74,6 @@
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        <objectValues>
-                                            <string>Voltron</string>
-                                        </objectValues>
                                     </comboBoxCell>
                                 </comboBox>
                             </subviews>

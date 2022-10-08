@@ -18,6 +18,8 @@ protocol ChooseRobotsViewControllerDelegate: AnyObject {
 }
 
 final class ChooseRobotsViewController: NSViewController {
+    @IBOutlet private(set) weak var firstRobotComboBox: NSComboBox!
+    @IBOutlet private(set) weak var secondRobotComboBox: NSComboBox!
     
     private var robots: [RobotProtocol]
     

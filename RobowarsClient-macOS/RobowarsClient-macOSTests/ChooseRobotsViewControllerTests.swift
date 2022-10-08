@@ -37,6 +37,15 @@ final class ChooseRobotsViewControllerTests: XCTestCase {
         XCTAssertTrue(chooseRobotsSpy.firstRobotDidChangeCallCount == 1)
         XCTAssertTrue(chooseRobotsSpy.secondRobotDidChangeCallCount == 1)
     }
+    
+    func test_chooseRobotsVC_comboBoxesDoNotContainItemsIfThereAreNoRobots() {
+        let sut = ChooseRobotsViewController()
+        
+        _ = sut.view
+        
+        XCTAssertEqual(sut.firstRobotComboBox.numberOfItems, .zero)
+        XCTAssertEqual(sut.secondRobotComboBox.numberOfItems, .zero)
+    }
 
     // MARK: - Helpers
 
