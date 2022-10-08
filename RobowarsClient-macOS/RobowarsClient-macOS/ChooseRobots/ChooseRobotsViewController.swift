@@ -54,8 +54,11 @@ final class ChooseRobotsViewController: NSViewController {
         
         firstRobotComboBox.usesDataSource = true
         firstRobotComboBox.dataSource = self
+        firstRobotComboBox.delegate = self
+        
         secondRobotComboBox.usesDataSource = true
         secondRobotComboBox.dataSource = self
+        secondRobotComboBox.delegate = self
     }
 }
 
@@ -66,5 +69,21 @@ extension ChooseRobotsViewController: NSComboBoxDataSource {
     
     func comboBox(_ comboBox: NSComboBox, objectValueForItemAt index: Int) -> Any? {
         robots[index].name
+    }
+}
+
+extension ChooseRobotsViewController: NSComboBoxDelegate {
+    func comboBoxSelectionDidChange(_ notification: Notification) {
+        if notification.object as? NSComboBox === firstRobotComboBox {
+            let indexOfSelectedItem = firstRobotComboBox.indexOfSelectedItem
+            let selectedRobot = robots[indexOfSelectedItem]
+            delegate?.chooseRobotsViewController(self, firstRobotDidChangeWith: selectedRobot)
+        } else if notification.object as? NSComboBox === secondRobotComboBox {
+            let indexOfSelectedItem = secondRobotComboBox.indexOfSelectedItem
+            let selectedRobot = robots[indexOfSelectedItem]
+            delegate?.chooseRobotsViewController(self, secondRobotDidChangeWith: selectedRobot)
+        } else {
+            fatalError()
+        }
     }
 }

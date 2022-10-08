@@ -71,28 +71,66 @@ final class ChooseRobotsViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.comboBox(sut.secondRobotComboBox, objectValueForItemAt: 2) as! String, robots[2].name)
     }
 
+    func test_chooseRobotsVC_informsItsDelegateAboutNewRobotsSelection() {
+        let robots = [DummyRobot(name: "r1"), DummyRobot(name: "r2"), DummyRobot(name: "r3")]
+        let sut = ChooseRobotsViewController(robots: robots)
+        let chooseRobotsSpy = ChooseRobotsSpy()
+        
+        _ = sut.view
+        sut.delegate = chooseRobotsSpy
+        sut.firstRobotComboBox.selectItem(at: 1)
+        sut.secondRobotComboBox.selectItem(at: 2)
+        
+        XCTAssertEqual(chooseRobotsSpy.firstRobot as! DummyRobot, robots[1])
+        XCTAssertEqual(chooseRobotsSpy.secondRobot as! DummyRobot, robots[2])
+        XCTAssertTrue(chooseRobotsSpy.firstRobotDidChangeCallCount == 2)
+        XCTAssertTrue(chooseRobotsSpy.secondRobotDidChangeCallCount == 2)
+        
+        sut.secondRobotComboBox.selectItem(at: 0)
+        XCTAssertEqual(chooseRobotsSpy.firstRobot as! DummyRobot, robots[1])
+        XCTAssertEqual(chooseRobotsSpy.secondRobot as! DummyRobot, robots[0])
+        XCTAssertTrue(chooseRobotsSpy.firstRobotDidChangeCallCount == 2)
+        XCTAssertTrue(chooseRobotsSpy.secondRobotDidChangeCallCount == 3)
+    }
+    
     // MARK: - Helpers
 
     private final class ChooseRobotsSpy: ChooseRobotsViewControllerDelegate {
-        private(set) var firstRobotDidChangeCallCount: Int = .zero
-        private(set) var secondRobotDidChangeCallCount: Int = .zero
+        private var firstRobots: [RobotProtocol] = []
+        private var secondRobots: [RobotProtocol] = []
+        
+        var firstRobotDidChangeCallCount: Int {
+            firstRobots.count
+        }
+        
+        var secondRobotDidChangeCallCount: Int {
+            secondRobots.count
+        }
+        
+        var firstRobot: RobotProtocol? {
+            firstRobots.last
+        }
+        
+        var secondRobot: RobotProtocol? {
+            secondRobots.last
+        }
 
         func chooseRobotsViewController(
             _ viewController: ChooseRobotsViewController,
             firstRobotDidChangeWith robot: RobotProtocol
         ) {
-            firstRobotDidChangeCallCount += 1
+            firstRobots.append(robot)
         }
 
         func chooseRobotsViewController(
             _ viewController: ChooseRobotsViewController,
             secondRobotDidChangeWith robot: RobotProtocol
         ) {
-            secondRobotDidChangeCallCount += 1
+            secondRobots.append(robot)
         }
     }
 
-    private final class DummyRobot: RobotProtocol {
+    private final class DummyRobot: RobotProtocol, Equatable {
         var ships: [CGRect] {
             []
         }
@@ -119,8 +157,12 @@ final class ChooseRobotsViewControllerTests: XCTestCase {
             .zero
         }
 
-        func shootResult(_ result: Robowars.ShootResult, for coordinate: CGPoint) {
+        func shootResult(_ result: ShootResult, for coordinate: CGPoint) {
 
+        }
+        
+        static func == (lhs: DummyRobot, rhs: DummyRobot) -> Bool {
+            lhs.name == rhs.name
         }
     }
 }
