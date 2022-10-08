@@ -55,6 +55,21 @@ final class ChooseRobotsViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.firstRobotComboBox.numberOfItems, 3)
         XCTAssertEqual(sut.secondRobotComboBox.numberOfItems, 3)
     }
+    
+    func test_chooseRobotsVC_comboBoxesTitlesAndRobotNamesAreEqual() {
+        let robots = [DummyRobot(name: "r1"), DummyRobot(name: "r2"), DummyRobot(name: "r3")]
+        let sut = ChooseRobotsViewController(robots: robots)
+        
+        _ = sut.view
+        
+        XCTAssertEqual(sut.comboBox(sut.firstRobotComboBox, objectValueForItemAt: 0) as! String, robots[0].name)
+        XCTAssertEqual(sut.comboBox(sut.firstRobotComboBox, objectValueForItemAt: 1) as! String, robots[1].name)
+        XCTAssertEqual(sut.comboBox(sut.firstRobotComboBox, objectValueForItemAt: 2) as! String, robots[2].name)
+
+        XCTAssertEqual(sut.comboBox(sut.secondRobotComboBox, objectValueForItemAt: 0) as! String, robots[0].name)
+        XCTAssertEqual(sut.comboBox(sut.secondRobotComboBox, objectValueForItemAt: 1) as! String, robots[1].name)
+        XCTAssertEqual(sut.comboBox(sut.secondRobotComboBox, objectValueForItemAt: 2) as! String, robots[2].name)
+    }
 
     // MARK: - Helpers
 
@@ -82,9 +97,7 @@ final class ChooseRobotsViewControllerTests: XCTestCase {
             []
         }
 
-        var name: String {
-            "DummyRobot"
-        }
+        private(set) var name: String
 
         var winnerMessage: String {
             ""
@@ -92,6 +105,10 @@ final class ChooseRobotsViewControllerTests: XCTestCase {
 
         var loserMessage: String {
             ""
+        }
+        
+        init(name: String = "DummyRobot") {
+            self.name = name
         }
 
         func set(battlefield: CGRect, ships: [CGSize]) {
