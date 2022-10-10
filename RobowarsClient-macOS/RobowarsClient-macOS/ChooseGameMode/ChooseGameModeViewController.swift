@@ -7,7 +7,11 @@
 
 import Cocoa
 
+protocol ChooseGameModeViewControllerDelegate: AnyObject {}
+
 class ChooseGameModeViewController: NSViewController {
+    
+    weak var delegate: ChooseGameModeViewControllerDelegate?
     
     override var nibName: NSNib.Name? {
         "ChooseGameModeView"

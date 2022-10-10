@@ -14,4 +14,20 @@ final class ChooseGameModeViewControllerTests: XCTestCase {
         let sut = ChooseGameModeViewController()
         XCTAssertNotNil(sut.view)
     }
+    
+    func test_chooseGameModeVC_doesNotInformDelegateOnAssignmentIfThereAreNoGameModes() {
+        let sut = ChooseGameModeViewController()
+        let chooseGameModeSpy = ChooseGameModeSpy()
+
+        _ = sut.view
+        sut.delegate = chooseGameModeSpy
+
+        XCTAssertTrue(chooseGameModeSpy.gameModeDidChangeCallCount == .zero)
+    }
+    
+    // MARK: - Helpers
+    
+    private final class ChooseGameModeSpy: ChooseGameModeViewControllerDelegate {
+        private(set) var gameModeDidChangeCallCount: Int = .zero
+    }
 }
