@@ -105,9 +105,8 @@
 			children = (
 				2E11D8BA28ED594F003CC71B /* AppDelegate.swift */,
 				2E11D8BC28ED594F003CC71B /* ViewController.swift */,
-				2E8272A128F40290006FDAD6 /* ChooseGameModeViewController.swift */,
-				2E8272A328F40313006FDAD6 /* ChooseGameModeView.xib */,
 				2E11D8EC28ED61D5003CC71B /* ChooseRobots */,
+				2E8A659128F40481003ADE48 /* ChooseGameMode */,
 				2E11D8BE28ED5951003CC71B /* Assets.xcassets */,
 				2E11D8C028ED5951003CC71B /* Main.storyboard */,
 				2E11D8C328ED5951003CC71B /* RobowarsClient_macOS.entitlements */,
@@ -131,6 +130,15 @@
 				2E11D8E928ED60C7003CC71B /* ChooseRobotsView.xib */,
 			);
 			path = ChooseRobots;
+			sourceTree = "<group>";
+		};
+		2E8A659128F40481003ADE48 /* ChooseGameMode */ = {
+			isa = PBXGroup;
+			children = (
+				2E8272A128F40290006FDAD6 /* ChooseGameModeViewController.swift */,
+				2E8272A328F40313006FDAD6 /* ChooseGameModeView.xib */,
+			);
+			path = ChooseGameMode;
 			sourceTree = "<group>";
 		};
 		2EA5838A28F00555006E7BB3 /* Frameworks */ = {
