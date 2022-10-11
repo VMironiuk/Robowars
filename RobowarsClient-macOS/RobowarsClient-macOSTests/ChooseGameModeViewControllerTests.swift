@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import RobowarsClient_macOS
+@testable import Robowars
 
 final class ChooseGameModeViewControllerTests: XCTestCase {
     
@@ -25,9 +26,23 @@ final class ChooseGameModeViewControllerTests: XCTestCase {
         XCTAssertTrue(chooseGameModeSpy.gameModeDidChangeCallCount == .zero)
     }
     
+    func test_chooseGameModeVC_informsDelegateOnAssignmentIfThereAreGameModes() {
+        let sut = ChooseGameModeViewController(gameModes: [.classic])
+        let chooseGameModeSpy = ChooseGameModeSpy()
+
+        _ = sut.view
+        sut.delegate = chooseGameModeSpy
+
+        XCTAssertTrue(chooseGameModeSpy.gameModeDidChangeCallCount == 1)
+    }
+
     // MARK: - Helpers
     
     private final class ChooseGameModeSpy: ChooseGameModeViewControllerDelegate {
         private(set) var gameModeDidChangeCallCount: Int = .zero
+        
+        func chooseGameModeViewController(_ viewController: ChooseGameModeViewController, gameModeDidChange gameMode: GameMode) {
+            gameModeDidChangeCallCount += 1
+        }
     }
 }

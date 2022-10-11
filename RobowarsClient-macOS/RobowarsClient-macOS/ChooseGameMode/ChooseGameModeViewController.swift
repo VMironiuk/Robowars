@@ -6,18 +6,34 @@
 //
 
 import Cocoa
+import Robowars
 
-protocol ChooseGameModeViewControllerDelegate: AnyObject {}
+protocol ChooseGameModeViewControllerDelegate: AnyObject {
+    func chooseGameModeViewController(_ viewController: ChooseGameModeViewController, gameModeDidChange gameMode: GameMode)
+}
 
 class ChooseGameModeViewController: NSViewController {
     
-    weak var delegate: ChooseGameModeViewControllerDelegate?
+    private var gameModes: [GameMode]
+    
+    weak var delegate: ChooseGameModeViewControllerDelegate? {
+        didSet {
+            guard let gameMode = gameModes.first else { return }
+            delegate?.chooseGameModeViewController(self, gameModeDidChange: gameMode)
+        }
+    }
     
     override var nibName: NSNib.Name? {
         "ChooseGameModeView"
     }
     
+    convenience init(gameModes: [GameMode]) {
+        self.init(nibName: nil, bundle: nil)
+        self.gameModes = gameModes
+    }
+    
     override init(nibName nibNameOrNil: NSNib.Name?, bundle nibBundleOrNil: Bundle?) {
+        gameModes = []
         super.init(nibName: "ChooseGameModeView", bundle: nil)
     }
     
