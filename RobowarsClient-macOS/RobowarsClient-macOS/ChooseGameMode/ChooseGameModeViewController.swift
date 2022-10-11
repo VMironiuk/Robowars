@@ -14,6 +14,8 @@ protocol ChooseGameModeViewControllerDelegate: AnyObject {
 
 class ChooseGameModeViewController: NSViewController {
     
+    @IBOutlet private(set) weak var gameModeComboBox: NSComboBox!
+    
     private var gameModes: [GameMode]
     
     weak var delegate: ChooseGameModeViewControllerDelegate? {

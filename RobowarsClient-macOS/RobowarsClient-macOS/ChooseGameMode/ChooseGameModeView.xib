@@ -8,6 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ChooseGameModeViewController" customModule="RobowarsClient_macOS" customModuleProvider="target">
             <connections>
+                <outlet property="gameModeComboBox" destination="POP-rp-rmq" id="HkW-cC-IpC"/>
                 <outlet property="view" destination="c22-O7-iKe" id="hcC-fm-JaJ"/>
             </connections>
         </customObject>
@@ -40,9 +41,6 @@
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        <objectValues>
-                                            <string>Classic</string>
-                                        </objectValues>
                                     </comboBoxCell>
                                 </comboBox>
                             </subviews>

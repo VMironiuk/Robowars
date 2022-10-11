@@ -35,6 +35,14 @@ final class ChooseGameModeViewControllerTests: XCTestCase {
 
         XCTAssertTrue(chooseGameModeSpy.gameModeDidChangeCallCount == 1)
     }
+    
+    func test_chooseGameModeVC_comboBoxDoesNotContainItemsIfThereAreNoGameModes() {
+        let sut = ChooseGameModeViewController()
+        
+        _ = sut.view
+        
+        XCTAssertEqual(sut.gameModeComboBox.numberOfItems, .zero)
+    }
 
     // MARK: - Helpers
     
