@@ -52,6 +52,18 @@ final class ChooseGameModeViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.gameModeComboBox.numberOfItems, 2)
     }
 
+    func test_chooseGameModeVC_comboBoxTitlesAndGameModesTitlesAreEqual() {
+        let gameModes: [GameMode] = [.classic, .flyweight, .classic, .classic]
+        let sut = ChooseGameModeViewController(gameModes: gameModes)
+        
+        _ = sut.view
+        
+        XCTAssertEqual(sut.comboBox(sut.gameModeComboBox, objectValueForItemAt: 0) as! String, gameModes[0].title)
+        XCTAssertEqual(sut.comboBox(sut.gameModeComboBox, objectValueForItemAt: 1) as! String, gameModes[1].title)
+        XCTAssertEqual(sut.comboBox(sut.gameModeComboBox, objectValueForItemAt: 2) as! String, gameModes[2].title)
+        XCTAssertEqual(sut.comboBox(sut.gameModeComboBox, objectValueForItemAt: 3) as! String, gameModes[3].title)
+    }
+
     // MARK: - Helpers
     
     private final class ChooseGameModeSpy: ChooseGameModeViewControllerDelegate {
