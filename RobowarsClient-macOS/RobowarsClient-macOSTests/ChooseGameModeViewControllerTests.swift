@@ -43,6 +43,14 @@ final class ChooseGameModeViewControllerTests: XCTestCase {
         
         XCTAssertEqual(sut.gameModeComboBox.numberOfItems, .zero)
     }
+    
+    func test_chooseGameModeVC_comboBoxContainsSameAmountOfItemsLikeAmountOfGameModes() {
+        let sut = ChooseGameModeViewController(gameModes: [.classic])
+        
+        _ = sut.view
+        
+        XCTAssertEqual(sut.gameModeComboBox.numberOfItems, 1)
+    }
 
     // MARK: - Helpers
     

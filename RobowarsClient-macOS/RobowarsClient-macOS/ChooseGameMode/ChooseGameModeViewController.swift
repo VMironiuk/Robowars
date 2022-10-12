@@ -45,5 +45,17 @@ class ChooseGameModeViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        gameModeComboBox.usesDataSource = true
+        gameModeComboBox.dataSource = self
+    }
+}
+
+extension ChooseGameModeViewController: NSComboBoxDataSource {
+    func numberOfItems(in comboBox: NSComboBox) -> Int {
+        gameModes.count
+    }
+    
+    func comboBox(_ comboBox: NSComboBox, objectValueForItemAt index: Int) -> Any? {
+        gameModes[index].title()
     }
 }
