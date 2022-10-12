@@ -47,6 +47,7 @@ class ChooseGameModeViewController: NSViewController {
         super.viewDidLoad()
         gameModeComboBox.usesDataSource = true
         gameModeComboBox.dataSource = self
+        gameModeComboBox.delegate = self
     }
 }
 
@@ -57,5 +58,13 @@ extension ChooseGameModeViewController: NSComboBoxDataSource {
     
     func comboBox(_ comboBox: NSComboBox, objectValueForItemAt index: Int) -> Any? {
         gameModes[index].title
+    }
+}
+
+extension ChooseGameModeViewController: NSComboBoxDelegate {
+    func comboBoxSelectionDidChange(_ notification: Notification) {
+        let indexOfSelectedItem = gameModeComboBox.indexOfSelectedItem
+        let gameMode = gameModes[indexOfSelectedItem]
+        delegate?.chooseGameModeViewController(self, gameModeDidChange: gameMode)
     }
 }

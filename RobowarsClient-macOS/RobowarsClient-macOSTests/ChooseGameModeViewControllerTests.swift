@@ -64,13 +64,38 @@ final class ChooseGameModeViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.comboBox(sut.gameModeComboBox, objectValueForItemAt: 3) as! String, gameModes[3].title)
     }
 
+    func test_chooseGameModeVC_informsItsDelegateAboutNewGameModeSelection() {
+        let gameModes: [GameMode] = [.classic, .flyweight, .classic]
+        let sut = ChooseGameModeViewController(gameModes: gameModes)
+        let chooseGameModeSpy = ChooseGameModeSpy()
+        
+        _ = sut.view
+        sut.delegate = chooseGameModeSpy
+        sut.gameModeComboBox.selectItem(at: 1)
+        
+        XCTAssertEqual(chooseGameModeSpy.gameMode, gameModes[1])
+        XCTAssertTrue(chooseGameModeSpy.gameModeDidChangeCallCount == 2)
+        
+        sut.gameModeComboBox.selectItem(at: 2)
+        XCTAssertEqual(chooseGameModeSpy.gameMode, gameModes[2])
+        XCTAssertTrue(chooseGameModeSpy.gameModeDidChangeCallCount == 3)
+    }
+
     // MARK: - Helpers
     
     private final class ChooseGameModeSpy: ChooseGameModeViewControllerDelegate {
-        private(set) var gameModeDidChangeCallCount: Int = .zero
+        private var gameModes: [GameMode] = []
+        
+        var gameModeDidChangeCallCount: Int {
+            gameModes.count
+        }
+        
+        var gameMode: GameMode? {
+            gameModes.last
+        }
         
         func chooseGameModeViewController(_ viewController: ChooseGameModeViewController, gameModeDidChange gameMode: GameMode) {
-            gameModeDidChangeCallCount += 1
+            gameModes.append(gameMode)
         }
     }
 }
