@@ -34,4 +34,11 @@ public enum GameMode {
             ]
         }
     }
+    
+    public func title() -> String {
+        switch self {
+        case .classic:
+            return "Classic"
+        }
+    }
 }
