@@ -47,7 +47,7 @@ final class ChooseRobotsViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.secondRobotComboBox.numberOfItems, .zero)
     }
     
-    func test_chooseRobotsVC_comboBoxesNotContainSameAmountOfItemsLikeAmountOfRobots() {
+    func test_chooseRobotsVC_comboBoxesContainSameAmountOfItemsLikeAmountOfRobots() {
         let sut = ChooseRobotsViewController(robots: [DummyRobot(), DummyRobot(), DummyRobot()])
         
         _ = sut.view
