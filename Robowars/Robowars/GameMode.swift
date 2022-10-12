@@ -10,14 +10,14 @@ import Foundation
 public enum GameMode {
     case classic
     
-    public func battlefield() -> CGRect {
+    public var battlefield: CGRect {
         switch self {
         case .classic:
             return CGRect(x: 0, y: 0, width: 10, height: 10)
         }
     }
     
-    public func ships() -> [CGSize] {
+    public var ships: [CGSize] {
         switch self {
         case .classic:
             return [
@@ -35,7 +35,7 @@ public enum GameMode {
         }
     }
     
-    public func title() -> String {
+    public var title: String {
         switch self {
         case .classic:
             return "Classic"

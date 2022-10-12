@@ -56,6 +56,6 @@ extension ChooseGameModeViewController: NSComboBoxDataSource {
     }
     
     func comboBox(_ comboBox: NSComboBox, objectValueForItemAt index: Int) -> Any? {
-        gameModes[index].title()
+        gameModes[index].title
     }
 }
