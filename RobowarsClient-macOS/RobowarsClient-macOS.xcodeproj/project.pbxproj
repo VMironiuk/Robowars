@@ -19,6 +19,9 @@
 		2E8272A428F40313006FDAD6 /* ChooseGameModeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8272A328F40313006FDAD6 /* ChooseGameModeView.xib */; };
 		2EA5838C28F00555006E7BB3 /* Robowars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA5838B28F00555006E7BB3 /* Robowars.framework */; };
 		2EA5838D28F00555006E7BB3 /* Robowars.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA5838B28F00555006E7BB3 /* Robowars.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2EDA0AD128F7DF290020105F /* SidebarViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA0AD028F7DF290020105F /* SidebarViewControllerTests.swift */; };
+		2EDA0AD328F7DFD80020105F /* SidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA0AD228F7DFD80020105F /* SidebarViewController.swift */; };
+		2EDA0AD528F7DFF90020105F /* SidebarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EDA0AD428F7DFF90020105F /* SidebarView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,9 @@
 		2E8272A128F40290006FDAD6 /* ChooseGameModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGameModeViewController.swift; sourceTree = "<group>"; };
 		2E8272A328F40313006FDAD6 /* ChooseGameModeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseGameModeView.xib; sourceTree = "<group>"; };
 		2EA5838B28F00555006E7BB3 /* Robowars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Robowars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EDA0AD028F7DF290020105F /* SidebarViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewControllerTests.swift; sourceTree = "<group>"; };
+		2EDA0AD228F7DFD80020105F /* SidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewController.swift; sourceTree = "<group>"; };
+		2EDA0AD428F7DFF90020105F /* SidebarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SidebarView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,8 @@
 			children = (
 				2E11D8BA28ED594F003CC71B /* AppDelegate.swift */,
 				2E11D8BC28ED594F003CC71B /* ViewController.swift */,
+				2EDA0AD228F7DFD80020105F /* SidebarViewController.swift */,
+				2EDA0AD428F7DFF90020105F /* SidebarView.xib */,
 				2E11D8EC28ED61D5003CC71B /* ChooseRobots */,
 				2E8A659128F40481003ADE48 /* ChooseGameMode */,
 				2E11D8BE28ED5951003CC71B /* Assets.xcassets */,
@@ -119,6 +127,7 @@
 			children = (
 				2E11D8E528ED5B8F003CC71B /* ChooseRobotsViewControllerTests.swift */,
 				2E0D800028F1AE7500E400B3 /* ChooseGameModeViewControllerTests.swift */,
+				2EDA0AD028F7DF290020105F /* SidebarViewControllerTests.swift */,
 			);
 			path = "RobowarsClient-macOSTests";
 			sourceTree = "<group>";
@@ -233,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E11D8EA28ED60C7003CC71B /* ChooseRobotsView.xib in Resources */,
+				2EDA0AD528F7DFF90020105F /* SidebarView.xib in Resources */,
 				2E11D8BF28ED5951003CC71B /* Assets.xcassets in Resources */,
 				2E8272A428F40313006FDAD6 /* ChooseGameModeView.xib in Resources */,
 				2E11D8C228ED5951003CC71B /* Main.storyboard in Resources */,
@@ -253,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EDA0AD328F7DFD80020105F /* SidebarViewController.swift in Sources */,
 				2E8272A228F40290006FDAD6 /* ChooseGameModeViewController.swift in Sources */,
 				2E11D8E828ED5C34003CC71B /* ChooseRobotsViewController.swift in Sources */,
 				2E11D8BD28ED594F003CC71B /* ViewController.swift in Sources */,
@@ -265,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E11D8E628ED5B8F003CC71B /* ChooseRobotsViewControllerTests.swift in Sources */,
+				2EDA0AD128F7DF290020105F /* SidebarViewControllerTests.swift in Sources */,
 				2E0D800128F1AE7500E400B3 /* ChooseGameModeViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
