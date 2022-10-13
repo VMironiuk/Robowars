@@ -11,7 +11,7 @@ import XCTest
 
 final class ChooseGameModeViewControllerTests: XCTestCase {
     
-    func test_chooseGameModeVC_init_createsView() {
+    func test_chooseGameModeVC_createsItsView() {
         let sut = ChooseGameModeViewController()
         XCTAssertNotNil(sut.view)
     }

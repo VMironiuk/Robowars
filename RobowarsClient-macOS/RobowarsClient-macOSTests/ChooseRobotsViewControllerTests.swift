@@ -11,7 +11,7 @@ import Robowars
 
 final class ChooseRobotsViewControllerTests: XCTestCase {
     
-    func test_chooseRobotsVC_init_createsView() {
+    func test_chooseRobotsVC_createsItsView() {
         let sut = ChooseRobotsViewController()
         XCTAssertNotNil(sut.view)
     }
