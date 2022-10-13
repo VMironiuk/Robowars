@@ -13,7 +13,7 @@ final class ChooseRobotsViewControllerTests: XCTestCase {
     
     func test_chooseRobotsVC_createsItsView() {
         let sut = ChooseRobotsViewController()
-        XCTAssertNotNil(sut.view)
+        _ = sut.view
     }
 
     func test_chooseRobotsVC_doesNotInformDelegateOnAssignmentIfThereAreNoRobots() {

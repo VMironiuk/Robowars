@@ -13,7 +13,7 @@ final class ChooseGameModeViewControllerTests: XCTestCase {
     
     func test_chooseGameModeVC_createsItsView() {
         let sut = ChooseGameModeViewController()
-        XCTAssertNotNil(sut.view)
+        _ = sut.view
     }
     
     func test_chooseGameModeVC_doesNotInformDelegateOnAssignmentIfThereAreNoGameModes() {
