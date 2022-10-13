@@ -14,8 +14,18 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <rect key="frame" x="0.0" y="0.0" width="314" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Jtl-rC-2ba">
+                    <rect key="frame" x="0.0" y="219" width="314" height="5"/>
+                </box>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Jtl-rC-2ba" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="6xr-IS-qJn"/>
+                <constraint firstAttribute="trailing" secondItem="Jtl-rC-2ba" secondAttribute="trailing" id="9Ro-9N-ej2"/>
+                <constraint firstItem="Jtl-rC-2ba" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="50" id="qwO-gu-RNZ"/>
+            </constraints>
             <point key="canvasLocation" x="70" y="154"/>
         </customView>
     </objects>

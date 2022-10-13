@@ -7,14 +7,23 @@
 
 import Cocoa
 
+protocol SidebarViewControllerDelegate: AnyObject {}
+
 class SidebarViewController: NSViewController {
+    
+    private weak var delegate: SidebarViewControllerDelegate?
     
     override var nibName: NSNib.Name? {
         "SidebarView"
     }
     
-    convenience init() {
+    convenience init(
+        chooseRobotsViewController: ChooseRobotsViewController,
+        chooseGameModeViewController: ChooseGameModeViewController,
+        delegate: SidebarViewControllerDelegate
+    ) {
         self.init(nibName: nil, bundle: nil)
+        self.delegate = delegate
     }
     
     override init(nibName nibNameOrNil: NSNib.Name?, bundle nibBundleOrNil: Bundle?) {

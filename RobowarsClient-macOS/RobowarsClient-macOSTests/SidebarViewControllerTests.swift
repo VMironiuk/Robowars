@@ -14,4 +14,24 @@ final class SidebarViewControllerTests: XCTestCase {
         let sut = SidebarViewController()
         _ = sut.view
     }
+    
+    func test_sidebarVC_doesNotInformItsDelegateOnInitIfThereNoRobotsAndGameMode() {
+        let delegate = SidebarSpy()
+        let sut = SidebarViewController(
+            chooseRobotsViewController: ChooseRobotsViewController(),
+            chooseGameModeViewController: ChooseGameModeViewController(),
+            delegate: delegate)
+        
+        XCTAssertEqual(delegate.firstRobotDidChangeCallCount, .zero)
+        XCTAssertEqual(delegate.secondRobotDidChangeCallCount, .zero)
+        XCTAssertEqual(delegate.gameModeDidChangeCallCount, .zero)
+    }
+    
+    // MARK: - Helpers
+    
+    private final class SidebarSpy: SidebarViewControllerDelegate {
+        private(set) var firstRobotDidChangeCallCount: Int = .zero
+        private(set) var secondRobotDidChangeCallCount: Int = .zero
+        private(set) var gameModeDidChangeCallCount: Int = .zero
+    }
 }
