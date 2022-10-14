@@ -12,13 +12,12 @@ import Robowars
 final class ChooseRobotsViewControllerTests: XCTestCase {
     
     func test_chooseRobotsVC_createsItsView() {
-        let sut = ChooseRobotsViewController()
+        let (sut, _) = makeSUT()
         _ = sut.view
     }
 
     func test_chooseRobotsVC_doesNotInformDelegateOnAssignmentIfThereAreNoRobots() {
-        let sut = ChooseRobotsViewController()
-        let chooseRobotsSpy = ChooseRobotsSpy()
+        let (sut, chooseRobotsSpy) = makeSUT()
 
         _ = sut.view
         sut.delegate = chooseRobotsSpy
@@ -28,8 +27,7 @@ final class ChooseRobotsViewControllerTests: XCTestCase {
     }
 
     func test_chooseRobotsVC_informsDelegateOnAssignmentIfThereAreRobots() {
-        let sut = ChooseRobotsViewController(robots: [DummyRobot()])
-        let chooseRobotsSpy = ChooseRobotsSpy()
+        let (sut, chooseRobotsSpy) = makeSUT(with: [DummyRobot()])
 
         _ = sut.view
         sut.delegate = chooseRobotsSpy
@@ -39,7 +37,7 @@ final class ChooseRobotsViewControllerTests: XCTestCase {
     }
     
     func test_chooseRobotsVC_comboBoxesDoNotContainItemsIfThereAreNoRobots() {
-        let sut = ChooseRobotsViewController()
+        let (sut, _) = makeSUT()
         
         _ = sut.view
         
@@ -48,7 +46,7 @@ final class ChooseRobotsViewControllerTests: XCTestCase {
     }
     
     func test_chooseRobotsVC_comboBoxesContainSameAmountOfItemsLikeAmountOfRobots() {
-        let sut = ChooseRobotsViewController(robots: [DummyRobot(), DummyRobot(), DummyRobot()])
+        let (sut, _) = makeSUT(with: [DummyRobot(), DummyRobot(), DummyRobot()])
         
         _ = sut.view
         
@@ -58,7 +56,7 @@ final class ChooseRobotsViewControllerTests: XCTestCase {
     
     func test_chooseRobotsVC_comboBoxesTitlesAndRobotNamesAreEqual() {
         let robots = [DummyRobot(name: "r1"), DummyRobot(name: "r2"), DummyRobot(name: "r3")]
-        let sut = ChooseRobotsViewController(robots: robots)
+        let (sut, _) = makeSUT(with: robots)
         
         _ = sut.view
         
@@ -73,8 +71,7 @@ final class ChooseRobotsViewControllerTests: XCTestCase {
 
     func test_chooseRobotsVC_informsItsDelegateAboutNewRobotsSelection() {
         let robots = [DummyRobot(name: "r1"), DummyRobot(name: "r2"), DummyRobot(name: "r3")]
-        let sut = ChooseRobotsViewController(robots: robots)
-        let chooseRobotsSpy = ChooseRobotsSpy()
+        let (sut, chooseRobotsSpy) = makeSUT(with: robots)
         
         _ = sut.view
         sut.delegate = chooseRobotsSpy
@@ -94,6 +91,16 @@ final class ChooseRobotsViewControllerTests: XCTestCase {
     }
     
     // MARK: - Helpers
+    
+    private func makeSUT(with robots: [RobotProtocol] = []) -> (ChooseRobotsViewController, ChooseRobotsSpy) {
+        let sut = ChooseRobotsViewController(robots: robots)
+        let chooseRobotsSpy = ChooseRobotsSpy()
+        
+        trackForMemoryLeak(sut)
+        trackForMemoryLeak(chooseRobotsSpy)
+        
+        return (sut, chooseRobotsSpy)
+    }
 
     private final class ChooseRobotsSpy: ChooseRobotsViewControllerDelegate {
         private var firstRobots: [RobotProtocol] = []
