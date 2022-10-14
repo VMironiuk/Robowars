@@ -13,6 +13,7 @@ final class SidebarViewControllerTests: XCTestCase {
     
     func test_sidebarVC_createsItsView() {
         let sut = SidebarViewController()
+        trackForMemoryLeak(sut)
         _ = sut.view
     }
     
@@ -65,6 +66,24 @@ final class SidebarViewControllerTests: XCTestCase {
     }
     
     // MARK: - Helpers
+    
+    private func makeSUT(
+        with chooseRobotsViewController: ChooseRobotsViewController,
+        chooseGameModeViewController: ChooseGameModeViewController,
+        delegate: SidebarViewControllerDelegate
+    ) -> SidebarViewController {
+        let sut = SidebarViewController(
+            chooseRobotsViewController: chooseRobotsViewController,
+            chooseGameModeViewController: chooseGameModeViewController,
+            delegate: delegate)
+                
+        trackForMemoryLeak(sut)
+        trackForMemoryLeak(chooseRobotsViewController)
+        trackForMemoryLeak(chooseGameModeViewController)
+        trackForMemoryLeak(delegate)
+        
+        return sut
+    }
     
     private final class SidebarSpy: SidebarViewControllerDelegate {
         private(set) var firstRobotDidChangeCallCount: Int = .zero
