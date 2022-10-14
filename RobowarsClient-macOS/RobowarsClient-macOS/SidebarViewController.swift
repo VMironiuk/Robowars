@@ -17,8 +17,6 @@ protocol SidebarViewControllerDelegate: AnyObject {
 class SidebarViewController: NSViewController {
     
     private weak var delegate: SidebarViewControllerDelegate?
-    private var chooseRobotsViewController: ChooseRobotsViewController?
-    private var chooseGameModeViewController: ChooseGameModeViewController?
     
     override var nibName: NSNib.Name? {
         "SidebarView"
@@ -30,12 +28,12 @@ class SidebarViewController: NSViewController {
         delegate: SidebarViewControllerDelegate
     ) {
         self.init(nibName: nil, bundle: nil)
-        self.chooseRobotsViewController = chooseRobotsViewController
-        self.chooseGameModeViewController = chooseGameModeViewController
         self.delegate = delegate
         
-        self.chooseRobotsViewController?.delegate = self
-        self.chooseGameModeViewController?.delegate = self
+        addChild(chooseRobotsViewController)
+        addChild(chooseGameModeViewController)
+        chooseRobotsViewController.delegate = self
+        chooseGameModeViewController.delegate = self
     }
     
     override init(nibName nibNameOrNil: NSNib.Name?, bundle nibBundleOrNil: Bundle?) {
