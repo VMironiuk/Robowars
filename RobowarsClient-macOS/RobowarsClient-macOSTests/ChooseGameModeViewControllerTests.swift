@@ -6,8 +6,8 @@
 //
 
 import XCTest
+import Robowars
 @testable import RobowarsClient_macOS
-@testable import Robowars
 
 final class ChooseGameModeViewControllerTests: XCTestCase {
     

@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import Robowars
+import Robowars
 @testable import RobowarsClient_macOS
 
 final class SidebarViewControllerTests: XCTestCase {
