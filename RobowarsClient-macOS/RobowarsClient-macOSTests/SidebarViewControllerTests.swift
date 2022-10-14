@@ -17,7 +17,7 @@ final class SidebarViewControllerTests: XCTestCase {
     
     func test_sidebarVC_doesNotInformItsDelegateOnInitIfThereNoRobotsAndGameMode() {
         let delegate = SidebarSpy()
-        let sut = SidebarViewController(
+        _ = SidebarViewController(
             chooseRobotsViewController: ChooseRobotsViewController(),
             chooseGameModeViewController: ChooseGameModeViewController(),
             delegate: delegate)
