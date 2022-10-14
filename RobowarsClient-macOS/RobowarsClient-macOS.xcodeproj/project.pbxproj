@@ -16,6 +16,7 @@
 		2E11D8E828ED5C34003CC71B /* ChooseRobotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E11D8E728ED5C34003CC71B /* ChooseRobotsViewController.swift */; };
 		2E11D8EA28ED60C7003CC71B /* ChooseRobotsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E11D8E928ED60C7003CC71B /* ChooseRobotsView.xib */; };
 		2E1C625828F918BB00A75618 /* DummyRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C625728F918BB00A75618 /* DummyRobot.swift */; };
+		2E1C625B28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C625A28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift */; };
 		2E8272A228F40290006FDAD6 /* ChooseGameModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8272A128F40290006FDAD6 /* ChooseGameModeViewController.swift */; };
 		2E8272A428F40313006FDAD6 /* ChooseGameModeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8272A328F40313006FDAD6 /* ChooseGameModeView.xib */; };
 		2EA5838C28F00555006E7BB3 /* Robowars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA5838B28F00555006E7BB3 /* Robowars.framework */; };
@@ -62,6 +63,7 @@
 		2E11D8E728ED5C34003CC71B /* ChooseRobotsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRobotsViewController.swift; sourceTree = "<group>"; };
 		2E11D8E928ED60C7003CC71B /* ChooseRobotsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseRobotsView.xib; sourceTree = "<group>"; };
 		2E1C625728F918BB00A75618 /* DummyRobot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyRobot.swift; sourceTree = "<group>"; };
+		2E1C625A28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		2E8272A128F40290006FDAD6 /* ChooseGameModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGameModeViewController.swift; sourceTree = "<group>"; };
 		2E8272A328F40313006FDAD6 /* ChooseGameModeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseGameModeView.xib; sourceTree = "<group>"; };
 		2EA5838B28F00555006E7BB3 /* Robowars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Robowars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				2E1C625728F918BB00A75618 /* DummyRobot.swift */,
+				2E1C625A28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				2E1C625828F918BB00A75618 /* DummyRobot.swift in Sources */,
 				2EDA0AD128F7DF290020105F /* SidebarViewControllerTests.swift in Sources */,
 				2E0D800128F1AE7500E400B3 /* ChooseGameModeViewControllerTests.swift in Sources */,
+				2E1C625B28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
