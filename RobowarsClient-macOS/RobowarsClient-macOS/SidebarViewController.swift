@@ -6,12 +6,19 @@
 //
 
 import Cocoa
+import Robowars
 
-protocol SidebarViewControllerDelegate: AnyObject {}
+protocol SidebarViewControllerDelegate: AnyObject {
+    func sidebarViewController(_ viewController: SidebarViewController, firstRobotDidChange robot: RobotProtocol)
+    func sidebarViewController(_ viewController: SidebarViewController, secondRobotDidChange robot: RobotProtocol)
+    func sidebarViewController(_ viewController: SidebarViewController, gameModeDidChange robot: GameMode)
+}
 
 class SidebarViewController: NSViewController {
     
     private weak var delegate: SidebarViewControllerDelegate?
+    private var chooseRobotsViewController: ChooseRobotsViewController?
+    private var chooseGameModeViewController: ChooseGameModeViewController?
     
     override var nibName: NSNib.Name? {
         "SidebarView"
@@ -23,7 +30,12 @@ class SidebarViewController: NSViewController {
         delegate: SidebarViewControllerDelegate
     ) {
         self.init(nibName: nil, bundle: nil)
+        self.chooseRobotsViewController = chooseRobotsViewController
+        self.chooseGameModeViewController = chooseGameModeViewController
         self.delegate = delegate
+        
+        self.chooseRobotsViewController?.delegate = self
+        self.chooseGameModeViewController?.delegate = self
     }
     
     override init(nibName nibNameOrNil: NSNib.Name?, bundle nibBundleOrNil: Bundle?) {
@@ -36,5 +48,30 @@ class SidebarViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+}
+
+extension SidebarViewController: ChooseRobotsViewControllerDelegate {
+    func chooseRobotsViewController(
+        _ viewController: ChooseRobotsViewController,
+        firstRobotDidChangeWith robot: RobotProtocol
+    ) {
+        delegate?.sidebarViewController(self, firstRobotDidChange: robot)
+    }
+    
+    func chooseRobotsViewController(
+        _ viewController: ChooseRobotsViewController,
+        secondRobotDidChangeWith robot: RobotProtocol
+    ) {
+        delegate?.sidebarViewController(self, secondRobotDidChange: robot)
+    }
+}
+
+extension SidebarViewController: ChooseGameModeViewControllerDelegate {
+    func chooseGameModeViewController(
+        _ viewController: ChooseGameModeViewController,
+        gameModeDidChange gameMode: GameMode
+    ) {
+        delegate?.sidebarViewController(self, gameModeDidChange: gameMode)
     }
 }
