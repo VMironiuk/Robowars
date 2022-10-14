@@ -19,7 +19,7 @@ final class SidebarViewControllerTests: XCTestCase {
     
     func test_sidebarVC_doesNotInformItsDelegateOnInitIfThereNoRobotsAndGameMode() {
         let delegate = SidebarSpy()
-        _ = SidebarViewController(
+        _ = makeSUT(
             chooseRobotsViewController: ChooseRobotsViewController(),
             chooseGameModeViewController: ChooseGameModeViewController(),
             delegate: delegate)
@@ -31,11 +31,11 @@ final class SidebarViewControllerTests: XCTestCase {
     
     func test_sidebarVC_init_informsItsDelegateAboutGameModeChangeIfThereAreGameModesButNoRobots() {
         let delegate = SidebarSpy()
-        _ = SidebarViewController(
+        _ = makeSUT(
             chooseRobotsViewController: ChooseRobotsViewController(),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: [.classic]),
             delegate: delegate)
-        
+
         XCTAssertEqual(delegate.firstRobotDidChangeCallCount, .zero)
         XCTAssertEqual(delegate.secondRobotDidChangeCallCount, .zero)
         XCTAssertEqual(delegate.gameModeDidChangeCallCount, 1)
@@ -43,11 +43,11 @@ final class SidebarViewControllerTests: XCTestCase {
     
     func test_sidebarVC_init_informsItsDelegateAboutRobotsChangeIfThereAreRobotsButNoGameModes() {
         let delegate = SidebarSpy()
-        _ = SidebarViewController(
+        _ = makeSUT(
             chooseRobotsViewController: ChooseRobotsViewController(robots: [DummyRobot()]),
             chooseGameModeViewController: ChooseGameModeViewController(),
             delegate: delegate)
-        
+
         XCTAssertEqual(delegate.firstRobotDidChangeCallCount, 1)
         XCTAssertEqual(delegate.secondRobotDidChangeCallCount, 1)
         XCTAssertEqual(delegate.gameModeDidChangeCallCount, .zero)
@@ -55,11 +55,11 @@ final class SidebarViewControllerTests: XCTestCase {
     
     func test_sidebarVC_init_informsItsDelegateAboutRobotsAndGameModesChangeIfThereAreRobotsAndGameModes() {
         let delegate = SidebarSpy()
-        _ = SidebarViewController(
+        _ = makeSUT(
             chooseRobotsViewController: ChooseRobotsViewController(robots: [DummyRobot()]),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: [.classic]),
             delegate: delegate)
-        
+
         XCTAssertEqual(delegate.firstRobotDidChangeCallCount, 1)
         XCTAssertEqual(delegate.secondRobotDidChangeCallCount, 1)
         XCTAssertEqual(delegate.gameModeDidChangeCallCount, 1)
@@ -68,7 +68,7 @@ final class SidebarViewControllerTests: XCTestCase {
     // MARK: - Helpers
     
     private func makeSUT(
-        with chooseRobotsViewController: ChooseRobotsViewController,
+        chooseRobotsViewController: ChooseRobotsViewController,
         chooseGameModeViewController: ChooseGameModeViewController,
         delegate: SidebarViewControllerDelegate
     ) -> SidebarViewController {
