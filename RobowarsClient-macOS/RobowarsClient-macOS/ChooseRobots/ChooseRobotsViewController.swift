@@ -11,10 +11,10 @@ import Robowars
 protocol ChooseRobotsViewControllerDelegate: AnyObject {
     func chooseRobotsViewController(
         _ viewController: ChooseRobotsViewController,
-        firstRobotDidChangeWith robot: RobotProtocol)
+        firstRobotDidChange robot: RobotProtocol)
     func chooseRobotsViewController(
         _ viewController: ChooseRobotsViewController,
-        secondRobotDidChangeWith robot: RobotProtocol)
+        secondRobotDidChange robot: RobotProtocol)
 }
 
 final class ChooseRobotsViewController: NSViewController {
@@ -26,8 +26,8 @@ final class ChooseRobotsViewController: NSViewController {
     weak var delegate: ChooseRobotsViewControllerDelegate? {
         didSet {
             guard let robot = robots.first else { return }
-            delegate?.chooseRobotsViewController(self, firstRobotDidChangeWith: robot)
-            delegate?.chooseRobotsViewController(self, secondRobotDidChangeWith: robot)
+            delegate?.chooseRobotsViewController(self, firstRobotDidChange: robot)
+            delegate?.chooseRobotsViewController(self, secondRobotDidChange: robot)
         }
     }
 
@@ -77,11 +77,11 @@ extension ChooseRobotsViewController: NSComboBoxDelegate {
         if notification.object as? NSComboBox === firstRobotComboBox {
             let indexOfSelectedItem = firstRobotComboBox.indexOfSelectedItem
             let selectedRobot = robots[indexOfSelectedItem]
-            delegate?.chooseRobotsViewController(self, firstRobotDidChangeWith: selectedRobot)
+            delegate?.chooseRobotsViewController(self, firstRobotDidChange: selectedRobot)
         } else if notification.object as? NSComboBox === secondRobotComboBox {
             let indexOfSelectedItem = secondRobotComboBox.indexOfSelectedItem
             let selectedRobot = robots[indexOfSelectedItem]
-            delegate?.chooseRobotsViewController(self, secondRobotDidChangeWith: selectedRobot)
+            delegate?.chooseRobotsViewController(self, secondRobotDidChange: selectedRobot)
         } else {
             fatalError()
         }

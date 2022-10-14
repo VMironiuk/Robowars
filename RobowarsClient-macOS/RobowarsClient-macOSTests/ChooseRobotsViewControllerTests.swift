@@ -117,14 +117,14 @@ final class ChooseRobotsViewControllerTests: XCTestCase {
 
         func chooseRobotsViewController(
             _ viewController: ChooseRobotsViewController,
-            firstRobotDidChangeWith robot: RobotProtocol
+            firstRobotDidChange robot: RobotProtocol
         ) {
             firstRobots.append(robot)
         }
 
         func chooseRobotsViewController(
             _ viewController: ChooseRobotsViewController,
-            secondRobotDidChangeWith robot: RobotProtocol
+            secondRobotDidChange robot: RobotProtocol
         ) {
             secondRobots.append(robot)
         }

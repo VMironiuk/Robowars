@@ -54,14 +54,14 @@ class SidebarViewController: NSViewController {
 extension SidebarViewController: ChooseRobotsViewControllerDelegate {
     func chooseRobotsViewController(
         _ viewController: ChooseRobotsViewController,
-        firstRobotDidChangeWith robot: RobotProtocol
+        firstRobotDidChange robot: RobotProtocol
     ) {
         delegate?.sidebarViewController(self, firstRobotDidChange: robot)
     }
     
     func chooseRobotsViewController(
         _ viewController: ChooseRobotsViewController,
-        secondRobotDidChangeWith robot: RobotProtocol
+        secondRobotDidChange robot: RobotProtocol
     ) {
         delegate?.sidebarViewController(self, secondRobotDidChange: robot)
     }
