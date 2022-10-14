@@ -12,13 +12,12 @@ import Robowars
 final class ChooseGameModeViewControllerTests: XCTestCase {
     
     func test_chooseGameModeVC_createsItsView() {
-        let sut = ChooseGameModeViewController()
+        let (sut, _) = makeSUT()
         _ = sut.view
     }
     
     func test_chooseGameModeVC_doesNotInformDelegateOnAssignmentIfThereAreNoGameModes() {
-        let sut = ChooseGameModeViewController()
-        let chooseGameModeSpy = ChooseGameModeSpy()
+        let (sut, chooseGameModeSpy) = makeSUT()
 
         _ = sut.view
         sut.delegate = chooseGameModeSpy
@@ -27,8 +26,7 @@ final class ChooseGameModeViewControllerTests: XCTestCase {
     }
     
     func test_chooseGameModeVC_informsDelegateOnAssignmentIfThereAreGameModes() {
-        let sut = ChooseGameModeViewController(gameModes: [.classic])
-        let chooseGameModeSpy = ChooseGameModeSpy()
+        let (sut, chooseGameModeSpy) = makeSUT(with: [.classic])
 
         _ = sut.view
         sut.delegate = chooseGameModeSpy
@@ -37,7 +35,7 @@ final class ChooseGameModeViewControllerTests: XCTestCase {
     }
     
     func test_chooseGameModeVC_comboBoxDoesNotContainItemsIfThereAreNoGameModes() {
-        let sut = ChooseGameModeViewController()
+        let (sut, _) = makeSUT()
         
         _ = sut.view
         
@@ -45,7 +43,7 @@ final class ChooseGameModeViewControllerTests: XCTestCase {
     }
     
     func test_chooseGameModeVC_comboBoxContainsSameAmountOfItemsLikeAmountOfGameModes() {
-        let sut = ChooseGameModeViewController(gameModes: [.classic, .flyweight])
+        let (sut, _) = makeSUT(with: [.classic, .flyweight])
         
         _ = sut.view
         
@@ -54,7 +52,7 @@ final class ChooseGameModeViewControllerTests: XCTestCase {
 
     func test_chooseGameModeVC_comboBoxTitlesAndGameModesTitlesAreEqual() {
         let gameModes: [GameMode] = [.classic, .flyweight, .classic, .classic]
-        let sut = ChooseGameModeViewController(gameModes: gameModes)
+        let (sut, _) = makeSUT(with: gameModes)
         
         _ = sut.view
         
@@ -66,8 +64,7 @@ final class ChooseGameModeViewControllerTests: XCTestCase {
 
     func test_chooseGameModeVC_informsItsDelegateAboutNewGameModeSelection() {
         let gameModes: [GameMode] = [.classic, .flyweight, .classic]
-        let sut = ChooseGameModeViewController(gameModes: gameModes)
-        let chooseGameModeSpy = ChooseGameModeSpy()
+        let (sut, chooseGameModeSpy) = makeSUT(with: gameModes)
         
         _ = sut.view
         sut.delegate = chooseGameModeSpy
@@ -82,6 +79,16 @@ final class ChooseGameModeViewControllerTests: XCTestCase {
     }
 
     // MARK: - Helpers
+    
+    private func makeSUT(with gameModes: [GameMode] = []) -> (ChooseGameModeViewController, ChooseGameModeSpy) {
+        let sut = ChooseGameModeViewController(gameModes: gameModes)
+        let chooseGameModeSpy = ChooseGameModeSpy()
+        
+        trackForMemoryLeak(sut)
+        trackForMemoryLeak(chooseGameModeSpy)
+        
+        return (sut, chooseGameModeSpy)
+    }
     
     private final class ChooseGameModeSpy: ChooseGameModeViewControllerDelegate {
         private var gameModes: [GameMode] = []
