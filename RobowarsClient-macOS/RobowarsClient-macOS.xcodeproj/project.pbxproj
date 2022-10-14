@@ -15,6 +15,7 @@
 		2E11D8E628ED5B8F003CC71B /* ChooseRobotsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E11D8E528ED5B8F003CC71B /* ChooseRobotsViewControllerTests.swift */; };
 		2E11D8E828ED5C34003CC71B /* ChooseRobotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E11D8E728ED5C34003CC71B /* ChooseRobotsViewController.swift */; };
 		2E11D8EA28ED60C7003CC71B /* ChooseRobotsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E11D8E928ED60C7003CC71B /* ChooseRobotsView.xib */; };
+		2E1C625828F918BB00A75618 /* DummyRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C625728F918BB00A75618 /* DummyRobot.swift */; };
 		2E8272A228F40290006FDAD6 /* ChooseGameModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8272A128F40290006FDAD6 /* ChooseGameModeViewController.swift */; };
 		2E8272A428F40313006FDAD6 /* ChooseGameModeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8272A328F40313006FDAD6 /* ChooseGameModeView.xib */; };
 		2EA5838C28F00555006E7BB3 /* Robowars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA5838B28F00555006E7BB3 /* Robowars.framework */; };
@@ -60,6 +61,7 @@
 		2E11D8E528ED5B8F003CC71B /* ChooseRobotsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRobotsViewControllerTests.swift; sourceTree = "<group>"; };
 		2E11D8E728ED5C34003CC71B /* ChooseRobotsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRobotsViewController.swift; sourceTree = "<group>"; };
 		2E11D8E928ED60C7003CC71B /* ChooseRobotsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseRobotsView.xib; sourceTree = "<group>"; };
+		2E1C625728F918BB00A75618 /* DummyRobot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyRobot.swift; sourceTree = "<group>"; };
 		2E8272A128F40290006FDAD6 /* ChooseGameModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGameModeViewController.swift; sourceTree = "<group>"; };
 		2E8272A328F40313006FDAD6 /* ChooseGameModeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseGameModeView.xib; sourceTree = "<group>"; };
 		2EA5838B28F00555006E7BB3 /* Robowars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Robowars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +127,7 @@
 		2E11D8CB28ED5951003CC71B /* RobowarsClient-macOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				2E1C625928F918FA00A75618 /* Helpers */,
 				2E11D8E528ED5B8F003CC71B /* ChooseRobotsViewControllerTests.swift */,
 				2E0D800028F1AE7500E400B3 /* ChooseGameModeViewControllerTests.swift */,
 				2EDA0AD028F7DF290020105F /* SidebarViewControllerTests.swift */,
@@ -139,6 +142,14 @@
 				2E11D8E928ED60C7003CC71B /* ChooseRobotsView.xib */,
 			);
 			path = ChooseRobots;
+			sourceTree = "<group>";
+		};
+		2E1C625928F918FA00A75618 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2E1C625728F918BB00A75618 /* DummyRobot.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		2E8A659128F40481003ADE48 /* ChooseGameMode */ = {
@@ -276,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E11D8E628ED5B8F003CC71B /* ChooseRobotsViewControllerTests.swift in Sources */,
+				2E1C625828F918BB00A75618 /* DummyRobot.swift in Sources */,
 				2EDA0AD128F7DF290020105F /* SidebarViewControllerTests.swift in Sources */,
 				2E0D800128F1AE7500E400B3 /* ChooseGameModeViewControllerTests.swift in Sources */,
 			);
