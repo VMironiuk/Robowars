@@ -91,7 +91,7 @@ final class SidebarViewControllerTests: XCTestCase {
         let robots: [RobotProtocol] = [DummyRobot(name: "r1"), DummyRobot(name: "r2"), DummyRobot(name: "r3")]
         let gameModes: [GameMode] = [.classic, .flyweight]
         let delegate = SidebarSpy()
-        let sut = makeSUT(
+        _ = makeSUT(
             chooseRobotsViewController: ChooseRobotsViewController(robots: robots),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: gameModes),
             delegate: delegate)
@@ -111,6 +111,7 @@ final class SidebarViewControllerTests: XCTestCase {
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: gameModes),
             delegate: delegate)
         
+        _ = sut.view
         _ = chooseRobotsVC.view
         chooseRobotsVC.firstRobotComboBox.selectItem(at: 1)
         
@@ -129,6 +130,7 @@ final class SidebarViewControllerTests: XCTestCase {
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: gameModes),
             delegate: delegate)
         
+        _ = sut.view
         _ = chooseRobotsVC.view
         chooseRobotsVC.secondRobotComboBox.selectItem(at: 2)
         
@@ -147,6 +149,7 @@ final class SidebarViewControllerTests: XCTestCase {
             chooseGameModeViewController: chooseGameModeVC,
             delegate: delegate)
         
+        _ = sut.view
         _ = chooseGameModeVC.view
         chooseGameModeVC.gameModeComboBox.selectItem(at: 1)
         
