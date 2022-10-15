@@ -115,10 +115,7 @@
 			children = (
 				2E11D8BA28ED594F003CC71B /* AppDelegate.swift */,
 				2E11D8BC28ED594F003CC71B /* ViewController.swift */,
-				2EDA0AD228F7DFD80020105F /* SidebarViewController.swift */,
-				2EDA0AD428F7DFF90020105F /* SidebarView.xib */,
-				2E11D8EC28ED61D5003CC71B /* ChooseRobots */,
-				2E8A659128F40481003ADE48 /* ChooseGameMode */,
+				2EAA141F28FA6F75004894B1 /* Sidebar */,
 				2E11D8BE28ED5951003CC71B /* Assets.xcassets */,
 				2E11D8C028ED5951003CC71B /* Main.storyboard */,
 				2E11D8C328ED5951003CC71B /* RobowarsClient_macOS.entitlements */,
@@ -170,6 +167,17 @@
 				2EA5838B28F00555006E7BB3 /* Robowars.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2EAA141F28FA6F75004894B1 /* Sidebar */ = {
+			isa = PBXGroup;
+			children = (
+				2E11D8EC28ED61D5003CC71B /* ChooseRobots */,
+				2E8A659128F40481003ADE48 /* ChooseGameMode */,
+				2EDA0AD228F7DFD80020105F /* SidebarViewController.swift */,
+				2EDA0AD428F7DFF90020105F /* SidebarView.xib */,
+			);
+			path = Sidebar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
