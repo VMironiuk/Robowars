@@ -11,7 +11,7 @@ import Robowars
 protocol SidebarViewControllerDelegate: AnyObject {
     func sidebarViewController(_ viewController: SidebarViewController, firstRobotDidChange robot: RobotProtocol)
     func sidebarViewController(_ viewController: SidebarViewController, secondRobotDidChange robot: RobotProtocol)
-    func sidebarViewController(_ viewController: SidebarViewController, gameModeDidChange robot: GameMode)
+    func sidebarViewController(_ viewController: SidebarViewController, gameModeDidChange gameMode: GameMode)
 }
 
 class SidebarViewController: NSViewController {

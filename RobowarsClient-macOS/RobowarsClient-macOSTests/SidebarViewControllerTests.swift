@@ -86,6 +86,20 @@ final class SidebarViewControllerTests: XCTestCase {
         XCTAssertEqual(delegate.secondRobotDidChangeCallCount, 3)
         XCTAssertEqual(delegate.gameModeDidChangeCallCount, 2)
     }
+    
+    func test_sidebarVC_init_delegateReceivesCorrectRobotsAndGameMode() {
+        let robots: [RobotProtocol] = [DummyRobot(name: "r1"), DummyRobot(name: "r2"), DummyRobot(name: "r3")]
+        let gameModes: [GameMode] = [.classic, .flyweight]
+        let delegate = SidebarSpy()
+        let sut = makeSUT(
+            chooseRobotsViewController: ChooseRobotsViewController(robots: robots),
+            chooseGameModeViewController: ChooseGameModeViewController(gameModes: gameModes),
+            delegate: delegate)
+        
+        XCTAssertEqual(robots[.zero].name, delegate.firstRobot!.name)
+        XCTAssertEqual(robots[.zero].name, delegate.secondRobot!.name)
+        XCTAssertEqual(gameModes[.zero], delegate.gameMode!)
+    }
 
     // MARK: - Helpers
     
@@ -108,29 +122,53 @@ final class SidebarViewControllerTests: XCTestCase {
     }
     
     private final class SidebarSpy: SidebarViewControllerDelegate {
-        private(set) var firstRobotDidChangeCallCount: Int = .zero
-        private(set) var secondRobotDidChangeCallCount: Int = .zero
-        private(set) var gameModeDidChangeCallCount: Int = .zero
+        private var firstRobots: [RobotProtocol] = []
+        private var secondRobots: [RobotProtocol] = []
+        private var gameModes: [GameMode] = []
+        
+        var firstRobotDidChangeCallCount: Int {
+            firstRobots.count
+        }
+        
+        var secondRobotDidChangeCallCount: Int {
+            secondRobots.count
+        }
+        
+        var gameModeDidChangeCallCount: Int {
+            gameModes.count
+        }
+        
+        var firstRobot: RobotProtocol? {
+            firstRobots.last
+        }
+        
+        var secondRobot: RobotProtocol? {
+            secondRobots.last
+        }
+        
+        var gameMode: GameMode? {
+            gameModes.last
+        }
         
         func sidebarViewController(
             _ viewController: SidebarViewController,
             firstRobotDidChange robot: RobotProtocol
         ) {
-            firstRobotDidChangeCallCount += 1
+            firstRobots.append(robot)
         }
         
         func sidebarViewController(
             _ viewController: SidebarViewController,
             secondRobotDidChange robot: RobotProtocol
         ) {
-            secondRobotDidChangeCallCount += 1
+            secondRobots.append(robot)
         }
         
         func sidebarViewController(
             _ viewController: SidebarViewController,
-            gameModeDidChange robot: GameMode
+            gameModeDidChange gameMode: GameMode
         ) {
-            gameModeDidChangeCallCount += 1
+            gameModes.append(gameMode)
         }
     }
 }
