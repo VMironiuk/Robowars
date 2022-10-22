@@ -8,25 +8,54 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SidebarViewController" customModule="RobowarsClient_macOS" customModuleProvider="target">
             <connections>
+                <outlet property="chooseGameModePlaceholderView" destination="fZU-Vn-WEI" id="swY-7s-GpE"/>
+                <outlet property="chooseRobotsPlaceholderView" destination="xq0-r1-emJ" id="UlR-CV-2SG"/>
                 <outlet property="view" destination="c22-O7-iKe" id="yEa-fC-zcv"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="314" height="272"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+        <customView translatesAutoresizingMaskIntoConstraints="NO" id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="314" height="451"/>
             <subviews>
                 <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Jtl-rC-2ba">
-                    <rect key="frame" x="0.0" y="219" width="314" height="5"/>
+                    <rect key="frame" x="0.0" y="398" width="314" height="5"/>
                 </box>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="xq0-r1-emJ" userLabel="Choose Robots Placeholder View">
+                    <rect key="frame" x="4" y="332" width="306" height="56"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="hbF-GH-i7Q"/>
+                    </constraints>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="fZU-Vn-WEI" userLabel="Choose GameMode Placeholder View">
+                    <rect key="frame" x="4" y="301" width="306" height="19"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="19" id="6En-vb-quw"/>
+                    </constraints>
+                </customView>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xsv-Ns-ceL">
+                    <rect key="frame" x="5" y="5" width="304" height="32"/>
+                    <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="k8t-Ld-ygV">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="Jtl-rC-2ba" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="6xr-IS-qJn"/>
+                <constraint firstItem="Xsv-Ns-ceL" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="12" id="7NG-Db-lpz"/>
                 <constraint firstAttribute="trailing" secondItem="Jtl-rC-2ba" secondAttribute="trailing" id="9Ro-9N-ej2"/>
+                <constraint firstItem="fZU-Vn-WEI" firstAttribute="top" secondItem="xq0-r1-emJ" secondAttribute="bottom" constant="12" id="Dat-qn-M1l"/>
+                <constraint firstAttribute="trailing" secondItem="fZU-Vn-WEI" secondAttribute="trailing" constant="4" id="YG9-qG-GtK"/>
+                <constraint firstAttribute="bottom" secondItem="Xsv-Ns-ceL" secondAttribute="bottom" constant="12" id="a7D-YO-GIh"/>
+                <constraint firstItem="fZU-Vn-WEI" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="4" id="bSP-a5-2IX"/>
+                <constraint firstAttribute="trailing" secondItem="xq0-r1-emJ" secondAttribute="trailing" constant="4" id="gnT-qk-fGf"/>
+                <constraint firstAttribute="trailing" secondItem="Xsv-Ns-ceL" secondAttribute="trailing" constant="12" id="ioY-Xk-nZn"/>
+                <constraint firstItem="xq0-r1-emJ" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="4" id="p8Q-0O-ahp"/>
                 <constraint firstItem="Jtl-rC-2ba" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="50" id="qwO-gu-RNZ"/>
+                <constraint firstItem="xq0-r1-emJ" firstAttribute="top" secondItem="Jtl-rC-2ba" secondAttribute="bottom" constant="12" id="xK1-2M-IYz"/>
             </constraints>
-            <point key="canvasLocation" x="70" y="154"/>
+            <point key="canvasLocation" x="70" y="243.5"/>
         </customView>
     </objects>
 </document>

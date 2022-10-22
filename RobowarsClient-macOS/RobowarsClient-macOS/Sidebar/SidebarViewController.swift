@@ -16,6 +16,12 @@ protocol SidebarViewControllerDelegate: AnyObject {
 
 class SidebarViewController: NSViewController {
     
+    @IBOutlet private weak var chooseRobotsPlaceholderView: NSView!
+    @IBOutlet private weak var chooseGameModePlaceholderView: NSView!
+    
+    private var chooseRobotsView: NSView?
+    private var chooseGameModeView: NSView?
+    
     private weak var delegate: SidebarViewControllerDelegate?
     
     override var nibName: NSNib.Name? {
@@ -32,6 +38,8 @@ class SidebarViewController: NSViewController {
         
         addChild(chooseRobotsViewController)
         addChild(chooseGameModeViewController)
+        chooseRobotsView = chooseRobotsViewController.view
+        chooseGameModeView = chooseGameModeViewController.view
         chooseRobotsViewController.delegate = self
         chooseGameModeViewController.delegate = self
     }
@@ -46,6 +54,35 @@ class SidebarViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        setupUI()
+    }
+    
+    private func setupUI() {
+        guard let chooseRobotsView = chooseRobotsView, let chooseGameModeView = chooseGameModeView else {
+            return
+        }
+        
+        chooseRobotsView.translatesAutoresizingMaskIntoConstraints = false
+        chooseRobotsPlaceholderView.addSubview(chooseRobotsView)
+        NSLayoutConstraint.activate([
+            chooseRobotsView.topAnchor.constraint(equalTo: chooseRobotsPlaceholderView.topAnchor),
+            chooseRobotsView.bottomAnchor.constraint(equalTo: chooseRobotsPlaceholderView.bottomAnchor),
+            chooseRobotsView.leadingAnchor.constraint(equalTo: chooseRobotsPlaceholderView.leadingAnchor),
+            chooseRobotsView.trailingAnchor.constraint(equalTo: chooseRobotsPlaceholderView.trailingAnchor)
+        ])
+        
+        chooseGameModeView.translatesAutoresizingMaskIntoConstraints = false
+        chooseGameModePlaceholderView.addSubview(chooseGameModeView)
+        NSLayoutConstraint.activate([
+            chooseGameModeView.topAnchor.constraint(equalTo: chooseGameModePlaceholderView.topAnchor),
+            chooseGameModeView.bottomAnchor.constraint(equalTo: chooseGameModePlaceholderView.bottomAnchor),
+            chooseGameModeView.leadingAnchor.constraint(equalTo: chooseGameModePlaceholderView.leadingAnchor),
+            chooseGameModeView.trailingAnchor.constraint(equalTo: chooseGameModePlaceholderView.trailingAnchor)
+        ])
     }
 }
 
