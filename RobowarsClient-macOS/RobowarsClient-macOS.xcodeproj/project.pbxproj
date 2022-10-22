@@ -127,9 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				2E1C625928F918FA00A75618 /* Helpers */,
-				2E11D8E528ED5B8F003CC71B /* ChooseRobotsViewControllerTests.swift */,
-				2E0D800028F1AE7500E400B3 /* ChooseGameModeViewControllerTests.swift */,
-				2EDA0AD028F7DF290020105F /* SidebarViewControllerTests.swift */,
+				2EBB85E12903C76000564B50 /* SIdebar */,
 			);
 			path = "RobowarsClient-macOSTests";
 			sourceTree = "<group>";
@@ -178,6 +176,16 @@
 				2EDA0AD428F7DFF90020105F /* SidebarView.xib */,
 			);
 			path = Sidebar;
+			sourceTree = "<group>";
+		};
+		2EBB85E12903C76000564B50 /* SIdebar */ = {
+			isa = PBXGroup;
+			children = (
+				2E11D8E528ED5B8F003CC71B /* ChooseRobotsViewControllerTests.swift */,
+				2E0D800028F1AE7500E400B3 /* ChooseGameModeViewControllerTests.swift */,
+				2EDA0AD028F7DF290020105F /* SidebarViewControllerTests.swift */,
+			);
+			path = SIdebar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
