@@ -21,7 +21,7 @@ final class SidebarViewControllerTests: XCTestCase {
         let delegate = SidebarSpy()
         _ = makeSUT(
             chooseRobotsViewController: ChooseRobotsViewController(robots: []),
-            chooseGameModeViewController: ChooseGameModeViewController(),
+            chooseGameModeViewController: ChooseGameModeViewController(gameModes: []),
             delegate: delegate)
         
         XCTAssertEqual(delegate.firstRobotDidChangeCallCount, .zero)
@@ -45,7 +45,7 @@ final class SidebarViewControllerTests: XCTestCase {
         let delegate = SidebarSpy()
         _ = makeSUT(
             chooseRobotsViewController: ChooseRobotsViewController(robots: [DummyRobot()]),
-            chooseGameModeViewController: ChooseGameModeViewController(),
+            chooseGameModeViewController: ChooseGameModeViewController(gameModes: []),
             delegate: delegate)
 
         XCTAssertEqual(delegate.firstRobotDidChangeCallCount, 1)

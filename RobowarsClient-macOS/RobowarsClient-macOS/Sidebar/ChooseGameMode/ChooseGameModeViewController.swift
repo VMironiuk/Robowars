@@ -16,7 +16,7 @@ class ChooseGameModeViewController: NSViewController {
     
     @IBOutlet private(set) weak var gameModeComboBox: NSComboBox!
     
-    private var gameModes: [GameMode]
+    private let gameModes: [GameMode]
     
     weak var delegate: ChooseGameModeViewControllerDelegate? {
         didSet {
@@ -29,13 +29,8 @@ class ChooseGameModeViewController: NSViewController {
         "ChooseGameModeView"
     }
     
-    convenience init(gameModes: [GameMode]) {
-        self.init(nibName: nil, bundle: nil)
+    init(gameModes: [GameMode]) {
         self.gameModes = gameModes
-    }
-    
-    override init(nibName nibNameOrNil: NSNib.Name?, bundle nibBundleOrNil: Bundle?) {
-        gameModes = []
         super.init(nibName: "ChooseGameModeView", bundle: nil)
     }
     
