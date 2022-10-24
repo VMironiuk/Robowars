@@ -12,8 +12,11 @@ import Robowars
 final class SidebarViewControllerTests: XCTestCase {
     
     func test_sidebarVC_createsItsView() {
-        let sut = SidebarViewController()
-        trackForMemoryLeak(sut)
+        let sut = makeSUT(
+            chooseRobotsViewController: ChooseRobotsViewController(robots: []),
+            chooseGameModeViewController: ChooseGameModeViewController(gameModes: []),
+            delegate: SidebarSpy())
+        
         _ = sut.view
     }
     

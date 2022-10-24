@@ -19,33 +19,31 @@ class SidebarViewController: NSViewController {
     @IBOutlet private weak var chooseRobotsPlaceholderView: NSView!
     @IBOutlet private weak var chooseGameModePlaceholderView: NSView!
     
-    private var chooseRobotsView: NSView?
-    private var chooseGameModeView: NSView?
+    private let chooseRobotsView: NSView!
+    private let chooseGameModeView: NSView!
     
-    private weak var delegate: SidebarViewControllerDelegate?
+    private weak var delegate: SidebarViewControllerDelegate!
     
     override var nibName: NSNib.Name? {
         "SidebarView"
     }
     
-    convenience init(
+    init(
         chooseRobotsViewController: ChooseRobotsViewController,
         chooseGameModeViewController: ChooseGameModeViewController,
         delegate: SidebarViewControllerDelegate
     ) {
-        self.init(nibName: nil, bundle: nil)
         self.delegate = delegate
+        chooseRobotsView = chooseRobotsViewController.view
+        chooseGameModeView = chooseGameModeViewController.view
+        
+        super.init(nibName: "SidebarView", bundle: nil)
         
         addChild(chooseRobotsViewController)
         addChild(chooseGameModeViewController)
-        chooseRobotsView = chooseRobotsViewController.view
-        chooseGameModeView = chooseGameModeViewController.view
+
         chooseRobotsViewController.delegate = self
         chooseGameModeViewController.delegate = self
-    }
-    
-    override init(nibName nibNameOrNil: NSNib.Name?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: "SidebarView", bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -62,10 +60,6 @@ class SidebarViewController: NSViewController {
     }
     
     private func setupUI() {
-        guard let chooseRobotsView = chooseRobotsView, let chooseGameModeView = chooseGameModeView else {
-            return
-        }
-        
         chooseRobotsView.translatesAutoresizingMaskIntoConstraints = false
         chooseRobotsPlaceholderView.addSubview(chooseRobotsView)
         NSLayoutConstraint.activate([
@@ -91,14 +85,14 @@ extension SidebarViewController: ChooseRobotsViewControllerDelegate {
         _ viewController: ChooseRobotsViewController,
         firstRobotDidChange robot: RobotProtocol
     ) {
-        delegate?.sidebarViewController(self, firstRobotDidChange: robot)
+        delegate.sidebarViewController(self, firstRobotDidChange: robot)
     }
     
     func chooseRobotsViewController(
         _ viewController: ChooseRobotsViewController,
         secondRobotDidChange robot: RobotProtocol
     ) {
-        delegate?.sidebarViewController(self, secondRobotDidChange: robot)
+        delegate.sidebarViewController(self, secondRobotDidChange: robot)
     }
 }
 
@@ -107,6 +101,6 @@ extension SidebarViewController: ChooseGameModeViewControllerDelegate {
         _ viewController: ChooseGameModeViewController,
         gameModeDidChange gameMode: GameMode
     ) {
-        delegate?.sidebarViewController(self, gameModeDidChange: gameMode)
+        delegate.sidebarViewController(self, gameModeDidChange: gameMode)
     }
 }
