@@ -21,7 +21,7 @@ final class ChooseRobotsViewController: NSViewController {
     @IBOutlet private(set) weak var firstRobotComboBox: NSComboBox!
     @IBOutlet private(set) weak var secondRobotComboBox: NSComboBox!
     
-    private var robots: [RobotProtocol]
+    private let robots: [RobotProtocol]
     
     weak var delegate: ChooseRobotsViewControllerDelegate? {
         didSet {
@@ -35,13 +35,8 @@ final class ChooseRobotsViewController: NSViewController {
         "ChooseRobotsView"
     }
     
-    convenience init(robots: [RobotProtocol]) {
-        self.init(nibName: nil, bundle: nil)
+    init(robots: [RobotProtocol]) {
         self.robots = robots
-    }
-
-    override init(nibName nibNameOrNil: NSNib.Name?, bundle nibBundleOrNil: Bundle?) {
-        self.robots = []
         super.init(nibName: "ChooseRobotsView", bundle: nil)
     }
 
