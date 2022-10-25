@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21225" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21225"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ChooseGameModeViewController" customModule="RobowarsClient_macOS" customModuleProvider="target">
+            <connections>
+                <outlet property="gameModeComboBox" destination="POP-rp-rmq" id="HkW-cC-IpC"/>
+                <outlet property="view" destination="c22-O7-iKe" id="hcC-fm-JaJ"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="312" height="25"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <stackView distribution="fill" orientation="vertical" alignment="trailing" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gyw-kJ-Nyo">
+                    <rect key="frame" x="0.0" y="0.0" width="312" height="25"/>
+                    <subviews>
+                        <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LqI-bd-oaP">
+                            <rect key="frame" x="84" y="0.0" width="228" height="25"/>
+                            <subviews>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6Zk-zV-G8J">
+                                    <rect key="frame" x="-2" y="9" width="78" height="16"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Game Mode" id="J18-Gy-4xk">
+                                        <font key="font" usesAppearanceFont="YES"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="POP-rp-rmq">
+                                    <rect key="frame" x="78" y="2" width="153" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="150" id="fG9-5h-7IQ"/>
+                                    </constraints>
+                                    <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="TW8-Hx-iVa">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </comboBoxCell>
+                                </comboBox>
+                            </subviews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                    </subviews>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="gyw-kJ-Nyo" secondAttribute="trailing" id="Owh-E3-g2R"/>
+                <constraint firstItem="gyw-kJ-Nyo" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="u2S-db-RRJ"/>
+                <constraint firstAttribute="bottom" secondItem="gyw-kJ-Nyo" secondAttribute="bottom" id="uip-Xe-fOa"/>
+                <constraint firstItem="gyw-kJ-Nyo" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="yRU-td-k68"/>
+            </constraints>
+            <point key="canvasLocation" x="154" y="29.5"/>
+        </customView>
+    </objects>
+</document>

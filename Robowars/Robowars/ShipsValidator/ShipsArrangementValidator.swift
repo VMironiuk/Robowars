@@ -27,14 +27,14 @@ final class ShipsArrangementValidator: ShipsValidatorProtocol {
             .map { CGSize(width: $0.width, height: $0.height) }
             .sorted(by: <)
             .map { $0.width < $0.height ? CGSize(width: $0.height, height: $0.width) : $0 }
-        let sortedSelfShips = gameMode.ships()
+        let sortedSelfShips = gameMode.ships
             .sorted(by: <)
             .map { $0.width < $0.height ? CGSize(width: $0.height, height: $0.width) : $0 }
         return sortedGivenShips == sortedSelfShips
     }
     
     private func isShipsInsideBattlefield(_ ships: [CGRect]) -> Bool {
-        ships.filter { !gameMode.battlefield().contains($0) }.isEmpty
+        ships.filter { !gameMode.battlefield.contains($0) }.isEmpty
     }
     
     private func isCollisionBetween(ships: [CGRect]) -> Bool {

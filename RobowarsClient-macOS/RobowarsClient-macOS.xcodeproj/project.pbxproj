@@ -1,0 +1,589 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2E0D800128F1AE7500E400B3 /* ChooseGameModeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0D800028F1AE7500E400B3 /* ChooseGameModeViewControllerTests.swift */; };
+		2E11D8BB28ED594F003CC71B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E11D8BA28ED594F003CC71B /* AppDelegate.swift */; };
+		2E11D8BF28ED5951003CC71B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E11D8BE28ED5951003CC71B /* Assets.xcassets */; };
+		2E11D8C228ED5951003CC71B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E11D8C028ED5951003CC71B /* Main.storyboard */; };
+		2E11D8E628ED5B8F003CC71B /* ChooseRobotsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E11D8E528ED5B8F003CC71B /* ChooseRobotsViewControllerTests.swift */; };
+		2E11D8E828ED5C34003CC71B /* ChooseRobotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E11D8E728ED5C34003CC71B /* ChooseRobotsViewController.swift */; };
+		2E11D8EA28ED60C7003CC71B /* ChooseRobotsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E11D8E928ED60C7003CC71B /* ChooseRobotsView.xib */; };
+		2E1C625828F918BB00A75618 /* DummyRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C625728F918BB00A75618 /* DummyRobot.swift */; };
+		2E1C625B28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C625A28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift */; };
+		2E8272A228F40290006FDAD6 /* ChooseGameModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8272A128F40290006FDAD6 /* ChooseGameModeViewController.swift */; };
+		2E8272A428F40313006FDAD6 /* ChooseGameModeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8272A328F40313006FDAD6 /* ChooseGameModeView.xib */; };
+		2E92B04F2907A5C5008DB932 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E92B04E2907A5C5008DB932 /* SplitViewController.swift */; };
+		2EA5838C28F00555006E7BB3 /* Robowars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA5838B28F00555006E7BB3 /* Robowars.framework */; };
+		2EA5838D28F00555006E7BB3 /* Robowars.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA5838B28F00555006E7BB3 /* Robowars.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2EDA0AD128F7DF290020105F /* SidebarViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA0AD028F7DF290020105F /* SidebarViewControllerTests.swift */; };
+		2EDA0AD328F7DFD80020105F /* SidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA0AD228F7DFD80020105F /* SidebarViewController.swift */; };
+		2EDA0AD528F7DFF90020105F /* SidebarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EDA0AD428F7DFF90020105F /* SidebarView.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2E11D8C928ED5951003CC71B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2E11D8AF28ED594F003CC71B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E11D8B628ED594F003CC71B;
+			remoteInfo = "RobowarsClient-macOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2EA5838E28F00555006E7BB3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2EA5838D28F00555006E7BB3 /* Robowars.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2E0D800028F1AE7500E400B3 /* ChooseGameModeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGameModeViewControllerTests.swift; sourceTree = "<group>"; };
+		2E11D8B728ED594F003CC71B /* RobowarsClient-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RobowarsClient-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E11D8BA28ED594F003CC71B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2E11D8BE28ED5951003CC71B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2E11D8C128ED5951003CC71B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2E11D8C328ED5951003CC71B /* RobowarsClient_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RobowarsClient_macOS.entitlements; sourceTree = "<group>"; };
+		2E11D8C828ED5951003CC71B /* RobowarsClient-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RobowarsClient-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E11D8E528ED5B8F003CC71B /* ChooseRobotsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRobotsViewControllerTests.swift; sourceTree = "<group>"; };
+		2E11D8E728ED5C34003CC71B /* ChooseRobotsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRobotsViewController.swift; sourceTree = "<group>"; };
+		2E11D8E928ED60C7003CC71B /* ChooseRobotsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseRobotsView.xib; sourceTree = "<group>"; };
+		2E1C625728F918BB00A75618 /* DummyRobot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyRobot.swift; sourceTree = "<group>"; };
+		2E1C625A28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
+		2E8272A128F40290006FDAD6 /* ChooseGameModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGameModeViewController.swift; sourceTree = "<group>"; };
+		2E8272A328F40313006FDAD6 /* ChooseGameModeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseGameModeView.xib; sourceTree = "<group>"; };
+		2E92B04E2907A5C5008DB932 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		2EA5838B28F00555006E7BB3 /* Robowars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Robowars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EDA0AD028F7DF290020105F /* SidebarViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewControllerTests.swift; sourceTree = "<group>"; };
+		2EDA0AD228F7DFD80020105F /* SidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewController.swift; sourceTree = "<group>"; };
+		2EDA0AD428F7DFF90020105F /* SidebarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SidebarView.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2E11D8B428ED594F003CC71B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EA5838C28F00555006E7BB3 /* Robowars.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E11D8C528ED5951003CC71B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2E11D8AE28ED594F003CC71B = {
+			isa = PBXGroup;
+			children = (
+				2E11D8B928ED594F003CC71B /* RobowarsClient-macOS */,
+				2E11D8CB28ED5951003CC71B /* RobowarsClient-macOSTests */,
+				2E11D8B828ED594F003CC71B /* Products */,
+				2EA5838A28F00555006E7BB3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2E11D8B828ED594F003CC71B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2E11D8B728ED594F003CC71B /* RobowarsClient-macOS.app */,
+				2E11D8C828ED5951003CC71B /* RobowarsClient-macOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2E11D8B928ED594F003CC71B /* RobowarsClient-macOS */ = {
+			isa = PBXGroup;
+			children = (
+				2E11D8BA28ED594F003CC71B /* AppDelegate.swift */,
+				2E92B04E2907A5C5008DB932 /* SplitViewController.swift */,
+				2EAA141F28FA6F75004894B1 /* Sidebar */,
+				2E11D8BE28ED5951003CC71B /* Assets.xcassets */,
+				2E11D8C028ED5951003CC71B /* Main.storyboard */,
+				2E11D8C328ED5951003CC71B /* RobowarsClient_macOS.entitlements */,
+			);
+			path = "RobowarsClient-macOS";
+			sourceTree = "<group>";
+		};
+		2E11D8CB28ED5951003CC71B /* RobowarsClient-macOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				2E1C625928F918FA00A75618 /* Helpers */,
+				2EBB85E12903C76000564B50 /* SIdebar */,
+			);
+			path = "RobowarsClient-macOSTests";
+			sourceTree = "<group>";
+		};
+		2E11D8EC28ED61D5003CC71B /* ChooseRobots */ = {
+			isa = PBXGroup;
+			children = (
+				2E11D8E728ED5C34003CC71B /* ChooseRobotsViewController.swift */,
+				2E11D8E928ED60C7003CC71B /* ChooseRobotsView.xib */,
+			);
+			path = ChooseRobots;
+			sourceTree = "<group>";
+		};
+		2E1C625928F918FA00A75618 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2E1C625728F918BB00A75618 /* DummyRobot.swift */,
+				2E1C625A28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		2E8A659128F40481003ADE48 /* ChooseGameMode */ = {
+			isa = PBXGroup;
+			children = (
+				2E8272A128F40290006FDAD6 /* ChooseGameModeViewController.swift */,
+				2E8272A328F40313006FDAD6 /* ChooseGameModeView.xib */,
+			);
+			path = ChooseGameMode;
+			sourceTree = "<group>";
+		};
+		2EA5838A28F00555006E7BB3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2EA5838B28F00555006E7BB3 /* Robowars.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2EAA141F28FA6F75004894B1 /* Sidebar */ = {
+			isa = PBXGroup;
+			children = (
+				2EDA0AD228F7DFD80020105F /* SidebarViewController.swift */,
+				2EDA0AD428F7DFF90020105F /* SidebarView.xib */,
+				2E11D8EC28ED61D5003CC71B /* ChooseRobots */,
+				2E8A659128F40481003ADE48 /* ChooseGameMode */,
+			);
+			path = Sidebar;
+			sourceTree = "<group>";
+		};
+		2EBB85E12903C76000564B50 /* SIdebar */ = {
+			isa = PBXGroup;
+			children = (
+				2E11D8E528ED5B8F003CC71B /* ChooseRobotsViewControllerTests.swift */,
+				2E0D800028F1AE7500E400B3 /* ChooseGameModeViewControllerTests.swift */,
+				2EDA0AD028F7DF290020105F /* SidebarViewControllerTests.swift */,
+			);
+			path = SIdebar;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2E11D8B628ED594F003CC71B /* RobowarsClient-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E11D8DC28ED5951003CC71B /* Build configuration list for PBXNativeTarget "RobowarsClient-macOS" */;
+			buildPhases = (
+				2E11D8B328ED594F003CC71B /* Sources */,
+				2E11D8B428ED594F003CC71B /* Frameworks */,
+				2E11D8B528ED594F003CC71B /* Resources */,
+				2EA5838E28F00555006E7BB3 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RobowarsClient-macOS";
+			productName = "RobowarsClient-macOS";
+			productReference = 2E11D8B728ED594F003CC71B /* RobowarsClient-macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2E11D8C728ED5951003CC71B /* RobowarsClient-macOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E11D8DF28ED5951003CC71B /* Build configuration list for PBXNativeTarget "RobowarsClient-macOSTests" */;
+			buildPhases = (
+				2E11D8C428ED5951003CC71B /* Sources */,
+				2E11D8C528ED5951003CC71B /* Frameworks */,
+				2E11D8C628ED5951003CC71B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2E11D8CA28ED5951003CC71B /* PBXTargetDependency */,
+			);
+			name = "RobowarsClient-macOSTests";
+			productName = "RobowarsClient-macOSTests";
+			productReference = 2E11D8C828ED5951003CC71B /* RobowarsClient-macOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2E11D8AF28ED594F003CC71B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					2E11D8B628ED594F003CC71B = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+					2E11D8C728ED5951003CC71B = {
+						CreatedOnToolsVersion = 14.0.1;
+						LastSwiftMigration = 1400;
+						TestTargetID = 2E11D8B628ED594F003CC71B;
+					};
+				};
+			};
+			buildConfigurationList = 2E11D8B228ED594F003CC71B /* Build configuration list for PBXProject "RobowarsClient-macOS" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2E11D8AE28ED594F003CC71B;
+			productRefGroup = 2E11D8B828ED594F003CC71B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2E11D8B628ED594F003CC71B /* RobowarsClient-macOS */,
+				2E11D8C728ED5951003CC71B /* RobowarsClient-macOSTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2E11D8B528ED594F003CC71B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E11D8EA28ED60C7003CC71B /* ChooseRobotsView.xib in Resources */,
+				2EDA0AD528F7DFF90020105F /* SidebarView.xib in Resources */,
+				2E11D8BF28ED5951003CC71B /* Assets.xcassets in Resources */,
+				2E8272A428F40313006FDAD6 /* ChooseGameModeView.xib in Resources */,
+				2E11D8C228ED5951003CC71B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E11D8C628ED5951003CC71B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2E11D8B328ED594F003CC71B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E92B04F2907A5C5008DB932 /* SplitViewController.swift in Sources */,
+				2EDA0AD328F7DFD80020105F /* SidebarViewController.swift in Sources */,
+				2E8272A228F40290006FDAD6 /* ChooseGameModeViewController.swift in Sources */,
+				2E11D8E828ED5C34003CC71B /* ChooseRobotsViewController.swift in Sources */,
+				2E11D8BB28ED594F003CC71B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E11D8C428ED5951003CC71B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E11D8E628ED5B8F003CC71B /* ChooseRobotsViewControllerTests.swift in Sources */,
+				2E1C625828F918BB00A75618 /* DummyRobot.swift in Sources */,
+				2EDA0AD128F7DF290020105F /* SidebarViewControllerTests.swift in Sources */,
+				2E0D800128F1AE7500E400B3 /* ChooseGameModeViewControllerTests.swift in Sources */,
+				2E1C625B28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2E11D8CA28ED5951003CC71B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E11D8B628ED594F003CC71B /* RobowarsClient-macOS */;
+			targetProxy = 2E11D8C928ED5951003CC71B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2E11D8C028ED5951003CC71B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E11D8C128ED5951003CC71B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2E11D8DA28ED5951003CC71B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2E11D8DB28ED5951003CC71B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		2E11D8DD28ED5951003CC71B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "RobowarsClient-macOS/RobowarsClient_macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8U849676MP;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.volodymyroniuk.RobowarsClient-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		2E11D8DE28ED5951003CC71B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "RobowarsClient-macOS/RobowarsClient_macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8U849676MP;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.volodymyroniuk.RobowarsClient-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		2E11D8E028ED5951003CC71B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8U849676MP;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.volodymyroniuk.RobowarsClient-macOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RobowarsClient-macOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RobowarsClient-macOS";
+			};
+			name = Debug;
+		};
+		2E11D8E128ED5951003CC71B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8U849676MP;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.volodymyroniuk.RobowarsClient-macOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RobowarsClient-macOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RobowarsClient-macOS";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2E11D8B228ED594F003CC71B /* Build configuration list for PBXProject "RobowarsClient-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E11D8DA28ED5951003CC71B /* Debug */,
+				2E11D8DB28ED5951003CC71B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E11D8DC28ED5951003CC71B /* Build configuration list for PBXNativeTarget "RobowarsClient-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E11D8DD28ED5951003CC71B /* Debug */,
+				2E11D8DE28ED5951003CC71B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E11D8DF28ED5951003CC71B /* Build configuration list for PBXNativeTarget "RobowarsClient-macOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E11D8E028ED5951003CC71B /* Debug */,
+				2E11D8E128ED5951003CC71B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2E11D8AF28ED594F003CC71B /* Project object */;
+}

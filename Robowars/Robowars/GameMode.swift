@@ -9,15 +9,16 @@ import Foundation
 
 public enum GameMode {
     case classic
+    case flyweight
     
-    public func battlefield() -> CGRect {
+    public var battlefield: CGRect {
         switch self {
-        case .classic:
+        case .classic, .flyweight:
             return CGRect(x: 0, y: 0, width: 10, height: 10)
         }
     }
     
-    public func ships() -> [CGSize] {
+    public var ships: [CGSize] {
         switch self {
         case .classic:
             return [
@@ -32,6 +33,28 @@ public enum GameMode {
                 CGSize(width: 3, height: 1),
                 CGSize(width: 4, height: 1),
             ]
+        case .flyweight:
+            return [
+                CGSize(width: 1, height: 1),
+                CGSize(width: 1, height: 1),
+                CGSize(width: 1, height: 1),
+                CGSize(width: 1, height: 1),
+                CGSize(width: 1, height: 1),
+                CGSize(width: 1, height: 1),
+                CGSize(width: 1, height: 1),
+                CGSize(width: 1, height: 1),
+                CGSize(width: 1, height: 1),
+                CGSize(width: 1, height: 1),
+            ]
+        }
+    }
+    
+    public var title: String {
+        switch self {
+        case .classic:
+            return "Classic"
+        case .flyweight:
+            return "Flyweight"
         }
     }
 }
