@@ -144,7 +144,7 @@ class GameEngineStartTests: XCTestCase {
             return nextShootPoint
         }
         
-        func shootResult(_ result: ShootResult, for coordinate: CGPoint) {
+        func shootResult(_ result: ShootResult) {
             // Can be empty for these tests
         }
     }

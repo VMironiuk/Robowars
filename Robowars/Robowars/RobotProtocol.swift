@@ -7,8 +7,10 @@
 
 import Foundation
 
-public enum ShootResult {
-    case miss, hit, kill
+public enum ShootResult: Equatable {
+    case miss(CGPoint)
+    case hit(CGPoint)
+    case kill(CGPoint)
 }
 
 public protocol RobotProtocol: AnyObject {
@@ -19,5 +21,5 @@ public protocol RobotProtocol: AnyObject {
 
     func set(battlefield: CGRect, ships: [CGSize])
     func shoot() -> CGPoint
-    func shootResult(_ result: ShootResult, for coordinate: CGPoint)
+    func shootResult(_ result: ShootResult)
 }

@@ -35,7 +35,7 @@ final class DummyRobot: RobotProtocol, Equatable {
         .zero
     }
 
-    func shootResult(_ result: ShootResult, for coordinate: CGPoint) {
+    func shootResult(_ result: ShootResult) {
 
     }
     

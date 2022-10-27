@@ -39,6 +39,6 @@ final class DummyRobot: RobotProtocol {
         CGPoint(x: 0, y: 0)
     }
     
-    func shootResult(_ result: ShootResult, for coordinate: CGPoint) {
+    func shootResult(_ result: ShootResult) {
     }
 }

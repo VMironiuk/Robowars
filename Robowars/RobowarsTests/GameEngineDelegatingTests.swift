@@ -181,8 +181,10 @@ class GameEngineDelegatingTests: XCTestCase {
         let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
         let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 1, y: 0, width: 2, height: 1)])
         let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 1, y: 0, width: 2, height: 1)])
-        let expectedFirstRobotShootResults: [ShootResult] = [.miss, .hit, .kill]
-        let expectedSecondRobotShootResults: [ShootResult] = [.miss]
+        let expectedFirstRobotShootResults: [ShootResult] = [
+            .miss(CGPoint(x: 0, y: 0)), .hit(CGPoint(x: 1, y: 0)), .kill(CGPoint(x: 2, y: 0))
+        ]
+        let expectedSecondRobotShootResults: [ShootResult] = [.miss(CGPoint(x: 0, y: 0))]
         sut.delegate = gameEngineDelegateSpy
         sut.update(firstRobot: firstShootingRobot)
         sut.update(secondRobot: secondShootingRobot)
@@ -297,7 +299,7 @@ class GameEngineDelegatingTests: XCTestCase {
         
         func set(battlefield: CGRect, ships: [CGSize]) {}
         func shoot() -> CGPoint { .zero }
-        func shootResult(_ result: ShootResult, for coordinate: CGPoint) {}
+        func shootResult(_ result: ShootResult) {}
     }
     
     private class ShootingRobot: RobotProtocol {
@@ -323,7 +325,7 @@ class GameEngineDelegatingTests: XCTestCase {
             return shoot
         }
         
-        func shootResult(_ result: ShootResult, for coordinate: CGPoint) {
+        func shootResult(_ result: ShootResult) {
         }
     }
 }
