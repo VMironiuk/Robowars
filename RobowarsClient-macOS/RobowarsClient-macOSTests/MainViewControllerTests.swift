@@ -6,47 +6,14 @@
 //
 
 import XCTest
-
-protocol BattlefieldViewControllerProtocol {
-    func updateBattlefield(_ newBattlefield: CGRect)
-    func updateShips(_ newShips: [CGRect])
-    func updateTile(for coordinate: CGPoint)
-}
-
-private final class BattlefieldViewControllerSpy: BattlefieldViewControllerProtocol {
-    private(set) var updateBattlefieldCallCount: Int = .zero
-    private(set) var updateShipsCallCount: Int = .zero
-    private(set) var updateTileCallCount: Int = .zero
-    
-    func updateBattlefield(_ newBattlefield: CGRect) {
-        updateBattlefieldCallCount += 1
-    }
-    
-    func updateShips(_ newShips: [CGRect]) {
-        updateShipsCallCount += 1
-    }
-    
-    func updateTile(for coordinate: CGPoint) {
-        updateTileCallCount += 1
-    }
-}
-
-final class MainViewController {
-    
-    init(
-        firstBattlefieldViewController: BattlefieldViewControllerProtocol,
-        secondBattlefieldViewController: BattlefieldViewControllerProtocol
-    ) {
-        
-    }
-}
+@testable import RobowarsClient_macOS
 
 final class MainViewControllerTests: XCTestCase {
 
     func test_mainVC_init_doesNotSendMessagesToBattlefieldVCs() {
         let firstBattlefieldVC = BattlefieldViewControllerSpy()
         let secondBattlefieldVC = BattlefieldViewControllerSpy()
-        let sut = MainViewController(
+        _ = MainViewController(
             firstBattlefieldViewController: firstBattlefieldVC,
             secondBattlefieldViewController: secondBattlefieldVC
         )
@@ -58,5 +25,25 @@ final class MainViewControllerTests: XCTestCase {
         XCTAssertEqual(secondBattlefieldVC.updateBattlefieldCallCount, .zero)
         XCTAssertEqual(secondBattlefieldVC.updateShipsCallCount, .zero)
         XCTAssertEqual(secondBattlefieldVC.updateTileCallCount, .zero)
+    }
+    
+    // MARK: - Helpers
+    
+    private final class BattlefieldViewControllerSpy: BattlefieldViewControllerProtocol {
+        private(set) var updateBattlefieldCallCount: Int = .zero
+        private(set) var updateShipsCallCount: Int = .zero
+        private(set) var updateTileCallCount: Int = .zero
+        
+        func updateBattlefield(_ newBattlefield: CGRect) {
+            updateBattlefieldCallCount += 1
+        }
+        
+        func updateShips(_ newShips: [CGRect]) {
+            updateShipsCallCount += 1
+        }
+        
+        func updateTile(for coordinate: CGPoint) {
+            updateTileCallCount += 1
+        }
     }
 }
