@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E02ED73290BACF200E7ED31 /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E02ED72290BACF200E7ED31 /* MainViewControllerTests.swift */; };
 		2E0D800128F1AE7500E400B3 /* ChooseGameModeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0D800028F1AE7500E400B3 /* ChooseGameModeViewControllerTests.swift */; };
 		2E11D8BB28ED594F003CC71B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E11D8BA28ED594F003CC71B /* AppDelegate.swift */; };
 		2E11D8BF28ED5951003CC71B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E11D8BE28ED5951003CC71B /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2E02ED72290BACF200E7ED31 /* MainViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerTests.swift; sourceTree = "<group>"; };
 		2E0D800028F1AE7500E400B3 /* ChooseGameModeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGameModeViewControllerTests.swift; sourceTree = "<group>"; };
 		2E11D8B728ED594F003CC71B /* RobowarsClient-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RobowarsClient-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E11D8BA28ED594F003CC71B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			children = (
 				2E1C625928F918FA00A75618 /* Helpers */,
 				2EBB85E12903C76000564B50 /* SIdebar */,
+				2E02ED72290BACF200E7ED31 /* MainViewControllerTests.swift */,
 			);
 			path = "RobowarsClient-macOSTests";
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				2EDA0AD128F7DF290020105F /* SidebarViewControllerTests.swift in Sources */,
 				2E0D800128F1AE7500E400B3 /* ChooseGameModeViewControllerTests.swift in Sources */,
 				2E1C625B28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
+				2E02ED73290BACF200E7ED31 /* MainViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
