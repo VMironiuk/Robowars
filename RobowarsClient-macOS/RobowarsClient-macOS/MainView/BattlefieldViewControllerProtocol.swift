@@ -7,8 +7,14 @@
 
 import Foundation
 
+enum TileState {
+    case miss(CGPoint)
+    case hit(CGPoint)
+    case kill(CGPoint)
+}
+
 protocol BattlefieldViewControllerProtocol {
     func updateBattlefield(_ newBattlefield: CGRect)
     func updateShips(_ newShips: [CGRect])
-    func updateTile(for coordinate: CGPoint)
+    func updateTile(with state: TileState)
 }

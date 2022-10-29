@@ -45,9 +45,11 @@ extension MainViewController: GameEngineDelegate {
     }
     
     func gameEngine(_ gameEngine: GameEngineProtocol, firstRobotDidShootWithResult result: ShootResult) {
+        firstBattlefieldViewController.updateTile(with: result.toTileState)
     }
     
     func gameEngine(_ gameEngine: GameEngineProtocol, secondRobotDidShootWithResult result: ShootResult) {
+        secondBattlefieldViewController.updateTile(with: result.toTileState)
     }
     
     func gameEngine(_ gameEngine: GameEngineProtocol, firstRobotDidWinWithMessage message: String) {
@@ -68,5 +70,18 @@ extension MainViewController: GameEngineDelegate {
     }
     
     func gameEngine(_ gameEngine: GameEngineProtocol, didFailWithError error: Error?) {
+    }
+}
+
+private extension ShootResult {
+    var toTileState: TileState {
+        switch self {
+        case .miss(let coordinate):
+            return .miss(coordinate)
+        case .hit(let coordinate):
+            return .hit(coordinate)
+        case .kill(let coordinate):
+            return .kill(coordinate)
+        }
     }
 }
