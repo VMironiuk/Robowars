@@ -304,7 +304,7 @@ class GameEngineDelegatingTests: XCTestCase {
     
     private class ShootingRobot: RobotProtocol {
         private let shoots: [CGPoint] = [.zero, CGPoint(x: 1, y: 0), CGPoint(x: 2, y: 0)]
-        private var currenntShoot: Int = .zero
+        private var currentShoot: Int = .zero
         let ships: [CGRect]
         let name: String = ""
         let winnerMessage: String
@@ -320,8 +320,8 @@ class GameEngineDelegatingTests: XCTestCase {
         }
         
         func shoot() -> CGPoint {
-            let shoot = shoots[currenntShoot]
-            currenntShoot = (currenntShoot + 1) % shoots.count
+            let shoot = shoots[currentShoot]
+            currentShoot = (currentShoot + 1) % shoots.count
             return shoot
         }
         
