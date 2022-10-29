@@ -12,6 +12,7 @@ import Robowars
 final class MainViewControllerTests: XCTestCase {
 
     func test_mainVC_init_doesNotSendMessagesToBattlefieldVCs() {
+        // Given
         let firstBattlefieldVC = BattlefieldViewControllerSpy()
         let secondBattlefieldVC = BattlefieldViewControllerSpy()
         _ = MainViewController(
@@ -19,6 +20,9 @@ final class MainViewControllerTests: XCTestCase {
             secondBattlefieldViewController: secondBattlefieldVC
         )
         
+        // When
+        
+        // Then
         XCTAssertEqual(firstBattlefieldVC.updateBattlefieldCallCount, .zero)
         XCTAssertEqual(firstBattlefieldVC.updateShipsCallCount, .zero)
         XCTAssertEqual(firstBattlefieldVC.updateTileCallCount, .zero)
@@ -29,6 +33,7 @@ final class MainViewControllerTests: XCTestCase {
     }
     
     func test_mainVC_sendsUpdateBattlefieldAndUpdateShipsMessagesOnGameEngineNewGameMode() {
+        // Given
         let firstBattlefieldVC = BattlefieldViewControllerSpy()
         let secondBattlefieldVC = BattlefieldViewControllerSpy()
         let sut = MainViewController(
@@ -38,10 +43,12 @@ final class MainViewControllerTests: XCTestCase {
         let gameEngine = GameEngineFactory.defaultGameEngine(with: .classic)
         gameEngine.delegate = sut
         
+        // When
         gameEngine.update(firstRobot: DummyRobot())
         gameEngine.update(secondRobot: DummyRobot())
         gameEngine.update(gameMode: .flyweight)
         
+        // Then
         XCTAssertEqual(firstBattlefieldVC.updateBattlefieldCallCount, 1)
         XCTAssertEqual(firstBattlefieldVC.updateShipsCallCount, 2)
         XCTAssertEqual(firstBattlefieldVC.updateTileCallCount, .zero)
@@ -52,6 +59,7 @@ final class MainViewControllerTests: XCTestCase {
     }
     
     func test_mainVC_sendsUpdateTileMessagesOnRobotsShooting() {
+        // Given
         let gameMode: GameMode = .classic
         let firstBattlefieldVC = BattlefieldViewControllerSpy()
         let secondBattlefieldVC = BattlefieldViewControllerSpy()
@@ -66,8 +74,10 @@ final class MainViewControllerTests: XCTestCase {
         gameEngine.update(secondRobot: DummyRobot(gameMode: gameMode))
         gameEngine.update(gameMode: gameMode)
         
+        // When
         gameEngine.start()
         
+        // Then
         XCTAssertEqual(firstBattlefieldVC.updateBattlefieldCallCount, 1)
         XCTAssertEqual(firstBattlefieldVC.updateShipsCallCount, 2)
         XCTAssertEqual(firstBattlefieldVC.updateTileCallCount, 105)
