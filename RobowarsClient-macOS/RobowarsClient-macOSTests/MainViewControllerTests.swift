@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import Robowars
 @testable import RobowarsClient_macOS
 
 final class MainViewControllerTests: XCTestCase {
@@ -27,6 +28,29 @@ final class MainViewControllerTests: XCTestCase {
         XCTAssertEqual(secondBattlefieldVC.updateTileCallCount, .zero)
     }
     
+    func test_mainVC_sendsUpdateBattlefieldMessageOnGameEngineNewGameMode() {
+        let firstBattlefieldVC = BattlefieldViewControllerSpy()
+        let secondBattlefieldVC = BattlefieldViewControllerSpy()
+        let sut = MainViewController(
+            firstBattlefieldViewController: firstBattlefieldVC,
+            secondBattlefieldViewController: secondBattlefieldVC
+        )
+        let gameEngine = GameEngineFactory.defaultGameEngine(with: .classic)
+        gameEngine.delegate = sut
+        
+        gameEngine.update(firstRobot: DummyRobot())
+        gameEngine.update(secondRobot: DummyRobot())
+        gameEngine.update(gameMode: .flyweight)
+        
+        XCTAssertEqual(firstBattlefieldVC.updateBattlefieldCallCount, 1)
+        XCTAssertEqual(firstBattlefieldVC.updateShipsCallCount, .zero)
+        XCTAssertEqual(firstBattlefieldVC.updateTileCallCount, .zero)
+
+        XCTAssertEqual(secondBattlefieldVC.updateBattlefieldCallCount, 1)
+        XCTAssertEqual(secondBattlefieldVC.updateShipsCallCount, .zero)
+        XCTAssertEqual(secondBattlefieldVC.updateTileCallCount, .zero)
+    }
+    
     // MARK: - Helpers
     
     private final class BattlefieldViewControllerSpy: BattlefieldViewControllerProtocol {
@@ -44,6 +68,34 @@ final class MainViewControllerTests: XCTestCase {
         
         func updateTile(for coordinate: CGPoint) {
             updateTileCallCount += 1
+        }
+    }
+    
+    private final class DummyRobot: RobotProtocol {
+        var ships: [CGRect] {
+            []
+        }
+        
+        var name: String {
+            ""
+        }
+        
+        var winnerMessage: String {
+            ""
+        }
+        
+        var loserMessage: String {
+            ""
+        }
+        
+        func set(battlefield: CGRect, ships: [CGSize]) {
+        }
+        
+        func shoot() -> CGPoint {
+            .zero
+        }
+        
+        func shootResult(_ result: ShootResult) {
         }
     }
 }
