@@ -28,7 +28,7 @@ final class MainViewControllerTests: XCTestCase {
         XCTAssertEqual(secondBattlefieldVC.updateTileCallCount, .zero)
     }
     
-    func test_mainVC_sendsUpdateBattlefieldMessageOnGameEngineNewGameMode() {
+    func test_mainVC_sendsUpdateBattlefieldAndUpdateShipsMessagesOnGameEngineNewGameMode() {
         let firstBattlefieldVC = BattlefieldViewControllerSpy()
         let secondBattlefieldVC = BattlefieldViewControllerSpy()
         let sut = MainViewController(
@@ -43,11 +43,11 @@ final class MainViewControllerTests: XCTestCase {
         gameEngine.update(gameMode: .flyweight)
         
         XCTAssertEqual(firstBattlefieldVC.updateBattlefieldCallCount, 1)
-        XCTAssertEqual(firstBattlefieldVC.updateShipsCallCount, .zero)
+        XCTAssertEqual(firstBattlefieldVC.updateShipsCallCount, 2)
         XCTAssertEqual(firstBattlefieldVC.updateTileCallCount, .zero)
 
         XCTAssertEqual(secondBattlefieldVC.updateBattlefieldCallCount, 1)
-        XCTAssertEqual(secondBattlefieldVC.updateShipsCallCount, .zero)
+        XCTAssertEqual(secondBattlefieldVC.updateShipsCallCount, 2)
         XCTAssertEqual(secondBattlefieldVC.updateTileCallCount, .zero)
     }
     

@@ -37,9 +37,11 @@ final class MainViewController: NSViewController {
 
 extension MainViewController: GameEngineDelegate {
     func gameEngine(_ gameEngine: GameEngineProtocol, didChangeFirstRobotWithShips ships: [CGRect]) {
+        firstBattlefieldViewController.updateShips(ships)
     }
     
     func gameEngine(_ gameEngine: GameEngineProtocol, didChangeSecondRobotWithShips ships: [CGRect]) {
+        secondBattlefieldViewController.updateShips(ships)
     }
     
     func gameEngine(_ gameEngine: GameEngineProtocol, firstRobotDidShootWithResult result: ShootResult) {
