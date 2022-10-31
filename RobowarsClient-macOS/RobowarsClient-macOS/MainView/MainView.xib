@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21225" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21225"/>
+        <capability name="NSView safe area layout guides" minToolsVersion="12.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="MainViewController" customModule="RobowarsClient_macOS" customModuleProvider="target"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <view id="uNa-M4-3xC" userLabel="Custom View">
+            <rect key="frame" x="0.0" y="0.0" width="742" height="479"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <box horizontalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="7m9-Lq-ArF">
+                    <rect key="frame" x="369" y="0.0" width="5" height="479"/>
+                </box>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="IGi-If-al2">
+                    <rect key="frame" x="0.0" y="479" width="742" height="50"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bQR-uW-AHR">
+                            <rect key="frame" x="18" y="15" width="680" height="21"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Game engine did not constructed completely" id="oLc-VM-ZjT">
+                                <font key="font" metaFont="systemBold" size="18"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <button translatesAutoresizingMaskIntoConstraints="NO" id="kQh-qP-LIr">
+                            <rect key="frame" x="704" y="9" width="26" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="kQh-qP-LIr" secondAttribute="height" multiplier="1:1" id="dJb-K9-d3x"/>
+                            </constraints>
+                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSStopProgressFreestandingTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Yj8-3y-Iku">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="kQh-qP-LIr" firstAttribute="leading" secondItem="bQR-uW-AHR" secondAttribute="trailing" constant="8" symbolic="YES" id="Acg-Ih-Iw4"/>
+                        <constraint firstAttribute="height" constant="50" id="Hbi-i9-RDI"/>
+                        <constraint firstAttribute="bottom" secondItem="kQh-qP-LIr" secondAttribute="bottom" constant="12" id="Wwk-va-HnJ"/>
+                        <constraint firstItem="kQh-qP-LIr" firstAttribute="top" secondItem="IGi-If-al2" secondAttribute="top" constant="12" id="YBn-od-g22"/>
+                        <constraint firstAttribute="trailing" secondItem="kQh-qP-LIr" secondAttribute="trailing" constant="12" id="dYB-lk-JT4"/>
+                        <constraint firstItem="bQR-uW-AHR" firstAttribute="centerY" secondItem="IGi-If-al2" secondAttribute="centerY" id="ojy-jo-VqV"/>
+                        <constraint firstItem="bQR-uW-AHR" firstAttribute="leading" secondItem="IGi-If-al2" secondAttribute="leading" constant="20" symbolic="YES" id="tBe-tS-xJ0"/>
+                    </constraints>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="64F-qF-ImJ">
+                    <rect key="frame" x="0.0" y="349" width="371" height="80"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zaj-U5-QeB">
+                            <rect key="frame" x="-2" y="17" width="375" height="47"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Starscream" id="uU8-mt-Veh">
+                                <font key="font" metaFont="systemBlack" size="40"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="OZo-qv-xsC"/>
+                        <constraint firstAttribute="trailing" secondItem="zaj-U5-QeB" secondAttribute="trailing" id="TGk-ui-F9z"/>
+                        <constraint firstItem="zaj-U5-QeB" firstAttribute="leading" secondItem="64F-qF-ImJ" secondAttribute="leading" id="f67-Bi-INh"/>
+                        <constraint firstItem="zaj-U5-QeB" firstAttribute="centerY" secondItem="64F-qF-ImJ" secondAttribute="centerY" id="upF-V0-wdy"/>
+                    </constraints>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="WSq-3t-tfK">
+                    <rect key="frame" x="0.0" y="0.0" width="371" height="80"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Atu-VV-jhz">
+                            <rect key="frame" x="-2" y="31" width="375" height="19"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="I'm not tired of winning!" id="FzY-ZW-Zak">
+                                <font key="font" metaFont="systemBold" size="16"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Atu-VV-jhz" firstAttribute="leading" secondItem="WSq-3t-tfK" secondAttribute="leading" id="W6a-Hq-t2S"/>
+                        <constraint firstAttribute="height" constant="80" id="Xu9-Cf-Dm7"/>
+                        <constraint firstAttribute="trailing" secondItem="Atu-VV-jhz" secondAttribute="trailing" id="hki-mN-a3S"/>
+                        <constraint firstItem="Atu-VV-jhz" firstAttribute="centerY" secondItem="WSq-3t-tfK" secondAttribute="centerY" id="x7B-fP-Rmt"/>
+                    </constraints>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="RUP-Sn-yuT">
+                    <rect key="frame" x="372" y="349" width="370" height="80"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jxV-ZA-Rs6">
+                            <rect key="frame" x="-2" y="17" width="374" height="47"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Voltron" id="vVd-5C-ia2">
+                                <font key="font" metaFont="systemBlack" size="40"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="ERX-ER-Tkx"/>
+                        <constraint firstItem="jxV-ZA-Rs6" firstAttribute="leading" secondItem="RUP-Sn-yuT" secondAttribute="leading" id="RYr-VZ-eZj"/>
+                        <constraint firstAttribute="trailing" secondItem="jxV-ZA-Rs6" secondAttribute="trailing" id="haZ-FW-yhV"/>
+                        <constraint firstItem="jxV-ZA-Rs6" firstAttribute="centerY" secondItem="RUP-Sn-yuT" secondAttribute="centerY" id="tHi-r6-bYk"/>
+                    </constraints>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="aw2-Uv-5Vu">
+                    <rect key="frame" x="372" y="0.0" width="370" height="80"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="T9b-JV-f9a">
+                            <rect key="frame" x="-2" y="31" width="374" height="19"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Next time =[" id="moW-i0-0Hv">
+                                <font key="font" metaFont="systemBold" size="16"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="Ees-tN-yD5"/>
+                        <constraint firstItem="T9b-JV-f9a" firstAttribute="leading" secondItem="aw2-Uv-5Vu" secondAttribute="leading" id="aco-Mi-ZuW"/>
+                        <constraint firstItem="T9b-JV-f9a" firstAttribute="centerY" secondItem="aw2-Uv-5Vu" secondAttribute="centerY" id="bJA-qN-eu1"/>
+                        <constraint firstAttribute="trailing" secondItem="T9b-JV-f9a" secondAttribute="trailing" id="pKA-ez-KxB"/>
+                    </constraints>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="j4u-D5-tu4">
+                    <rect key="frame" x="0.0" y="80" width="371" height="269"/>
+                    <subviews>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="etJ-5u-2ZX" userLabel="Battlefield Placeholder View">
+                            <rect key="frame" x="50" y="-1" width="271" height="271"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="etJ-5u-2ZX" secondAttribute="height" multiplier="1:1" id="baO-zz-Mag"/>
+                            </constraints>
+                        </customView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="etJ-5u-2ZX" firstAttribute="leading" secondItem="j4u-D5-tu4" secondAttribute="leading" constant="50" id="9TS-0y-6zV"/>
+                        <constraint firstItem="etJ-5u-2ZX" firstAttribute="centerY" secondItem="j4u-D5-tu4" secondAttribute="centerY" id="Ptk-Hn-qKE"/>
+                        <constraint firstAttribute="trailing" secondItem="etJ-5u-2ZX" secondAttribute="trailing" constant="50" id="vJx-RM-boO"/>
+                    </constraints>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Gll-d9-4Ie">
+                    <rect key="frame" x="372" y="80" width="370" height="269"/>
+                    <subviews>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="H7R-YE-7ux" userLabel="Battlefield Placeholder View">
+                            <rect key="frame" x="50" y="-1" width="270" height="271"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="H7R-YE-7ux" secondAttribute="height" multiplier="1:1" id="E4F-de-C62"/>
+                            </constraints>
+                        </customView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="H7R-YE-7ux" firstAttribute="centerY" secondItem="Gll-d9-4Ie" secondAttribute="centerY" id="0VK-b2-tFN"/>
+                        <constraint firstAttribute="trailing" secondItem="H7R-YE-7ux" secondAttribute="trailing" constant="50" id="19W-Yp-xgJ"/>
+                        <constraint firstItem="H7R-YE-7ux" firstAttribute="leading" secondItem="Gll-d9-4Ie" secondAttribute="leading" constant="50" id="63P-0x-dna"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="IGi-If-al2" firstAttribute="top" secondItem="uNa-M4-3xC" secondAttribute="top" constant="-50" id="0nI-xr-dRl"/>
+                <constraint firstAttribute="trailing" secondItem="RUP-Sn-yuT" secondAttribute="trailing" id="2F4-rf-dFq"/>
+                <constraint firstItem="7m9-Lq-ArF" firstAttribute="leading" secondItem="64F-qF-ImJ" secondAttribute="trailing" id="3nv-aS-C0u"/>
+                <constraint firstAttribute="bottom" secondItem="7m9-Lq-ArF" secondAttribute="bottom" id="6EN-NG-mIf"/>
+                <constraint firstItem="64F-qF-ImJ" firstAttribute="top" secondItem="uNa-M4-3xC" secondAttribute="top" constant="50" id="6u5-ck-cLL"/>
+                <constraint firstItem="RUP-Sn-yuT" firstAttribute="top" secondItem="uNa-M4-3xC" secondAttribute="top" constant="50" id="9VO-KH-9O5"/>
+                <constraint firstAttribute="trailing" secondItem="aw2-Uv-5Vu" secondAttribute="trailing" id="CI0-PQ-muX"/>
+                <constraint firstItem="7m9-Lq-ArF" firstAttribute="leading" secondItem="j4u-D5-tu4" secondAttribute="trailing" id="EM6-ql-mL4"/>
+                <constraint firstItem="j4u-D5-tu4" firstAttribute="leading" secondItem="uNa-M4-3xC" secondAttribute="leading" id="IT7-kb-4vc"/>
+                <constraint firstItem="aw2-Uv-5Vu" firstAttribute="top" secondItem="Gll-d9-4Ie" secondAttribute="bottom" id="J1g-RG-px1"/>
+                <constraint firstItem="WSq-3t-tfK" firstAttribute="leading" secondItem="uNa-M4-3xC" secondAttribute="leading" id="Lmp-kn-Onz"/>
+                <constraint firstAttribute="bottom" secondItem="aw2-Uv-5Vu" secondAttribute="bottom" id="OrS-DV-sPC"/>
+                <constraint firstAttribute="trailing" secondItem="IGi-If-al2" secondAttribute="trailing" id="TLM-Ok-LNO"/>
+                <constraint firstItem="RUP-Sn-yuT" firstAttribute="leading" secondItem="7m9-Lq-ArF" secondAttribute="trailing" id="UIH-u3-ccu"/>
+                <constraint firstItem="IGi-If-al2" firstAttribute="leading" secondItem="uNa-M4-3xC" secondAttribute="leading" id="Vsv-eR-aap"/>
+                <constraint firstItem="aw2-Uv-5Vu" firstAttribute="leading" secondItem="7m9-Lq-ArF" secondAttribute="trailing" id="Y8X-Un-fTB"/>
+                <constraint firstItem="WSq-3t-tfK" firstAttribute="top" secondItem="j4u-D5-tu4" secondAttribute="bottom" id="Yew-QR-XMf"/>
+                <constraint firstAttribute="bottom" secondItem="WSq-3t-tfK" secondAttribute="bottom" id="ZeS-s0-wqC"/>
+                <constraint firstAttribute="trailing" secondItem="Gll-d9-4Ie" secondAttribute="trailing" id="baT-mv-av4"/>
+                <constraint firstItem="j4u-D5-tu4" firstAttribute="top" secondItem="64F-qF-ImJ" secondAttribute="bottom" id="bio-0e-8RG"/>
+                <constraint firstItem="7m9-Lq-ArF" firstAttribute="centerX" secondItem="uNa-M4-3xC" secondAttribute="centerX" id="blj-AY-ES5"/>
+                <constraint firstItem="Gll-d9-4Ie" firstAttribute="leading" secondItem="7m9-Lq-ArF" secondAttribute="trailing" id="dBs-Ug-fks"/>
+                <constraint firstItem="Gll-d9-4Ie" firstAttribute="top" secondItem="RUP-Sn-yuT" secondAttribute="bottom" id="hvO-rN-2sN"/>
+                <constraint firstItem="64F-qF-ImJ" firstAttribute="leading" secondItem="uNa-M4-3xC" secondAttribute="leading" id="upB-5F-6dE"/>
+                <constraint firstItem="7m9-Lq-ArF" firstAttribute="leading" secondItem="WSq-3t-tfK" secondAttribute="trailing" id="v7a-b7-QUn"/>
+                <constraint firstItem="7m9-Lq-ArF" firstAttribute="top" secondItem="uNa-M4-3xC" secondAttribute="top" id="yQt-CW-9dK"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Moe-0w-BBh"/>
+            <viewLayoutGuide key="layoutMargins" id="paD-0O-n0N"/>
+            <point key="canvasLocation" x="56" y="155"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="NSStopProgressFreestandingTemplate" width="20" height="20"/>
+    </resources>
+</document>
