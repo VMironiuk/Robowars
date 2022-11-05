@@ -9,6 +9,9 @@ import Cocoa
 import Robowars
 
 final class MainViewController: NSViewController {
+    @IBOutlet private weak var firstBattlefieldPlaceholderView: NSView!
+    @IBOutlet private weak var secondBattlefieldPlaceholderView: NSView!
+    
     private let firstBattlefieldViewController: BattlefieldViewControllerProtocol
     private let secondBattlefieldViewController: BattlefieldViewControllerProtocol
 
@@ -32,6 +35,33 @@ final class MainViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupBattlefieldViews()
+    }
+    
+    private func setupBattlefieldViews() {
+        guard let firstBattlefieldView = firstBattlefieldViewController.view,
+              let secondBattlefieldView = secondBattlefieldViewController.view else { return }
+        
+        firstBattlefieldPlaceholderView.addSubview(firstBattlefieldView)
+        secondBattlefieldPlaceholderView.addSubview(secondBattlefieldView)
+        
+        firstBattlefieldView.translatesAutoresizingMaskIntoConstraints = false
+        secondBattlefieldView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            firstBattlefieldView.topAnchor.constraint(equalTo: firstBattlefieldPlaceholderView.topAnchor),
+            firstBattlefieldView.bottomAnchor.constraint(equalTo: firstBattlefieldPlaceholderView.bottomAnchor),
+            firstBattlefieldView.leadingAnchor.constraint(equalTo: firstBattlefieldPlaceholderView.leadingAnchor),
+            firstBattlefieldView.trailingAnchor.constraint(equalTo: firstBattlefieldPlaceholderView.trailingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            secondBattlefieldView.topAnchor.constraint(equalTo: secondBattlefieldPlaceholderView.topAnchor),
+            secondBattlefieldView.bottomAnchor.constraint(equalTo: secondBattlefieldPlaceholderView.bottomAnchor),
+            secondBattlefieldView.leadingAnchor.constraint(equalTo: secondBattlefieldPlaceholderView.leadingAnchor),
+            secondBattlefieldView.trailingAnchor.constraint(equalTo: secondBattlefieldPlaceholderView.trailingAnchor)
+        ])
     }
 }
 
@@ -83,5 +113,11 @@ private extension ShootResult {
         case .kill(let coordinate):
             return .kill(coordinate)
         }
+    }
+}
+
+private extension BattlefieldViewControllerProtocol {
+    var view: NSView? {
+        (self as? NSViewController)?.view
     }
 }

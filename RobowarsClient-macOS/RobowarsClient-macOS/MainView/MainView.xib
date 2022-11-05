@@ -9,6 +9,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainViewController" customModule="RobowarsClient_macOS" customModuleProvider="target">
             <connections>
+                <outlet property="firstBattlefieldPlaceholderView" destination="etJ-5u-2ZX" id="wUs-Y2-qgv"/>
+                <outlet property="secondBattlefieldPlaceholderView" destination="H7R-YE-7ux" id="DoI-Jd-umz"/>
                 <outlet property="view" destination="uNa-M4-3xC" id="Trq-lq-9xM"/>
             </connections>
         </customObject>
