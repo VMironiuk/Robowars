@@ -40,8 +40,8 @@ final class MainViewController: NSViewController {
     }
     
     private func setupBattlefieldViews() {
-        guard let firstBattlefieldView = firstBattlefieldViewController.view,
-              let secondBattlefieldView = secondBattlefieldViewController.view else { return }
+        let firstBattlefieldView = firstBattlefieldViewController.view
+        let secondBattlefieldView = secondBattlefieldViewController.view
         
         firstBattlefieldPlaceholderView.addSubview(firstBattlefieldView)
         secondBattlefieldPlaceholderView.addSubview(secondBattlefieldView)
@@ -113,11 +113,5 @@ private extension ShootResult {
         case .kill(let coordinate):
             return .kill(coordinate)
         }
-    }
-}
-
-private extension BattlefieldViewControllerProtocol {
-    var view: NSView? {
-        (self as? NSViewController)?.view
     }
 }

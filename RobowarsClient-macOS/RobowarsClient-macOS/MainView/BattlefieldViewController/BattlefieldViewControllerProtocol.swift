@@ -5,7 +5,7 @@
 //  Created by Volodymyr Myroniuk on 28.10.2022.
 //
 
-import Foundation
+import Cocoa
 
 enum TileState {
     case miss(CGPoint)
@@ -13,7 +13,7 @@ enum TileState {
     case kill(CGPoint)
 }
 
-protocol BattlefieldViewControllerProtocol {
+protocol BattlefieldViewControllerProtocol where Self: NSViewController {
     func updateBattlefield(_ newBattlefield: CGRect)
     func updateShips(_ newShips: [CGRect])
     func updateTile(with state: TileState)
