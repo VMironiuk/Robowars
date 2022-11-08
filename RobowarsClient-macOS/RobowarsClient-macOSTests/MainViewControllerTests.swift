@@ -89,7 +89,7 @@ final class MainViewControllerTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private final class BattlefieldViewControllerSpy: BattlefieldViewControllerProtocol {
+    private final class BattlefieldViewControllerSpy: NSViewController, BattlefieldViewControllerProtocol {
         private(set) var updateBattlefieldCallCount: Int = .zero
         private(set) var updateShipsCallCount: Int = .zero
         private(set) var updateTileCallCount: Int = .zero
