@@ -48,7 +48,7 @@ final class GameEngine: GameEngineProtocol {
                 delegate?.gameEngine(self, secondRobotDidLoseWithMessage: oppositeRobot(to: shootingRobot).loserMessage)
                 return
             }
-            shootingRobot.shootResult(shootResult, for: shootPoint)
+            shootingRobot.shootResult(shootResult)
             if case .miss = shootResult {
                 shootingRobot = oppositeRobot(to: shootingRobot)
             }
@@ -106,7 +106,7 @@ final class GameEngine: GameEngineProtocol {
     }
     
     private func shootResult(for shootPoint: CGPoint, to robot: RobotProtocol) -> ShootResult {
-        var result: ShootResult = .miss
+        var result: ShootResult = .miss(shootPoint)
         if robot === firstRobot {
             result = shootResult(for: shootPoint, with: &firstRobotShipsPoints)
             delegate?.gameEngine(self, secondRobotDidShootWithResult: result)
@@ -128,13 +128,13 @@ final class GameEngine: GameEngineProtocol {
                 shipsPoints[shipIndex].remove(at: shootPointIndex)
                 if shipsPoints[shipIndex].isEmpty {
                     shipsPoints.remove(at: shipIndex)
-                    return .kill
+                    return .kill(shootPoint)
                 }
                 else {
-                    return .hit
+                    return .hit(shootPoint)
                 }
             }
         }
-        return .miss
+        return .miss(shootPoint)
     }
 }

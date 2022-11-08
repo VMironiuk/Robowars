@@ -29,3 +29,11 @@ public protocol GameEngineDelegate: AnyObject {
     func gameEngine(_ gameEngine: GameEngineProtocol, didChangeGameModeWithBattleField battlefield: CGRect)
     func gameEngine(_ gameEngine: GameEngineProtocol, didFailWithError error: Error?)
 }
+
+public struct GameEngineFactory {
+    private init() {}
+
+    public static func defaultGameEngine(with gameMode: GameMode) -> GameEngineProtocol {
+        GameEngine(shipsValidator: ShipsArrangementValidator(gameMode: gameMode))
+    }
+}

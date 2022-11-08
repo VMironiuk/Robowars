@@ -181,8 +181,10 @@ class GameEngineDelegatingTests: XCTestCase {
         let (sut, gameEngineDelegateSpy) = makeSUT(shipsValidator: DummyShipsValidator())
         let firstShootingRobot = ShootingRobot(ships: [CGRect(x: 1, y: 0, width: 2, height: 1)])
         let secondShootingRobot = ShootingRobot(ships: [CGRect(x: 1, y: 0, width: 2, height: 1)])
-        let expectedFirstRobotShootResults: [ShootResult] = [.miss, .hit, .kill]
-        let expectedSecondRobotShootResults: [ShootResult] = [.miss]
+        let expectedFirstRobotShootResults: [ShootResult] = [
+            .miss(CGPoint(x: 0, y: 0)), .hit(CGPoint(x: 1, y: 0)), .kill(CGPoint(x: 2, y: 0))
+        ]
+        let expectedSecondRobotShootResults: [ShootResult] = [.miss(CGPoint(x: 0, y: 0))]
         sut.delegate = gameEngineDelegateSpy
         sut.update(firstRobot: firstShootingRobot)
         sut.update(secondRobot: secondShootingRobot)
@@ -297,12 +299,12 @@ class GameEngineDelegatingTests: XCTestCase {
         
         func set(battlefield: CGRect, ships: [CGSize]) {}
         func shoot() -> CGPoint { .zero }
-        func shootResult(_ result: ShootResult, for coordinate: CGPoint) {}
+        func shootResult(_ result: ShootResult) {}
     }
     
     private class ShootingRobot: RobotProtocol {
         private let shoots: [CGPoint] = [.zero, CGPoint(x: 1, y: 0), CGPoint(x: 2, y: 0)]
-        private var currenntShoot: Int = .zero
+        private var currentShoot: Int = .zero
         let ships: [CGRect]
         let name: String = ""
         let winnerMessage: String
@@ -318,12 +320,12 @@ class GameEngineDelegatingTests: XCTestCase {
         }
         
         func shoot() -> CGPoint {
-            let shoot = shoots[currenntShoot]
-            currenntShoot = (currenntShoot + 1) % shoots.count
+            let shoot = shoots[currentShoot]
+            currentShoot = (currentShoot + 1) % shoots.count
             return shoot
         }
         
-        func shootResult(_ result: ShootResult, for coordinate: CGPoint) {
+        func shootResult(_ result: ShootResult) {
         }
     }
 }
