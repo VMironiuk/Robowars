@@ -15,15 +15,22 @@ struct SplitViewComposer {
         SidebarViewController(
             chooseRobotsViewController: ChooseRobotsViewController(robots: []),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: []),
-            // TODO: do not hardcode game mode here
-            gameEngine: GameEngineFactory.defaultGameEngine(with: .classic)
+            gameEngine: Self.gameEngine()
         )
     }
     
     static func composedMainView() -> NSViewController {
-        MainViewController(
+        let mainVC = MainViewController(
             firstBattlefieldViewController: BattlefieldViewController(),
             secondBattlefieldViewController: BattlefieldViewController()
         )
+        Self.gameEngine().delegate = mainVC
+        
+        return mainVC
+    }
+    
+    private static func gameEngine() -> GameEngineProtocol {
+        // TODO: do not hardcode game mode here
+        GameEngineFactory.defaultGameEngine(with: .classic)
     }
 }
