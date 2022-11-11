@@ -70,11 +70,25 @@ final class MainViewController: NSViewController {
 }
 
 extension MainViewController: GameEngineDelegate {
-    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeFirstRobot: RobotProtocol, withShips ships: [CGRect]) {
+    func gameEngine(
+        _ gameEngine: GameEngineProtocol,
+        didChangeFirstRobot robot: RobotProtocol,
+        withShips ships: [CGRect]
+    ) {
+        if firstRobotNameLabel != nil {
+            firstRobotNameLabel.stringValue = robot.name
+        }
         firstBattlefieldViewController.updateShips(ships)
     }
     
-    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeSecondRobot: RobotProtocol, withShips ships: [CGRect]) {
+    func gameEngine(
+        _ gameEngine: GameEngineProtocol,
+        didChangeSecondRobot robot: RobotProtocol,
+        withShips ships: [CGRect]
+    ) {
+        if secondRobotNameLabel != nil {
+            secondRobotNameLabel.stringValue = robot.name
+        }
         secondBattlefieldViewController.updateShips(ships)
     }
     
@@ -87,15 +101,27 @@ extension MainViewController: GameEngineDelegate {
     }
     
     func gameEngine(_ gameEngine: GameEngineProtocol, firstRobotDidWinWithMessage message: String) {
+        if firstRobotMessageLabel != nil {
+            firstRobotMessageLabel.stringValue = message
+        }
     }
     
     func gameEngine(_ gameEngine: GameEngineProtocol, secondRobotDidWinWithMessage message: String) {
+        if secondRobotMessageLabel != nil {
+            secondRobotMessageLabel.stringValue = message
+        }
     }
     
     func gameEngine(_ gameEngine: GameEngineProtocol, firstRobotDidLoseWithMessage message: String) {
+        if firstRobotMessageLabel != nil {
+            firstRobotMessageLabel.stringValue = message
+        }
     }
     
     func gameEngine(_ gameEngine: GameEngineProtocol, secondRobotDidLoseWithMessage message: String) {
+        if secondRobotMessageLabel != nil {
+            secondRobotMessageLabel.stringValue = message
+        }
     }
     
     func gameEngine(_ gameEngine: GameEngineProtocol, didChangeGameModeWithBattleField battlefield: CGRect) {
