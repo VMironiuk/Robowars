@@ -18,8 +18,8 @@ public protocol GameEngineProtocol: AnyObject {
 }
 
 public protocol GameEngineDelegate: AnyObject {
-    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeFirstRobotWithShips ships: [CGRect])
-    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeSecondRobotWithShips ships: [CGRect])
+    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeFirstRobot: RobotProtocol, withShips ships: [CGRect])
+    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeSecondRobot: RobotProtocol, withShips ships: [CGRect])
     func gameEngine(_ gameEngine: GameEngineProtocol, firstRobotDidShootWithResult result: ShootResult)
     func gameEngine(_ gameEngine: GameEngineProtocol, secondRobotDidShootWithResult result: ShootResult)
     func gameEngine(_ gameEngine: GameEngineProtocol, firstRobotDidWinWithMessage message: String)

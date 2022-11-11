@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21225" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21225"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
         <capability name="NSView safe area layout guides" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,7 +10,11 @@
         <customObject id="-2" userLabel="File's Owner" customClass="MainViewController" customModule="RobowarsClient_macOS" customModuleProvider="target">
             <connections>
                 <outlet property="firstBattlefieldPlaceholderView" destination="etJ-5u-2ZX" id="wUs-Y2-qgv"/>
+                <outlet property="firstRobotMessageLabel" destination="Atu-VV-jhz" id="Izy-7v-CEK"/>
+                <outlet property="firstRobotNameLabel" destination="zaj-U5-QeB" id="u7j-Pd-llC"/>
                 <outlet property="secondBattlefieldPlaceholderView" destination="H7R-YE-7ux" id="DoI-Jd-umz"/>
+                <outlet property="secondRobotMessageLabel" destination="T9b-JV-f9a" id="viq-6G-1iT"/>
+                <outlet property="secondRobotNameLabel" destination="jxV-ZA-Rs6" id="Yvv-bV-Mrc"/>
                 <outlet property="view" destination="uNa-M4-3xC" id="Trq-lq-9xM"/>
             </connections>
         </customObject>

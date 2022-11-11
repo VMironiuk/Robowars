@@ -11,6 +11,10 @@ import Robowars
 final class MainViewController: NSViewController {
     @IBOutlet private weak var firstBattlefieldPlaceholderView: NSView!
     @IBOutlet private weak var secondBattlefieldPlaceholderView: NSView!
+    @IBOutlet private weak var firstRobotNameLabel: NSTextField!
+    @IBOutlet private weak var secondRobotNameLabel: NSTextField!
+    @IBOutlet private weak var firstRobotMessageLabel: NSTextField!
+    @IBOutlet private weak var secondRobotMessageLabel: NSTextField!
     
     private let firstBattlefieldViewController: BattlefieldViewControllerProtocol
     private let secondBattlefieldViewController: BattlefieldViewControllerProtocol
@@ -66,11 +70,11 @@ final class MainViewController: NSViewController {
 }
 
 extension MainViewController: GameEngineDelegate {
-    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeFirstRobotWithShips ships: [CGRect]) {
+    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeFirstRobot: RobotProtocol, withShips ships: [CGRect]) {
         firstBattlefieldViewController.updateShips(ships)
     }
     
-    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeSecondRobotWithShips ships: [CGRect]) {
+    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeSecondRobot: RobotProtocol, withShips ships: [CGRect]) {
         secondBattlefieldViewController.updateShips(ships)
     }
     
