@@ -6,36 +6,13 @@
 //
 
 import Cocoa
-import Robowars
 
 class SplitViewController: NSSplitViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let sidebarVC = SidebarViewController(
-            chooseRobotsViewController: ChooseRobotsViewController(robots: []),
-            chooseGameModeViewController: ChooseGameModeViewController(gameModes: []),
-            delegate: self
-        )
-        
-        let mainVC = MainViewController(
-            firstBattlefieldViewController: BattlefieldViewController(),
-            secondBattlefieldViewController: BattlefieldViewController()
-        )
-        
-        addSplitViewItem(NSSplitViewItem(sidebarWithViewController: sidebarVC))
-        addSplitViewItem(NSSplitViewItem(viewController: mainVC))
-    }
-}
-
-extension SplitViewController: SidebarViewControllerDelegate {
-    func sidebarViewController(_ viewController: SidebarViewController, firstRobotDidChange robot: RobotProtocol) {
-    }
-    
-    func sidebarViewController(_ viewController: SidebarViewController, secondRobotDidChange robot: RobotProtocol) {
-    }
-    
-    func sidebarViewController(_ viewController: SidebarViewController, gameModeDidChange gameMode: GameMode) {
+        addSplitViewItem(NSSplitViewItem(sidebarWithViewController: SplitViewComposer.composedSideBar()))
+        addSplitViewItem(NSSplitViewItem(viewController: SplitViewComposer.composedMainView()))
     }
 }
