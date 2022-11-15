@@ -20,6 +20,7 @@
 		2E1C625828F918BB00A75618 /* DummyRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C625728F918BB00A75618 /* DummyRobot.swift */; };
 		2E1C625B28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C625A28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift */; };
 		2E31DB0529169E4B00B53DDB /* BattlefieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E31DB0429169E4B00B53DDB /* BattlefieldView.xib */; };
+		2E6EC716291FDF1100DA44DF /* Misfire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EC715291FDF1100DA44DF /* Misfire.swift */; };
 		2E8272A228F40290006FDAD6 /* ChooseGameModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8272A128F40290006FDAD6 /* ChooseGameModeViewController.swift */; };
 		2E8272A428F40313006FDAD6 /* ChooseGameModeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8272A328F40313006FDAD6 /* ChooseGameModeView.xib */; };
 		2E88F9772913A24300227CCB /* BattlefieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E88F9762913A24300227CCB /* BattlefieldViewController.swift */; };
@@ -76,6 +77,7 @@
 		2E1C625728F918BB00A75618 /* DummyRobot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyRobot.swift; sourceTree = "<group>"; };
 		2E1C625A28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		2E31DB0429169E4B00B53DDB /* BattlefieldView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BattlefieldView.xib; sourceTree = "<group>"; };
+		2E6EC715291FDF1100DA44DF /* Misfire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Misfire.swift; sourceTree = "<group>"; };
 		2E8272A128F40290006FDAD6 /* ChooseGameModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGameModeViewController.swift; sourceTree = "<group>"; };
 		2E8272A328F40313006FDAD6 /* ChooseGameModeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseGameModeView.xib; sourceTree = "<group>"; };
 		2E88F9762913A24300227CCB /* BattlefieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattlefieldViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				2EB8785C291E007B0085A638 /* SplitViewComposer.swift */,
 				2E02ED76290BB16400E7ED31 /* MainView */,
 				2EAA141F28FA6F75004894B1 /* Sidebar */,
+				2E6EC717291FE43A00DA44DF /* Robots */,
 				2E11D8BE28ED5951003CC71B /* Assets.xcassets */,
 				2E11D8C028ED5951003CC71B /* Main.storyboard */,
 				2E11D8C328ED5951003CC71B /* RobowarsClient_macOS.entitlements */,
@@ -179,6 +182,14 @@
 				2E1C625A28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		2E6EC717291FE43A00DA44DF /* Robots */ = {
+			isa = PBXGroup;
+			children = (
+				2E6EC715291FDF1100DA44DF /* Misfire.swift */,
+			);
+			path = Robots;
 			sourceTree = "<group>";
 		};
 		2E88F9752913A1FD00227CCB /* BattlefieldViewController */ = {
@@ -345,6 +356,7 @@
 				2EDA0AD328F7DFD80020105F /* SidebarViewController.swift in Sources */,
 				2E8272A228F40290006FDAD6 /* ChooseGameModeViewController.swift in Sources */,
 				2E02ED75290BB0B800E7ED31 /* MainViewController.swift in Sources */,
+				2E6EC716291FDF1100DA44DF /* Misfire.swift in Sources */,
 				2E11D8E828ED5C34003CC71B /* ChooseRobotsViewController.swift in Sources */,
 				2E11D8BB28ED594F003CC71B /* AppDelegate.swift in Sources */,
 				2E88F97B2913A2F500227CCB /* TileView.swift in Sources */,

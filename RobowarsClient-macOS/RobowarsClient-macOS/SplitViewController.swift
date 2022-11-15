@@ -12,7 +12,7 @@ class SplitViewController: NSSplitViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addSplitViewItem(NSSplitViewItem(sidebarWithViewController: SplitViewComposer.composedSideBar()))
-        addSplitViewItem(NSSplitViewItem(viewController: SplitViewComposer.composedMainView()))
+        insertSplitViewItem(NSSplitViewItem(viewController: SplitViewComposer.composedMainView()), at: .zero)
+        insertSplitViewItem(NSSplitViewItem(sidebarWithViewController: SplitViewComposer.composedSideBar()), at: .zero)
     }
 }

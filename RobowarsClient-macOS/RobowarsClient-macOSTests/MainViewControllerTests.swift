@@ -40,6 +40,8 @@ final class MainViewControllerTests: XCTestCase {
             firstBattlefieldViewController: firstBattlefieldVC,
             secondBattlefieldViewController: secondBattlefieldVC
         )
+        _ = sut.view
+        
         let gameEngine = GameEngineFactory.defaultGameEngine(with: .classic)
         gameEngine.delegate = sut
         
@@ -67,6 +69,8 @@ final class MainViewControllerTests: XCTestCase {
             firstBattlefieldViewController: firstBattlefieldVC,
             secondBattlefieldViewController: secondBattlefieldVC
         )
+        _ = sut.view
+        
         let gameEngine = GameEngineFactory.defaultGameEngine(with: gameMode)
         gameEngine.delegate = sut
         
@@ -93,6 +97,18 @@ final class MainViewControllerTests: XCTestCase {
         private(set) var updateBattlefieldCallCount: Int = .zero
         private(set) var updateShipsCallCount: Int = .zero
         private(set) var updateTileCallCount: Int = .zero
+        
+        init() {
+            super.init(nibName: nil, bundle: nil)
+        }
+        
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+        
+        override func loadView() {
+            view = NSView(frame: .zero)
+        }
         
         func updateBattlefield(_ newBattlefield: CGRect) {
             updateBattlefieldCallCount += 1

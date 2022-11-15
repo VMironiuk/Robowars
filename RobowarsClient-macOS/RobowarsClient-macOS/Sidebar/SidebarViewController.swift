@@ -12,6 +12,9 @@ class SidebarViewController: NSViewController {
     @IBOutlet private weak var chooseRobotsPlaceholderView: NSView!
     @IBOutlet private weak var chooseGameModePlaceholderView: NSView!
     
+    private let chooseRobotsViewController: ChooseRobotsViewController
+    private let chooseGameModeViewController: ChooseGameModeViewController
+    
     private let chooseRobotsView: NSView!
     private let chooseGameModeView: NSView!
     
@@ -27,6 +30,9 @@ class SidebarViewController: NSViewController {
         gameEngine: GameEngineProtocol
     ) {
         self.gameEngine = gameEngine
+        self.chooseRobotsViewController = chooseRobotsViewController
+        self.chooseGameModeViewController = chooseGameModeViewController
+        
         chooseRobotsView = chooseRobotsViewController.view
         chooseGameModeView = chooseGameModeViewController.view
         
@@ -34,9 +40,6 @@ class SidebarViewController: NSViewController {
         
         addChild(chooseRobotsViewController)
         addChild(chooseGameModeViewController)
-
-        chooseRobotsViewController.delegate = self
-        chooseGameModeViewController.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -45,6 +48,9 @@ class SidebarViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        chooseRobotsViewController.delegate = self
+        chooseGameModeViewController.delegate = self
     }
     
     override func viewWillAppear() {
