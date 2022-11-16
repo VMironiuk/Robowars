@@ -197,8 +197,8 @@
 			children = (
 				2E02ED77290BB17E00E7ED31 /* BattlefieldViewControllerProtocol.swift */,
 				2E88F9762913A24300227CCB /* BattlefieldViewController.swift */,
-				2E31DB0429169E4B00B53DDB /* BattlefieldView.xib */,
 				2E88F9782913A2C400227CCB /* BattlefieldView.swift */,
+				2E31DB0429169E4B00B53DDB /* BattlefieldView.xib */,
 				2E88F97A2913A2F500227CCB /* TileView.swift */,
 			);
 			path = BattlefieldViewController;
