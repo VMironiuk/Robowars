@@ -9,6 +9,6 @@ import Foundation
 
 extension Array<CGRect> {
     func mapToPoints() -> [CGPoint] {
-        [.zero]
+        map { CGPoint(x: $0.minX, y: $0.minY) }
     }
 }
