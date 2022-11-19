@@ -9,7 +9,6 @@ import Foundation
 
 extension Array<CGRect> {
     func mapToPoints() -> [CGPoint] {
-        #warning("Map array of rect to array of points")
-        return []
+        [.zero]
     }
 }
