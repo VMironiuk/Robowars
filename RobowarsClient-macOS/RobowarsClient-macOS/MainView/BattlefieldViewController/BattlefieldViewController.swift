@@ -8,6 +8,9 @@
 import Cocoa
 
 final class BattlefieldViewController: NSViewController {
+    private var battlefieldView: BattlefieldView {
+        view as! BattlefieldView
+    }
     
     override var nibName: NSNib.Name? {
         "BattlefieldView"
@@ -32,11 +35,14 @@ final class BattlefieldViewController: NSViewController {
 
 extension BattlefieldViewController: BattlefieldViewControllerProtocol {
     func updateBattlefield(_ newBattlefield: CGRect) {
+        battlefieldView.updateBattlefield(newBattlefield)
     }
     
     func updateShips(_ newShips: [CGRect]) {
+        battlefieldView.updateShips(with: newShips.mapToPoints())
     }
     
     func updateTile(with state: TileState) {
+        battlefieldView.updateTile(with: state)
     }
 }

@@ -34,6 +34,7 @@
 		2EDA0AD128F7DF290020105F /* SidebarViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA0AD028F7DF290020105F /* SidebarViewControllerTests.swift */; };
 		2EDA0AD328F7DFD80020105F /* SidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA0AD228F7DFD80020105F /* SidebarViewController.swift */; };
 		2EDA0AD528F7DFF90020105F /* SidebarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EDA0AD428F7DFF90020105F /* SidebarView.xib */; };
+		2EEF06362928BF8200CEDC61 /* CGRect+MapToPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEF06352928BF8200CEDC61 /* CGRect+MapToPoints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		2EDA0AD028F7DF290020105F /* SidebarViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewControllerTests.swift; sourceTree = "<group>"; };
 		2EDA0AD228F7DFD80020105F /* SidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewController.swift; sourceTree = "<group>"; };
 		2EDA0AD428F7DFF90020105F /* SidebarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SidebarView.xib; sourceTree = "<group>"; };
+		2EEF06352928BF8200CEDC61 /* CGRect+MapToPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+MapToPoints.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 				2E11D8BA28ED594F003CC71B /* AppDelegate.swift */,
 				2E92B04E2907A5C5008DB932 /* SplitViewController.swift */,
 				2EB8785C291E007B0085A638 /* SplitViewComposer.swift */,
+				2EEF06352928BF8200CEDC61 /* CGRect+MapToPoints.swift */,
 				2E02ED76290BB16400E7ED31 /* MainView */,
 				2EAA141F28FA6F75004894B1 /* Sidebar */,
 				2E6EC717291FE43A00DA44DF /* Robots */,
@@ -350,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E92B04F2907A5C5008DB932 /* SplitViewController.swift in Sources */,
+				2EEF06362928BF8200CEDC61 /* CGRect+MapToPoints.swift in Sources */,
 				2E88F9772913A24300227CCB /* BattlefieldViewController.swift in Sources */,
 				2EB8785D291E007B0085A638 /* SplitViewComposer.swift in Sources */,
 				2E02ED78290BB17E00E7ED31 /* BattlefieldViewControllerProtocol.swift in Sources */,
