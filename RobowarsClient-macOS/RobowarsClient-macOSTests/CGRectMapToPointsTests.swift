@@ -9,18 +9,6 @@ import XCTest
 @testable import RobowarsClient_macOS
 
 final class CGRectMapToPointsTests: XCTestCase {
-    func test_returnsSinglePointFor1x1Ship() {
-        let ships: [CGRect] = [CGRect(x: 0, y: 0, width: 1, height: 1)]
-        
-        XCTAssertEqual(ships.mapToPoints(), [.zero])
-    }
-    
-    func test_returnsSinglePointWithCorrectCoordinateFor1x1Ship() {
-        let ships: [CGRect] = [CGRect(x: 5, y: 6, width: 1, height: 1)]
-        
-        XCTAssertEqual(ships.mapToPoints(), [CGPoint(x: 5, y: 6)])
-    }
-    
     func test_returnsPointsWithCorrectCoordinatesFor1x1Ships() {
         let ships: [CGRect] = [
             CGRect(x: 5, y: 6, width: 1, height: 1),
