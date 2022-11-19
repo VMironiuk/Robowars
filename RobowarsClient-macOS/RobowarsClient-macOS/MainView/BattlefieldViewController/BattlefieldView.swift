@@ -23,4 +23,10 @@ final class BattlefieldView: NSView {
     override func layout() {
         super.layout()
     }
+    
+    func updateBattlefield(_ newBattlefield: CGRect) {}
+    
+    func updateShips(with coordinates: [CGPoint]) {}
+    
+    func updateTile(with state: TileState) {}
 }
