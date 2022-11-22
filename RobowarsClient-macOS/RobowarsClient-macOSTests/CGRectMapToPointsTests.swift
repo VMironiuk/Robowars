@@ -49,4 +49,15 @@ final class CGRectMapToPointsTests: XCTestCase {
         
         XCTAssertEqual([ship].mapToPoints(), expectedPoints)
     }
+    
+    func test_returnsPointsWithCorrectCoordinatesFor3x2Ship() {
+        let ship: CGRect = CGRect(x: 5, y: 6, width: 3, height: 2)
+        let expectedPoints: [CGPoint] = [
+            CGPoint(x: 5, y: 6), CGPoint(x: 5, y: 7),
+            CGPoint(x: 6, y: 6), CGPoint(x: 6, y: 7),
+            CGPoint(x: 7, y: 6), CGPoint(x: 7, y: 7),
+        ]
+        
+        XCTAssertEqual([ship].mapToPoints(), expectedPoints)
+    }
 }
