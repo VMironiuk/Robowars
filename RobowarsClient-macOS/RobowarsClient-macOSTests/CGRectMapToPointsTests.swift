@@ -47,7 +47,7 @@ final class CGRectMapToPointsTests: XCTestCase {
         file: StaticString = #filePath,
         line: UInt = #line
     ) {
-        XCTAssertEqual(ships.mapToPoints(), points, file: file, line: line)
+        XCTAssertEqual(ships.points, points, file: file, line: line)
     }
     
     private func make1x1ShipsWithPoints() -> (ships: [CGRect], points: [CGPoint]) {

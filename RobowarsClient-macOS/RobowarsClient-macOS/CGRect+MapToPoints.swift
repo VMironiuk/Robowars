@@ -8,13 +8,13 @@
 import Foundation
 
 extension Array<CGRect> {
-    func mapToPoints() -> [CGPoint] {
-        flatMap { $0.mapToPoints() }
+    var points: [CGPoint] {
+        flatMap { $0.points }
     }
 }
 
 extension CGRect {
-    func mapToPoints() -> [CGPoint] {
+    var points: [CGPoint] {
         var points: [CGPoint] = []
         for x in Int(minX)..<Int(maxX) {
             for y in Int(minY)..<Int(maxY) {

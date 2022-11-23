@@ -39,7 +39,7 @@ extension BattlefieldViewController: BattlefieldViewControllerProtocol {
     }
     
     func updateShips(_ newShips: [CGRect]) {
-        battlefieldView.updateShips(with: newShips.mapToPoints())
+        battlefieldView.updateShips(with: newShips.points)
     }
     
     func updateTile(with state: TileState) {
