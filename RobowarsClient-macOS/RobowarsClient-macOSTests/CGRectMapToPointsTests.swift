@@ -23,7 +23,7 @@ final class CGRectMapToPointsTests: XCTestCase {
             CGPoint(x: 7, y: 5)
         ]
         
-        XCTAssertEqual(ships.mapToPoints(), expectedPoints)
+        expect(points: expectedPoints, forShips: ships)
     }
     
     func test_returnsPointsWithCorrectCoordinatesFor2x2Ships() {
@@ -33,21 +33,21 @@ final class CGRectMapToPointsTests: XCTestCase {
             CGPoint(x: 3, y: 3), CGPoint(x: 3, y: 4)
         ]
         
-        XCTAssertEqual([ship].mapToPoints(), expectedPoints)
+        expect(points: expectedPoints, forShips: [ship])
     }
     
     func test_returnsPointsWithCorrectCoordinatesFor2x1Ship() {
         let ship: CGRect = CGRect(x: 0, y: 0, width: 2, height: 1)
         let expectedPoints: [CGPoint] = [CGPoint(x: 0, y: 0), CGPoint(x: 1, y: 0)]
         
-        XCTAssertEqual([ship].mapToPoints(), expectedPoints)
+        expect(points: expectedPoints, forShips: [ship])
     }
     
     func test_returnsPointsWithCorrectCoordinatesFor1x2Ship() {
         let ship: CGRect = CGRect(x: 0, y: 0, width: 1, height: 2)
         let expectedPoints: [CGPoint] = [CGPoint(x: 0, y: 0), CGPoint(x: 0, y: 1)]
         
-        XCTAssertEqual([ship].mapToPoints(), expectedPoints)
+        expect(points: expectedPoints, forShips: [ship])
     }
     
     func test_returnsPointsWithCorrectCoordinatesFor3x2Ship() {
@@ -58,7 +58,7 @@ final class CGRectMapToPointsTests: XCTestCase {
             CGPoint(x: 7, y: 6), CGPoint(x: 7, y: 7)
         ]
         
-        XCTAssertEqual([ship].mapToPoints(), expectedPoints)
+        expect(points: expectedPoints, forShips: [ship])
     }
     
     func test_returnsPointsWithCorrectCoordinatesFor2x3Ship() {
@@ -68,6 +68,17 @@ final class CGRectMapToPointsTests: XCTestCase {
             CGPoint(x: 6, y: 6), CGPoint(x: 6, y: 7), CGPoint(x: 6, y: 8)
         ]
         
-        XCTAssertEqual([ship].mapToPoints(), expectedPoints)
+        expect(points: expectedPoints, forShips: [ship])
+    }
+    
+    // MARK: - Helpers
+    
+    private func expect(
+        points: [CGPoint],
+        forShips ships: [CGRect],
+        file: StaticString = #filePath,
+        line: UInt = #line
+    ) {
+        XCTAssertEqual(ships.mapToPoints(), points, file: file, line: line)
     }
 }
