@@ -40,9 +40,13 @@ class ChooseGameModeViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         gameModeComboBox.usesDataSource = true
         gameModeComboBox.dataSource = self
         gameModeComboBox.delegate = self
+        
+        guard !gameModes.isEmpty else { return }
+        gameModeComboBox.selectItem(at: .zero)
     }
 }
 

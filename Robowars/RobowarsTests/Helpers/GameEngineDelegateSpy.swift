@@ -37,11 +37,11 @@ class GameEngineDelegateSpy: GameEngineDelegate {
         secondRobotShootResults.count
     }
     
-    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeFirstRobotWithShips ships: [CGRect]) {
+    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeFirstRobot: RobotProtocol, withShips ships: [CGRect]) {
         firstRobotDidChangeCallCount += 1
     }
     
-    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeSecondRobotWithShips ships: [CGRect]) {
+    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeSecondRobot: RobotProtocol, withShips ships: [CGRect]) {
         secondRobotDidChangeCallCount += 1
     }
     

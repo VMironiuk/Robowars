@@ -57,7 +57,7 @@ final class GameEngine: GameEngineProtocol {
         
     func update(firstRobot robot: RobotProtocol) {
         firstRobot = robot
-        delegate?.gameEngine(self, didChangeFirstRobotWithShips: robot.ships)
+        delegate?.gameEngine(self, didChangeFirstRobot: robot, withShips: robot.ships)
         firstRobotShipsPoints = shipsPoints(from: robot.ships)
         if !shipsValidator.isValid(ships: robot.ships) {
             delegate?.gameEngine(self, didFailWithError: GameEngineError.invalidFirstRobotShipsArrangement)
@@ -66,7 +66,7 @@ final class GameEngine: GameEngineProtocol {
     
     func update(secondRobot robot: RobotProtocol) {
         secondRobot = robot
-        delegate?.gameEngine(self, didChangeSecondRobotWithShips: robot.ships)
+        delegate?.gameEngine(self, didChangeSecondRobot: robot, withShips: robot.ships)
         secondRobotShipsPoints = shipsPoints(from: robot.ships)
         if !shipsValidator.isValid(ships: robot.ships) {
             delegate?.gameEngine(self, didFailWithError: GameEngineError.invalidSecondRobotShipsArrangement)

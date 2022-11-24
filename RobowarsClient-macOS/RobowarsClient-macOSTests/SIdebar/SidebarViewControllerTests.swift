@@ -15,67 +15,70 @@ final class SidebarViewControllerTests: XCTestCase {
         let sut = makeSUT(
             chooseRobotsViewController: ChooseRobotsViewController(robots: []),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: []),
-            delegate: SidebarSpy())
+            gameEngine: SidebarSpy())
         
         _ = sut.view
     }
     
-    func test_sidebarVC_doesNotInformItsDelegateOnInitIfThereNoRobotsAndGameMode() {
-        let delegate = SidebarSpy()
+    func test_sidebarVC_doesNotInformGameEngineOnInitIfThereNoRobotsAndGameMode() {
+        let gameEngine = SidebarSpy()
         _ = makeSUT(
             chooseRobotsViewController: ChooseRobotsViewController(robots: []),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: []),
-            delegate: delegate)
+            gameEngine: gameEngine)
         
-        XCTAssertEqual(delegate.firstRobotDidChangeCallCount, .zero)
-        XCTAssertEqual(delegate.secondRobotDidChangeCallCount, .zero)
-        XCTAssertEqual(delegate.gameModeDidChangeCallCount, .zero)
+        XCTAssertEqual(gameEngine.firstRobotUpdateCallCount, .zero)
+        XCTAssertEqual(gameEngine.secondRobotUpdateCallCount, .zero)
+        XCTAssertEqual(gameEngine.gameModeUpdateCallCount, .zero)
     }
     
-    func test_sidebarVC_init_informsItsDelegateAboutGameModeChangeIfThereAreGameModesButNoRobots() {
-        let delegate = SidebarSpy()
-        _ = makeSUT(
+    func test_sidebarVC_viewDidLoad_informsGameEngineAboutGameModeChangeIfThereAreGameModesButNoRobots() {
+        let gameEngine = SidebarSpy()
+        let sut = makeSUT(
             chooseRobotsViewController: ChooseRobotsViewController(robots: []),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: [.classic]),
-            delegate: delegate)
+            gameEngine: gameEngine)
+        _ = sut.view
 
-        XCTAssertEqual(delegate.firstRobotDidChangeCallCount, .zero)
-        XCTAssertEqual(delegate.secondRobotDidChangeCallCount, .zero)
-        XCTAssertEqual(delegate.gameModeDidChangeCallCount, 1)
+        XCTAssertEqual(gameEngine.firstRobotUpdateCallCount, .zero)
+        XCTAssertEqual(gameEngine.secondRobotUpdateCallCount, .zero)
+        XCTAssertEqual(gameEngine.gameModeUpdateCallCount, 1)
     }
     
-    func test_sidebarVC_init_informsItsDelegateAboutRobotsChangeIfThereAreRobotsButNoGameModes() {
-        let delegate = SidebarSpy()
-        _ = makeSUT(
+    func test_sidebarVC_viewDidLoad_informsGameEngineAboutRobotsChangeIfThereAreRobotsButNoGameModes() {
+        let gameEngine = SidebarSpy()
+        let sut = makeSUT(
             chooseRobotsViewController: ChooseRobotsViewController(robots: [DummyRobot()]),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: []),
-            delegate: delegate)
+            gameEngine: gameEngine)
+        _ = sut.view
 
-        XCTAssertEqual(delegate.firstRobotDidChangeCallCount, 1)
-        XCTAssertEqual(delegate.secondRobotDidChangeCallCount, 1)
-        XCTAssertEqual(delegate.gameModeDidChangeCallCount, .zero)
+        XCTAssertEqual(gameEngine.firstRobotUpdateCallCount, 1)
+        XCTAssertEqual(gameEngine.secondRobotUpdateCallCount, 1)
+        XCTAssertEqual(gameEngine.gameModeUpdateCallCount, .zero)
     }
     
-    func test_sidebarVC_init_informsItsDelegateAboutRobotsAndGameModesChangeIfThereAreRobotsAndGameModes() {
-        let delegate = SidebarSpy()
-        _ = makeSUT(
+    func test_sidebarVC_viewDidLoad_informsGameEngineAboutRobotsAndGameModesChangeIfThereAreRobotsAndGameModes() {
+        let gameEngine = SidebarSpy()
+        let sut = makeSUT(
             chooseRobotsViewController: ChooseRobotsViewController(robots: [DummyRobot()]),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: [.classic]),
-            delegate: delegate)
+            gameEngine: gameEngine)
+        _ = sut.view
 
-        XCTAssertEqual(delegate.firstRobotDidChangeCallCount, 1)
-        XCTAssertEqual(delegate.secondRobotDidChangeCallCount, 1)
-        XCTAssertEqual(delegate.gameModeDidChangeCallCount, 1)
+        XCTAssertEqual(gameEngine.firstRobotUpdateCallCount, 1)
+        XCTAssertEqual(gameEngine.secondRobotUpdateCallCount, 1)
+        XCTAssertEqual(gameEngine.gameModeUpdateCallCount, 1)
     }
     
-    func test_sidebarVC_informsItsDelegateAboutManualRobotsAndGameModeChanges() {
-        let delegate = SidebarSpy()
+    func test_sidebarVC_informsGameEngineAboutManualRobotsAndGameModeChanges() {
+        let gameEngine = SidebarSpy()
         let chooseRobotsVC = ChooseRobotsViewController(robots: [DummyRobot(), DummyRobot(), DummyRobot()])
         let chooseModeVC = ChooseGameModeViewController(gameModes: [.classic, .flyweight])
         let sut = makeSUT(
             chooseRobotsViewController: chooseRobotsVC,
             chooseGameModeViewController: chooseModeVC,
-            delegate: delegate)
+            gameEngine: gameEngine)
         
         _ = sut.view
         _ = chooseRobotsVC.view
@@ -85,80 +88,81 @@ final class SidebarViewControllerTests: XCTestCase {
         chooseModeVC.gameModeComboBox.selectItem(at: 1)
         chooseRobotsVC.secondRobotComboBox.selectItem(at: .zero)
 
-        XCTAssertEqual(delegate.firstRobotDidChangeCallCount, 2)
-        XCTAssertEqual(delegate.secondRobotDidChangeCallCount, 3)
-        XCTAssertEqual(delegate.gameModeDidChangeCallCount, 2)
+        XCTAssertEqual(gameEngine.firstRobotUpdateCallCount, 2)
+        XCTAssertEqual(gameEngine.secondRobotUpdateCallCount, 3)
+        XCTAssertEqual(gameEngine.gameModeUpdateCallCount, 2)
     }
     
-    func test_sidebarVC_init_delegateReceivesCorrectRobotsAndGameMode() {
+    func test_sidebarVC_viewDidLoad_gameEngineReceivesCorrectRobotsAndGameMode() {
         let robots: [RobotProtocol] = [DummyRobot(name: "r1"), DummyRobot(name: "r2"), DummyRobot(name: "r3")]
         let gameModes: [GameMode] = [.classic, .flyweight]
-        let delegate = SidebarSpy()
-        _ = makeSUT(
+        let gameEngine = SidebarSpy()
+        let sut = makeSUT(
             chooseRobotsViewController: ChooseRobotsViewController(robots: robots),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: gameModes),
-            delegate: delegate)
+            gameEngine: gameEngine)
+        _ = sut.view
         
-        XCTAssertEqual(robots[.zero].name, delegate.firstRobot!.name)
-        XCTAssertEqual(robots[.zero].name, delegate.secondRobot!.name)
-        XCTAssertEqual(gameModes[.zero], delegate.gameMode!)
+        XCTAssertEqual(robots[.zero].name, gameEngine.firstRobot!.name)
+        XCTAssertEqual(robots[.zero].name, gameEngine.secondRobot!.name)
+        XCTAssertEqual(gameModes[.zero], gameEngine.gameMode!)
     }
     
-    func test_sidebarVC_delegateReceivesCorrectFirstRobotOnManualFirstRobotChange() {
+    func test_sidebarVC_gameEngineReceivesCorrectFirstRobotOnManualFirstRobotChange() {
         let robots: [RobotProtocol] = [DummyRobot(name: "r1"), DummyRobot(name: "r2"), DummyRobot(name: "r3")]
         let chooseRobotsVC = ChooseRobotsViewController(robots: robots)
         let gameModes: [GameMode] = [.classic, .flyweight]
-        let delegate = SidebarSpy()
+        let gameEngine = SidebarSpy()
         let sut = makeSUT(
             chooseRobotsViewController: chooseRobotsVC,
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: gameModes),
-            delegate: delegate)
+            gameEngine: gameEngine)
         
         _ = sut.view
         _ = chooseRobotsVC.view
         chooseRobotsVC.firstRobotComboBox.selectItem(at: 1)
         
-        XCTAssertEqual(robots[1].name, delegate.firstRobot!.name)
-        XCTAssertEqual(robots[.zero].name, delegate.secondRobot!.name)
-        XCTAssertEqual(gameModes[.zero], delegate.gameMode!)
+        XCTAssertEqual(robots[1].name, gameEngine.firstRobot!.name)
+        XCTAssertEqual(robots[.zero].name, gameEngine.secondRobot!.name)
+        XCTAssertEqual(gameModes[.zero], gameEngine.gameMode!)
     }
     
-    func test_sidebarVC_delegateReceivesCorrectSecondRobotOnManualSecondRobotChange() {
+    func test_sidebarVC_gameEngineReceivesCorrectSecondRobotOnManualSecondRobotChange() {
         let robots: [RobotProtocol] = [DummyRobot(name: "r1"), DummyRobot(name: "r2"), DummyRobot(name: "r3")]
         let chooseRobotsVC = ChooseRobotsViewController(robots: robots)
         let gameModes: [GameMode] = [.classic, .flyweight]
-        let delegate = SidebarSpy()
+        let gameEngine = SidebarSpy()
         let sut = makeSUT(
             chooseRobotsViewController: chooseRobotsVC,
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: gameModes),
-            delegate: delegate)
+            gameEngine: gameEngine)
         
         _ = sut.view
         _ = chooseRobotsVC.view
         chooseRobotsVC.secondRobotComboBox.selectItem(at: 2)
         
-        XCTAssertEqual(robots[.zero].name, delegate.firstRobot!.name)
-        XCTAssertEqual(robots[2].name, delegate.secondRobot!.name)
-        XCTAssertEqual(gameModes[.zero], delegate.gameMode!)
+        XCTAssertEqual(robots[.zero].name, gameEngine.firstRobot!.name)
+        XCTAssertEqual(robots[2].name, gameEngine.secondRobot!.name)
+        XCTAssertEqual(gameModes[.zero], gameEngine.gameMode!)
     }
     
-    func test_sidebarVC_delegateReceivesCorrectGameModeOnManualGameModeChange() {
+    func test_sidebarVC_gameEngineReceivesCorrectGameModeOnManualGameModeChange() {
         let robots: [RobotProtocol] = [DummyRobot(name: "r1"), DummyRobot(name: "r2"), DummyRobot(name: "r3")]
         let gameModes: [GameMode] = [.classic, .flyweight]
         let chooseGameModeVC = ChooseGameModeViewController(gameModes: gameModes)
-        let delegate = SidebarSpy()
+        let gameEngine = SidebarSpy()
         let sut = makeSUT(
             chooseRobotsViewController: ChooseRobotsViewController(robots: robots),
             chooseGameModeViewController: chooseGameModeVC,
-            delegate: delegate)
+            gameEngine: gameEngine)
         
         _ = sut.view
         _ = chooseGameModeVC.view
         chooseGameModeVC.gameModeComboBox.selectItem(at: 1)
         
-        XCTAssertEqual(robots[.zero].name, delegate.firstRobot!.name)
-        XCTAssertEqual(robots[.zero].name, delegate.secondRobot!.name)
-        XCTAssertEqual(gameModes[1], delegate.gameMode!)
+        XCTAssertEqual(robots[.zero].name, gameEngine.firstRobot!.name)
+        XCTAssertEqual(robots[.zero].name, gameEngine.secondRobot!.name)
+        XCTAssertEqual(gameModes[1], gameEngine.gameMode!)
     }
 
     // MARK: - Helpers
@@ -166,35 +170,41 @@ final class SidebarViewControllerTests: XCTestCase {
     private func makeSUT(
         chooseRobotsViewController: ChooseRobotsViewController,
         chooseGameModeViewController: ChooseGameModeViewController,
-        delegate: SidebarViewControllerDelegate
+        gameEngine: SidebarSpy
     ) -> SidebarViewController {
         let sut = SidebarViewController(
             chooseRobotsViewController: chooseRobotsViewController,
             chooseGameModeViewController: chooseGameModeViewController,
-            delegate: delegate)
+            gameEngine: gameEngine)
                 
         trackForMemoryLeak(sut)
         trackForMemoryLeak(chooseRobotsViewController)
         trackForMemoryLeak(chooseGameModeViewController)
-        trackForMemoryLeak(delegate)
+        trackForMemoryLeak(gameEngine)
         
         return sut
     }
     
-    private final class SidebarSpy: SidebarViewControllerDelegate {
+    private final class SidebarSpy: GameEngineProtocol {
         private var firstRobots: [RobotProtocol] = []
         private var secondRobots: [RobotProtocol] = []
         private var gameModes: [GameMode] = []
+
+        var isValid: Bool {
+            true
+        }
         
-        var firstRobotDidChangeCallCount: Int {
+        var delegate: GameEngineDelegate?
+        
+        var firstRobotUpdateCallCount: Int {
             firstRobots.count
         }
         
-        var secondRobotDidChangeCallCount: Int {
+        var secondRobotUpdateCallCount: Int {
             secondRobots.count
         }
         
-        var gameModeDidChangeCallCount: Int {
+        var gameModeUpdateCallCount: Int {
             gameModes.count
         }
         
@@ -210,24 +220,18 @@ final class SidebarViewControllerTests: XCTestCase {
             gameModes.last
         }
         
-        func sidebarViewController(
-            _ viewController: SidebarViewController,
-            firstRobotDidChange robot: RobotProtocol
-        ) {
+        func start() {
+        }
+        
+        func update(firstRobot robot: RobotProtocol) {
             firstRobots.append(robot)
         }
         
-        func sidebarViewController(
-            _ viewController: SidebarViewController,
-            secondRobotDidChange robot: RobotProtocol
-        ) {
+        func update(secondRobot robot: RobotProtocol) {
             secondRobots.append(robot)
         }
         
-        func sidebarViewController(
-            _ viewController: SidebarViewController,
-            gameModeDidChange gameMode: GameMode
-        ) {
+        func update(gameMode: GameMode) {
             gameModes.append(gameMode)
         }
     }

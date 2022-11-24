@@ -11,6 +11,10 @@ import Robowars
 final class MainViewController: NSViewController {
     @IBOutlet private weak var firstBattlefieldPlaceholderView: NSView!
     @IBOutlet private weak var secondBattlefieldPlaceholderView: NSView!
+    @IBOutlet private weak var firstRobotNameLabel: NSTextField!
+    @IBOutlet private weak var secondRobotNameLabel: NSTextField!
+    @IBOutlet private weak var firstRobotMessageLabel: NSTextField!
+    @IBOutlet private weak var secondRobotMessageLabel: NSTextField!
     
     private let firstBattlefieldViewController: BattlefieldViewControllerProtocol
     private let secondBattlefieldViewController: BattlefieldViewControllerProtocol
@@ -66,11 +70,21 @@ final class MainViewController: NSViewController {
 }
 
 extension MainViewController: GameEngineDelegate {
-    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeFirstRobotWithShips ships: [CGRect]) {
+    func gameEngine(
+        _ gameEngine: GameEngineProtocol,
+        didChangeFirstRobot robot: RobotProtocol,
+        withShips ships: [CGRect]
+    ) {
+        firstRobotNameLabel.stringValue = robot.name
         firstBattlefieldViewController.updateShips(ships)
     }
     
-    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeSecondRobotWithShips ships: [CGRect]) {
+    func gameEngine(
+        _ gameEngine: GameEngineProtocol,
+        didChangeSecondRobot robot: RobotProtocol,
+        withShips ships: [CGRect]
+    ) {
+        secondRobotNameLabel.stringValue = robot.name
         secondBattlefieldViewController.updateShips(ships)
     }
     
@@ -83,15 +97,19 @@ extension MainViewController: GameEngineDelegate {
     }
     
     func gameEngine(_ gameEngine: GameEngineProtocol, firstRobotDidWinWithMessage message: String) {
+        firstRobotMessageLabel.stringValue = message
     }
     
     func gameEngine(_ gameEngine: GameEngineProtocol, secondRobotDidWinWithMessage message: String) {
+        secondRobotMessageLabel.stringValue = message
     }
     
     func gameEngine(_ gameEngine: GameEngineProtocol, firstRobotDidLoseWithMessage message: String) {
+        firstRobotMessageLabel.stringValue = message
     }
     
     func gameEngine(_ gameEngine: GameEngineProtocol, secondRobotDidLoseWithMessage message: String) {
+        secondRobotMessageLabel.stringValue = message
     }
     
     func gameEngine(_ gameEngine: GameEngineProtocol, didChangeGameModeWithBattleField battlefield: CGRect) {

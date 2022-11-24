@@ -54,6 +54,10 @@ final class ChooseRobotsViewController: NSViewController {
         secondRobotComboBox.usesDataSource = true
         secondRobotComboBox.dataSource = self
         secondRobotComboBox.delegate = self
+        
+        guard !robots.isEmpty else { return }
+        firstRobotComboBox.selectItem(at: .zero)
+        secondRobotComboBox.selectItem(at: .zero)
     }
 }
 

@@ -8,22 +8,18 @@
 import Cocoa
 import Robowars
 
-protocol SidebarViewControllerDelegate: AnyObject {
-    func sidebarViewController(_ viewController: SidebarViewController, firstRobotDidChange robot: RobotProtocol)
-    func sidebarViewController(_ viewController: SidebarViewController, secondRobotDidChange robot: RobotProtocol)
-    func sidebarViewController(_ viewController: SidebarViewController, gameModeDidChange gameMode: GameMode)
-}
-
 class SidebarViewController: NSViewController {
-    
     @IBOutlet private weak var chooseRobotsPlaceholderView: NSView!
     @IBOutlet private weak var chooseGameModePlaceholderView: NSView!
+    
+    private let chooseRobotsViewController: ChooseRobotsViewController
+    private let chooseGameModeViewController: ChooseGameModeViewController
     
     private let chooseRobotsView: NSView!
     private let chooseGameModeView: NSView!
     
-    private weak var delegate: SidebarViewControllerDelegate!
-    
+    private let gameEngine: GameEngineProtocol
+
     override var nibName: NSNib.Name? {
         "SidebarView"
     }
@@ -31,9 +27,12 @@ class SidebarViewController: NSViewController {
     init(
         chooseRobotsViewController: ChooseRobotsViewController,
         chooseGameModeViewController: ChooseGameModeViewController,
-        delegate: SidebarViewControllerDelegate
+        gameEngine: GameEngineProtocol
     ) {
-        self.delegate = delegate
+        self.gameEngine = gameEngine
+        self.chooseRobotsViewController = chooseRobotsViewController
+        self.chooseGameModeViewController = chooseGameModeViewController
+        
         chooseRobotsView = chooseRobotsViewController.view
         chooseGameModeView = chooseGameModeViewController.view
         
@@ -41,9 +40,6 @@ class SidebarViewController: NSViewController {
         
         addChild(chooseRobotsViewController)
         addChild(chooseGameModeViewController)
-
-        chooseRobotsViewController.delegate = self
-        chooseGameModeViewController.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -52,6 +48,9 @@ class SidebarViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        chooseRobotsViewController.delegate = self
+        chooseGameModeViewController.delegate = self
     }
     
     override func viewWillAppear() {
@@ -85,14 +84,14 @@ extension SidebarViewController: ChooseRobotsViewControllerDelegate {
         _ viewController: ChooseRobotsViewController,
         firstRobotDidChange robot: RobotProtocol
     ) {
-        delegate.sidebarViewController(self, firstRobotDidChange: robot)
+        gameEngine.update(firstRobot: robot)
     }
     
     func chooseRobotsViewController(
         _ viewController: ChooseRobotsViewController,
         secondRobotDidChange robot: RobotProtocol
     ) {
-        delegate.sidebarViewController(self, secondRobotDidChange: robot)
+        gameEngine.update(secondRobot: robot)
     }
 }
 
@@ -101,6 +100,6 @@ extension SidebarViewController: ChooseGameModeViewControllerDelegate {
         _ viewController: ChooseGameModeViewController,
         gameModeDidChange gameMode: GameMode
     ) {
-        delegate.sidebarViewController(self, gameModeDidChange: gameMode)
+        gameEngine.update(gameMode: gameMode)
     }
 }

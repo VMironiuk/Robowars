@@ -20,6 +20,7 @@
 		2E1C625828F918BB00A75618 /* DummyRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C625728F918BB00A75618 /* DummyRobot.swift */; };
 		2E1C625B28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C625A28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift */; };
 		2E31DB0529169E4B00B53DDB /* BattlefieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E31DB0429169E4B00B53DDB /* BattlefieldView.xib */; };
+		2E6EC716291FDF1100DA44DF /* Misfire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EC715291FDF1100DA44DF /* Misfire.swift */; };
 		2E8272A228F40290006FDAD6 /* ChooseGameModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8272A128F40290006FDAD6 /* ChooseGameModeViewController.swift */; };
 		2E8272A428F40313006FDAD6 /* ChooseGameModeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8272A328F40313006FDAD6 /* ChooseGameModeView.xib */; };
 		2E88F9772913A24300227CCB /* BattlefieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E88F9762913A24300227CCB /* BattlefieldViewController.swift */; };
@@ -29,9 +30,12 @@
 		2EA45E84290FA96500305290 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EA45E83290FA96500305290 /* MainView.xib */; };
 		2EA5838C28F00555006E7BB3 /* Robowars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA5838B28F00555006E7BB3 /* Robowars.framework */; };
 		2EA5838D28F00555006E7BB3 /* Robowars.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA5838B28F00555006E7BB3 /* Robowars.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2EB8785D291E007B0085A638 /* SplitViewComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB8785C291E007B0085A638 /* SplitViewComposer.swift */; };
 		2EDA0AD128F7DF290020105F /* SidebarViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA0AD028F7DF290020105F /* SidebarViewControllerTests.swift */; };
 		2EDA0AD328F7DFD80020105F /* SidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA0AD228F7DFD80020105F /* SidebarViewController.swift */; };
 		2EDA0AD528F7DFF90020105F /* SidebarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EDA0AD428F7DFF90020105F /* SidebarView.xib */; };
+		2EEF06362928BF8200CEDC61 /* CGRect+MapToPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEF06352928BF8200CEDC61 /* CGRect+MapToPoints.swift */; };
+		2EEF06382928C13E00CEDC61 /* CGRectMapToPointsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEF06372928C13E00CEDC61 /* CGRectMapToPointsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +79,7 @@
 		2E1C625728F918BB00A75618 /* DummyRobot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyRobot.swift; sourceTree = "<group>"; };
 		2E1C625A28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		2E31DB0429169E4B00B53DDB /* BattlefieldView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BattlefieldView.xib; sourceTree = "<group>"; };
+		2E6EC715291FDF1100DA44DF /* Misfire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Misfire.swift; sourceTree = "<group>"; };
 		2E8272A128F40290006FDAD6 /* ChooseGameModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGameModeViewController.swift; sourceTree = "<group>"; };
 		2E8272A328F40313006FDAD6 /* ChooseGameModeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseGameModeView.xib; sourceTree = "<group>"; };
 		2E88F9762913A24300227CCB /* BattlefieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattlefieldViewController.swift; sourceTree = "<group>"; };
@@ -83,9 +88,12 @@
 		2E92B04E2907A5C5008DB932 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		2EA45E83290FA96500305290 /* MainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
 		2EA5838B28F00555006E7BB3 /* Robowars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Robowars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EB8785C291E007B0085A638 /* SplitViewComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewComposer.swift; sourceTree = "<group>"; };
 		2EDA0AD028F7DF290020105F /* SidebarViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewControllerTests.swift; sourceTree = "<group>"; };
 		2EDA0AD228F7DFD80020105F /* SidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewController.swift; sourceTree = "<group>"; };
 		2EDA0AD428F7DFF90020105F /* SidebarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SidebarView.xib; sourceTree = "<group>"; };
+		2EEF06352928BF8200CEDC61 /* CGRect+MapToPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+MapToPoints.swift"; sourceTree = "<group>"; };
+		2EEF06372928C13E00CEDC61 /* CGRectMapToPointsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectMapToPointsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,8 +149,11 @@
 			children = (
 				2E11D8BA28ED594F003CC71B /* AppDelegate.swift */,
 				2E92B04E2907A5C5008DB932 /* SplitViewController.swift */,
+				2EB8785C291E007B0085A638 /* SplitViewComposer.swift */,
+				2EEF06352928BF8200CEDC61 /* CGRect+MapToPoints.swift */,
 				2E02ED76290BB16400E7ED31 /* MainView */,
 				2EAA141F28FA6F75004894B1 /* Sidebar */,
+				2E6EC717291FE43A00DA44DF /* Robots */,
 				2E11D8BE28ED5951003CC71B /* Assets.xcassets */,
 				2E11D8C028ED5951003CC71B /* Main.storyboard */,
 				2E11D8C328ED5951003CC71B /* RobowarsClient_macOS.entitlements */,
@@ -156,6 +167,7 @@
 				2E1C625928F918FA00A75618 /* Helpers */,
 				2EBB85E12903C76000564B50 /* SIdebar */,
 				2E02ED72290BACF200E7ED31 /* MainViewControllerTests.swift */,
+				2EEF06372928C13E00CEDC61 /* CGRectMapToPointsTests.swift */,
 			);
 			path = "RobowarsClient-macOSTests";
 			sourceTree = "<group>";
@@ -178,13 +190,21 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		2E6EC717291FE43A00DA44DF /* Robots */ = {
+			isa = PBXGroup;
+			children = (
+				2E6EC715291FDF1100DA44DF /* Misfire.swift */,
+			);
+			path = Robots;
+			sourceTree = "<group>";
+		};
 		2E88F9752913A1FD00227CCB /* BattlefieldViewController */ = {
 			isa = PBXGroup;
 			children = (
 				2E02ED77290BB17E00E7ED31 /* BattlefieldViewControllerProtocol.swift */,
 				2E88F9762913A24300227CCB /* BattlefieldViewController.swift */,
-				2E31DB0429169E4B00B53DDB /* BattlefieldView.xib */,
 				2E88F9782913A2C400227CCB /* BattlefieldView.swift */,
+				2E31DB0429169E4B00B53DDB /* BattlefieldView.xib */,
 				2E88F97A2913A2F500227CCB /* TileView.swift */,
 			);
 			path = BattlefieldViewController;
@@ -336,11 +356,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E92B04F2907A5C5008DB932 /* SplitViewController.swift in Sources */,
+				2EEF06362928BF8200CEDC61 /* CGRect+MapToPoints.swift in Sources */,
 				2E88F9772913A24300227CCB /* BattlefieldViewController.swift in Sources */,
+				2EB8785D291E007B0085A638 /* SplitViewComposer.swift in Sources */,
 				2E02ED78290BB17E00E7ED31 /* BattlefieldViewControllerProtocol.swift in Sources */,
 				2EDA0AD328F7DFD80020105F /* SidebarViewController.swift in Sources */,
 				2E8272A228F40290006FDAD6 /* ChooseGameModeViewController.swift in Sources */,
 				2E02ED75290BB0B800E7ED31 /* MainViewController.swift in Sources */,
+				2E6EC716291FDF1100DA44DF /* Misfire.swift in Sources */,
 				2E11D8E828ED5C34003CC71B /* ChooseRobotsViewController.swift in Sources */,
 				2E11D8BB28ED594F003CC71B /* AppDelegate.swift in Sources */,
 				2E88F97B2913A2F500227CCB /* TileView.swift in Sources */,
@@ -352,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EEF06382928C13E00CEDC61 /* CGRectMapToPointsTests.swift in Sources */,
 				2E11D8E628ED5B8F003CC71B /* ChooseRobotsViewControllerTests.swift in Sources */,
 				2E1C625828F918BB00A75618 /* DummyRobot.swift in Sources */,
 				2EDA0AD128F7DF290020105F /* SidebarViewControllerTests.swift in Sources */,
