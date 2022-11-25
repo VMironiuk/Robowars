@@ -8,14 +8,15 @@
 import Cocoa
 
 enum TileViewState {
-    case normal
-    case missed
-    case damaged
+    case empty
+    case miss
+    case damage
+    case ship
 }
 
 final class TileView: NSView {
     
-    var state: TileViewState = .normal {
+    var state: TileViewState = .empty {
         didSet {
             needsDisplay = true
         }
@@ -23,7 +24,9 @@ final class TileView: NSView {
 
     override func draw(_ dirtyRect: NSRect) {
         switch state {
-        case .missed:
+        case .miss:
+            layer?.backgroundColor = NSColor(named: "MissedShotColor")?.cgColor
+            
             NSGraphicsContext.saveGraphicsState()
             
             NSColor.white.set()
@@ -52,7 +55,9 @@ final class TileView: NSView {
                     
             NSGraphicsContext.restoreGraphicsState()
             
-        case .damaged:
+        case .damage:
+            layer?.backgroundColor = NSColor(named: "DamagedShipColor")?.cgColor
+            
             NSGraphicsContext.saveGraphicsState()
             
             NSColor.white.set()
@@ -71,8 +76,11 @@ final class TileView: NSView {
             crossedLinesPath.stroke()
             NSGraphicsContext.restoreGraphicsState()
             
-        case .normal:
-            break
+        case .empty:
+            layer?.backgroundColor = NSColor(named: "BattlefieldColor")?.cgColor
+            
+        case .ship:
+            layer?.backgroundColor = NSColor(named: "ShipColor")?.cgColor
         }
     }
 }
