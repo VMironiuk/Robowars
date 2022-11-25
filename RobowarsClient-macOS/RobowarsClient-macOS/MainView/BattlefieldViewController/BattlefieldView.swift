@@ -56,7 +56,18 @@ final class BattlefieldView: NSView {
         layoutSubtreeIfNeeded()
     }
     
-    func updateShips(with coordinates: [CGPoint]) {}
+    func updateShips(with coordinates: [CGPoint]) {
+        var index: Int = .zero
+        (.zero..<Int(battlefieldSize.height)).forEach { row in
+            (.zero..<Int(battlefieldSize.width)).forEach { column in
+                let tile = subviews[index] as! TileView
+                if coordinates.contains(CGPoint(x: row, y: column)) {
+                    tile.state = .ship
+                }
+                index += 1
+            }
+        }
+    }
     
     func updateTile(with state: TileState) {}
     

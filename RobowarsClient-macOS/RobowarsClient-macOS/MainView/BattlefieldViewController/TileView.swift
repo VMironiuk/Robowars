@@ -11,6 +11,7 @@ enum TileViewState {
     case empty
     case miss
     case damage
+    case ship
 }
 
 final class TileView: NSView {
@@ -77,6 +78,9 @@ final class TileView: NSView {
             
         case .empty:
             layer?.backgroundColor = NSColor(named: "BattlefieldColor")?.cgColor
+            
+        case .ship:
+            layer?.backgroundColor = NSColor(named: "ShipColor")?.cgColor
         }
     }
 }
