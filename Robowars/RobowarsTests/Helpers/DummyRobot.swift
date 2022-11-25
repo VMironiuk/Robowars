@@ -20,7 +20,7 @@ final class DummyRobot: RobotProtocol {
         ""
     }
     
-    func set(battlefieldSize: CGSize, ships: [CGSize]) {
+    func set(battlefieldSize: CGSize, shipSizes: [CGSize]) {
         self.ships = [
             CGRect(x: 0, y: 1, width: 4, height: 1),
             CGRect(x: 8, y: 2, width: 1, height: 1),

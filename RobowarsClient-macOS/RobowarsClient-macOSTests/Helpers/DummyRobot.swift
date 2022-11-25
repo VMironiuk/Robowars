@@ -27,7 +27,7 @@ final class DummyRobot: RobotProtocol, Equatable {
         self.name = name
     }
 
-    func set(battlefieldSize: CGSize, ships: [CGSize]) {
+    func set(battlefieldSize: CGSize, shipSizes: [CGSize]) {
 
     }
 

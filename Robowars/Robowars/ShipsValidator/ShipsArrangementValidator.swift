@@ -28,10 +28,10 @@ final class ShipsArrangementValidator: ShipsValidatorProtocol {
             .map { CGSize(width: $0.width, height: $0.height) }
             .sorted(by: <)
             .map { $0.width < $0.height ? CGSize(width: $0.height, height: $0.width) : $0 }
-        let sortedSelfShips = gameMode.ships
+        let sortedSelfShipSizes = gameMode.shipSizes
             .sorted(by: <)
             .map { $0.width < $0.height ? CGSize(width: $0.height, height: $0.width) : $0 }
-        return sortedGivenShips == sortedSelfShips
+        return sortedGivenShips == sortedSelfShipSizes
     }
     
     private func isShipsInsideBattlefield(_ ships: [CGRect]) -> Bool {

@@ -36,7 +36,7 @@ final class Misfire: RobotProtocol {
         "I lose"
     }
     
-    func set(battlefieldSize: CGSize, ships: [CGSize]) {
+    func set(battlefieldSize: CGSize, shipSizes: [CGSize]) {
     }
     
     func shoot() -> CGPoint {

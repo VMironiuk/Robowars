@@ -129,7 +129,7 @@ class GameEngineStartTests: XCTestCase {
             _ships
         }
         
-        func set(battlefieldSize: CGSize, ships: [CGSize]) {
+        func set(battlefieldSize: CGSize, shipSizes: [CGSize]) {
             // Can be empty for these tests
         }
         

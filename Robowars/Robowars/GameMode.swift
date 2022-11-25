@@ -18,7 +18,7 @@ public enum GameMode {
         }
     }
     
-    public var ships: [CGSize] {
+    public var shipSizes: [CGSize] {
         switch self {
         case .classic:
             return [
