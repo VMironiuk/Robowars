@@ -23,11 +23,11 @@ final class MainViewControllerTests: XCTestCase {
         // When
         
         // Then
-        XCTAssertEqual(firstBattlefieldVC.updateBattlefieldCallCount, .zero)
+        XCTAssertEqual(firstBattlefieldVC.updateBattlefieldSizeCallCount, .zero)
         XCTAssertEqual(firstBattlefieldVC.updateShipsCallCount, .zero)
         XCTAssertEqual(firstBattlefieldVC.updateTileCallCount, .zero)
 
-        XCTAssertEqual(secondBattlefieldVC.updateBattlefieldCallCount, .zero)
+        XCTAssertEqual(secondBattlefieldVC.updateBattlefieldSizeCallCount, .zero)
         XCTAssertEqual(secondBattlefieldVC.updateShipsCallCount, .zero)
         XCTAssertEqual(secondBattlefieldVC.updateTileCallCount, .zero)
     }
@@ -51,11 +51,11 @@ final class MainViewControllerTests: XCTestCase {
         gameEngine.update(gameMode: .flyweight)
         
         // Then
-        XCTAssertEqual(firstBattlefieldVC.updateBattlefieldCallCount, 1)
+        XCTAssertEqual(firstBattlefieldVC.updateBattlefieldSizeCallCount, 1)
         XCTAssertEqual(firstBattlefieldVC.updateShipsCallCount, 2)
         XCTAssertEqual(firstBattlefieldVC.updateTileCallCount, .zero)
 
-        XCTAssertEqual(secondBattlefieldVC.updateBattlefieldCallCount, 1)
+        XCTAssertEqual(secondBattlefieldVC.updateBattlefieldSizeCallCount, 1)
         XCTAssertEqual(secondBattlefieldVC.updateShipsCallCount, 2)
         XCTAssertEqual(secondBattlefieldVC.updateTileCallCount, .zero)
     }
@@ -82,11 +82,11 @@ final class MainViewControllerTests: XCTestCase {
         gameEngine.start()
         
         // Then
-        XCTAssertEqual(firstBattlefieldVC.updateBattlefieldCallCount, 1)
+        XCTAssertEqual(firstBattlefieldVC.updateBattlefieldSizeCallCount, 1)
         XCTAssertEqual(firstBattlefieldVC.updateShipsCallCount, 2)
         XCTAssertEqual(firstBattlefieldVC.updateTileCallCount, 105)
 
-        XCTAssertEqual(secondBattlefieldVC.updateBattlefieldCallCount, 1)
+        XCTAssertEqual(secondBattlefieldVC.updateBattlefieldSizeCallCount, 1)
         XCTAssertEqual(secondBattlefieldVC.updateShipsCallCount, 2)
         XCTAssertEqual(secondBattlefieldVC.updateTileCallCount, 103)
     }
@@ -94,7 +94,7 @@ final class MainViewControllerTests: XCTestCase {
     // MARK: - Helpers
     
     private final class BattlefieldViewControllerSpy: NSViewController, BattlefieldViewControllerProtocol {
-        private(set) var updateBattlefieldCallCount: Int = .zero
+        private(set) var updateBattlefieldSizeCallCount: Int = .zero
         private(set) var updateShipsCallCount: Int = .zero
         private(set) var updateTileCallCount: Int = .zero
         
@@ -110,8 +110,8 @@ final class MainViewControllerTests: XCTestCase {
             view = NSView(frame: .zero)
         }
         
-        func updateBattlefield(_ newBattlefield: CGRect) {
-            updateBattlefieldCallCount += 1
+        func updateBattlefieldSize(_ newBattlefieldSize: CGSize) {
+            updateBattlefieldSizeCallCount += 1
         }
         
         func updateShips(_ newShips: [CGRect]) {
@@ -132,7 +132,7 @@ final class MainViewControllerTests: XCTestCase {
                 fatalError("Game Mode is not supported in these tests")
             }
             
-            maxBattlefieldSize = gameMode.battlefield.width
+            maxBattlefieldSize = gameMode.battlefieldSize.width
         }
 
         var ships: [CGRect] {
@@ -162,7 +162,7 @@ final class MainViewControllerTests: XCTestCase {
             ""
         }
         
-        func set(battlefield: CGRect, ships: [CGSize]) {
+        func set(battlefieldSize: CGSize, ships: [CGSize]) {
         }
         
         func shoot() -> CGPoint {

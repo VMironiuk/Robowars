@@ -14,7 +14,7 @@ enum TileState {
 }
 
 protocol BattlefieldViewControllerProtocol where Self: NSViewController {
-    func updateBattlefield(_ newBattlefield: CGRect)
+    func updateBattlefieldSize(_ newBattlefieldSize: CGSize)
     func updateShips(_ newShips: [CGRect])
     func updateTile(with state: TileState)
 }

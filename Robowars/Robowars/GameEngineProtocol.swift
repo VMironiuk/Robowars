@@ -26,7 +26,7 @@ public protocol GameEngineDelegate: AnyObject {
     func gameEngine(_ gameEngine: GameEngineProtocol, secondRobotDidWinWithMessage message: String)
     func gameEngine(_ gameEngine: GameEngineProtocol, firstRobotDidLoseWithMessage message: String)
     func gameEngine(_ gameEngine: GameEngineProtocol, secondRobotDidLoseWithMessage message: String)
-    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeGameModeWithBattleField battlefield: CGRect)
+    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeGameModeWithBattleFieldSize battlefieldSize: CGSize)
     func gameEngine(_ gameEngine: GameEngineProtocol, didFailWithError error: Error?)
 }
 

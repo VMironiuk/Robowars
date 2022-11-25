@@ -75,14 +75,14 @@ final class GameEngine: GameEngineProtocol {
     
     func update(gameMode: GameMode) {
         shipsValidator.update(gameMode: gameMode)
-        delegate?.gameEngine(self, didChangeGameModeWithBattleField: gameMode.battlefield)
+        delegate?.gameEngine(self, didChangeGameModeWithBattleFieldSize: gameMode.battlefieldSize)
         
         guard let firstRobot = firstRobot, let secondRobot = secondRobot else {
             fatalError("Robot cannot be nil")
         }
         
-        firstRobot.set(battlefield: gameMode.battlefield, ships: gameMode.ships)
-        secondRobot.set(battlefield: gameMode.battlefield, ships: gameMode.ships)
+        firstRobot.set(battlefieldSize: gameMode.battlefieldSize, ships: gameMode.ships)
+        secondRobot.set(battlefieldSize: gameMode.battlefieldSize, ships: gameMode.ships)
         
         update(firstRobot: firstRobot)
         update(secondRobot: secondRobot)

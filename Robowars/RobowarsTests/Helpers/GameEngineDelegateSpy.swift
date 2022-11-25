@@ -77,7 +77,7 @@ class GameEngineDelegateSpy: GameEngineDelegate {
         loserMessage = message
     }
     
-    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeGameModeWithBattleField battlefield: CGRect) {
+    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeGameModeWithBattleFieldSize battlefieldSize: CGSize) {
         gameModeDidChangeCallCount += 1
     }
 }

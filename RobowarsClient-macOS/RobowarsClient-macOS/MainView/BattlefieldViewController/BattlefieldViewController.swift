@@ -34,8 +34,8 @@ final class BattlefieldViewController: NSViewController {
 }
 
 extension BattlefieldViewController: BattlefieldViewControllerProtocol {
-    func updateBattlefield(_ newBattlefield: CGRect) {
-        battlefieldView.updateBattlefield(newBattlefield)
+    func updateBattlefieldSize(_ newBattlefieldSize: CGSize) {
+        battlefieldView.updateBattlefieldSize(newBattlefieldSize)
     }
     
     func updateShips(_ newShips: [CGRect]) {

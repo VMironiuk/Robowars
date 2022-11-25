@@ -11,10 +11,10 @@ public enum GameMode {
     case classic
     case flyweight
     
-    public var battlefield: CGRect {
+    public var battlefieldSize: CGSize {
         switch self {
         case .classic, .flyweight:
-            return CGRect(x: 0, y: 0, width: 10, height: 10)
+            return CGSize(width: 10, height: 10)
         }
     }
     

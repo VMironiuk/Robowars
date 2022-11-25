@@ -35,7 +35,14 @@ final class ShipsArrangementValidator: ShipsValidatorProtocol {
     }
     
     private func isShipsInsideBattlefield(_ ships: [CGRect]) -> Bool {
-        ships.filter { !gameMode.battlefield.contains($0) }.isEmpty
+        ships.filter {
+            !CGRect(
+                x: 0,
+                y: 0,
+                width: gameMode.battlefieldSize.width,
+                height: gameMode.battlefieldSize.height
+            ).contains($0)
+        }.isEmpty
     }
     
     private func isCollisionBetween(ships: [CGRect]) -> Bool {

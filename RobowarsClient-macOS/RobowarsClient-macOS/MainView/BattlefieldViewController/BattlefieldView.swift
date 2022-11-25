@@ -48,8 +48,8 @@ final class BattlefieldView: NSView {
         }
     }
     
-    func updateBattlefield(_ newBattlefield: CGRect) {
-        battlefieldSize = CGSize(width: newBattlefield.width, height: newBattlefield.height)
+    func updateBattlefieldSize(_ newBattlefieldSize: CGSize) {
+        battlefieldSize = newBattlefieldSize
         updateTiles(for: battlefieldSize)
         
         needsLayout = true
