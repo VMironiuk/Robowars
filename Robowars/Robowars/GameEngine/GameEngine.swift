@@ -80,6 +80,10 @@ final class GameEngine: GameEngineProtocol {
         guard let firstRobot = firstRobot, let secondRobot = secondRobot else {
             fatalError("Robot cannot be nil")
         }
+        
+        firstRobot.set(battlefield: gameMode.battlefield, ships: gameMode.ships)
+        secondRobot.set(battlefield: gameMode.battlefield, ships: gameMode.ships)
+        
         update(firstRobot: firstRobot)
         update(secondRobot: secondRobot)
     }
