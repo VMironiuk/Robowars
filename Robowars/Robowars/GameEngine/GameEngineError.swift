@@ -21,7 +21,7 @@ extension GameEngineError: LocalizedError {
         case .invalidSecondRobotShipsArrangement:
             return "Second robot has incorrect ships placement"
         case .invalidConstruction:
-            return "Game engine did not constructed completely"
+            return "Game engine did not construct completely"
         }
     }
 }
