@@ -72,9 +72,8 @@ final class BattlefieldView: NSView {
         (.zero..<Int(battlefieldSize.width * battlefieldSize.height)).forEach { _ in
             let tile = TileView()
             tile.wantsLayer = true
-            tile.layer?.backgroundColor = NSColor(named: "BattlefieldColor")?.cgColor
             tile.layer?.cornerRadius = 5
-            tile.state = .normal
+            tile.state = .empty
             addSubview(tile)
         }
     }
