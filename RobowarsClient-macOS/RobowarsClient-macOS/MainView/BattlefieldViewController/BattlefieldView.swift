@@ -33,15 +33,13 @@ final class BattlefieldView: NSView {
         let tileHeight: CGFloat = (frame.height - battlefieldSize.height - 1) / battlefieldSize.height
         var y: CGFloat = 1
         var x: CGFloat = 1
-        var index: Int = .zero
 
-        (.zero..<Int(battlefieldSize.height)).forEach { _ in
-            (.zero..<Int(battlefieldSize.width)).forEach { _ in
-                let tile = subviews[index] as! TileView
-                tile.frame = NSRect(x: x, y: y, width: tileWidth, height: tileHeight)
+        (.zero..<Int(battlefieldSize.height)).forEach { row in
+            (.zero..<Int(battlefieldSize.width)).forEach { column in
+                let tile = tile(atRow: row, column: column)
+                tile?.frame = NSRect(x: x, y: y, width: tileWidth, height: tileHeight)
                 
                 x += tileWidth + 1
-                index += 1
             }
             y += tileHeight + 1
             x = 1
@@ -57,15 +55,9 @@ final class BattlefieldView: NSView {
     }
     
     func updateShips(with coordinates: [CGPoint]) {
-        var index: Int = .zero
-        (.zero..<Int(battlefieldSize.height)).forEach { row in
-            (.zero..<Int(battlefieldSize.width)).forEach { column in
-                let tile = subviews[index] as! TileView
-                if coordinates.contains(CGPoint(x: row, y: column)) {
-                    tile.state = .ship
-                }
-                index += 1
-            }
+        coordinates.forEach { coordinate in
+            let tile = tile(atRow: Int(coordinate.y), column: Int(coordinate.x))
+            tile?.state = .ship
         }
     }
     
@@ -87,5 +79,10 @@ final class BattlefieldView: NSView {
             tile.state = .empty
             addSubview(tile)
         }
+    }
+    
+    private func tile(atRow row: Int, column: Int) -> TileView? {
+        guard !subviews.isEmpty else { return nil }
+        return subviews[row * Int(battlefieldSize.width) + column] as? TileView
     }
 }
