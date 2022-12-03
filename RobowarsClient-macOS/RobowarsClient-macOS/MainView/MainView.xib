@@ -9,6 +9,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainViewController" customModule="RobowarsClient_macOS" customModuleProvider="target">
             <connections>
+                <outlet property="errorView" destination="IGi-If-al2" id="Kc6-6i-vHE"/>
+                <outlet property="errorViewTopConstraint" destination="0nI-xr-dRl" id="xRv-1c-nvV"/>
                 <outlet property="firstBattlefieldPlaceholderView" destination="etJ-5u-2ZX" id="wUs-Y2-qgv"/>
                 <outlet property="firstRobotMessageLabel" destination="Atu-VV-jhz" id="Izy-7v-CEK"/>
                 <outlet property="firstRobotNameLabel" destination="zaj-U5-QeB" id="u7j-Pd-llC"/>
@@ -47,6 +49,9 @@
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
+                            <connections>
+                                <action selector="closeErrorViewButtonAction:" target="-2" id="xev-0m-Hyv"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
