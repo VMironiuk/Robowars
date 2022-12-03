@@ -9,15 +9,15 @@ import Cocoa
 import Robowars
 
 struct SplitViewComposer {
-    // TODO: do not hardcode game mode here
-    static private let gameEngine = GameEngineFactory.defaultGameEngine(with: .classic)
+    static private let gameModes: [GameMode] = [.classic, .flyweight]
+    static private let gameEngine = GameEngineFactory.defaultGameEngine(with: gameModes.first!)
     
     private init() {}
     
     static func composedSideBar() ->  NSViewController {
         SidebarViewController(
             chooseRobotsViewController: ChooseRobotsViewController(robots: [Misfire()]),
-            chooseGameModeViewController: ChooseGameModeViewController(gameModes: [.classic, .flyweight]),
+            chooseGameModeViewController: ChooseGameModeViewController(gameModes: gameModes),
             gameEngine: Self.gameEngine
         )
     }

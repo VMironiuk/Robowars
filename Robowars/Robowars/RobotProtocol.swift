@@ -19,7 +19,7 @@ public protocol RobotProtocol: AnyObject {
     var winnerMessage: String { get }
     var loserMessage: String { get }
 
-    func set(battlefield: CGRect, ships: [CGSize])
+    func set(battlefieldSize: CGSize, shipSizes: [CGSize])
     func shoot() -> CGPoint
     func shootResult(_ result: ShootResult)
 }

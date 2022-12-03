@@ -112,9 +112,9 @@ extension MainViewController: GameEngineDelegate {
         secondRobotMessageLabel.stringValue = message
     }
     
-    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeGameModeWithBattleField battlefield: CGRect) {
-        firstBattlefieldViewController.updateBattlefield(battlefield)
-        secondBattlefieldViewController.updateBattlefield(battlefield)
+    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeGameModeWithBattleFieldSize battlefieldSize: CGSize) {
+        firstBattlefieldViewController.updateBattlefieldSize(battlefieldSize)
+        secondBattlefieldViewController.updateBattlefieldSize(battlefieldSize)
     }
     
     func gameEngine(_ gameEngine: GameEngineProtocol, didFailWithError error: Error?) {

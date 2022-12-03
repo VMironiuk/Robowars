@@ -297,7 +297,7 @@ class GameEngineDelegatingTests: XCTestCase {
             self.name = name
         }
         
-        func set(battlefield: CGRect, ships: [CGSize]) {}
+        func set(battlefieldSize: CGSize, shipSizes: [CGSize]) {}
         func shoot() -> CGPoint { .zero }
         func shootResult(_ result: ShootResult) {}
     }
@@ -316,7 +316,7 @@ class GameEngineDelegatingTests: XCTestCase {
             self.loserMessage = loserMessage
         }
         
-        func set(battlefield: CGRect, ships: [CGSize]) {
+        func set(battlefieldSize: CGSize, shipSizes: [CGSize]) {
         }
         
         func shoot() -> CGPoint {
