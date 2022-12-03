@@ -15,9 +15,20 @@ final class MainViewController: NSViewController {
     @IBOutlet private weak var secondRobotNameLabel: NSTextField!
     @IBOutlet private weak var firstRobotMessageLabel: NSTextField!
     @IBOutlet private weak var secondRobotMessageLabel: NSTextField!
+    @IBOutlet private weak var errorView: NSView!
+    @IBOutlet private weak var errorViewTopConstraint: NSLayoutConstraint!
     
     private let firstBattlefieldViewController: BattlefieldViewControllerProtocol
     private let secondBattlefieldViewController: BattlefieldViewControllerProtocol
+    
+    private var isErrorViewHidden: Bool = true {
+        didSet {
+            NSAnimationContext.runAnimationGroup { context in
+                context.duration = 0.2
+                errorViewTopConstraint.animator().constant = isErrorViewHidden ? -50 : .zero
+            }
+        }
+    }
 
     override var nibName: NSNib.Name? {
         "MainView"
@@ -40,6 +51,7 @@ final class MainViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupErrorView()
         setupBattlefieldViews()
     }
     
@@ -66,6 +78,15 @@ final class MainViewController: NSViewController {
             secondBattlefieldView.leadingAnchor.constraint(equalTo: secondBattlefieldPlaceholderView.leadingAnchor),
             secondBattlefieldView.trailingAnchor.constraint(equalTo: secondBattlefieldPlaceholderView.trailingAnchor)
         ])
+    }
+    
+    private func setupErrorView() {
+        errorView.wantsLayer = true
+        errorView.layer?.backgroundColor = NSColor(named: "ErrorViewColor")?.cgColor
+    }
+        
+    @IBAction private func closeErrorViewButtonAction(_ sender: NSButton) {
+        isErrorViewHidden = true
     }
 }
 
@@ -118,6 +139,7 @@ extension MainViewController: GameEngineDelegate {
     }
     
     func gameEngine(_ gameEngine: GameEngineProtocol, didFailWithError error: Error?) {
+        isErrorViewHidden = false
     }
 }
 
