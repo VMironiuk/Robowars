@@ -9,6 +9,8 @@ import Foundation
 import Robowars
 
 final class Misfire: RobotProtocol {
+    private var shoots: [CGPoint] = []
+    
     var ships: [CGRect] {
         [
             CGRect(x: 0, y: 0, width: 1, height: 4),
@@ -36,11 +38,20 @@ final class Misfire: RobotProtocol {
         "I lose"
     }
     
+    init() {
+        for y in .zero..<10 {
+            for x in .zero..<10 {
+                shoots.append(CGPoint(x: x, y: y))
+            }
+        }
+    }
+    
     func set(battlefieldSize: CGSize, shipSizes: [CGSize]) {
     }
     
     func shoot() -> CGPoint {
-        .zero
+        guard let newShoot = shoots.popLast() else { return .zero }
+        return newShoot
     }
     
     func shootResult(_ result: ShootResult) {

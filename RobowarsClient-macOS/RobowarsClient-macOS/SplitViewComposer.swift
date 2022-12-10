@@ -16,7 +16,7 @@ struct SplitViewComposer {
     
     static func composedSideBar() ->  NSViewController {
         SidebarViewController(
-            chooseRobotsViewController: ChooseRobotsViewController(robots: [Misfire()]),
+            chooseRobotsViewController: ChooseRobotsViewController(firstRobots: [Misfire()], secondRobots: [Misfire()]),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: gameModes),
             gameEngine: Self.gameEngine
         )

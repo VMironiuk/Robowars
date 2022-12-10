@@ -77,6 +77,10 @@ class SidebarViewController: NSViewController {
             chooseGameModeView.trailingAnchor.constraint(equalTo: chooseGameModePlaceholderView.trailingAnchor)
         ])
     }
+    
+    @IBAction func startButtonAction(_ sender: NSButton) {
+        gameEngine.start()
+    }
 }
 
 extension SidebarViewController: ChooseRobotsViewControllerDelegate {

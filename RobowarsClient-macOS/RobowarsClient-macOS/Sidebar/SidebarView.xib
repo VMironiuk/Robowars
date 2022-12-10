@@ -39,6 +39,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="startButtonAction:" target="-2" id="47Z-Zl-EXx"/>
+                    </connections>
                 </button>
             </subviews>
             <constraints>
