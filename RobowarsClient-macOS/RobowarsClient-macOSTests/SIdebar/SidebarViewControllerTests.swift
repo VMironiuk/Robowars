@@ -197,6 +197,8 @@ final class SidebarViewControllerTests: XCTestCase {
             true
         }
         
+        var gameSpeed: GameSpeed = .blazinglyFast
+        
         var delegate: GameEngineDelegate?
         
         var firstRobotUpdateCallCount: Int {

@@ -51,6 +51,9 @@ class SidebarViewController: NSViewController {
         
         chooseRobotsViewController.delegate = self
         chooseGameModeViewController.delegate = self
+        
+        // TODO: set game speed through the UI
+        gameEngine.gameSpeed = .fast
     }
     
     override func viewWillAppear() {

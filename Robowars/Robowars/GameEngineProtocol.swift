@@ -7,8 +7,15 @@
 
 import Foundation
 
+public enum GameSpeed {
+    case slow
+    case fast
+    case blazinglyFast
+}
+
 public protocol GameEngineProtocol: AnyObject {
     var isValid: Bool { get }
+    var gameSpeed: GameSpeed { get set }
     var delegate: GameEngineDelegate? { get set }
     
     func start()
