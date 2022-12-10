@@ -93,7 +93,7 @@ final class ChooseRobotsViewControllerTests: XCTestCase {
     // MARK: - Helpers
     
     private func makeSUT(with robots: [RobotProtocol] = []) -> (ChooseRobotsViewController, ChooseRobotsSpy) {
-        let sut = ChooseRobotsViewController(robots: robots)
+        let sut = ChooseRobotsViewController(firstRobots: robots, secondRobots: robots)
         let chooseRobotsSpy = ChooseRobotsSpy()
         
         trackForMemoryLeak(sut)

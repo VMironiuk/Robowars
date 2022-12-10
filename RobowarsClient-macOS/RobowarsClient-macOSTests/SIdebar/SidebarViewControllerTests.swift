@@ -13,7 +13,7 @@ final class SidebarViewControllerTests: XCTestCase {
     
     func test_sidebarVC_createsItsView() {
         let sut = makeSUT(
-            chooseRobotsViewController: ChooseRobotsViewController(robots: []),
+            chooseRobotsViewController: ChooseRobotsViewController(firstRobots: [], secondRobots: []),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: []),
             gameEngine: SidebarSpy())
         
@@ -23,7 +23,7 @@ final class SidebarViewControllerTests: XCTestCase {
     func test_sidebarVC_doesNotInformGameEngineOnInitIfThereNoRobotsAndGameMode() {
         let gameEngine = SidebarSpy()
         _ = makeSUT(
-            chooseRobotsViewController: ChooseRobotsViewController(robots: []),
+            chooseRobotsViewController: ChooseRobotsViewController(firstRobots: [], secondRobots: []),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: []),
             gameEngine: gameEngine)
         
@@ -35,7 +35,7 @@ final class SidebarViewControllerTests: XCTestCase {
     func test_sidebarVC_viewDidLoad_informsGameEngineAboutGameModeChangeIfThereAreGameModesButNoRobots() {
         let gameEngine = SidebarSpy()
         let sut = makeSUT(
-            chooseRobotsViewController: ChooseRobotsViewController(robots: []),
+            chooseRobotsViewController: ChooseRobotsViewController(firstRobots: [], secondRobots: []),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: [.classic]),
             gameEngine: gameEngine)
         _ = sut.view
@@ -48,7 +48,7 @@ final class SidebarViewControllerTests: XCTestCase {
     func test_sidebarVC_viewDidLoad_informsGameEngineAboutRobotsChangeIfThereAreRobotsButNoGameModes() {
         let gameEngine = SidebarSpy()
         let sut = makeSUT(
-            chooseRobotsViewController: ChooseRobotsViewController(robots: [DummyRobot()]),
+            chooseRobotsViewController: ChooseRobotsViewController(firstRobots: [DummyRobot()], secondRobots: [DummyRobot()]),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: []),
             gameEngine: gameEngine)
         _ = sut.view
@@ -61,7 +61,7 @@ final class SidebarViewControllerTests: XCTestCase {
     func test_sidebarVC_viewDidLoad_informsGameEngineAboutRobotsAndGameModesChangeIfThereAreRobotsAndGameModes() {
         let gameEngine = SidebarSpy()
         let sut = makeSUT(
-            chooseRobotsViewController: ChooseRobotsViewController(robots: [DummyRobot()]),
+            chooseRobotsViewController: ChooseRobotsViewController(firstRobots: [DummyRobot()], secondRobots: [DummyRobot()]),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: [.classic]),
             gameEngine: gameEngine)
         _ = sut.view
@@ -73,7 +73,10 @@ final class SidebarViewControllerTests: XCTestCase {
     
     func test_sidebarVC_informsGameEngineAboutManualRobotsAndGameModeChanges() {
         let gameEngine = SidebarSpy()
-        let chooseRobotsVC = ChooseRobotsViewController(robots: [DummyRobot(), DummyRobot(), DummyRobot()])
+        let chooseRobotsVC = ChooseRobotsViewController(
+            firstRobots: [DummyRobot(), DummyRobot(), DummyRobot()],
+            secondRobots: [DummyRobot(), DummyRobot(), DummyRobot()]
+        )
         let chooseModeVC = ChooseGameModeViewController(gameModes: [.classic, .flyweight])
         let sut = makeSUT(
             chooseRobotsViewController: chooseRobotsVC,
@@ -98,7 +101,7 @@ final class SidebarViewControllerTests: XCTestCase {
         let gameModes: [GameMode] = [.classic, .flyweight]
         let gameEngine = SidebarSpy()
         let sut = makeSUT(
-            chooseRobotsViewController: ChooseRobotsViewController(robots: robots),
+            chooseRobotsViewController: ChooseRobotsViewController(firstRobots: robots, secondRobots: robots),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: gameModes),
             gameEngine: gameEngine)
         _ = sut.view
@@ -110,7 +113,7 @@ final class SidebarViewControllerTests: XCTestCase {
     
     func test_sidebarVC_gameEngineReceivesCorrectFirstRobotOnManualFirstRobotChange() {
         let robots: [RobotProtocol] = [DummyRobot(name: "r1"), DummyRobot(name: "r2"), DummyRobot(name: "r3")]
-        let chooseRobotsVC = ChooseRobotsViewController(robots: robots)
+        let chooseRobotsVC = ChooseRobotsViewController(firstRobots: robots, secondRobots: robots)
         let gameModes: [GameMode] = [.classic, .flyweight]
         let gameEngine = SidebarSpy()
         let sut = makeSUT(
@@ -129,7 +132,7 @@ final class SidebarViewControllerTests: XCTestCase {
     
     func test_sidebarVC_gameEngineReceivesCorrectSecondRobotOnManualSecondRobotChange() {
         let robots: [RobotProtocol] = [DummyRobot(name: "r1"), DummyRobot(name: "r2"), DummyRobot(name: "r3")]
-        let chooseRobotsVC = ChooseRobotsViewController(robots: robots)
+        let chooseRobotsVC = ChooseRobotsViewController(firstRobots: robots, secondRobots: robots)
         let gameModes: [GameMode] = [.classic, .flyweight]
         let gameEngine = SidebarSpy()
         let sut = makeSUT(
@@ -152,7 +155,7 @@ final class SidebarViewControllerTests: XCTestCase {
         let chooseGameModeVC = ChooseGameModeViewController(gameModes: gameModes)
         let gameEngine = SidebarSpy()
         let sut = makeSUT(
-            chooseRobotsViewController: ChooseRobotsViewController(robots: robots),
+            chooseRobotsViewController: ChooseRobotsViewController(firstRobots: robots, secondRobots: robots),
             chooseGameModeViewController: chooseGameModeVC,
             gameEngine: gameEngine)
         
