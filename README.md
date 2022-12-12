@@ -58,9 +58,18 @@ Desktop macOS client for the Robowars game
             [✅] Draw 'X' for hit shots
             [✅] Draw 'O' for missed shots
 
-🟡 - the initial system design
+🟡 - Implement basic game rules
 
-🟡 - dummy robot
+      [-] Add `Game Speed` combo box
+      [-] After a match started a user cannot interact with UI until a match finishes
+      [-] After a match finishes there is only a `New Battle` button available which cleans up battlefields,
+            and returns UI to the state before the previous battle
+      [-] When a user changes game mode or a robot befrore start a battle, battlefields should update
+
+🟡 - Implement a dummy robot
+
+      [-] Implement random  shooting
+      [-] Implement ships placing
 
 ## BDD Specs
 
