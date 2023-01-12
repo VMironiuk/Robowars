@@ -11,12 +11,15 @@ import Robowars
 class SidebarViewController: NSViewController {
     @IBOutlet private weak var chooseRobotsPlaceholderView: NSView!
     @IBOutlet private weak var chooseGameModePlaceholderView: NSView!
+    @IBOutlet private weak var chooseGameSpeedPlaceholderView: NSView!
     
     private let chooseRobotsViewController: ChooseRobotsViewController
     private let chooseGameModeViewController: ChooseGameModeViewController
+    private let chooseGameSpeedViewController: ChooseGameSpeedViewController
     
     private let chooseRobotsView: NSView!
     private let chooseGameModeView: NSView!
+    private let chooseGameSpeedView: NSView!
     
     private let gameEngine: GameEngineProtocol
 
@@ -27,19 +30,23 @@ class SidebarViewController: NSViewController {
     init(
         chooseRobotsViewController: ChooseRobotsViewController,
         chooseGameModeViewController: ChooseGameModeViewController,
+        chooseGameSpeedViewController: ChooseGameSpeedViewController,
         gameEngine: GameEngineProtocol
     ) {
         self.gameEngine = gameEngine
         self.chooseRobotsViewController = chooseRobotsViewController
         self.chooseGameModeViewController = chooseGameModeViewController
+        self.chooseGameSpeedViewController = chooseGameSpeedViewController
         
         chooseRobotsView = chooseRobotsViewController.view
         chooseGameModeView = chooseGameModeViewController.view
+        chooseGameSpeedView = chooseGameSpeedViewController.view
         
         super.init(nibName: "SidebarView", bundle: nil)
         
         addChild(chooseRobotsViewController)
         addChild(chooseGameModeViewController)
+        addChild(chooseGameSpeedViewController)
     }
     
     required init?(coder: NSCoder) {
@@ -51,9 +58,7 @@ class SidebarViewController: NSViewController {
         
         chooseRobotsViewController.delegate = self
         chooseGameModeViewController.delegate = self
-        
-        // TODO: set game speed through the UI
-        gameEngine.gameSpeed = .fast
+        chooseGameSpeedViewController.delegate = self
     }
     
     override func viewWillAppear() {
@@ -78,6 +83,15 @@ class SidebarViewController: NSViewController {
             chooseGameModeView.bottomAnchor.constraint(equalTo: chooseGameModePlaceholderView.bottomAnchor),
             chooseGameModeView.leadingAnchor.constraint(equalTo: chooseGameModePlaceholderView.leadingAnchor),
             chooseGameModeView.trailingAnchor.constraint(equalTo: chooseGameModePlaceholderView.trailingAnchor)
+        ])
+        
+        chooseGameSpeedView.translatesAutoresizingMaskIntoConstraints = false
+        chooseGameSpeedPlaceholderView.addSubview(chooseGameSpeedView)
+        NSLayoutConstraint.activate([
+            chooseGameSpeedView.topAnchor.constraint(equalTo: chooseGameSpeedPlaceholderView.topAnchor),
+            chooseGameSpeedView.bottomAnchor.constraint(equalTo: chooseGameSpeedPlaceholderView.bottomAnchor),
+            chooseGameSpeedView.leadingAnchor.constraint(equalTo: chooseGameSpeedPlaceholderView.leadingAnchor),
+            chooseGameSpeedView.trailingAnchor.constraint(equalTo: chooseGameSpeedPlaceholderView.trailingAnchor)
         ])
     }
     
@@ -108,5 +122,14 @@ extension SidebarViewController: ChooseGameModeViewControllerDelegate {
         gameModeDidChange gameMode: GameMode
     ) {
         gameEngine.update(gameMode: gameMode)
+    }
+}
+
+extension SidebarViewController: ChooseGameSpeedViewControllerDelegate {
+    func chooseGameSpeedViewController(
+        _ viewController: ChooseGameSpeedViewController,
+        gameSpeedDidChange gameSpeed: GameSpeed
+    ) {
+        gameEngine.update(gameSpeed: gameSpeed)
     }
 }

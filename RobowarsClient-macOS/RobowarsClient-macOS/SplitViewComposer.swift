@@ -10,6 +10,7 @@ import Robowars
 
 struct SplitViewComposer {
     static private let gameModes: [GameMode] = [.classic, .flyweight]
+    static private let gameSpeeds: [GameSpeed] = [.slow, .fast, .blazinglyFast]
     static private let gameEngine = GameEngineFactory.defaultGameEngine(with: gameModes.first!)
     
     private init() {}
@@ -18,6 +19,7 @@ struct SplitViewComposer {
         SidebarViewController(
             chooseRobotsViewController: ChooseRobotsViewController(firstRobots: [Misfire()], secondRobots: [Misfire()]),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: gameModes),
+            chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: gameSpeeds),
             gameEngine: Self.gameEngine
         )
     }

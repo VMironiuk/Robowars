@@ -15,6 +15,7 @@ final class SidebarViewControllerTests: XCTestCase {
         let sut = makeSUT(
             chooseRobotsViewController: ChooseRobotsViewController(firstRobots: [], secondRobots: []),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: []),
+            chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: []),
             gameEngine: SidebarSpy())
         
         _ = sut.view
@@ -25,6 +26,7 @@ final class SidebarViewControllerTests: XCTestCase {
         _ = makeSUT(
             chooseRobotsViewController: ChooseRobotsViewController(firstRobots: [], secondRobots: []),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: []),
+            chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: []),
             gameEngine: gameEngine)
         
         XCTAssertEqual(gameEngine.firstRobotUpdateCallCount, .zero)
@@ -37,6 +39,7 @@ final class SidebarViewControllerTests: XCTestCase {
         let sut = makeSUT(
             chooseRobotsViewController: ChooseRobotsViewController(firstRobots: [], secondRobots: []),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: [.classic]),
+            chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: []),
             gameEngine: gameEngine)
         _ = sut.view
 
@@ -50,6 +53,7 @@ final class SidebarViewControllerTests: XCTestCase {
         let sut = makeSUT(
             chooseRobotsViewController: ChooseRobotsViewController(firstRobots: [DummyRobot()], secondRobots: [DummyRobot()]),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: []),
+            chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: []),
             gameEngine: gameEngine)
         _ = sut.view
 
@@ -63,6 +67,7 @@ final class SidebarViewControllerTests: XCTestCase {
         let sut = makeSUT(
             chooseRobotsViewController: ChooseRobotsViewController(firstRobots: [DummyRobot()], secondRobots: [DummyRobot()]),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: [.classic]),
+            chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: []),
             gameEngine: gameEngine)
         _ = sut.view
 
@@ -81,6 +86,7 @@ final class SidebarViewControllerTests: XCTestCase {
         let sut = makeSUT(
             chooseRobotsViewController: chooseRobotsVC,
             chooseGameModeViewController: chooseModeVC,
+            chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: []),
             gameEngine: gameEngine)
         
         _ = sut.view
@@ -103,6 +109,7 @@ final class SidebarViewControllerTests: XCTestCase {
         let sut = makeSUT(
             chooseRobotsViewController: ChooseRobotsViewController(firstRobots: robots, secondRobots: robots),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: gameModes),
+            chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: []),
             gameEngine: gameEngine)
         _ = sut.view
         
@@ -119,6 +126,7 @@ final class SidebarViewControllerTests: XCTestCase {
         let sut = makeSUT(
             chooseRobotsViewController: chooseRobotsVC,
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: gameModes),
+            chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: []),
             gameEngine: gameEngine)
         
         _ = sut.view
@@ -138,6 +146,7 @@ final class SidebarViewControllerTests: XCTestCase {
         let sut = makeSUT(
             chooseRobotsViewController: chooseRobotsVC,
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: gameModes),
+            chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: []),
             gameEngine: gameEngine)
         
         _ = sut.view
@@ -157,6 +166,7 @@ final class SidebarViewControllerTests: XCTestCase {
         let sut = makeSUT(
             chooseRobotsViewController: ChooseRobotsViewController(firstRobots: robots, secondRobots: robots),
             chooseGameModeViewController: chooseGameModeVC,
+            chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: []),
             gameEngine: gameEngine)
         
         _ = sut.view
@@ -173,11 +183,13 @@ final class SidebarViewControllerTests: XCTestCase {
     private func makeSUT(
         chooseRobotsViewController: ChooseRobotsViewController,
         chooseGameModeViewController: ChooseGameModeViewController,
+        chooseGameSpeedViewController: ChooseGameSpeedViewController,
         gameEngine: SidebarSpy
     ) -> SidebarViewController {
         let sut = SidebarViewController(
             chooseRobotsViewController: chooseRobotsViewController,
             chooseGameModeViewController: chooseGameModeViewController,
+            chooseGameSpeedViewController: chooseGameSpeedViewController,
             gameEngine: gameEngine)
                 
         trackForMemoryLeak(sut)
@@ -192,13 +204,12 @@ final class SidebarViewControllerTests: XCTestCase {
         private var firstRobots: [RobotProtocol] = []
         private var secondRobots: [RobotProtocol] = []
         private var gameModes: [GameMode] = []
+        private var gameSpeeds: [GameSpeed]  = []
 
         var isValid: Bool {
             true
         }
-        
-        var gameSpeed: GameSpeed = .blazinglyFast
-        
+                
         var delegate: GameEngineDelegate?
         
         var firstRobotUpdateCallCount: Int {
@@ -238,6 +249,10 @@ final class SidebarViewControllerTests: XCTestCase {
         
         func update(gameMode: GameMode) {
             gameModes.append(gameMode)
+        }
+        
+        func update(gameSpeed: GameSpeed) {
+            gameSpeeds.append(gameSpeed)
         }
     }
 }

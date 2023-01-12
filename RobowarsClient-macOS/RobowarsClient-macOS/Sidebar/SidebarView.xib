@@ -9,6 +9,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="SidebarViewController" customModule="RobowarsClient_macOS" customModuleProvider="target">
             <connections>
                 <outlet property="chooseGameModePlaceholderView" destination="fZU-Vn-WEI" id="swY-7s-GpE"/>
+                <outlet property="chooseGameSpeedPlaceholderView" destination="mQ6-lI-4aZ" id="Cdl-qf-lXM"/>
                 <outlet property="chooseRobotsPlaceholderView" destination="xq0-r1-emJ" id="UlR-CV-2SG"/>
                 <outlet property="view" destination="c22-O7-iKe" id="yEa-fC-zcv"/>
             </connections>
@@ -43,12 +44,21 @@
                         <action selector="startButtonAction:" target="-2" id="47Z-Zl-EXx"/>
                     </connections>
                 </button>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="mQ6-lI-4aZ" userLabel="Choose GameMode Placeholder View">
+                    <rect key="frame" x="4" y="270" width="306" height="19"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="19" id="Y65-p4-Idb"/>
+                    </constraints>
+                </customView>
             </subviews>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="mQ6-lI-4aZ" secondAttribute="trailing" constant="4" id="6pm-1l-P2q"/>
                 <constraint firstItem="Jtl-rC-2ba" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="6xr-IS-qJn"/>
                 <constraint firstItem="Xsv-Ns-ceL" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="12" id="7NG-Db-lpz"/>
                 <constraint firstAttribute="trailing" secondItem="Jtl-rC-2ba" secondAttribute="trailing" id="9Ro-9N-ej2"/>
                 <constraint firstItem="fZU-Vn-WEI" firstAttribute="top" secondItem="xq0-r1-emJ" secondAttribute="bottom" constant="12" id="Dat-qn-M1l"/>
+                <constraint firstItem="mQ6-lI-4aZ" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="4" id="Fqf-e3-b51"/>
+                <constraint firstItem="mQ6-lI-4aZ" firstAttribute="top" secondItem="fZU-Vn-WEI" secondAttribute="bottom" constant="12" id="Tw7-7L-KGw"/>
                 <constraint firstAttribute="trailing" secondItem="fZU-Vn-WEI" secondAttribute="trailing" constant="4" id="YG9-qG-GtK"/>
                 <constraint firstAttribute="bottom" secondItem="Xsv-Ns-ceL" secondAttribute="bottom" constant="12" id="a7D-YO-GIh"/>
                 <constraint firstItem="fZU-Vn-WEI" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="4" id="bSP-a5-2IX"/>

@@ -15,8 +15,8 @@ final class GameEngine: GameEngineProtocol {
     private var secondRobotShipsPoints: [[CGPoint]] = []
     private var shootingTimer: Timer?
     private var shootingRobot: RobotProtocol?
-
-    var gameSpeed: GameSpeed = .blazinglyFast
+    private var gameSpeed: GameSpeed?
+    
     weak var delegate: GameEngineDelegate?
 
     var isValid: Bool {
@@ -39,26 +39,8 @@ final class GameEngine: GameEngineProtocol {
             return { delegate?.gameEngine(self, didFailWithError: GameEngineError.invalidConstruction) }()
         }
         shootingRobot = firstRobot
-        if gameSpeed == .blazinglyFast {
-            loopShooting()
-        } else {
-            var timeInterval: Double
-            switch gameSpeed {
-            case .fast:
-                timeInterval = 0.01
-            case .slow:
-                timeInterval = 0.05
-            default:
-                fatalError("Cannot handle enum case")
-            }
-            shootingTimer = Timer.scheduledTimer(
-                timeInterval: timeInterval,
-                target: self,
-                selector: #selector(nextShoot),
-                userInfo: nil,
-                repeats: true
-            )
-        }
+        
+        startWithGameSpeed()
     }
         
     func update(firstRobot robot: RobotProtocol) {
@@ -92,6 +74,10 @@ final class GameEngine: GameEngineProtocol {
         
         update(firstRobot: firstRobot)
         update(secondRobot: secondRobot)
+    }
+    
+    func update(gameSpeed: GameSpeed) {
+        self.gameSpeed = gameSpeed
     }
     
     private func oppositeRobot(to robot: RobotProtocol) -> RobotProtocol {
@@ -172,12 +158,26 @@ final class GameEngine: GameEngineProtocol {
         }
     }
     
+    private func startWithGameSpeed() {
+        guard let gameSpeed = gameSpeed, gameSpeed != .blazinglyFast else {
+            return { loopShooting() }()
+        }
+        
+        shootingTimer = Timer.scheduledTimer(
+            timeInterval: gameSpeed.timeInterval,
+            target: self,
+            selector: #selector(nextShoot),
+            userInfo: nil,
+            repeats: true
+        )
+    }
+
     private func loopShooting() {
         while shootingRobot != nil {
             processShooting()
         }
     }
-
+    
     @objc private func nextShoot() {
         processShooting()
     }
