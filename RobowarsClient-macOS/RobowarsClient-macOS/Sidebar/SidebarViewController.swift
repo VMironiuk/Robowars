@@ -67,31 +67,19 @@ class SidebarViewController: NSViewController {
     }
     
     private func setupUI() {
-        chooseRobotsView.translatesAutoresizingMaskIntoConstraints = false
-        chooseRobotsPlaceholderView.addSubview(chooseRobotsView)
+        setup(chooseRobotsView, inside: chooseRobotsPlaceholderView)
+        setup(chooseGameModeView, inside: chooseGameModePlaceholderView)
+        setup(chooseGameSpeedView, inside: chooseGameSpeedPlaceholderView)
+    }
+    
+    private func setup(_ subview: NSView, inside placeholderView: NSView) {
+        subview.translatesAutoresizingMaskIntoConstraints = false
+        placeholderView.addSubview(subview)
         NSLayoutConstraint.activate([
-            chooseRobotsView.topAnchor.constraint(equalTo: chooseRobotsPlaceholderView.topAnchor),
-            chooseRobotsView.bottomAnchor.constraint(equalTo: chooseRobotsPlaceholderView.bottomAnchor),
-            chooseRobotsView.leadingAnchor.constraint(equalTo: chooseRobotsPlaceholderView.leadingAnchor),
-            chooseRobotsView.trailingAnchor.constraint(equalTo: chooseRobotsPlaceholderView.trailingAnchor)
-        ])
-        
-        chooseGameModeView.translatesAutoresizingMaskIntoConstraints = false
-        chooseGameModePlaceholderView.addSubview(chooseGameModeView)
-        NSLayoutConstraint.activate([
-            chooseGameModeView.topAnchor.constraint(equalTo: chooseGameModePlaceholderView.topAnchor),
-            chooseGameModeView.bottomAnchor.constraint(equalTo: chooseGameModePlaceholderView.bottomAnchor),
-            chooseGameModeView.leadingAnchor.constraint(equalTo: chooseGameModePlaceholderView.leadingAnchor),
-            chooseGameModeView.trailingAnchor.constraint(equalTo: chooseGameModePlaceholderView.trailingAnchor)
-        ])
-        
-        chooseGameSpeedView.translatesAutoresizingMaskIntoConstraints = false
-        chooseGameSpeedPlaceholderView.addSubview(chooseGameSpeedView)
-        NSLayoutConstraint.activate([
-            chooseGameSpeedView.topAnchor.constraint(equalTo: chooseGameSpeedPlaceholderView.topAnchor),
-            chooseGameSpeedView.bottomAnchor.constraint(equalTo: chooseGameSpeedPlaceholderView.bottomAnchor),
-            chooseGameSpeedView.leadingAnchor.constraint(equalTo: chooseGameSpeedPlaceholderView.leadingAnchor),
-            chooseGameSpeedView.trailingAnchor.constraint(equalTo: chooseGameSpeedPlaceholderView.trailingAnchor)
+            subview.topAnchor.constraint(equalTo: placeholderView.topAnchor),
+            subview.bottomAnchor.constraint(equalTo: placeholderView.bottomAnchor),
+            subview.leadingAnchor.constraint(equalTo: placeholderView.leadingAnchor),
+            subview.trailingAnchor.constraint(equalTo: placeholderView.trailingAnchor)
         ])
     }
     
