@@ -61,10 +61,11 @@ Desktop macOS client for the Robowars game
 🟡 - Implement basic game rules
 
       [✅] Add `Game Speed` combo box
-      [-] After a match started a user cannot interact with UI until a match finishes
-      [-] After a match finishes there is only a `New Battle` button available which cleans up battlefields,
+      [✅] After a match started a user cannot interact with UI until a match finishes
+      [✅] After a match finishes there is only a `New Battle` button available which cleans up battlefields,
             and returns UI to the state before the previous battle
-      [-] When a user changes game mode or a robot befrore start a battle, battlefields should update
+      [✅] When a user changes game mode or a robot befrore start a battle, battlefields should update
+      [-] Show winner popup.
 
 🟡 - Implement a dummy robot
 
