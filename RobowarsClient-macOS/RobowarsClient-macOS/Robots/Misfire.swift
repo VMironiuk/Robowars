@@ -39,14 +39,11 @@ final class Misfire: RobotProtocol {
     }
     
     init() {
-        for y in .zero..<10 {
-            for x in .zero..<10 {
-                shoots.append(CGPoint(x: x, y: y))
-            }
-        }
+        refreshShoots()
     }
     
     func set(battlefieldSize: CGSize, shipSizes: [CGSize]) {
+        refreshShoots()
     }
     
     func shoot() -> CGPoint {
@@ -55,5 +52,13 @@ final class Misfire: RobotProtocol {
     }
     
     func shootResult(_ result: ShootResult) {
+    }
+    
+    private func refreshShoots() {
+        for y in .zero..<10 {
+            for x in .zero..<10 {
+                shoots.append(CGPoint(x: x, y: y))
+            }
+        }
     }
 }

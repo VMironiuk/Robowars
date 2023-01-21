@@ -53,6 +53,9 @@ final class MainViewController: NSViewController {
         
         setupErrorView()
         setupBattlefieldViews()
+        
+        firstRobotMessageLabel.stringValue = ""
+        secondRobotMessageLabel.stringValue = ""
     }
     
     private func setupBattlefieldViews() {
@@ -90,56 +93,71 @@ final class MainViewController: NSViewController {
     }
 }
 
-extension MainViewController: GameEngineDelegate {
-    func gameEngine(
-        _ gameEngine: GameEngineProtocol,
+extension MainViewController: SidebarViewControllerDelegate {
+    func sidebarViewController(
+        _ sidebarViewController: SidebarViewController,
         didChangeFirstRobot robot: RobotProtocol,
         withShips ships: [CGRect]
     ) {
+        isErrorViewHidden = true
         firstRobotNameLabel.stringValue = robot.name
         firstBattlefieldViewController.updateShips(ships)
     }
     
-    func gameEngine(
-        _ gameEngine: GameEngineProtocol,
+    func sidebarViewController(
+        _ sidebarViewController: SidebarViewController,
         didChangeSecondRobot robot: RobotProtocol,
         withShips ships: [CGRect]
     ) {
+        isErrorViewHidden = true
         secondRobotNameLabel.stringValue = robot.name
         secondBattlefieldViewController.updateShips(ships)
     }
     
-    func gameEngine(_ gameEngine: GameEngineProtocol, firstRobotDidShootWithResult result: ShootResult) {
+    func sidebarViewController(_ sidebarViewController: SidebarViewController, firstRobotDidShootWithResult result: ShootResult) {
+        isErrorViewHidden = true
         firstBattlefieldViewController.updateTile(with: result.toTileState)
     }
     
-    func gameEngine(_ gameEngine: GameEngineProtocol, secondRobotDidShootWithResult result: ShootResult) {
+    func sidebarViewController(_ sidebarViewController: SidebarViewController, secondRobotDidShootWithResult result: ShootResult) {
+        isErrorViewHidden = true
         secondBattlefieldViewController.updateTile(with: result.toTileState)
     }
     
-    func gameEngine(_ gameEngine: GameEngineProtocol, firstRobotDidWinWithMessage message: String) {
+    func sidebarViewController(_ sidebarViewController: SidebarViewController, firstRobotDidWinWithMessage message: String) {
+        isErrorViewHidden = true
         firstRobotMessageLabel.stringValue = message
     }
     
-    func gameEngine(_ gameEngine: GameEngineProtocol, secondRobotDidWinWithMessage message: String) {
+    func sidebarViewController(_ sidebarViewController: SidebarViewController, secondRobotDidWinWithMessage message: String) {
+        isErrorViewHidden = true
         secondRobotMessageLabel.stringValue = message
     }
     
-    func gameEngine(_ gameEngine: GameEngineProtocol, firstRobotDidLoseWithMessage message: String) {
+    func sidebarViewController(_ sidebarViewController: SidebarViewController, firstRobotDidLoseWithMessage message: String) {
+        isErrorViewHidden = true
         firstRobotMessageLabel.stringValue = message
     }
     
-    func gameEngine(_ gameEngine: GameEngineProtocol, secondRobotDidLoseWithMessage message: String) {
+    func sidebarViewController(_ sidebarViewController: SidebarViewController, secondRobotDidLoseWithMessage message: String) {
+        isErrorViewHidden = true
         secondRobotMessageLabel.stringValue = message
     }
     
-    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeGameModeWithBattleFieldSize battlefieldSize: CGSize) {
+    func sidebarViewController(_ sidebarViewController: SidebarViewController, didChangeGameModeWithBattleFieldSize battlefieldSize: CGSize) {
+        isErrorViewHidden = true
         firstBattlefieldViewController.updateBattlefieldSize(battlefieldSize)
         secondBattlefieldViewController.updateBattlefieldSize(battlefieldSize)
     }
     
-    func gameEngine(_ gameEngine: GameEngineProtocol, didFailWithError error: Error?) {
+    func sidebarViewController(_ sidebarViewController: SidebarViewController, didFailWithError error: Error?) {
         isErrorViewHidden = false
+    }
+    
+    func sidebarViewControllerDidSelectNewBattle(_ sidebarViewController: SidebarViewController) {
+        isErrorViewHidden = true
+        firstRobotMessageLabel.stringValue = ""
+        secondRobotMessageLabel.stringValue = ""
     }
 }
 

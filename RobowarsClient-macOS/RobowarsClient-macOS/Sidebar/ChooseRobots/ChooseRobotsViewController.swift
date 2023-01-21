@@ -24,6 +24,14 @@ final class ChooseRobotsViewController: NSViewController {
     private let firstRobots: [RobotProtocol]
     private let secondRobots: [RobotProtocol]
     
+    var selectedFirstRobot: RobotProtocol {
+        firstRobots[firstRobotComboBox.indexOfSelectedItem]
+    }
+    
+    var selectedSecondRobot: RobotProtocol {
+        secondRobots[secondRobotComboBox.indexOfSelectedItem]
+    }
+    
     weak var delegate: ChooseRobotsViewControllerDelegate? {
         didSet {
             guard let firstRobot = firstRobots.first, let secondRobot = secondRobots.first else { return }

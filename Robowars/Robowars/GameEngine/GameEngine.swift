@@ -78,6 +78,10 @@ final class GameEngine: GameEngineProtocol {
     
     func update(gameSpeed: GameSpeed) {
         self.gameSpeed = gameSpeed
+        
+        if !isValid {
+            delegate?.gameEngine(self, didFailWithError: GameEngineError.invalidConstruction)
+        }
     }
     
     private func oppositeRobot(to robot: RobotProtocol) -> RobotProtocol {

@@ -8,10 +8,19 @@
 import Cocoa
 import Robowars
 
+private enum SideBarState {
+    case newBattleState
+    case battleInProgressState
+    case battleFinishedState
+    case errorState
+}
+
 class SidebarViewController: NSViewController {
     @IBOutlet private weak var chooseRobotsPlaceholderView: NSView!
     @IBOutlet private weak var chooseGameModePlaceholderView: NSView!
     @IBOutlet private weak var chooseGameSpeedPlaceholderView: NSView!
+    @IBOutlet private weak var startButton: NSButton!
+    @IBOutlet private weak var newBattleButton: NSButton!
     
     private let chooseRobotsViewController: ChooseRobotsViewController
     private let chooseGameModeViewController: ChooseGameModeViewController
@@ -22,6 +31,47 @@ class SidebarViewController: NSViewController {
     private let chooseGameSpeedView: NSView!
     
     private let gameEngine: GameEngineProtocol
+    
+    private weak var delegate: SidebarViewControllerDelegate?
+    
+    private var state: SideBarState = .newBattleState {
+        didSet {
+            switch state {
+            case .newBattleState:
+                chooseRobotsViewController.firstRobotComboBox.isEnabled = true
+                chooseRobotsViewController.secondRobotComboBox.isEnabled = true
+                chooseGameModeViewController.gameModeComboBox.isEnabled = true
+                chooseGameSpeedViewController.gameSpeedComboBox.isEnabled = true
+                startButton.isEnabled = true
+                newBattleButton.isEnabled = false
+                
+            case .battleInProgressState:
+                chooseRobotsViewController.firstRobotComboBox.isEnabled = false
+                chooseRobotsViewController.secondRobotComboBox.isEnabled = false
+                chooseGameModeViewController.gameModeComboBox.isEnabled = false
+                chooseGameSpeedViewController.gameSpeedComboBox.isEnabled = false
+                startButton.isEnabled = false
+                newBattleButton.isEnabled = false
+                
+            case .battleFinishedState:
+                chooseRobotsViewController.firstRobotComboBox.isEnabled = false
+                chooseRobotsViewController.secondRobotComboBox.isEnabled = false
+                chooseGameModeViewController.gameModeComboBox.isEnabled = false
+                chooseGameSpeedViewController.gameSpeedComboBox.isEnabled = false
+                startButton.isEnabled = false
+                newBattleButton.isEnabled = true
+                
+            case .errorState:
+                chooseRobotsViewController.firstRobotComboBox.isEnabled = true
+                chooseRobotsViewController.secondRobotComboBox.isEnabled = true
+                chooseGameModeViewController.gameModeComboBox.isEnabled = true
+                chooseGameSpeedViewController.gameSpeedComboBox.isEnabled = true
+                startButton.isEnabled = false
+                newBattleButton.isEnabled = false
+
+            }
+        }
+    }
 
     override var nibName: NSNib.Name? {
         "SidebarView"
@@ -31,12 +81,14 @@ class SidebarViewController: NSViewController {
         chooseRobotsViewController: ChooseRobotsViewController,
         chooseGameModeViewController: ChooseGameModeViewController,
         chooseGameSpeedViewController: ChooseGameSpeedViewController,
-        gameEngine: GameEngineProtocol
+        gameEngine: GameEngineProtocol,
+        delegate: SidebarViewControllerDelegate
     ) {
         self.gameEngine = gameEngine
         self.chooseRobotsViewController = chooseRobotsViewController
         self.chooseGameModeViewController = chooseGameModeViewController
         self.chooseGameSpeedViewController = chooseGameSpeedViewController
+        self.delegate = delegate
         
         chooseRobotsView = chooseRobotsViewController.view
         chooseGameModeView = chooseGameModeViewController.view
@@ -47,6 +99,8 @@ class SidebarViewController: NSViewController {
         addChild(chooseRobotsViewController)
         addChild(chooseGameModeViewController)
         addChild(chooseGameSpeedViewController)
+        
+        gameEngine.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -59,6 +113,8 @@ class SidebarViewController: NSViewController {
         chooseRobotsViewController.delegate = self
         chooseGameModeViewController.delegate = self
         chooseGameSpeedViewController.delegate = self
+        
+        state = .newBattleState
     }
     
     override func viewWillAppear() {
@@ -85,6 +141,15 @@ class SidebarViewController: NSViewController {
     
     @IBAction func startButtonAction(_ sender: NSButton) {
         gameEngine.start()
+        state = .battleInProgressState
+    }
+    
+    @IBAction func newBattleButtonAction(_ sender: NSButton) {
+        gameEngine.update(gameMode: chooseGameModeViewController.selectedGameMode)
+        gameEngine.update(firstRobot: chooseRobotsViewController.selectedFirstRobot)
+        gameEngine.update(secondRobot: chooseRobotsViewController.selectedSecondRobot)
+        delegate?.sidebarViewControllerDidSelectNewBattle(self)
+        state = .newBattleState
     }
 }
 
@@ -93,6 +158,7 @@ extension SidebarViewController: ChooseRobotsViewControllerDelegate {
         _ viewController: ChooseRobotsViewController,
         firstRobotDidChange robot: RobotProtocol
     ) {
+        state = .newBattleState
         gameEngine.update(firstRobot: robot)
     }
     
@@ -100,6 +166,7 @@ extension SidebarViewController: ChooseRobotsViewControllerDelegate {
         _ viewController: ChooseRobotsViewController,
         secondRobotDidChange robot: RobotProtocol
     ) {
+        state = .newBattleState
         gameEngine.update(secondRobot: robot)
     }
 }
@@ -109,6 +176,7 @@ extension SidebarViewController: ChooseGameModeViewControllerDelegate {
         _ viewController: ChooseGameModeViewController,
         gameModeDidChange gameMode: GameMode
     ) {
+        state = .newBattleState
         gameEngine.update(gameMode: gameMode)
     }
 }
@@ -118,6 +186,52 @@ extension SidebarViewController: ChooseGameSpeedViewControllerDelegate {
         _ viewController: ChooseGameSpeedViewController,
         gameSpeedDidChange gameSpeed: GameSpeed
     ) {
+        state = .newBattleState
         gameEngine.update(gameSpeed: gameSpeed)
+    }
+}
+
+extension SidebarViewController: GameEngineDelegate {
+    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeFirstRobot robot: RobotProtocol, withShips ships: [CGRect]) {
+        delegate?.sidebarViewController(self, didChangeFirstRobot: robot, withShips: ships)
+    }
+    
+    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeSecondRobot robot: RobotProtocol, withShips ships: [CGRect]) {
+        delegate?.sidebarViewController(self, didChangeSecondRobot: robot, withShips: ships)
+    }
+    
+    func gameEngine(_ gameEngine: GameEngineProtocol, firstRobotDidShootWithResult result: ShootResult) {
+        delegate?.sidebarViewController(self, firstRobotDidShootWithResult: result)
+    }
+    
+    func gameEngine(_ gameEngine: GameEngineProtocol, secondRobotDidShootWithResult result: ShootResult) {
+        delegate?.sidebarViewController(self, secondRobotDidShootWithResult: result)
+    }
+    
+    func gameEngine(_ gameEngine: GameEngineProtocol, firstRobotDidWinWithMessage message: String) {
+        state = .battleFinishedState
+        delegate?.sidebarViewController(self, firstRobotDidWinWithMessage: message)
+    }
+    
+    func gameEngine(_ gameEngine: GameEngineProtocol, secondRobotDidWinWithMessage message: String) {
+        state = .battleFinishedState
+        delegate?.sidebarViewController(self, secondRobotDidWinWithMessage: message)
+    }
+    
+    func gameEngine(_ gameEngine: GameEngineProtocol, firstRobotDidLoseWithMessage message: String) {
+        delegate?.sidebarViewController(self, firstRobotDidLoseWithMessage: message)
+    }
+    
+    func gameEngine(_ gameEngine: GameEngineProtocol, secondRobotDidLoseWithMessage message: String) {
+        delegate?.sidebarViewController(self, secondRobotDidLoseWithMessage: message)
+    }
+    
+    func gameEngine(_ gameEngine: GameEngineProtocol, didChangeGameModeWithBattleFieldSize battlefieldSize: CGSize) {
+        delegate?.sidebarViewController(self, didChangeGameModeWithBattleFieldSize: battlefieldSize)
+    }
+    
+    func gameEngine(_ gameEngine: Robowars.GameEngineProtocol, didFailWithError error: Error?) {
+        state = .errorState
+        delegate?.sidebarViewController(self, didFailWithError: error)
     }
 }

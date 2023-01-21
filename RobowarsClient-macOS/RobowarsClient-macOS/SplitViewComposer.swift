@@ -15,22 +15,20 @@ struct SplitViewComposer {
     
     private init() {}
     
-    static func composedSideBar() ->  NSViewController {
+    static func composedSideBar(withDelegate delegate: SidebarViewControllerDelegate) ->  SidebarViewController {
         SidebarViewController(
             chooseRobotsViewController: ChooseRobotsViewController(firstRobots: [Misfire()], secondRobots: [Misfire()]),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: gameModes),
             chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: gameSpeeds),
-            gameEngine: Self.gameEngine
+            gameEngine: Self.gameEngine,
+            delegate: delegate
         )
     }
     
-    static func composedMainView() -> NSViewController {
-        let mainVC = MainViewController(
+    static func composedMainView() -> MainViewController {
+        MainViewController(
             firstBattlefieldViewController: BattlefieldViewController(),
             secondBattlefieldViewController: BattlefieldViewController()
         )
-        Self.gameEngine.delegate = mainVC
-        
-        return mainVC
     }
 }

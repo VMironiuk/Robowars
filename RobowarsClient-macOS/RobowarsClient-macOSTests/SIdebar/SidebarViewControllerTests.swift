@@ -16,7 +16,8 @@ final class SidebarViewControllerTests: XCTestCase {
             chooseRobotsViewController: ChooseRobotsViewController(firstRobots: [], secondRobots: []),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: []),
             chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: []),
-            gameEngine: SidebarSpy())
+            gameEngine: SidebarSpy(),
+            delegate: SideBarDelegate())
         
         _ = sut.view
     }
@@ -27,7 +28,8 @@ final class SidebarViewControllerTests: XCTestCase {
             chooseRobotsViewController: ChooseRobotsViewController(firstRobots: [], secondRobots: []),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: []),
             chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: []),
-            gameEngine: gameEngine)
+            gameEngine: gameEngine,
+            delegate: SideBarDelegate())
         
         XCTAssertEqual(gameEngine.firstRobotUpdateCallCount, .zero)
         XCTAssertEqual(gameEngine.secondRobotUpdateCallCount, .zero)
@@ -41,7 +43,8 @@ final class SidebarViewControllerTests: XCTestCase {
             chooseRobotsViewController: ChooseRobotsViewController(firstRobots: [], secondRobots: []),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: [.classic]),
             chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: []),
-            gameEngine: gameEngine)
+            gameEngine: gameEngine,
+            delegate: SideBarDelegate())
         _ = sut.view
 
         XCTAssertEqual(gameEngine.firstRobotUpdateCallCount, .zero)
@@ -56,7 +59,8 @@ final class SidebarViewControllerTests: XCTestCase {
             chooseRobotsViewController: ChooseRobotsViewController(firstRobots: [DummyRobot()], secondRobots: [DummyRobot()]),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: []),
             chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: []),
-            gameEngine: gameEngine)
+            gameEngine: gameEngine,
+            delegate: SideBarDelegate())
         _ = sut.view
 
         XCTAssertEqual(gameEngine.firstRobotUpdateCallCount, 1)
@@ -71,7 +75,8 @@ final class SidebarViewControllerTests: XCTestCase {
             chooseRobotsViewController: ChooseRobotsViewController(firstRobots: [DummyRobot()], secondRobots: [DummyRobot()]),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: [.classic]),
             chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: []),
-            gameEngine: gameEngine)
+            gameEngine: gameEngine,
+            delegate: SideBarDelegate())
         _ = sut.view
 
         XCTAssertEqual(gameEngine.firstRobotUpdateCallCount, 1)
@@ -86,7 +91,8 @@ final class SidebarViewControllerTests: XCTestCase {
             chooseRobotsViewController: ChooseRobotsViewController(firstRobots: [DummyRobot()], secondRobots: [DummyRobot()]),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: [.classic]),
             chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: [.slow]),
-            gameEngine: gameEngine)
+            gameEngine: gameEngine,
+            delegate: SideBarDelegate())
         _ = sut.view
 
         XCTAssertEqual(gameEngine.firstRobotUpdateCallCount, 1)
@@ -107,7 +113,8 @@ final class SidebarViewControllerTests: XCTestCase {
             chooseRobotsViewController: chooseRobotsVC,
             chooseGameModeViewController: chooseModeVC,
             chooseGameSpeedViewController: chooseSpeedVC,
-            gameEngine: gameEngine)
+            gameEngine: gameEngine,
+            delegate: SideBarDelegate())
         
         _ = sut.view
         _ = chooseRobotsVC.view
@@ -133,7 +140,8 @@ final class SidebarViewControllerTests: XCTestCase {
             chooseRobotsViewController: ChooseRobotsViewController(firstRobots: robots, secondRobots: robots),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: gameModes),
             chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: gameSpeeds),
-            gameEngine: gameEngine)
+            gameEngine: gameEngine,
+            delegate: SideBarDelegate())
         _ = sut.view
         
         XCTAssertEqual(robots[.zero].name, gameEngine.firstRobot!.name)
@@ -152,7 +160,8 @@ final class SidebarViewControllerTests: XCTestCase {
             chooseRobotsViewController: chooseRobotsVC,
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: gameModes),
             chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: gameSpeeds),
-            gameEngine: gameEngine)
+            gameEngine: gameEngine,
+            delegate: SideBarDelegate())
         
         _ = sut.view
         _ = chooseRobotsVC.view
@@ -174,7 +183,8 @@ final class SidebarViewControllerTests: XCTestCase {
             chooseRobotsViewController: chooseRobotsVC,
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: gameModes),
             chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: gameSpeeds),
-            gameEngine: gameEngine)
+            gameEngine: gameEngine,
+            delegate: SideBarDelegate())
         
         _ = sut.view
         _ = chooseRobotsVC.view
@@ -196,7 +206,8 @@ final class SidebarViewControllerTests: XCTestCase {
             chooseRobotsViewController: ChooseRobotsViewController(firstRobots: robots, secondRobots: robots),
             chooseGameModeViewController: chooseGameModeVC,
             chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: gameSpeeds),
-            gameEngine: gameEngine)
+            gameEngine: gameEngine,
+            delegate: SideBarDelegate())
         
         _ = sut.view
         _ = chooseGameModeVC.view
@@ -218,7 +229,8 @@ final class SidebarViewControllerTests: XCTestCase {
             chooseRobotsViewController: ChooseRobotsViewController(firstRobots: robots, secondRobots: robots),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: gameModes),
             chooseGameSpeedViewController: chooseGameSpeedVC,
-            gameEngine: gameEngine)
+            gameEngine: gameEngine,
+            delegate: SideBarDelegate())
         
         _ = sut.view
         _ = chooseGameSpeedVC.view
@@ -236,18 +248,23 @@ final class SidebarViewControllerTests: XCTestCase {
         chooseRobotsViewController: ChooseRobotsViewController,
         chooseGameModeViewController: ChooseGameModeViewController,
         chooseGameSpeedViewController: ChooseGameSpeedViewController,
-        gameEngine: SidebarSpy
+        gameEngine: SidebarSpy,
+        delegate: SidebarViewControllerDelegate,
+        file: StaticString = #filePath,
+        line: UInt = #line
     ) -> SidebarViewController {
         let sut = SidebarViewController(
             chooseRobotsViewController: chooseRobotsViewController,
             chooseGameModeViewController: chooseGameModeViewController,
             chooseGameSpeedViewController: chooseGameSpeedViewController,
-            gameEngine: gameEngine)
+            gameEngine: gameEngine,
+            delegate: delegate)
                 
-        trackForMemoryLeak(sut)
-        trackForMemoryLeak(chooseRobotsViewController)
-        trackForMemoryLeak(chooseGameModeViewController)
-        trackForMemoryLeak(gameEngine)
+        trackForMemoryLeak(sut, file: file, line: line)
+        trackForMemoryLeak(chooseRobotsViewController, file: file, line: line)
+        trackForMemoryLeak(chooseGameModeViewController, file: file, line: line)
+        trackForMemoryLeak(gameEngine, file: file, line: line)
+        trackForMemoryLeak(delegate, file: file, line: line)
         
         return sut
     }
@@ -262,7 +279,7 @@ final class SidebarViewControllerTests: XCTestCase {
             true
         }
                 
-        var delegate: GameEngineDelegate?
+        weak var delegate: GameEngineDelegate?
         
         var firstRobotUpdateCallCount: Int {
             firstRobots.count
@@ -313,6 +330,56 @@ final class SidebarViewControllerTests: XCTestCase {
         
         func update(gameSpeed: GameSpeed) {
             gameSpeeds.append(gameSpeed)
+        }
+    }
+    
+    private final class SideBarDelegate: SidebarViewControllerDelegate {
+        func sidebarViewController(
+            _ sidebarViewController: SidebarViewController,
+            didChangeFirstRobot robot: RobotProtocol,
+            withShips ships: [CGRect]
+        ) {
+            
+        }
+        
+        func sidebarViewController(
+            _ sidebarViewController: SidebarViewController,
+            didChangeSecondRobot robot: RobotProtocol,
+            withShips ships: [CGRect]
+        ) {
+            
+        }
+        
+        func sidebarViewController(_ sidebarViewController: SidebarViewController, firstRobotDidShootWithResult result: ShootResult) {
+            
+        }
+        
+        func sidebarViewController(_ sidebarViewController: SidebarViewController, secondRobotDidShootWithResult result: ShootResult) {
+            
+        }
+        
+        func sidebarViewController(_ sidebarViewController: SidebarViewController, firstRobotDidWinWithMessage message: String) {
+            
+        }
+        
+        func sidebarViewController(_ sidebarViewController: SidebarViewController, secondRobotDidWinWithMessage message: String) {
+            
+        }
+        
+        func sidebarViewController(_ sidebarViewController: SidebarViewController, firstRobotDidLoseWithMessage message: String) {
+            
+        }
+        
+        func sidebarViewController(_ sidebarViewController: SidebarViewController, secondRobotDidLoseWithMessage message: String) {
+            
+        }
+        
+        func sidebarViewController(_ sidebarViewController: SidebarViewController, didChangeGameModeWithBattleFieldSize battlefieldSize: CGSize) {
+            
+        }
+        
+        func sidebarViewController(_ sidebarViewController: SidebarViewController, didFailWithError error: Error?) {
+            
         }
     }
 }

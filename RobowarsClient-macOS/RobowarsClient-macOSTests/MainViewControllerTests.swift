@@ -43,7 +43,13 @@ final class MainViewControllerTests: XCTestCase {
         _ = sut.view
         
         let gameEngine = GameEngineFactory.defaultGameEngine(with: .classic)
-        gameEngine.delegate = sut
+        let sideBarVC = SidebarViewController(
+            chooseRobotsViewController: ChooseRobotsViewController(firstRobots: [], secondRobots: []),
+            chooseGameModeViewController: ChooseGameModeViewController(gameModes: []),
+            chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: []),
+            gameEngine: gameEngine,
+            delegate: sut)
+        _ = sideBarVC.view
         
         // When
         gameEngine.update(firstRobot: DummyRobot())
@@ -72,8 +78,14 @@ final class MainViewControllerTests: XCTestCase {
         _ = sut.view
         
         let gameEngine = GameEngineFactory.defaultGameEngine(with: gameMode)
-        gameEngine.delegate = sut
-        
+        let sideBarVC = SidebarViewController(
+            chooseRobotsViewController: ChooseRobotsViewController(firstRobots: [], secondRobots: []),
+            chooseGameModeViewController: ChooseGameModeViewController(gameModes: []),
+            chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: []),
+            gameEngine: gameEngine,
+            delegate: sut)
+        _ = sideBarVC.view
+
         gameEngine.update(firstRobot: DummyRobot(gameMode: gameMode))
         gameEngine.update(secondRobot: DummyRobot(gameMode: gameMode))
         gameEngine.update(gameMode: gameMode)
