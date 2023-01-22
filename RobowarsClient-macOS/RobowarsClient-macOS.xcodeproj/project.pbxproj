@@ -10,7 +10,9 @@
 		2E02ED73290BACF200E7ED31 /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E02ED72290BACF200E7ED31 /* MainViewControllerTests.swift */; };
 		2E02ED75290BB0B800E7ED31 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E02ED74290BB0B800E7ED31 /* MainViewController.swift */; };
 		2E02ED78290BB17E00E7ED31 /* BattlefieldViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E02ED77290BB17E00E7ED31 /* BattlefieldViewControllerProtocol.swift */; };
+		2E03AF38296DDB7B0011D8F2 /* ChooseGameSpeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E03AF37296DDB7B0011D8F2 /* ChooseGameSpeedViewController.swift */; };
 		2E0D800128F1AE7500E400B3 /* ChooseGameModeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0D800028F1AE7500E400B3 /* ChooseGameModeViewControllerTests.swift */; };
+		2E101AEE297B0E2500623B1B /* SidebarViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E101AED297B0E2500623B1B /* SidebarViewControllerDelegate.swift */; };
 		2E11D8BB28ED594F003CC71B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E11D8BA28ED594F003CC71B /* AppDelegate.swift */; };
 		2E11D8BF28ED5951003CC71B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E11D8BE28ED5951003CC71B /* Assets.xcassets */; };
 		2E11D8C228ED5951003CC71B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E11D8C028ED5951003CC71B /* Main.storyboard */; };
@@ -21,11 +23,14 @@
 		2E1C625B28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C625A28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift */; };
 		2E31DB0529169E4B00B53DDB /* BattlefieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E31DB0429169E4B00B53DDB /* BattlefieldView.xib */; };
 		2E6EC716291FDF1100DA44DF /* Misfire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EC715291FDF1100DA44DF /* Misfire.swift */; };
+		2E78A5E9296DDBD3007DC734 /* ChooseGameSpeedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E78A5E8296DDBD3007DC734 /* ChooseGameSpeedView.xib */; };
 		2E8272A228F40290006FDAD6 /* ChooseGameModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8272A128F40290006FDAD6 /* ChooseGameModeViewController.swift */; };
 		2E8272A428F40313006FDAD6 /* ChooseGameModeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8272A328F40313006FDAD6 /* ChooseGameModeView.xib */; };
 		2E88F9772913A24300227CCB /* BattlefieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E88F9762913A24300227CCB /* BattlefieldViewController.swift */; };
 		2E88F9792913A2C400227CCB /* BattlefieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E88F9782913A2C400227CCB /* BattlefieldView.swift */; };
 		2E88F97B2913A2F500227CCB /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E88F97A2913A2F500227CCB /* TileView.swift */; };
+		2E89CC39297D4E4400DB7C37 /* FinishedGamePopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E89CC37297D4E4400DB7C37 /* FinishedGamePopupView.xib */; };
+		2E89CC3A297D4E4400DB7C37 /* FinishedGamePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E89CC38297D4E4400DB7C37 /* FinishedGamePopupViewController.swift */; };
 		2E92B04F2907A5C5008DB932 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E92B04E2907A5C5008DB932 /* SplitViewController.swift */; };
 		2EA45E84290FA96500305290 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EA45E83290FA96500305290 /* MainView.xib */; };
 		2EA5838C28F00555006E7BB3 /* Robowars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA5838B28F00555006E7BB3 /* Robowars.framework */; };
@@ -66,7 +71,9 @@
 		2E02ED72290BACF200E7ED31 /* MainViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerTests.swift; sourceTree = "<group>"; };
 		2E02ED74290BB0B800E7ED31 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2E02ED77290BB17E00E7ED31 /* BattlefieldViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattlefieldViewControllerProtocol.swift; sourceTree = "<group>"; };
+		2E03AF37296DDB7B0011D8F2 /* ChooseGameSpeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGameSpeedViewController.swift; sourceTree = "<group>"; };
 		2E0D800028F1AE7500E400B3 /* ChooseGameModeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGameModeViewControllerTests.swift; sourceTree = "<group>"; };
+		2E101AED297B0E2500623B1B /* SidebarViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewControllerDelegate.swift; sourceTree = "<group>"; };
 		2E11D8B728ED594F003CC71B /* RobowarsClient-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RobowarsClient-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E11D8BA28ED594F003CC71B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E11D8BE28ED5951003CC71B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,11 +87,14 @@
 		2E1C625A28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		2E31DB0429169E4B00B53DDB /* BattlefieldView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BattlefieldView.xib; sourceTree = "<group>"; };
 		2E6EC715291FDF1100DA44DF /* Misfire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Misfire.swift; sourceTree = "<group>"; };
+		2E78A5E8296DDBD3007DC734 /* ChooseGameSpeedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseGameSpeedView.xib; sourceTree = "<group>"; };
 		2E8272A128F40290006FDAD6 /* ChooseGameModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGameModeViewController.swift; sourceTree = "<group>"; };
 		2E8272A328F40313006FDAD6 /* ChooseGameModeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseGameModeView.xib; sourceTree = "<group>"; };
 		2E88F9762913A24300227CCB /* BattlefieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattlefieldViewController.swift; sourceTree = "<group>"; };
 		2E88F9782913A2C400227CCB /* BattlefieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattlefieldView.swift; sourceTree = "<group>"; };
 		2E88F97A2913A2F500227CCB /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
+		2E89CC37297D4E4400DB7C37 /* FinishedGamePopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinishedGamePopupView.xib; sourceTree = "<group>"; };
+		2E89CC38297D4E4400DB7C37 /* FinishedGamePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedGamePopupViewController.swift; sourceTree = "<group>"; };
 		2E92B04E2907A5C5008DB932 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		2EA45E83290FA96500305290 /* MainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
 		2EA5838B28F00555006E7BB3 /* Robowars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Robowars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,8 +131,18 @@
 				2E02ED74290BB0B800E7ED31 /* MainViewController.swift */,
 				2EA45E83290FA96500305290 /* MainView.xib */,
 				2E88F9752913A1FD00227CCB /* BattlefieldViewController */,
+				2E89CC3B297D4E5F00DB7C37 /* FinishedGamePopupViewController */,
 			);
 			path = MainView;
+			sourceTree = "<group>";
+		};
+		2E03AF39296DDB8A0011D8F2 /* ChooseGameSpeed */ = {
+			isa = PBXGroup;
+			children = (
+				2E03AF37296DDB7B0011D8F2 /* ChooseGameSpeedViewController.swift */,
+				2E78A5E8296DDBD3007DC734 /* ChooseGameSpeedView.xib */,
+			);
+			path = ChooseGameSpeed;
 			sourceTree = "<group>";
 		};
 		2E11D8AE28ED594F003CC71B = {
@@ -210,6 +230,15 @@
 			path = BattlefieldViewController;
 			sourceTree = "<group>";
 		};
+		2E89CC3B297D4E5F00DB7C37 /* FinishedGamePopupViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2E89CC38297D4E4400DB7C37 /* FinishedGamePopupViewController.swift */,
+				2E89CC37297D4E4400DB7C37 /* FinishedGamePopupView.xib */,
+			);
+			path = FinishedGamePopupViewController;
+			sourceTree = "<group>";
+		};
 		2E8A659128F40481003ADE48 /* ChooseGameMode */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,10 +259,12 @@
 		2EAA141F28FA6F75004894B1 /* Sidebar */ = {
 			isa = PBXGroup;
 			children = (
+				2E101AED297B0E2500623B1B /* SidebarViewControllerDelegate.swift */,
 				2EDA0AD228F7DFD80020105F /* SidebarViewController.swift */,
 				2EDA0AD428F7DFF90020105F /* SidebarView.xib */,
 				2E11D8EC28ED61D5003CC71B /* ChooseRobots */,
 				2E8A659128F40481003ADE48 /* ChooseGameMode */,
+				2E03AF39296DDB8A0011D8F2 /* ChooseGameSpeed */,
 			);
 			path = Sidebar;
 			sourceTree = "<group>";
@@ -334,10 +365,12 @@
 				2E31DB0529169E4B00B53DDB /* BattlefieldView.xib in Resources */,
 				2E11D8EA28ED60C7003CC71B /* ChooseRobotsView.xib in Resources */,
 				2EDA0AD528F7DFF90020105F /* SidebarView.xib in Resources */,
+				2E89CC39297D4E4400DB7C37 /* FinishedGamePopupView.xib in Resources */,
 				2E11D8BF28ED5951003CC71B /* Assets.xcassets in Resources */,
 				2EA45E84290FA96500305290 /* MainView.xib in Resources */,
 				2E8272A428F40313006FDAD6 /* ChooseGameModeView.xib in Resources */,
 				2E11D8C228ED5951003CC71B /* Main.storyboard in Resources */,
+				2E78A5E9296DDBD3007DC734 /* ChooseGameSpeedView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,10 +389,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E92B04F2907A5C5008DB932 /* SplitViewController.swift in Sources */,
+				2E03AF38296DDB7B0011D8F2 /* ChooseGameSpeedViewController.swift in Sources */,
 				2EEF06362928BF8200CEDC61 /* CGRect+MapToPoints.swift in Sources */,
+				2E101AEE297B0E2500623B1B /* SidebarViewControllerDelegate.swift in Sources */,
 				2E88F9772913A24300227CCB /* BattlefieldViewController.swift in Sources */,
 				2EB8785D291E007B0085A638 /* SplitViewComposer.swift in Sources */,
 				2E02ED78290BB17E00E7ED31 /* BattlefieldViewControllerProtocol.swift in Sources */,
+				2E89CC3A297D4E4400DB7C37 /* FinishedGamePopupViewController.swift in Sources */,
 				2EDA0AD328F7DFD80020105F /* SidebarViewController.swift in Sources */,
 				2E8272A228F40290006FDAD6 /* ChooseGameModeViewController.swift in Sources */,
 				2E02ED75290BB0B800E7ED31 /* MainViewController.swift in Sources */,

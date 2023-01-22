@@ -18,6 +18,7 @@ class SidebarViewController: NSViewController {
     @IBOutlet private weak var firstRobotComboBox: NSComboBox!
     @IBOutlet private weak var secondRobotComboBox: NSComboBox!
     @IBOutlet private weak var gameModeComboBox: NSComboBox!
+    @IBOutlet private weak var gameSpeedComboBox: NSComboBox!
     @IBOutlet private weak var showErrorCheckBox: NSButton!
     @IBOutlet private weak var gameStageComboBox: NSComboBox!
     
@@ -44,6 +45,7 @@ class SidebarViewController: NSViewController {
         firstRobotComboBox.selectItem(at: .zero)
         secondRobotComboBox.selectItem(at: .zero)
         gameModeComboBox.selectItem(at: .zero)
+        gameSpeedComboBox.selectItem(at: .zero)
     }
     
     override func viewDidAppear() {

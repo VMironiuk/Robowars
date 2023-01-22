@@ -9,7 +9,10 @@
         <customObject id="-2" userLabel="File's Owner" customClass="SidebarViewController" customModule="RobowarsClient_macOS" customModuleProvider="target">
             <connections>
                 <outlet property="chooseGameModePlaceholderView" destination="fZU-Vn-WEI" id="swY-7s-GpE"/>
+                <outlet property="chooseGameSpeedPlaceholderView" destination="mQ6-lI-4aZ" id="Cdl-qf-lXM"/>
                 <outlet property="chooseRobotsPlaceholderView" destination="xq0-r1-emJ" id="UlR-CV-2SG"/>
+                <outlet property="newBattleButton" destination="Mmq-aQ-NE5" id="5Rg-gi-pP8"/>
+                <outlet property="startButton" destination="Xsv-Ns-ceL" id="TYB-Kf-SRT"/>
                 <outlet property="view" destination="c22-O7-iKe" id="yEa-fC-zcv"/>
             </connections>
         </customObject>
@@ -33,23 +36,48 @@
                         <constraint firstAttribute="height" constant="19" id="6En-vb-quw"/>
                     </constraints>
                 </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="mQ6-lI-4aZ" userLabel="Choose GameMode Placeholder View">
+                    <rect key="frame" x="4" y="270" width="306" height="19"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="19" id="Y65-p4-Idb"/>
+                    </constraints>
+                </customView>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xsv-Ns-ceL">
-                    <rect key="frame" x="5" y="5" width="304" height="32"/>
+                    <rect key="frame" x="5" y="37" width="304" height="32"/>
                     <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="k8t-Ld-ygV">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="startButtonAction:" target="-2" id="47Z-Zl-EXx"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Mmq-aQ-NE5" userLabel="New Battle">
+                    <rect key="frame" x="5" y="5" width="304" height="32"/>
+                    <buttonCell key="cell" type="push" title="New Battle" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hxs-0Y-qjL">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="newBattleButtonAction:" target="-2" id="Lwb-4u-R42"/>
+                    </connections>
                 </button>
             </subviews>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="mQ6-lI-4aZ" secondAttribute="trailing" constant="4" id="6pm-1l-P2q"/>
                 <constraint firstItem="Jtl-rC-2ba" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="6xr-IS-qJn"/>
                 <constraint firstItem="Xsv-Ns-ceL" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="12" id="7NG-Db-lpz"/>
                 <constraint firstAttribute="trailing" secondItem="Jtl-rC-2ba" secondAttribute="trailing" id="9Ro-9N-ej2"/>
                 <constraint firstItem="fZU-Vn-WEI" firstAttribute="top" secondItem="xq0-r1-emJ" secondAttribute="bottom" constant="12" id="Dat-qn-M1l"/>
+                <constraint firstItem="Mmq-aQ-NE5" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="12" id="DmC-2f-F9I"/>
+                <constraint firstItem="mQ6-lI-4aZ" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="4" id="Fqf-e3-b51"/>
+                <constraint firstAttribute="trailing" secondItem="Mmq-aQ-NE5" secondAttribute="trailing" constant="12" id="Hvr-hF-lmY"/>
+                <constraint firstItem="mQ6-lI-4aZ" firstAttribute="top" secondItem="fZU-Vn-WEI" secondAttribute="bottom" constant="12" id="Tw7-7L-KGw"/>
                 <constraint firstAttribute="trailing" secondItem="fZU-Vn-WEI" secondAttribute="trailing" constant="4" id="YG9-qG-GtK"/>
-                <constraint firstAttribute="bottom" secondItem="Xsv-Ns-ceL" secondAttribute="bottom" constant="12" id="a7D-YO-GIh"/>
+                <constraint firstItem="Mmq-aQ-NE5" firstAttribute="top" secondItem="Xsv-Ns-ceL" secondAttribute="bottom" constant="12" id="a7D-YO-GIh"/>
                 <constraint firstItem="fZU-Vn-WEI" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="4" id="bSP-a5-2IX"/>
                 <constraint firstAttribute="trailing" secondItem="xq0-r1-emJ" secondAttribute="trailing" constant="4" id="gnT-qk-fGf"/>
+                <constraint firstAttribute="bottom" secondItem="Mmq-aQ-NE5" secondAttribute="bottom" constant="12" id="hO5-rz-Rg1"/>
                 <constraint firstAttribute="trailing" secondItem="Xsv-Ns-ceL" secondAttribute="trailing" constant="12" id="ioY-Xk-nZn"/>
                 <constraint firstItem="xq0-r1-emJ" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="4" id="p8Q-0O-ahp"/>
                 <constraint firstItem="Jtl-rC-2ba" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="50" id="qwO-gu-RNZ"/>

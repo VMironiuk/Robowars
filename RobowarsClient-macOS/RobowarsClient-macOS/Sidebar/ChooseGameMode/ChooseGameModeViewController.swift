@@ -18,6 +18,10 @@ class ChooseGameModeViewController: NSViewController {
     
     private let gameModes: [GameMode]
     
+    var selectedGameMode: GameMode {
+        gameModes[gameModeComboBox.indexOfSelectedItem]
+    }
+    
     weak var delegate: ChooseGameModeViewControllerDelegate? {
         didSet {
             guard let gameMode = gameModes.first else { return }

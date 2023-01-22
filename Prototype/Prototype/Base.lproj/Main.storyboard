@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="tRQ-XX-YgK">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="tRQ-XX-YgK">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21225"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
         <capability name="NSView safe area layout guides" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -733,14 +733,14 @@
             <objects>
                 <viewController id="Yf1-1x-0I3" customClass="SidebarViewController" customModule="Prototype" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="EFL-AQ-Vm1">
-                        <rect key="frame" x="0.0" y="0.0" width="314" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="314" height="332"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="trailing" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H5E-i2-9C5">
-                                <rect key="frame" x="4" y="153" width="306" height="84"/>
+                                <rect key="frame" x="4" y="153" width="306" height="116"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FRM-oP-tUm">
-                                        <rect key="frame" x="98" y="64" width="208" height="20"/>
+                                        <rect key="frame" x="98" y="96" width="208" height="20"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FhJ-XD-qs4">
                                                 <rect key="frame" x="-2" y="4" width="58" height="16"/>
@@ -775,7 +775,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EGa-DF-xeh">
-                                        <rect key="frame" x="96" y="32" width="210" height="20"/>
+                                        <rect key="frame" x="96" y="64" width="210" height="20"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wnz-Yt-e7c">
                                                 <rect key="frame" x="-2" y="4" width="60" height="16"/>
@@ -810,7 +810,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i49-9K-jMd">
-                                        <rect key="frame" x="78" y="0.0" width="228" height="20"/>
+                                        <rect key="frame" x="78" y="32" width="228" height="20"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NyK-kz-p26">
                                                 <rect key="frame" x="-2" y="4" width="78" height="16"/>
@@ -844,13 +844,52 @@
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wEY-7f-9PD">
+                                        <rect key="frame" x="74" y="0.0" width="232" height="20"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GHN-0u-R4F">
+                                                <rect key="frame" x="-2" y="4" width="82" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Game Speed" id="J5M-zs-bTo">
+                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IaH-Vm-CZW">
+                                                <rect key="frame" x="81" y="-2" width="154" height="23"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="Dv1-Ui-E0J"/>
+                                                </constraints>
+                                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="ozh-F4-yaa">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    <objectValues>
+                                                        <string>Slow</string>
+                                                        <string>Fast</string>
+                                                        <string>Blazingly Fast</string>
+                                                    </objectValues>
+                                                </comboBoxCell>
+                                            </comboBox>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
                                 </subviews>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
+                                    <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
@@ -864,7 +903,7 @@
                                 </buttonCell>
                             </button>
                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="R82-lz-m5E">
-                                <rect key="frame" x="0.0" y="247" width="314" height="5"/>
+                                <rect key="frame" x="0.0" y="279" width="314" height="5"/>
                             </box>
                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="HSm-sy-V8l">
                                 <rect key="frame" x="0.0" y="141" width="314" height="5"/>
@@ -994,6 +1033,7 @@
                     <connections>
                         <outlet property="firstRobotComboBox" destination="b1R-7A-gmz" id="t5N-L1-uWN"/>
                         <outlet property="gameModeComboBox" destination="kcg-PV-XmV" id="c1h-51-0GA"/>
+                        <outlet property="gameSpeedComboBox" destination="IaH-Vm-CZW" id="xW7-RG-fRJ"/>
                         <outlet property="gameStageComboBox" destination="ozf-lg-OZ0" id="zpC-lW-6gC"/>
                         <outlet property="secondRobotComboBox" destination="Qia-Nr-ohC" id="CbM-dx-uFB"/>
                         <outlet property="showErrorCheckBox" destination="eVa-Ub-aPg" id="kNT-xa-h3L"/>

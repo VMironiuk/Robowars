@@ -21,13 +21,22 @@ final class ChooseRobotsViewController: NSViewController {
     @IBOutlet private(set) weak var firstRobotComboBox: NSComboBox!
     @IBOutlet private(set) weak var secondRobotComboBox: NSComboBox!
     
-    private let robots: [RobotProtocol]
+    private let firstRobots: [RobotProtocol]
+    private let secondRobots: [RobotProtocol]
+    
+    var selectedFirstRobot: RobotProtocol {
+        firstRobots[firstRobotComboBox.indexOfSelectedItem]
+    }
+    
+    var selectedSecondRobot: RobotProtocol {
+        secondRobots[secondRobotComboBox.indexOfSelectedItem]
+    }
     
     weak var delegate: ChooseRobotsViewControllerDelegate? {
         didSet {
-            guard let robot = robots.first else { return }
-            delegate?.chooseRobotsViewController(self, firstRobotDidChange: robot)
-            delegate?.chooseRobotsViewController(self, secondRobotDidChange: robot)
+            guard let firstRobot = firstRobots.first, let secondRobot = secondRobots.first else { return }
+            delegate?.chooseRobotsViewController(self, firstRobotDidChange: firstRobot)
+            delegate?.chooseRobotsViewController(self, secondRobotDidChange: secondRobot)
         }
     }
 
@@ -35,8 +44,9 @@ final class ChooseRobotsViewController: NSViewController {
         "ChooseRobotsView"
     }
     
-    init(robots: [RobotProtocol]) {
-        self.robots = robots
+    init(firstRobots: [RobotProtocol], secondRobots: [RobotProtocol]) {
+        self.firstRobots = firstRobots
+        self.secondRobots = secondRobots
         super.init(nibName: "ChooseRobotsView", bundle: nil)
     }
 
@@ -55,7 +65,7 @@ final class ChooseRobotsViewController: NSViewController {
         secondRobotComboBox.dataSource = self
         secondRobotComboBox.delegate = self
         
-        guard !robots.isEmpty else { return }
+        guard !firstRobots.isEmpty, !secondRobots.isEmpty else { return }
         firstRobotComboBox.selectItem(at: .zero)
         secondRobotComboBox.selectItem(at: .zero)
     }
@@ -63,11 +73,21 @@ final class ChooseRobotsViewController: NSViewController {
 
 extension ChooseRobotsViewController: NSComboBoxDataSource {
     func numberOfItems(in comboBox: NSComboBox) -> Int {
-        robots.count
+        if comboBox === firstRobotComboBox {
+            return firstRobots.count
+        } else if  comboBox === secondRobotComboBox {
+            return secondRobots.count
+        }
+        return .zero
     }
     
     func comboBox(_ comboBox: NSComboBox, objectValueForItemAt index: Int) -> Any? {
-        robots[index].name
+        if comboBox === firstRobotComboBox {
+            return firstRobots[index].name
+        } else if  comboBox === secondRobotComboBox {
+            return secondRobots[index].name
+        }
+        return nil
     }
 }
 
@@ -75,11 +95,11 @@ extension ChooseRobotsViewController: NSComboBoxDelegate {
     func comboBoxSelectionDidChange(_ notification: Notification) {
         if notification.object as? NSComboBox === firstRobotComboBox {
             let indexOfSelectedItem = firstRobotComboBox.indexOfSelectedItem
-            let selectedRobot = robots[indexOfSelectedItem]
+            let selectedRobot = firstRobots[indexOfSelectedItem]
             delegate?.chooseRobotsViewController(self, firstRobotDidChange: selectedRobot)
         } else if notification.object as? NSComboBox === secondRobotComboBox {
             let indexOfSelectedItem = secondRobotComboBox.indexOfSelectedItem
-            let selectedRobot = robots[indexOfSelectedItem]
+            let selectedRobot = secondRobots[indexOfSelectedItem]
             delegate?.chooseRobotsViewController(self, secondRobotDidChange: selectedRobot)
         } else {
             fatalError()

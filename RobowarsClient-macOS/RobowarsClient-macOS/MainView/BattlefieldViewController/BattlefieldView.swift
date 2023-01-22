@@ -61,7 +61,19 @@ final class BattlefieldView: NSView {
         }
     }
     
-    func updateTile(with state: TileState) {}
+    func updateTile(with state: TileState) {
+        switch state {
+        case .hit(let coordinate):
+            let tile = tile(atRow: Int(coordinate.y), column: Int(coordinate.x))
+            tile?.state = .damage
+        case .kill(let coordinate):
+            let tile = tile(atRow: Int(coordinate.y), column: Int(coordinate.x))
+            tile?.state = .damage
+        case .miss(let coordinate):
+            let tile = tile(atRow: Int(coordinate.y), column: Int(coordinate.x))
+            tile?.state = .miss
+        }
+    }
     
     private func setup() {
         wantsLayer = true

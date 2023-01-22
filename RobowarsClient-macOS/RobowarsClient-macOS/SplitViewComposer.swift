@@ -10,25 +10,26 @@ import Robowars
 
 struct SplitViewComposer {
     static private let gameModes: [GameMode] = [.classic, .flyweight]
+    static private let gameSpeeds: [GameSpeed] = [.slow, .fast, .blazinglyFast]
     static private let gameEngine = GameEngineFactory.defaultGameEngine(with: gameModes.first!)
     
     private init() {}
     
-    static func composedSideBar() ->  NSViewController {
+    static func composedSideBar(withDelegate delegate: SidebarViewControllerDelegate) ->  SidebarViewController {
         SidebarViewController(
-            chooseRobotsViewController: ChooseRobotsViewController(robots: [Misfire()]),
+            chooseRobotsViewController: ChooseRobotsViewController(firstRobots: [Misfire()], secondRobots: [Misfire()]),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: gameModes),
-            gameEngine: Self.gameEngine
+            chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: gameSpeeds),
+            gameEngine: Self.gameEngine,
+            delegate: delegate
         )
     }
     
-    static func composedMainView() -> NSViewController {
-        let mainVC = MainViewController(
+    static func composedMainView() -> MainViewController {
+        MainViewController(
             firstBattlefieldViewController: BattlefieldViewController(),
-            secondBattlefieldViewController: BattlefieldViewController()
+            secondBattlefieldViewController: BattlefieldViewController(),
+            finishedGamePopupViewController: FinishedGamePopupViewController()
         )
-        Self.gameEngine.delegate = mainVC
-        
-        return mainVC
     }
 }

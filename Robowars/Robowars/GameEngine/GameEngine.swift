@@ -13,6 +13,10 @@ final class GameEngine: GameEngineProtocol {
     private var secondRobot: RobotProtocol?
     private var firstRobotShipsPoints: [[CGPoint]] = []
     private var secondRobotShipsPoints: [[CGPoint]] = []
+    private var shootingTimer: Timer?
+    private var shootingRobot: RobotProtocol?
+    private var gameSpeed: GameSpeed?
+    
     weak var delegate: GameEngineDelegate?
 
     var isValid: Bool {
@@ -34,25 +38,9 @@ final class GameEngine: GameEngineProtocol {
         guard isValid, let firstRobot = firstRobot else {
             return { delegate?.gameEngine(self, didFailWithError: GameEngineError.invalidConstruction) }()
         }
-        var shootingRobot = firstRobot
-        while true {
-            let shootPoint = shootingRobot.shoot()
-            let shootResult = shootResult(for: shootPoint, to: oppositeRobot(to: shootingRobot))
-            if firstRobotShipsPoints.isEmpty {
-                delegate?.gameEngine(self, secondRobotDidWinWithMessage: shootingRobot.winnerMessage)
-                delegate?.gameEngine(self, firstRobotDidLoseWithMessage: oppositeRobot(to: shootingRobot).loserMessage)
-                return
-            }
-            if secondRobotShipsPoints.isEmpty {
-                delegate?.gameEngine(self, firstRobotDidWinWithMessage: shootingRobot.winnerMessage)
-                delegate?.gameEngine(self, secondRobotDidLoseWithMessage: oppositeRobot(to: shootingRobot).loserMessage)
-                return
-            }
-            shootingRobot.shootResult(shootResult)
-            if case .miss = shootResult {
-                shootingRobot = oppositeRobot(to: shootingRobot)
-            }
-        }
+        shootingRobot = firstRobot
+        
+        startWithGameSpeed()
     }
         
     func update(firstRobot robot: RobotProtocol) {
@@ -88,6 +76,14 @@ final class GameEngine: GameEngineProtocol {
         update(secondRobot: secondRobot)
     }
     
+    func update(gameSpeed: GameSpeed) {
+        self.gameSpeed = gameSpeed
+        
+        if !isValid {
+            delegate?.gameEngine(self, didFailWithError: GameEngineError.invalidConstruction)
+        }
+    }
+    
     private func oppositeRobot(to robot: RobotProtocol) -> RobotProtocol {
         guard let firstRobot = firstRobot, let secondRobot = secondRobot else {
             fatalError("Robot cannot be nil")
@@ -110,14 +106,17 @@ final class GameEngine: GameEngineProtocol {
     }
     
     private func shootResult(for shootPoint: CGPoint, to robot: RobotProtocol) -> ShootResult {
+        guard let firstRobot = firstRobot, let secondRobot = secondRobot else {
+            fatalError("First or second robot cannot be nil")
+        }
         var result: ShootResult = .miss(shootPoint)
         if robot === firstRobot {
             result = shootResult(for: shootPoint, with: &firstRobotShipsPoints)
-            delegate?.gameEngine(self, secondRobotDidShootWithResult: result)
+            delegate?.gameEngine(self, secondRobot: secondRobot, didShootWithResult: result)
         }
         else {
             result = shootResult(for: shootPoint, with: &secondRobotShipsPoints)
-            delegate?.gameEngine(self, firstRobotDidShootWithResult: result)
+            delegate?.gameEngine(self, firstRobot: firstRobot, didShootWithResult: result)
         }
         return result
     }
@@ -140,5 +139,55 @@ final class GameEngine: GameEngineProtocol {
             }
         }
         return .miss(shootPoint)
+    }
+    
+    private func processShooting()  {
+        guard let shootingRobot = shootingRobot else { fatalError("Shooting robot is invalid") }
+        let shootPoint = shootingRobot.shoot()
+        let shootResult = shootResult(for: shootPoint, to: oppositeRobot(to: shootingRobot))
+        if firstRobotShipsPoints.isEmpty {
+            delegate?.gameEngine(self, secondRobot: shootingRobot, didWinWithMessage: shootingRobot.winnerMessage)
+            let oppositeToShootingRobot = oppositeRobot(to: shootingRobot)
+            delegate?.gameEngine(self, firstRobot: oppositeToShootingRobot, didLoseWithMessage: oppositeToShootingRobot.loserMessage)
+            shootingTimer?.invalidate()
+            self.shootingRobot = nil
+            return
+        }
+        if secondRobotShipsPoints.isEmpty {
+            delegate?.gameEngine(self, firstRobot: shootingRobot, didWinWithMessage: shootingRobot.winnerMessage)
+            let oppositeToShootingRobot = oppositeRobot(to: shootingRobot)
+            delegate?.gameEngine(self, secondRobot: oppositeToShootingRobot, didLoseWithMessage: oppositeToShootingRobot.loserMessage)
+            shootingTimer?.invalidate()
+            self.shootingRobot = nil
+            return
+        }
+        shootingRobot.shootResult(shootResult)
+        if case .miss = shootResult {
+            self.shootingRobot = oppositeRobot(to: shootingRobot)
+        }
+    }
+    
+    private func startWithGameSpeed() {
+        guard let gameSpeed = gameSpeed, gameSpeed != .blazinglyFast else {
+            return { loopShooting() }()
+        }
+        
+        shootingTimer = Timer.scheduledTimer(
+            timeInterval: gameSpeed.timeInterval,
+            target: self,
+            selector: #selector(nextShoot),
+            userInfo: nil,
+            repeats: true
+        )
+    }
+
+    private func loopShooting() {
+        while shootingRobot != nil {
+            processShooting()
+        }
+    }
+    
+    @objc private func nextShoot() {
+        processShooting()
     }
 }
