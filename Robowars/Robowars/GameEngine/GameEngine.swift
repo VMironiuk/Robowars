@@ -106,14 +106,17 @@ final class GameEngine: GameEngineProtocol {
     }
     
     private func shootResult(for shootPoint: CGPoint, to robot: RobotProtocol) -> ShootResult {
+        guard let firstRobot = firstRobot, let secondRobot = secondRobot else {
+            fatalError("First or second robot cannot be nil")
+        }
         var result: ShootResult = .miss(shootPoint)
         if robot === firstRobot {
             result = shootResult(for: shootPoint, with: &firstRobotShipsPoints)
-            delegate?.gameEngine(self, secondRobotDidShootWithResult: result)
+            delegate?.gameEngine(self, secondRobot: secondRobot, didShootWithResult: result)
         }
         else {
             result = shootResult(for: shootPoint, with: &secondRobotShipsPoints)
-            delegate?.gameEngine(self, firstRobotDidShootWithResult: result)
+            delegate?.gameEngine(self, firstRobot: firstRobot, didShootWithResult: result)
         }
         return result
     }
@@ -143,15 +146,17 @@ final class GameEngine: GameEngineProtocol {
         let shootPoint = shootingRobot.shoot()
         let shootResult = shootResult(for: shootPoint, to: oppositeRobot(to: shootingRobot))
         if firstRobotShipsPoints.isEmpty {
-            delegate?.gameEngine(self, secondRobotDidWinWithMessage: shootingRobot.winnerMessage)
-            delegate?.gameEngine(self, firstRobotDidLoseWithMessage: oppositeRobot(to: shootingRobot).loserMessage)
+            delegate?.gameEngine(self, secondRobot: shootingRobot, didWinWithMessage: shootingRobot.winnerMessage)
+            let oppositeToShootingRobot = oppositeRobot(to: shootingRobot)
+            delegate?.gameEngine(self, firstRobot: oppositeToShootingRobot, didLoseWithMessage: oppositeToShootingRobot.loserMessage)
             shootingTimer?.invalidate()
             self.shootingRobot = nil
             return
         }
         if secondRobotShipsPoints.isEmpty {
-            delegate?.gameEngine(self, firstRobotDidWinWithMessage: shootingRobot.winnerMessage)
-            delegate?.gameEngine(self, secondRobotDidLoseWithMessage: oppositeRobot(to: shootingRobot).loserMessage)
+            delegate?.gameEngine(self, firstRobot: shootingRobot, didWinWithMessage: shootingRobot.winnerMessage)
+            let oppositeToShootingRobot = oppositeRobot(to: shootingRobot)
+            delegate?.gameEngine(self, secondRobot: oppositeToShootingRobot, didLoseWithMessage: oppositeToShootingRobot.loserMessage)
             shootingTimer?.invalidate()
             self.shootingRobot = nil
             return

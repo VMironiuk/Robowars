@@ -350,35 +350,66 @@ final class SidebarViewControllerTests: XCTestCase {
             
         }
         
-        func sidebarViewController(_ sidebarViewController: SidebarViewController, firstRobotDidShootWithResult result: ShootResult) {
+        func sidebarViewController(
+            _ sidebarViewController: SidebarViewController,
+            firstRobot robot: RobotProtocol,
+            didShootWithResult result: ShootResult
+        ) {
             
         }
         
-        func sidebarViewController(_ sidebarViewController: SidebarViewController, secondRobotDidShootWithResult result: ShootResult) {
+        func sidebarViewController(
+            _ sidebarViewController: SidebarViewController,
+            secondRobot robot: RobotProtocol,
+            didShootWithResult result: ShootResult
+        ) {
             
         }
         
-        func sidebarViewController(_ sidebarViewController: SidebarViewController, firstRobotDidWinWithMessage message: String) {
+        func sidebarViewController(
+            _ sidebarViewController: SidebarViewController,
+            firstRobot robot: RobotProtocol,
+            didWinWithMessage message: String
+        ) {
             
         }
         
-        func sidebarViewController(_ sidebarViewController: SidebarViewController, secondRobotDidWinWithMessage message: String) {
+        func sidebarViewController(
+            _ sidebarViewController: SidebarViewController,
+            secondRobot robot: RobotProtocol,
+            didWinWithMessage message: String
+        ) {
             
         }
         
-        func sidebarViewController(_ sidebarViewController: SidebarViewController, firstRobotDidLoseWithMessage message: String) {
+        func sidebarViewController(
+            _ sidebarViewController: SidebarViewController,
+            firstRobot robot: RobotProtocol,
+            didLoseWithMessage message: String
+        ) {
             
         }
         
-        func sidebarViewController(_ sidebarViewController: SidebarViewController, secondRobotDidLoseWithMessage message: String) {
+        func sidebarViewController(
+            _ sidebarViewController: SidebarViewController,
+            secondRobot robot: RobotProtocol,
+            didLoseWithMessage message: String
+        ) {
             
         }
         
-        func sidebarViewController(_ sidebarViewController: SidebarViewController, didChangeGameModeWithBattleFieldSize battlefieldSize: CGSize) {
+        func sidebarViewController(
+            _ sidebarViewController: SidebarViewController,
+            didChangeGameModeWithBattleFieldSize battlefieldSize: CGSize
+        ) {
             
         }
         
         func sidebarViewController(_ sidebarViewController: SidebarViewController, didFailWithError error: Error?) {
+            
+        }
+        
+        func sidebarViewControllerDidSelectNewBattle(_ sidebarViewController: SidebarViewController) {
             
         }
     }

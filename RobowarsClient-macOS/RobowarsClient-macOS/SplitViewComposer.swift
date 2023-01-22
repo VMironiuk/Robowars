@@ -28,7 +28,8 @@ struct SplitViewComposer {
     static func composedMainView() -> MainViewController {
         MainViewController(
             firstBattlefieldViewController: BattlefieldViewController(),
-            secondBattlefieldViewController: BattlefieldViewController()
+            secondBattlefieldViewController: BattlefieldViewController(),
+            finishedGamePopupViewController: FinishedGamePopupViewController()
         )
     }
 }

@@ -200,30 +200,30 @@ extension SidebarViewController: GameEngineDelegate {
         delegate?.sidebarViewController(self, didChangeSecondRobot: robot, withShips: ships)
     }
     
-    func gameEngine(_ gameEngine: GameEngineProtocol, firstRobotDidShootWithResult result: ShootResult) {
-        delegate?.sidebarViewController(self, firstRobotDidShootWithResult: result)
+    func gameEngine(_ gameEngine: GameEngineProtocol, firstRobot robot: RobotProtocol, didShootWithResult result: ShootResult) {
+        delegate?.sidebarViewController(self, firstRobot: robot, didShootWithResult: result)
     }
     
-    func gameEngine(_ gameEngine: GameEngineProtocol, secondRobotDidShootWithResult result: ShootResult) {
-        delegate?.sidebarViewController(self, secondRobotDidShootWithResult: result)
+    func gameEngine(_ gameEngine: GameEngineProtocol, secondRobot robot: RobotProtocol, didShootWithResult result: ShootResult) {
+        delegate?.sidebarViewController(self, secondRobot: robot, didShootWithResult: result)
     }
     
-    func gameEngine(_ gameEngine: GameEngineProtocol, firstRobotDidWinWithMessage message: String) {
+    func gameEngine(_ gameEngine: GameEngineProtocol, firstRobot robot: RobotProtocol, didWinWithMessage message: String) {
         state = .battleFinishedState
-        delegate?.sidebarViewController(self, firstRobotDidWinWithMessage: message)
+        delegate?.sidebarViewController(self, firstRobot: robot, didWinWithMessage: message)
     }
     
-    func gameEngine(_ gameEngine: GameEngineProtocol, secondRobotDidWinWithMessage message: String) {
+    func gameEngine(_ gameEngine: GameEngineProtocol, secondRobot robot: RobotProtocol, didWinWithMessage message: String) {
         state = .battleFinishedState
-        delegate?.sidebarViewController(self, secondRobotDidWinWithMessage: message)
+        delegate?.sidebarViewController(self, secondRobot: robot, didWinWithMessage: message)
     }
     
-    func gameEngine(_ gameEngine: GameEngineProtocol, firstRobotDidLoseWithMessage message: String) {
-        delegate?.sidebarViewController(self, firstRobotDidLoseWithMessage: message)
+    func gameEngine(_ gameEngine: GameEngineProtocol, firstRobot robot: RobotProtocol, didLoseWithMessage message: String) {
+        delegate?.sidebarViewController(self, firstRobot: robot, didLoseWithMessage: message)
     }
     
-    func gameEngine(_ gameEngine: GameEngineProtocol, secondRobotDidLoseWithMessage message: String) {
-        delegate?.sidebarViewController(self, secondRobotDidLoseWithMessage: message)
+    func gameEngine(_ gameEngine: GameEngineProtocol, secondRobot robot: RobotProtocol, didLoseWithMessage message: String) {
+        delegate?.sidebarViewController(self, secondRobot: robot, didLoseWithMessage: message)
     }
     
     func gameEngine(_ gameEngine: GameEngineProtocol, didChangeGameModeWithBattleFieldSize battlefieldSize: CGSize) {

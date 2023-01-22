@@ -17,7 +17,8 @@ final class MainViewControllerTests: XCTestCase {
         let secondBattlefieldVC = BattlefieldViewControllerSpy()
         _ = MainViewController(
             firstBattlefieldViewController: firstBattlefieldVC,
-            secondBattlefieldViewController: secondBattlefieldVC
+            secondBattlefieldViewController: secondBattlefieldVC,
+            finishedGamePopupViewController: FinishedGamePopupViewController()
         )
         
         // When
@@ -38,7 +39,8 @@ final class MainViewControllerTests: XCTestCase {
         let secondBattlefieldVC = BattlefieldViewControllerSpy()
         let sut = MainViewController(
             firstBattlefieldViewController: firstBattlefieldVC,
-            secondBattlefieldViewController: secondBattlefieldVC
+            secondBattlefieldViewController: secondBattlefieldVC,
+            finishedGamePopupViewController: FinishedGamePopupViewController()
         )
         _ = sut.view
         
@@ -73,7 +75,8 @@ final class MainViewControllerTests: XCTestCase {
         let secondBattlefieldVC = BattlefieldViewControllerSpy()
         let sut = MainViewController(
             firstBattlefieldViewController: firstBattlefieldVC,
-            secondBattlefieldViewController: secondBattlefieldVC
+            secondBattlefieldViewController: secondBattlefieldVC,
+            finishedGamePopupViewController: FinishedGamePopupViewController()
         )
         _ = sut.view
         

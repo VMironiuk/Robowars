@@ -20,6 +20,7 @@ final class MainViewController: NSViewController {
     
     private let firstBattlefieldViewController: BattlefieldViewControllerProtocol
     private let secondBattlefieldViewController: BattlefieldViewControllerProtocol
+    private let finishedGamePopupViewController: FinishedGamePopupViewController
     
     private var isErrorViewHidden: Bool = true {
         didSet {
@@ -36,10 +37,12 @@ final class MainViewController: NSViewController {
     
     init(
         firstBattlefieldViewController: BattlefieldViewControllerProtocol,
-        secondBattlefieldViewController: BattlefieldViewControllerProtocol
+        secondBattlefieldViewController: BattlefieldViewControllerProtocol,
+        finishedGamePopupViewController: FinishedGamePopupViewController
     ) {
         self.firstBattlefieldViewController = firstBattlefieldViewController
         self.secondBattlefieldViewController = secondBattlefieldViewController
+        self.finishedGamePopupViewController = finishedGamePopupViewController
         
         super.init(nibName: "MainView", bundle: nil)
     }
@@ -114,32 +117,58 @@ extension MainViewController: SidebarViewControllerDelegate {
         secondBattlefieldViewController.updateShips(ships)
     }
     
-    func sidebarViewController(_ sidebarViewController: SidebarViewController, firstRobotDidShootWithResult result: ShootResult) {
+    func sidebarViewController(
+        _ sidebarViewController: SidebarViewController,
+        firstRobot robot: RobotProtocol,
+        didShootWithResult result: ShootResult
+    ) {
         isErrorViewHidden = true
         firstBattlefieldViewController.updateTile(with: result.toTileState)
     }
     
-    func sidebarViewController(_ sidebarViewController: SidebarViewController, secondRobotDidShootWithResult result: ShootResult) {
+    func sidebarViewController(
+        _ sidebarViewController: SidebarViewController,
+        secondRobot robot: RobotProtocol,
+        didShootWithResult result: ShootResult
+    ) {
         isErrorViewHidden = true
         secondBattlefieldViewController.updateTile(with: result.toTileState)
     }
     
-    func sidebarViewController(_ sidebarViewController: SidebarViewController, firstRobotDidWinWithMessage message: String) {
+    func sidebarViewController(
+        _ sidebarViewController: SidebarViewController,
+        firstRobot robot: RobotProtocol,
+        didWinWithMessage message: String
+    ) {
         isErrorViewHidden = true
         firstRobotMessageLabel.stringValue = message
+        finishedGamePopupViewController.show(in: self, with: robot.name)
     }
     
-    func sidebarViewController(_ sidebarViewController: SidebarViewController, secondRobotDidWinWithMessage message: String) {
+    func sidebarViewController(
+        _ sidebarViewController: SidebarViewController,
+        secondRobot robot: RobotProtocol,
+        didWinWithMessage message: String
+    ) {
         isErrorViewHidden = true
         secondRobotMessageLabel.stringValue = message
+        finishedGamePopupViewController.show(in: self, with: robot.name)
     }
     
-    func sidebarViewController(_ sidebarViewController: SidebarViewController, firstRobotDidLoseWithMessage message: String) {
+    func sidebarViewController(
+        _ sidebarViewController: SidebarViewController,
+        firstRobot robot: RobotProtocol,
+        didLoseWithMessage message: String
+    ) {
         isErrorViewHidden = true
         firstRobotMessageLabel.stringValue = message
     }
     
-    func sidebarViewController(_ sidebarViewController: SidebarViewController, secondRobotDidLoseWithMessage message: String) {
+    func sidebarViewController(
+        _ sidebarViewController: SidebarViewController,
+        secondRobot robot: RobotProtocol,
+        didLoseWithMessage message: String
+    ) {
         isErrorViewHidden = true
         secondRobotMessageLabel.stringValue = message
     }
@@ -158,6 +187,7 @@ extension MainViewController: SidebarViewControllerDelegate {
         isErrorViewHidden = true
         firstRobotMessageLabel.stringValue = ""
         secondRobotMessageLabel.stringValue = ""
+        finishedGamePopupViewController.hide()
     }
 }
 
