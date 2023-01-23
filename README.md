@@ -67,13 +67,19 @@ Desktop macOS client for the Robowars game
       [✅] When a user changes game mode or a robot befrore start a battle, battlefields should update
       [✅] Show winner popup.
 
-🟡 - Support light mode
+🟢 - Support light mode
 
-      [-] Support light mode
+      [✅] Support light mode
+
+🟡 - Add more game modes
+
+      [-] Middleweight
+      [-] Heavyweight
+      [-] Super Heavyweight
       
-🟡 - Implement a dummy robot
+🟡 - Implement a dummy robot (Randomator)
 
-      [-] Implement random  shooting
+      [-] Implement random shooting
       [-] Implement ships placing
 
 ## BDD Specs
