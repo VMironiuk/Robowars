@@ -71,11 +71,11 @@ Desktop macOS client for the Robowars game
 
       [✅] Support light mode
 
-🟡 - Add more game modes
+🟢 - Add more game modes
 
-      [-] Middleweight
-      [-] Heavyweight
-      [-] Super Heavyweight
+      [✅] Middleweight
+      [✅] Heavyweight
+      [✅] Super Heavyweight
       
 🟡 - Implement a dummy robot (Randomator)
 
