@@ -7,14 +7,21 @@
 
 import Foundation
 
-public enum GameMode {
+public enum GameMode: CaseIterable {
     case classic
     case flyweight
+    case middleweight
+    case heavyweight
+    case superHeavyweight
     
     public var battlefieldSize: CGSize {
         switch self {
-        case .classic, .flyweight:
+        case .classic, .flyweight, .middleweight:
             return CGSize(width: 10, height: 10)
+        case .heavyweight:
+            return CGSize(width: 20, height: 20)
+        case .superHeavyweight:
+            return CGSize(width: 30, height: 30)
         }
     }
     
@@ -46,6 +53,41 @@ public enum GameMode {
                 CGSize(width: 1, height: 1),
                 CGSize(width: 1, height: 1),
             ]
+        case .middleweight:
+            return [
+                CGSize(width: 3, height: 2),
+                CGSize(width: 3, height: 2),
+                CGSize(width: 3, height: 2),
+                CGSize(width: 3, height: 2),
+                CGSize(width: 3, height: 2),
+                CGSize(width: 3, height: 2),
+            ]
+        case .heavyweight:
+            return [
+                CGSize(width: 4, height: 3),
+                CGSize(width: 4, height: 3),
+                CGSize(width: 4, height: 3),
+                CGSize(width: 4, height: 3),
+                CGSize(width: 4, height: 3),
+                CGSize(width: 4, height: 3),
+                CGSize(width: 4, height: 3),
+                CGSize(width: 4, height: 3),
+                CGSize(width: 4, height: 3),
+                CGSize(width: 4, height: 3),
+            ]
+        case .superHeavyweight:
+            return [
+                CGSize(width: 6, height: 5),
+                CGSize(width: 6, height: 5),
+                CGSize(width: 6, height: 5),
+                CGSize(width: 6, height: 5),
+                CGSize(width: 6, height: 5),
+                CGSize(width: 6, height: 5),
+                CGSize(width: 6, height: 5),
+                CGSize(width: 6, height: 5),
+                CGSize(width: 6, height: 5),
+                CGSize(width: 6, height: 5),
+            ]
         }
     }
     
@@ -55,6 +97,12 @@ public enum GameMode {
             return "Classic"
         case .flyweight:
             return "Flyweight"
+        case .middleweight:
+            return "Middleweight"
+        case .heavyweight:
+            return "Heavyweight"
+        case .superHeavyweight:
+            return "Super Heavyweight"
         }
     }
 }
