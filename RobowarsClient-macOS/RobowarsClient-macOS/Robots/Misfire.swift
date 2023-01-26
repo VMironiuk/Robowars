@@ -42,7 +42,7 @@ final class Misfire: RobotProtocol {
         refreshShoots()
     }
     
-    func set(battlefieldSize: CGSize, shipSizes: [CGSize]) {
+    func update(for gameMode: GameMode) {
         refreshShoots()
     }
     

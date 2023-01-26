@@ -69,8 +69,8 @@ final class GameEngine: GameEngineProtocol {
             fatalError("Robot cannot be nil")
         }
         
-        firstRobot.set(battlefieldSize: gameMode.battlefieldSize, shipSizes: gameMode.shipSizes)
-        secondRobot.set(battlefieldSize: gameMode.battlefieldSize, shipSizes: gameMode.shipSizes)
+        firstRobot.update(for: gameMode)
+        secondRobot.update(for: gameMode)
         
         update(firstRobot: firstRobot)
         update(secondRobot: secondRobot)
