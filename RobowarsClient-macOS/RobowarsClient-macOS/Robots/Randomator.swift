@@ -106,8 +106,18 @@ class Randomator: RobotProtocol {
     }
     
     private func heavyweightGameModeShips() -> [CGRect] {
-        // TODO: add implementation
-        []
+        [
+            CGRect(x: 0, y: 0, width: 4, height: 3),
+            CGRect(x: 17, y: 0, width: 3, height: 4),
+            CGRect(x: 13, y: 1, width: 3, height: 4),
+            CGRect(x: 16, y: 10, width: 4, height: 3),
+            CGRect(x: 15, y: 15, width: 3, height: 4),
+            CGRect(x: 11, y: 8, width: 3, height: 4),
+            CGRect(x: 2, y: 6, width: 3, height: 4),
+            CGRect(x: 7, y: 13, width: 4, height: 3),
+            CGRect(x: 1, y: 16, width: 3, height: 4),
+            CGRect(x: 6, y: 3, width: 4, height: 3)
+        ]
     }
     
     private func superHeavyweightGameModeShips() -> [CGRect] {
