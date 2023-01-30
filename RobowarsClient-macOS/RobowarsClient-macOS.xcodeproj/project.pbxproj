@@ -36,6 +36,7 @@
 		2EA45E84290FA96500305290 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EA45E83290FA96500305290 /* MainView.xib */; };
 		2EA5838C28F00555006E7BB3 /* Robowars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA5838B28F00555006E7BB3 /* Robowars.framework */; };
 		2EA5838D28F00555006E7BB3 /* Robowars.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA5838B28F00555006E7BB3 /* Robowars.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2EB0628D29882D37008003A9 /* RandomatorShipsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB0628C29882D37008003A9 /* RandomatorShipsProvider.swift */; };
 		2EB8785D291E007B0085A638 /* SplitViewComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB8785C291E007B0085A638 /* SplitViewComposer.swift */; };
 		2EDA0AD128F7DF290020105F /* SidebarViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA0AD028F7DF290020105F /* SidebarViewControllerTests.swift */; };
 		2EDA0AD328F7DFD80020105F /* SidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA0AD228F7DFD80020105F /* SidebarViewController.swift */; };
@@ -100,6 +101,7 @@
 		2E92B04E2907A5C5008DB932 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		2EA45E83290FA96500305290 /* MainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
 		2EA5838B28F00555006E7BB3 /* Robowars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Robowars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EB0628C29882D37008003A9 /* RandomatorShipsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomatorShipsProvider.swift; sourceTree = "<group>"; };
 		2EB8785C291E007B0085A638 /* SplitViewComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewComposer.swift; sourceTree = "<group>"; };
 		2EDA0AD028F7DF290020105F /* SidebarViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewControllerTests.swift; sourceTree = "<group>"; };
 		2EDA0AD228F7DFD80020105F /* SidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewController.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			children = (
 				2E6EC715291FDF1100DA44DF /* Misfire.swift */,
 				2E1FF44B2981B24300EDF781 /* Randomator.swift */,
+				2EB0628C29882D37008003A9 /* RandomatorShipsProvider.swift */,
 			);
 			path = Robots;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				2E88F9772913A24300227CCB /* BattlefieldViewController.swift in Sources */,
 				2EB8785D291E007B0085A638 /* SplitViewComposer.swift in Sources */,
 				2E02ED78290BB17E00E7ED31 /* BattlefieldViewControllerProtocol.swift in Sources */,
+				2EB0628D29882D37008003A9 /* RandomatorShipsProvider.swift in Sources */,
 				2E89CC3A297D4E4400DB7C37 /* FinishedGamePopupViewController.swift in Sources */,
 				2EDA0AD328F7DFD80020105F /* SidebarViewController.swift in Sources */,
 				2E8272A228F40290006FDAD6 /* ChooseGameModeViewController.swift in Sources */,
