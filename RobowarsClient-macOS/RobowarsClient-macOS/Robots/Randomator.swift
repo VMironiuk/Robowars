@@ -13,6 +13,8 @@ class Randomator: RobotProtocol {
     
     private var battlefieldSize: CGSize = .zero
     
+    private var shoots: [CGPoint] = []
+    
     private(set) var ships: [CGRect] = []
     
     var name: String {
@@ -34,11 +36,13 @@ class Randomator: RobotProtocol {
     func update(for gameMode: GameMode) {
         self.battlefieldSize = gameMode.battlefieldSize
         updateShips(for: gameMode)
+        refreshShoots()
     }
     
     func shoot() -> CGPoint {
         // TODO: add implementation
-        .zero
+        let randomIndex = Int.random(in: .zero..<shoots.count)
+        return shoots.remove(at: randomIndex)
     }
     
     func shootResult(_ result: ShootResult) {
@@ -47,5 +51,15 @@ class Randomator: RobotProtocol {
     
     private func updateShips(for gameMode: GameMode) {
         ships = RandomatorShipsProvider.makeShips(for: gameMode)
-    }    
+    }
+    
+    private func refreshShoots() {
+        shoots = []
+        
+        for y in .zero..<Int(battlefieldSize.height) {
+            for x in .zero..<Int(battlefieldSize.width) {
+                shoots.append(CGPoint(x: x, y: y))
+            }
+        }
+    }
 }
