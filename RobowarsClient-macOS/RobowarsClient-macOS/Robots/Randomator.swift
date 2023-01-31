@@ -40,14 +40,11 @@ class Randomator: RobotProtocol {
     }
     
     func shoot() -> CGPoint {
-        // TODO: add implementation
         let randomIndex = Int.random(in: .zero..<shoots.count)
         return shoots.remove(at: randomIndex)
     }
     
-    func shootResult(_ result: ShootResult) {
-        // TODO: add implementation
-    }
+    func shootResult(_ result: ShootResult) {}
     
     private func updateShips(for gameMode: GameMode) {
         ships = RandomatorShipsProvider.makeShips(for: gameMode)
