@@ -22,11 +22,11 @@ class Randomator: RobotProtocol {
     }
     
     var winnerMessage: String {
-        "TODO: add a winner message"
+        "Hasta la vista, baby"
     }
     
     var loserMessage: String {
-        "TODO: add a loser message"
+        "I'll be back"
     }
     
     init(model: String) {
