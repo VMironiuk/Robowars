@@ -177,7 +177,7 @@ final class MainViewControllerTests: XCTestCase {
             ""
         }
         
-        func set(battlefieldSize: CGSize, shipSizes: [CGSize]) {
+        func update(for gameMode: GameMode) {
         }
         
         func shoot() -> CGPoint {
