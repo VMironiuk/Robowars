@@ -77,10 +77,10 @@ Desktop macOS client for the Robowars game
       [✅] Heavyweight
       [✅] Super Heavyweight
       
-🟡 - Implement a dummy robot (Randomator)
+🟢 - Implement a dummy robot (Randomator)
 
-      [-] Implement random shooting
-      [-] Implement ships placing
+      [✅] Implement random shooting
+      [✅] Implement ships placing
 
 ## BDD Specs
 
