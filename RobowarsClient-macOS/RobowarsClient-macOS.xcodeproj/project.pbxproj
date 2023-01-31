@@ -23,7 +23,6 @@
 		2E1C625B28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C625A28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift */; };
 		2E1FF44C2981B24300EDF781 /* Randomator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FF44B2981B24300EDF781 /* Randomator.swift */; };
 		2E31DB0529169E4B00B53DDB /* BattlefieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E31DB0429169E4B00B53DDB /* BattlefieldView.xib */; };
-		2E6EC716291FDF1100DA44DF /* Misfire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6EC715291FDF1100DA44DF /* Misfire.swift */; };
 		2E78A5E9296DDBD3007DC734 /* ChooseGameSpeedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E78A5E8296DDBD3007DC734 /* ChooseGameSpeedView.xib */; };
 		2E8272A228F40290006FDAD6 /* ChooseGameModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8272A128F40290006FDAD6 /* ChooseGameModeViewController.swift */; };
 		2E8272A428F40313006FDAD6 /* ChooseGameModeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8272A328F40313006FDAD6 /* ChooseGameModeView.xib */; };
@@ -89,7 +88,6 @@
 		2E1C625A28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		2E1FF44B2981B24300EDF781 /* Randomator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Randomator.swift; sourceTree = "<group>"; };
 		2E31DB0429169E4B00B53DDB /* BattlefieldView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BattlefieldView.xib; sourceTree = "<group>"; };
-		2E6EC715291FDF1100DA44DF /* Misfire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Misfire.swift; sourceTree = "<group>"; };
 		2E78A5E8296DDBD3007DC734 /* ChooseGameSpeedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseGameSpeedView.xib; sourceTree = "<group>"; };
 		2E8272A128F40290006FDAD6 /* ChooseGameModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGameModeViewController.swift; sourceTree = "<group>"; };
 		2E8272A328F40313006FDAD6 /* ChooseGameModeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseGameModeView.xib; sourceTree = "<group>"; };
@@ -217,7 +215,6 @@
 		2E6EC717291FE43A00DA44DF /* Robots */ = {
 			isa = PBXGroup;
 			children = (
-				2E6EC715291FDF1100DA44DF /* Misfire.swift */,
 				2E1FF44B2981B24300EDF781 /* Randomator.swift */,
 				2EB0628C29882D37008003A9 /* RandomatorShipsProvider.swift */,
 			);
@@ -406,7 +403,6 @@
 				2EDA0AD328F7DFD80020105F /* SidebarViewController.swift in Sources */,
 				2E8272A228F40290006FDAD6 /* ChooseGameModeViewController.swift in Sources */,
 				2E02ED75290BB0B800E7ED31 /* MainViewController.swift in Sources */,
-				2E6EC716291FDF1100DA44DF /* Misfire.swift in Sources */,
 				2E11D8E828ED5C34003CC71B /* ChooseRobotsViewController.swift in Sources */,
 				2E11D8BB28ED594F003CC71B /* AppDelegate.swift in Sources */,
 				2E88F97B2913A2F500227CCB /* TileView.swift in Sources */,
