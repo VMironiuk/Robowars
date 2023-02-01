@@ -51,7 +51,7 @@
                         </textField>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="d2s-VX-u8q">
                             <rect key="frame" x="18" y="108" width="464" height="59"/>
-                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Starscream" id="4n7-pH-sd0">
+                            <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="center" title="Starscream" id="4n7-pH-sd0">
                                 <font key="font" metaFont="systemBlack" size="50"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
