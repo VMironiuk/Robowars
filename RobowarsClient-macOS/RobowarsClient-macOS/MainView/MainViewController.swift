@@ -123,7 +123,7 @@ extension MainViewController: SidebarViewControllerDelegate {
         didShootWithResult result: ShootResult
     ) {
         isErrorViewHidden = true
-        firstBattlefieldViewController.updateTile(with: result.toTileState)
+        secondBattlefieldViewController.updateTile(with: result.toTileState)
     }
     
     func sidebarViewController(
@@ -132,7 +132,7 @@ extension MainViewController: SidebarViewControllerDelegate {
         didShootWithResult result: ShootResult
     ) {
         isErrorViewHidden = true
-        secondBattlefieldViewController.updateTile(with: result.toTileState)
+        firstBattlefieldViewController.updateTile(with: result.toTileState)
     }
     
     func sidebarViewController(
