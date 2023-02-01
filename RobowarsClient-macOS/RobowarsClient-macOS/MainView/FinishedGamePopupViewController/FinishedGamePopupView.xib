@@ -24,10 +24,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="784" height="464"/>
                 </customView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="Kit-EH-DVh">
-                    <rect key="frame" x="142" y="95" width="500" height="275"/>
+                    <rect key="frame" x="42" y="95" width="700" height="275"/>
                     <subviews>
                         <button translatesAutoresizingMaskIntoConstraints="NO" id="Ua9-c5-ZYa">
-                            <rect key="frame" x="472" y="244" width="24" height="30"/>
+                            <rect key="frame" x="672" y="244" width="24" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="24" id="WiW-xy-yhk"/>
                                 <constraint firstAttribute="height" constant="24" id="zSG-tU-fbB"/>
@@ -42,7 +42,7 @@
                             </connections>
                         </button>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9GV-PL-sLl">
-                            <rect key="frame" x="18" y="207" width="464" height="28"/>
+                            <rect key="frame" x="18" y="207" width="664" height="28"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="WINNER" id="Hkr-UB-sbH">
                                 <font key="font" metaFont="systemSemibold" size="24"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -50,8 +50,8 @@
                             </textFieldCell>
                         </textField>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="d2s-VX-u8q">
-                            <rect key="frame" x="18" y="108" width="464" height="59"/>
-                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Starscream" id="4n7-pH-sd0">
+                            <rect key="frame" x="18" y="108" width="664" height="59"/>
+                            <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="center" title="Starscream" id="4n7-pH-sd0">
                                 <font key="font" metaFont="systemBlack" size="50"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -59,7 +59,7 @@
                         </textField>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="width" constant="500" id="ACI-TX-1s7"/>
+                        <constraint firstAttribute="width" constant="700" id="ACI-TX-1s7"/>
                         <constraint firstItem="d2s-VX-u8q" firstAttribute="leading" secondItem="Kit-EH-DVh" secondAttribute="leading" constant="20" symbolic="YES" id="ChF-Ge-twL"/>
                         <constraint firstAttribute="height" constant="275" id="Dir-ws-mtL"/>
                         <constraint firstItem="9GV-PL-sLl" firstAttribute="leading" secondItem="Kit-EH-DVh" secondAttribute="leading" constant="20" symbolic="YES" id="Kgq-Bh-eCd"/>
