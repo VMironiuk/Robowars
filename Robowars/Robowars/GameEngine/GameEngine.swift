@@ -16,6 +16,7 @@ final class GameEngine: GameEngineProtocol {
     private var shootingTimer: Timer?
     private var shootingRobot: RobotProtocol?
     private var gameSpeed: GameSpeed?
+    private var gameMode: GameMode?
     
     weak var delegate: GameEngineDelegate?
 
@@ -45,6 +46,9 @@ final class GameEngine: GameEngineProtocol {
         
     func update(firstRobot robot: RobotProtocol) {
         firstRobot = robot
+        if let gameMode = gameMode {
+            firstRobot?.update(for: gameMode)
+        }
         delegate?.gameEngine(self, didChangeFirstRobot: robot, withShips: robot.ships)
         firstRobotShipsPoints = shipsPoints(from: robot.ships)
         if !shipsValidator.isValid(ships: robot.ships) {
@@ -54,6 +58,9 @@ final class GameEngine: GameEngineProtocol {
     
     func update(secondRobot robot: RobotProtocol) {
         secondRobot = robot
+        if let gameMode = gameMode {
+            secondRobot?.update(for: gameMode)
+        }
         delegate?.gameEngine(self, didChangeSecondRobot: robot, withShips: robot.ships)
         secondRobotShipsPoints = shipsPoints(from: robot.ships)
         if !shipsValidator.isValid(ships: robot.ships) {
@@ -62,6 +69,7 @@ final class GameEngine: GameEngineProtocol {
     }
     
     func update(gameMode: GameMode) {
+        self.gameMode = gameMode
         shipsValidator.update(gameMode: gameMode)
         delegate?.gameEngine(self, didChangeGameModeWithBattleFieldSize: gameMode.battlefieldSize)
         
