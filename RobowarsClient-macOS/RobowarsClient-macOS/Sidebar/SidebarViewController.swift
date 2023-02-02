@@ -140,8 +140,8 @@ class SidebarViewController: NSViewController {
     }
     
     @IBAction func startButtonAction(_ sender: NSButton) {
-        gameEngine.start()
         state = .battleInProgressState
+        gameEngine.start()
     }
     
     @IBAction func newBattleButtonAction(_ sender: NSButton) {
