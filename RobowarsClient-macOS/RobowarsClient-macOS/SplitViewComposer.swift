@@ -12,13 +12,14 @@ struct SplitViewComposer {
     static private let gameModes = GameMode.allCases
     static private let gameSpeeds = GameSpeed.allCases
     static private let gameEngine = GameEngineFactory.defaultGameEngine(with: gameModes.first!)
-    static private let robots = [Randomator(model: "R700"), Randomator(model: "R1000")]
+    static private let firstRobots = [Randomator(model: "R700"), Randomator(model: "R1000")]
+    static private let secondRobots = [Randomator(model: "R700"), Randomator(model: "R1000")]
     
     private init() {}
     
     static func composedSideBar(withDelegate delegate: SidebarViewControllerDelegate) ->  SidebarViewController {
         SidebarViewController(
-            chooseRobotsViewController: ChooseRobotsViewController(firstRobots: robots, secondRobots: robots),
+            chooseRobotsViewController: ChooseRobotsViewController(firstRobots: firstRobots, secondRobots: secondRobots),
             chooseGameModeViewController: ChooseGameModeViewController(gameModes: gameModes),
             chooseGameSpeedViewController: ChooseGameSpeedViewController(gameSpeeds: gameSpeeds),
             gameEngine: gameEngine,
