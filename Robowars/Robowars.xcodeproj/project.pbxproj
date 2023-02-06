@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E4D0C2B2894EFBA002027B5 /* GameEngineDelegatingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4D0C2A2894EFBA002027B5 /* GameEngineDelegatingTests.swift */; };
+		2E52208E29917DDC009AABAC /* GameSpeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E52208D29917DDC009AABAC /* GameSpeed.swift */; };
 		2E7602052882C7BA00F45FD0 /* GameEngineStartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7602042882C7BA00F45FD0 /* GameEngineStartTests.swift */; };
 		2E7982A228A62BB600F10D91 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7982A128A62BB600F10D91 /* XCTestCase+MemoryLeakTracking.swift */; };
 		2E964E6228A776030054C6BD /* GameEngineDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E964E6128A776030054C6BD /* GameEngineDelegateSpy.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		2E4D0C2A2894EFBA002027B5 /* GameEngineDelegatingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngineDelegatingTests.swift; sourceTree = "<group>"; };
+		2E52208D29917DDC009AABAC /* GameSpeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSpeed.swift; sourceTree = "<group>"; };
 		2E7602042882C7BA00F45FD0 /* GameEngineStartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngineStartTests.swift; sourceTree = "<group>"; };
 		2E7982A128A62BB600F10D91 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		2E964E6128A776030054C6BD /* GameEngineDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngineDelegateSpy.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				2E964E6628A780EA0054C6BD /* GameEngineProtocol.swift */,
 				3C0649F42842315C0039710D /* RobotProtocol.swift */,
 				3C0649F6284231A70039710D /* GameMode.swift */,
+				2E52208D29917DDC009AABAC /* GameSpeed.swift */,
 				2E964E6328A7807B0054C6BD /* GameEngine */,
 				2E964E6828A781720054C6BD /* ShipsValidator */,
 			);
@@ -261,6 +264,7 @@
 				3CB69C62285B9AF700AD21F3 /* ShipsValidatorProtocol.swift in Sources */,
 				2E964E6728A780EA0054C6BD /* GameEngineProtocol.swift in Sources */,
 				3C0649F7284231A70039710D /* GameMode.swift in Sources */,
+				2E52208E29917DDC009AABAC /* GameSpeed.swift in Sources */,
 				3C0649F9284231F20039710D /* GameEngine.swift in Sources */,
 				3C0649F52842315C0039710D /* RobotProtocol.swift in Sources */,
 			);
