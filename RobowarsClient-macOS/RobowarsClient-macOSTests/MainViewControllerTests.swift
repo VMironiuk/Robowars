@@ -99,11 +99,11 @@ final class MainViewControllerTests: XCTestCase {
         // Then
         XCTAssertEqual(firstBattlefieldVC.updateBattlefieldSizeCallCount, 1)
         XCTAssertEqual(firstBattlefieldVC.updateShipsCallCount, 2)
-        XCTAssertEqual(firstBattlefieldVC.updateTileCallCount, 105)
+        XCTAssertEqual(firstBattlefieldVC.updateTileCallCount, 103)
 
         XCTAssertEqual(secondBattlefieldVC.updateBattlefieldSizeCallCount, 1)
         XCTAssertEqual(secondBattlefieldVC.updateShipsCallCount, 2)
-        XCTAssertEqual(secondBattlefieldVC.updateTileCallCount, 103)
+        XCTAssertEqual(secondBattlefieldVC.updateTileCallCount, 105)
     }
     
     // MARK: - Helpers
