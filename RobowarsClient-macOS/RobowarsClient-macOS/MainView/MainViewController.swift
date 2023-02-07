@@ -20,7 +20,7 @@ final class MainViewController: NSViewController {
     
     private let firstBattlefieldViewController: BattlefieldViewControllerProtocol
     private let secondBattlefieldViewController: BattlefieldViewControllerProtocol
-    private let finishedGamePopupViewController: FinishedGamePopupViewController
+    private let finishedGamePopupViewController: FinishedGamePopupViewControllerProtocol
     
     private var isErrorViewHidden: Bool = true {
         didSet {
@@ -38,7 +38,7 @@ final class MainViewController: NSViewController {
     init(
         firstBattlefieldViewController: BattlefieldViewControllerProtocol,
         secondBattlefieldViewController: BattlefieldViewControllerProtocol,
-        finishedGamePopupViewController: FinishedGamePopupViewController
+        finishedGamePopupViewController: FinishedGamePopupViewControllerProtocol
     ) {
         self.firstBattlefieldViewController = firstBattlefieldViewController
         self.secondBattlefieldViewController = secondBattlefieldViewController

@@ -31,6 +31,25 @@ class FinishedGamePopupViewController: NSViewController {
         setupBackgroundView()
         setupPopupView()
     }
+        
+    private func setupBackgroundView() {
+        backgroundView.wantsLayer = true
+        backgroundView.layer?.backgroundColor = .black
+        backgroundView.alphaValue = 0.5
+    }
+    
+    private func setupPopupView() {
+        popupView.wantsLayer = true
+        popupView.layer?.backgroundColor = NSColor.windowBackgroundColor.cgColor
+        popupView.layer?.cornerRadius = 10
+    }
+    
+    @IBAction func closeButtonAction(_ sender: NSButton) {
+        hide()
+    }
+}
+
+extension FinishedGamePopupViewController: FinishedGamePopupViewControllerProtocol {
     
     func show(in parentViewController: NSViewController, with winnerName: String) {
         view.alphaValue = 0.0
@@ -60,21 +79,5 @@ class FinishedGamePopupViewController: NSViewController {
             self?.removeFromParent()
             self?.view.removeFromSuperview()
         }
-    }
-    
-    private func setupBackgroundView() {
-        backgroundView.wantsLayer = true
-        backgroundView.layer?.backgroundColor = .black
-        backgroundView.alphaValue = 0.5
-    }
-    
-    private func setupPopupView() {
-        popupView.wantsLayer = true
-        popupView.layer?.backgroundColor = NSColor.windowBackgroundColor.cgColor
-        popupView.layer?.cornerRadius = 10
-    }
-    
-    @IBAction func closeButtonAction(_ sender: NSButton) {
-        hide()
     }
 }
