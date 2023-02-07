@@ -62,27 +62,20 @@ final class MainViewController: NSViewController {
     }
     
     private func setupBattlefieldViews() {
-        let firstBattlefieldView = firstBattlefieldViewController.view
-        let secondBattlefieldView = secondBattlefieldViewController.view
+        setupBattlefieldView(firstBattlefieldViewController.view, in: firstBattlefieldPlaceholderView)
+        setupBattlefieldView(secondBattlefieldViewController.view, in: secondBattlefieldPlaceholderView)
+    }
+    
+    private func setupBattlefieldView(_ battlefieldView: NSView, in placeholderView: NSView) {
+        placeholderView.addSubview(battlefieldView)
         
-        firstBattlefieldPlaceholderView.addSubview(firstBattlefieldView)
-        secondBattlefieldPlaceholderView.addSubview(secondBattlefieldView)
-        
-        firstBattlefieldView.translatesAutoresizingMaskIntoConstraints = false
-        secondBattlefieldView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            firstBattlefieldView.topAnchor.constraint(equalTo: firstBattlefieldPlaceholderView.topAnchor),
-            firstBattlefieldView.bottomAnchor.constraint(equalTo: firstBattlefieldPlaceholderView.bottomAnchor),
-            firstBattlefieldView.leadingAnchor.constraint(equalTo: firstBattlefieldPlaceholderView.leadingAnchor),
-            firstBattlefieldView.trailingAnchor.constraint(equalTo: firstBattlefieldPlaceholderView.trailingAnchor)
-        ])
+        battlefieldView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            secondBattlefieldView.topAnchor.constraint(equalTo: secondBattlefieldPlaceholderView.topAnchor),
-            secondBattlefieldView.bottomAnchor.constraint(equalTo: secondBattlefieldPlaceholderView.bottomAnchor),
-            secondBattlefieldView.leadingAnchor.constraint(equalTo: secondBattlefieldPlaceholderView.leadingAnchor),
-            secondBattlefieldView.trailingAnchor.constraint(equalTo: secondBattlefieldPlaceholderView.trailingAnchor)
+            battlefieldView.topAnchor.constraint(equalTo: placeholderView.topAnchor),
+            battlefieldView.bottomAnchor.constraint(equalTo: placeholderView.bottomAnchor),
+            battlefieldView.leadingAnchor.constraint(equalTo: placeholderView.leadingAnchor),
+            battlefieldView.trailingAnchor.constraint(equalTo: placeholderView.trailingAnchor)
         ])
     }
     
