@@ -130,6 +130,7 @@
 		2E02ED76290BB16400E7ED31 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				2E02ED77290BB17E00E7ED31 /* BattlefieldViewControllerProtocol.swift */,
 				2E02ED74290BB0B800E7ED31 /* MainViewController.swift */,
 				2EA45E83290FA96500305290 /* MainView.xib */,
 				2E88F9752913A1FD00227CCB /* BattlefieldViewController */,
@@ -224,7 +225,6 @@
 		2E88F9752913A1FD00227CCB /* BattlefieldViewController */ = {
 			isa = PBXGroup;
 			children = (
-				2E02ED77290BB17E00E7ED31 /* BattlefieldViewControllerProtocol.swift */,
 				2E88F9762913A24300227CCB /* BattlefieldViewController.swift */,
 				2E88F9782913A2C400227CCB /* BattlefieldView.swift */,
 				2E31DB0429169E4B00B53DDB /* BattlefieldView.xib */,
