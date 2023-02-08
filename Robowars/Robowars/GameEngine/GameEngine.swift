@@ -8,6 +8,7 @@
 import Foundation
 
 final class GameEngine: GameEngineProtocol {
+    
     private let shipsValidator: ShipsValidatorProtocol
     private var firstRobot: RobotProtocol?
     private var secondRobot: RobotProtocol?
