@@ -225,8 +225,7 @@
 		2E6EC717291FE43A00DA44DF /* Robots */ = {
 			isa = PBXGroup;
 			children = (
-				2E1FF44B2981B24300EDF781 /* Randomator.swift */,
-				2EB0628C29882D37008003A9 /* RandomatorShipsProvider.swift */,
+				2EB8EEC829940A4000632AA1 /* Randomator */,
 			);
 			path = Robots;
 			sourceTree = "<group>";
@@ -282,6 +281,15 @@
 				2E03AF39296DDB8A0011D8F2 /* ChooseGameSpeed */,
 			);
 			path = Sidebar;
+			sourceTree = "<group>";
+		};
+		2EB8EEC829940A4000632AA1 /* Randomator */ = {
+			isa = PBXGroup;
+			children = (
+				2E1FF44B2981B24300EDF781 /* Randomator.swift */,
+				2EB0628C29882D37008003A9 /* RandomatorShipsProvider.swift */,
+			);
+			path = Randomator;
 			sourceTree = "<group>";
 		};
 		2EBB85E12903C76000564B50 /* SIdebar */ = {
