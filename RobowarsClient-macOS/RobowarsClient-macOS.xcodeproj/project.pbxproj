@@ -23,6 +23,7 @@
 		2E1C625B28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C625A28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift */; };
 		2E1FF44C2981B24300EDF781 /* Randomator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1FF44B2981B24300EDF781 /* Randomator.swift */; };
 		2E26D2922992B930001F141E /* FinishedGamePopupViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E26D2912992B930001F141E /* FinishedGamePopupViewControllerProtocol.swift */; };
+		2E26D2942992BFCA001F141E /* ChooseRobotsViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E26D2932992BFCA001F141E /* ChooseRobotsViewControllerProtocol.swift */; };
 		2E31DB0529169E4B00B53DDB /* BattlefieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E31DB0429169E4B00B53DDB /* BattlefieldView.xib */; };
 		2E78A5E9296DDBD3007DC734 /* ChooseGameSpeedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E78A5E8296DDBD3007DC734 /* ChooseGameSpeedView.xib */; };
 		2E8272A228F40290006FDAD6 /* ChooseGameModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8272A128F40290006FDAD6 /* ChooseGameModeViewController.swift */; };
@@ -38,6 +39,8 @@
 		2EA5838D28F00555006E7BB3 /* Robowars.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA5838B28F00555006E7BB3 /* Robowars.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2EB0628D29882D37008003A9 /* RandomatorShipsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB0628C29882D37008003A9 /* RandomatorShipsProvider.swift */; };
 		2EB8785D291E007B0085A638 /* SplitViewComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB8785C291E007B0085A638 /* SplitViewComposer.swift */; };
+		2EB8EEC5299405DD00632AA1 /* ChooseGameModeViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB8EEC4299405DD00632AA1 /* ChooseGameModeViewControllerProtocol.swift */; };
+		2EB8EEC7299407E500632AA1 /* ChooseGameSpeedViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB8EEC6299407E500632AA1 /* ChooseGameSpeedViewControllerProtocol.swift */; };
 		2EDA0AD128F7DF290020105F /* SidebarViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA0AD028F7DF290020105F /* SidebarViewControllerTests.swift */; };
 		2EDA0AD328F7DFD80020105F /* SidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDA0AD228F7DFD80020105F /* SidebarViewController.swift */; };
 		2EDA0AD528F7DFF90020105F /* SidebarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EDA0AD428F7DFF90020105F /* SidebarView.xib */; };
@@ -89,6 +92,7 @@
 		2E1C625A28F91BBB00A75618 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		2E1FF44B2981B24300EDF781 /* Randomator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Randomator.swift; sourceTree = "<group>"; };
 		2E26D2912992B930001F141E /* FinishedGamePopupViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedGamePopupViewControllerProtocol.swift; sourceTree = "<group>"; };
+		2E26D2932992BFCA001F141E /* ChooseRobotsViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRobotsViewControllerProtocol.swift; sourceTree = "<group>"; };
 		2E31DB0429169E4B00B53DDB /* BattlefieldView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BattlefieldView.xib; sourceTree = "<group>"; };
 		2E78A5E8296DDBD3007DC734 /* ChooseGameSpeedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseGameSpeedView.xib; sourceTree = "<group>"; };
 		2E8272A128F40290006FDAD6 /* ChooseGameModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGameModeViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 		2EA5838B28F00555006E7BB3 /* Robowars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Robowars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EB0628C29882D37008003A9 /* RandomatorShipsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomatorShipsProvider.swift; sourceTree = "<group>"; };
 		2EB8785C291E007B0085A638 /* SplitViewComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewComposer.swift; sourceTree = "<group>"; };
+		2EB8EEC4299405DD00632AA1 /* ChooseGameModeViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGameModeViewControllerProtocol.swift; sourceTree = "<group>"; };
+		2EB8EEC6299407E500632AA1 /* ChooseGameSpeedViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGameSpeedViewControllerProtocol.swift; sourceTree = "<group>"; };
 		2EDA0AD028F7DF290020105F /* SidebarViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewControllerTests.swift; sourceTree = "<group>"; };
 		2EDA0AD228F7DFD80020105F /* SidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewController.swift; sourceTree = "<group>"; };
 		2EDA0AD428F7DFF90020105F /* SidebarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SidebarView.xib; sourceTree = "<group>"; };
@@ -265,6 +271,9 @@
 		2EAA141F28FA6F75004894B1 /* Sidebar */ = {
 			isa = PBXGroup;
 			children = (
+				2E26D2932992BFCA001F141E /* ChooseRobotsViewControllerProtocol.swift */,
+				2EB8EEC4299405DD00632AA1 /* ChooseGameModeViewControllerProtocol.swift */,
+				2EB8EEC6299407E500632AA1 /* ChooseGameSpeedViewControllerProtocol.swift */,
 				2E101AED297B0E2500623B1B /* SidebarViewControllerDelegate.swift */,
 				2EDA0AD228F7DFD80020105F /* SidebarViewController.swift */,
 				2EDA0AD428F7DFF90020105F /* SidebarView.xib */,
@@ -399,11 +408,13 @@
 				2EEF06362928BF8200CEDC61 /* CGRect+MapToPoints.swift in Sources */,
 				2E101AEE297B0E2500623B1B /* SidebarViewControllerDelegate.swift in Sources */,
 				2E88F9772913A24300227CCB /* BattlefieldViewController.swift in Sources */,
+				2EB8EEC7299407E500632AA1 /* ChooseGameSpeedViewControllerProtocol.swift in Sources */,
 				2E26D2922992B930001F141E /* FinishedGamePopupViewControllerProtocol.swift in Sources */,
 				2EB8785D291E007B0085A638 /* SplitViewComposer.swift in Sources */,
 				2E02ED78290BB17E00E7ED31 /* BattlefieldViewControllerProtocol.swift in Sources */,
 				2EB0628D29882D37008003A9 /* RandomatorShipsProvider.swift in Sources */,
 				2E89CC3A297D4E4400DB7C37 /* FinishedGamePopupViewController.swift in Sources */,
+				2EB8EEC5299405DD00632AA1 /* ChooseGameModeViewControllerProtocol.swift in Sources */,
 				2EDA0AD328F7DFD80020105F /* SidebarViewController.swift in Sources */,
 				2E8272A228F40290006FDAD6 /* ChooseGameModeViewController.swift in Sources */,
 				2E02ED75290BB0B800E7ED31 /* MainViewController.swift in Sources */,
@@ -411,6 +422,7 @@
 				2E11D8BB28ED594F003CC71B /* AppDelegate.swift in Sources */,
 				2E88F97B2913A2F500227CCB /* TileView.swift in Sources */,
 				2E88F9792913A2C400227CCB /* BattlefieldView.swift in Sources */,
+				2E26D2942992BFCA001F141E /* ChooseRobotsViewControllerProtocol.swift in Sources */,
 				2E1FF44C2981B24300EDF781 /* Randomator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

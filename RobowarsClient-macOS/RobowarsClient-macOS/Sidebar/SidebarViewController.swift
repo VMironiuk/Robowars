@@ -16,15 +16,16 @@ private enum SideBarState {
 }
 
 class SidebarViewController: NSViewController {
+    
     @IBOutlet private weak var chooseRobotsPlaceholderView: NSView!
     @IBOutlet private weak var chooseGameModePlaceholderView: NSView!
     @IBOutlet private weak var chooseGameSpeedPlaceholderView: NSView!
     @IBOutlet private weak var startButton: NSButton!
     @IBOutlet private weak var newBattleButton: NSButton!
     
-    private let chooseRobotsViewController: ChooseRobotsViewController
-    private let chooseGameModeViewController: ChooseGameModeViewController
-    private let chooseGameSpeedViewController: ChooseGameSpeedViewController
+    private let chooseRobotsViewController: ChooseRobotsViewControllerProtocol
+    private let chooseGameModeViewController: ChooseGameModeViewControllerProtocol
+    private let chooseGameSpeedViewController: ChooseGameSpeedViewControllerProtocol
     
     private let chooseRobotsView: NSView!
     private let chooseGameModeView: NSView!
@@ -38,37 +39,36 @@ class SidebarViewController: NSViewController {
         didSet {
             switch state {
             case .newBattleState:
-                chooseRobotsViewController.firstRobotComboBox.isEnabled = true
-                chooseRobotsViewController.secondRobotComboBox.isEnabled = true
-                chooseGameModeViewController.gameModeComboBox.isEnabled = true
-                chooseGameSpeedViewController.gameSpeedComboBox.isEnabled = true
+                chooseRobotsViewController.isFirstRobotsInteractionEnabled = true
+                chooseRobotsViewController.isSecondRobotsInteractionEnabled = true
+                chooseGameModeViewController.isGameModeInteractionEnabled = true
+                chooseGameSpeedViewController.isGameSpeedInteractionEnabled = true
                 startButton.isEnabled = true
                 newBattleButton.isEnabled = false
                 
             case .battleInProgressState:
-                chooseRobotsViewController.firstRobotComboBox.isEnabled = false
-                chooseRobotsViewController.secondRobotComboBox.isEnabled = false
-                chooseGameModeViewController.gameModeComboBox.isEnabled = false
-                chooseGameSpeedViewController.gameSpeedComboBox.isEnabled = false
+                chooseRobotsViewController.isFirstRobotsInteractionEnabled = false
+                chooseRobotsViewController.isSecondRobotsInteractionEnabled = false
+                chooseGameModeViewController.isGameModeInteractionEnabled = false
+                chooseGameSpeedViewController.isGameSpeedInteractionEnabled = false
                 startButton.isEnabled = false
                 newBattleButton.isEnabled = false
                 
             case .battleFinishedState:
-                chooseRobotsViewController.firstRobotComboBox.isEnabled = false
-                chooseRobotsViewController.secondRobotComboBox.isEnabled = false
-                chooseGameModeViewController.gameModeComboBox.isEnabled = false
-                chooseGameSpeedViewController.gameSpeedComboBox.isEnabled = false
+                chooseRobotsViewController.isFirstRobotsInteractionEnabled = false
+                chooseRobotsViewController.isSecondRobotsInteractionEnabled = false
+                chooseGameModeViewController.isGameModeInteractionEnabled = false
+                chooseGameSpeedViewController.isGameSpeedInteractionEnabled = false
                 startButton.isEnabled = false
                 newBattleButton.isEnabled = true
                 
             case .errorState:
-                chooseRobotsViewController.firstRobotComboBox.isEnabled = true
-                chooseRobotsViewController.secondRobotComboBox.isEnabled = true
-                chooseGameModeViewController.gameModeComboBox.isEnabled = true
-                chooseGameSpeedViewController.gameSpeedComboBox.isEnabled = true
+                chooseRobotsViewController.isFirstRobotsInteractionEnabled = true
+                chooseRobotsViewController.isSecondRobotsInteractionEnabled = true
+                chooseGameModeViewController.isGameModeInteractionEnabled = true
+                chooseGameSpeedViewController.isGameSpeedInteractionEnabled = true
                 startButton.isEnabled = false
                 newBattleButton.isEnabled = false
-
             }
         }
     }
@@ -78,9 +78,9 @@ class SidebarViewController: NSViewController {
     }
     
     init(
-        chooseRobotsViewController: ChooseRobotsViewController,
-        chooseGameModeViewController: ChooseGameModeViewController,
-        chooseGameSpeedViewController: ChooseGameSpeedViewController,
+        chooseRobotsViewController: ChooseRobotsViewControllerProtocol,
+        chooseGameModeViewController: ChooseGameModeViewControllerProtocol,
+        chooseGameSpeedViewController: ChooseGameSpeedViewControllerProtocol,
         gameEngine: GameEngineProtocol,
         delegate: SidebarViewControllerDelegate
     ) {
