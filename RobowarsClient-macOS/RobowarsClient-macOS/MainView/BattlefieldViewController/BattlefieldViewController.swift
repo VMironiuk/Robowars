@@ -8,6 +8,7 @@
 import Cocoa
 
 final class BattlefieldViewController: NSViewController {
+    
     private var battlefieldView: BattlefieldView? {
         view as? BattlefieldView
     }

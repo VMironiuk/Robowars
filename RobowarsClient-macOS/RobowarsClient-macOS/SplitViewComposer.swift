@@ -9,6 +9,7 @@ import Cocoa
 import Robowars
 
 struct SplitViewComposer {
+    
     static private let gameModes = GameMode.allCases
     static private let gameSpeeds = GameSpeed.allCases
     static private let gameEngine = GameEngineFactory.defaultGameEngine(with: gameModes.first!)

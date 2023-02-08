@@ -9,6 +9,7 @@ import Cocoa
 import Robowars
 
 final class MainViewController: NSViewController {
+    
     @IBOutlet private weak var firstBattlefieldPlaceholderView: NSView!
     @IBOutlet private weak var secondBattlefieldPlaceholderView: NSView!
     @IBOutlet private weak var firstRobotNameLabel: NSTextField!

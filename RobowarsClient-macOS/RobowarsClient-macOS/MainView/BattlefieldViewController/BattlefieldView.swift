@@ -8,6 +8,7 @@
 import Cocoa
 
 final class BattlefieldView: NSView {
+    
     private var battlefieldSize: CGSize = .zero
     
     override var isFlipped: Bool {
