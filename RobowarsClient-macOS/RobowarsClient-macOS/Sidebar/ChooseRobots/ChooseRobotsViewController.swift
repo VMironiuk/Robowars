@@ -9,6 +9,7 @@ import Cocoa
 import Robowars
 
 final class ChooseRobotsViewController: NSViewController, ChooseRobotsViewControllerProtocol {
+    
     @IBOutlet private weak var firstRobotComboBox: NSComboBox!
     @IBOutlet private weak var secondRobotComboBox: NSComboBox!
     
