@@ -34,6 +34,7 @@
 		2E89CC39297D4E4400DB7C37 /* FinishedGamePopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E89CC37297D4E4400DB7C37 /* FinishedGamePopupView.xib */; };
 		2E89CC3A297D4E4400DB7C37 /* FinishedGamePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E89CC38297D4E4400DB7C37 /* FinishedGamePopupViewController.swift */; };
 		2E92B04F2907A5C5008DB932 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E92B04E2907A5C5008DB932 /* SplitViewController.swift */; };
+		2E9A62EA2995568600B562E5 /* Misplacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9A62E92995568600B562E5 /* Misplacer.swift */; };
 		2EA45E84290FA96500305290 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EA45E83290FA96500305290 /* MainView.xib */; };
 		2EA5838C28F00555006E7BB3 /* Robowars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA5838B28F00555006E7BB3 /* Robowars.framework */; };
 		2EA5838D28F00555006E7BB3 /* Robowars.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA5838B28F00555006E7BB3 /* Robowars.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -103,6 +104,7 @@
 		2E89CC37297D4E4400DB7C37 /* FinishedGamePopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinishedGamePopupView.xib; sourceTree = "<group>"; };
 		2E89CC38297D4E4400DB7C37 /* FinishedGamePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedGamePopupViewController.swift; sourceTree = "<group>"; };
 		2E92B04E2907A5C5008DB932 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		2E9A62E92995568600B562E5 /* Misplacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Misplacer.swift; sourceTree = "<group>"; };
 		2EA45E83290FA96500305290 /* MainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
 		2EA5838B28F00555006E7BB3 /* Robowars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Robowars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EB0628C29882D37008003A9 /* RandomatorShipsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomatorShipsProvider.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				2EB8EEC829940A4000632AA1 /* Randomator */,
+				2E9A62EB2995568B00B562E5 /* Misplacer */,
 			);
 			path = Robots;
 			sourceTree = "<group>";
@@ -254,6 +257,14 @@
 				2E8272A328F40313006FDAD6 /* ChooseGameModeView.xib */,
 			);
 			path = ChooseGameMode;
+			sourceTree = "<group>";
+		};
+		2E9A62EB2995568B00B562E5 /* Misplacer */ = {
+			isa = PBXGroup;
+			children = (
+				2E9A62E92995568600B562E5 /* Misplacer.swift */,
+			);
+			path = Misplacer;
 			sourceTree = "<group>";
 		};
 		2EA5838A28F00555006E7BB3 /* Frameworks */ = {
@@ -451,6 +462,7 @@
 				2EB8EEC7299407E500632AA1 /* ChooseGameSpeedViewControllerProtocol.swift in Sources */,
 				2E26D2922992B930001F141E /* FinishedGamePopupViewControllerProtocol.swift in Sources */,
 				2EB8785D291E007B0085A638 /* SplitViewComposer.swift in Sources */,
+				2E9A62EA2995568600B562E5 /* Misplacer.swift in Sources */,
 				2E02ED78290BB17E00E7ED31 /* BattlefieldViewControllerProtocol.swift in Sources */,
 				2EB0628D29882D37008003A9 /* RandomatorShipsProvider.swift in Sources */,
 				2E89CC3A297D4E4400DB7C37 /* FinishedGamePopupViewController.swift in Sources */,

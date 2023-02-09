@@ -13,8 +13,16 @@ struct SplitViewComposer {
     static private let gameModes = GameMode.allCases
     static private let gameSpeeds = GameSpeed.allCases
     static private let gameEngine = GameEngineFactory.defaultGameEngine(with: gameModes.first!)
-    static private let firstRobots = [Randomator(model: "R700"), Randomator(model: "R1000")]
-    static private let secondRobots = [Randomator(model: "R700"), Randomator(model: "R1000")]
+    static private let firstRobots: [RobotProtocol] = [
+        Misplacer(),
+        Randomator(model: "R700"),
+        Randomator(model: "R1000")
+    ]
+    static private let secondRobots: [RobotProtocol] = [
+        Misplacer(),
+        Randomator(model: "R700"),
+        Randomator(model: "R1000")
+    ]
     
     private init() {}
     
