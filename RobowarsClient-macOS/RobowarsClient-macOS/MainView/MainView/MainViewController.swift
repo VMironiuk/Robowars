@@ -17,6 +17,7 @@ final class MainViewController: NSViewController {
     @IBOutlet private weak var firstRobotMessageLabel: NSTextField!
     @IBOutlet private weak var secondRobotMessageLabel: NSTextField!
     @IBOutlet private weak var errorView: NSView!
+    @IBOutlet private weak var errorViewLabel: NSTextField!
     @IBOutlet private weak var errorViewTopConstraint: NSLayoutConstraint!
     
     private let firstBattlefieldViewController: BattlefieldViewControllerProtocol
@@ -174,6 +175,7 @@ extension MainViewController: SidebarViewControllerDelegate {
     }
     
     func sidebarViewController(_ sidebarViewController: SidebarViewController, didFailWithError error: Error?) {
+        errorViewLabel.stringValue = error?.localizedDescription ?? "Unknown error"
         isErrorViewHidden = false
     }
     

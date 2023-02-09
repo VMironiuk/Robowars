@@ -10,6 +10,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="MainViewController" customModule="RobowarsClient_macOS" customModuleProvider="target">
             <connections>
                 <outlet property="errorView" destination="IGi-If-al2" id="Kc6-6i-vHE"/>
+                <outlet property="errorViewLabel" destination="bQR-uW-AHR" id="8Zx-q6-hX6"/>
                 <outlet property="errorViewTopConstraint" destination="0nI-xr-dRl" id="xRv-1c-nvV"/>
                 <outlet property="firstBattlefieldPlaceholderView" destination="etJ-5u-2ZX" id="wUs-Y2-qgv"/>
                 <outlet property="firstRobotMessageLabel" destination="Atu-VV-jhz" id="Izy-7v-CEK"/>
