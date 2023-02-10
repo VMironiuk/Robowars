@@ -110,7 +110,7 @@ class GameEngineDelegatingTests: XCTestCase {
         sut.update(firstRobot: BrokenRobot())
         sut.update(secondRobot: BrokenRobot())
         // Then
-        XCTAssertEqual(gameEngineDelegateSpy.didFailCallCount, 2)
+        XCTAssertEqual(gameEngineDelegateSpy.didFailCallCount, 3)
         XCTAssertNotNil(gameEngineDelegateSpy.errors[.zero])
         XCTAssertNotNil(gameEngineDelegateSpy.errors[1])
     }
@@ -125,7 +125,7 @@ class GameEngineDelegatingTests: XCTestCase {
         sut.update(firstRobot: BrokenRobot())
         sut.update(secondRobot: BrokenRobot())
         // Then
-        XCTAssertEqual(gameEngineDelegateSpy.didFailCallCount, 4)
+        XCTAssertEqual(gameEngineDelegateSpy.didFailCallCount, 7)
         XCTAssertNotNil(gameEngineDelegateSpy.errors[.zero])
         XCTAssertNotNil(gameEngineDelegateSpy.errors[1])
         XCTAssertNotNil(gameEngineDelegateSpy.errors[2])

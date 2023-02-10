@@ -10,8 +10,8 @@ import Robowars
 
 final class ChooseRobotsViewController: NSViewController, ChooseRobotsViewControllerProtocol {
     
-    @IBOutlet private weak var firstRobotComboBox: NSComboBox!
-    @IBOutlet private weak var secondRobotComboBox: NSComboBox!
+    @IBOutlet private(set) weak var firstRobotComboBox: NSComboBox!
+    @IBOutlet private(set) weak var secondRobotComboBox: NSComboBox!
     
     private let firstRobots: [RobotProtocol]
     private let secondRobots: [RobotProtocol]

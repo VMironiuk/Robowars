@@ -10,7 +10,7 @@ import Robowars
 
 class ChooseGameSpeedViewController: NSViewController, ChooseGameSpeedViewControllerProtocol {
 
-    @IBOutlet private weak var gameSpeedComboBox: NSComboBox!
+    @IBOutlet private(set) weak var gameSpeedComboBox: NSComboBox!
     
     private let gameSpeeds: [GameSpeed]
     

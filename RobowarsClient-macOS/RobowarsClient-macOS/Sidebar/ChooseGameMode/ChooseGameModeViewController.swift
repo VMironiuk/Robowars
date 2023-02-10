@@ -10,7 +10,7 @@ import Robowars
 
 class ChooseGameModeViewController: NSViewController, ChooseGameModeViewControllerProtocol {
     
-    @IBOutlet private weak var gameModeComboBox: NSComboBox!
+    @IBOutlet private(set) weak var gameModeComboBox: NSComboBox!
     
     private let gameModes: [GameMode]
     
