@@ -110,11 +110,11 @@ class SidebarViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        state = .newBattleState
+        
+        chooseGameSpeedViewController.delegate = self
         chooseRobotsViewController.delegate = self
         chooseGameModeViewController.delegate = self
-        chooseGameSpeedViewController.delegate = self
-        
-        state = .newBattleState
     }
     
     override func viewWillAppear() {
