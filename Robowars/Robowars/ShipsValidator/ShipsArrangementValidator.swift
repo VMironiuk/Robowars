@@ -9,6 +9,7 @@ import Foundation
 import CoreGraphics
 
 final class ShipsArrangementValidator: ShipsValidatorProtocol {
+    
     private var gameMode: GameMode
     
     init(gameMode: GameMode) {

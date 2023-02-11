@@ -8,13 +8,7 @@
 import Cocoa
 import Robowars
 
-protocol ChooseGameSpeedViewControllerDelegate: AnyObject {
-    func chooseGameSpeedViewController(
-        _ viewController: ChooseGameSpeedViewController,
-        gameSpeedDidChange gameSpeed: GameSpeed)
-}
-
-class ChooseGameSpeedViewController: NSViewController {
+class ChooseGameSpeedViewController: NSViewController, ChooseGameSpeedViewControllerProtocol {
 
     @IBOutlet private(set) weak var gameSpeedComboBox: NSComboBox!
     
@@ -27,12 +21,19 @@ class ChooseGameSpeedViewController: NSViewController {
         }
     }
     
+    var isGameSpeedInteractionEnabled: Bool {
+        didSet {
+            gameSpeedComboBox.isEnabled = isGameSpeedInteractionEnabled
+        }
+    }
+    
     override var nibName: NSNib.Name? {
         "ChooseGameSpeedView"
     }
     
     init(gameSpeeds: [GameSpeed]) {
         self.gameSpeeds = gameSpeeds
+        isGameSpeedInteractionEnabled = false
         super.init(nibName: "ChooseGameSpeedView", bundle: nil)
     }
     

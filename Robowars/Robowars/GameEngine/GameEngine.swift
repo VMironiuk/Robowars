@@ -8,6 +8,7 @@
 import Foundation
 
 final class GameEngine: GameEngineProtocol {
+    
     private let shipsValidator: ShipsValidatorProtocol
     private var firstRobot: RobotProtocol?
     private var secondRobot: RobotProtocol?
@@ -54,6 +55,11 @@ final class GameEngine: GameEngineProtocol {
         if !shipsValidator.isValid(ships: robot.ships) {
             delegate?.gameEngine(self, didFailWithError: GameEngineError.invalidFirstRobotShipsArrangement)
         }
+        
+        guard let secondRobot = secondRobot else { return }
+        if !shipsValidator.isValid(ships: secondRobot.ships) {
+            delegate?.gameEngine(self, didFailWithError: GameEngineError.invalidSecondRobotShipsArrangement)
+        }
     }
     
     func update(secondRobot robot: RobotProtocol) {
@@ -65,6 +71,11 @@ final class GameEngine: GameEngineProtocol {
         secondRobotShipsPoints = shipsPoints(from: robot.ships)
         if !shipsValidator.isValid(ships: robot.ships) {
             delegate?.gameEngine(self, didFailWithError: GameEngineError.invalidSecondRobotShipsArrangement)
+        }
+        
+        guard let firstRobot = firstRobot else { return }
+        if !shipsValidator.isValid(ships: firstRobot.ships) {
+            delegate?.gameEngine(self, didFailWithError: GameEngineError.invalidFirstRobotShipsArrangement)
         }
     }
     

@@ -7,20 +7,6 @@
 
 import Foundation
 
-public enum GameSpeed: String {
-    case slow = "Slow"
-    case fast = "Fast"
-    case blazinglyFast = "Blazingly Fast"
-    
-    var timeInterval: TimeInterval {
-        switch self {
-        case .slow: return 0.05
-        case .fast: return 0.01
-        case .blazinglyFast: return 0.0
-        }
-    }
-}
-
 public protocol GameEngineProtocol: AnyObject {
     var isValid: Bool { get }
     var delegate: GameEngineDelegate? { get set }

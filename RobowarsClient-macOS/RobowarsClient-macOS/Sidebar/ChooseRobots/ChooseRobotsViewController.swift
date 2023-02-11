@@ -8,16 +8,8 @@
 import Cocoa
 import Robowars
 
-protocol ChooseRobotsViewControllerDelegate: AnyObject {
-    func chooseRobotsViewController(
-        _ viewController: ChooseRobotsViewController,
-        firstRobotDidChange robot: RobotProtocol)
-    func chooseRobotsViewController(
-        _ viewController: ChooseRobotsViewController,
-        secondRobotDidChange robot: RobotProtocol)
-}
-
-final class ChooseRobotsViewController: NSViewController {
+final class ChooseRobotsViewController: NSViewController, ChooseRobotsViewControllerProtocol {
+    
     @IBOutlet private(set) weak var firstRobotComboBox: NSComboBox!
     @IBOutlet private(set) weak var secondRobotComboBox: NSComboBox!
     
@@ -30,6 +22,18 @@ final class ChooseRobotsViewController: NSViewController {
     
     var selectedSecondRobot: RobotProtocol {
         secondRobots[secondRobotComboBox.indexOfSelectedItem]
+    }
+    
+    var isFirstRobotsInteractionEnabled: Bool {
+        didSet {
+            firstRobotComboBox.isEnabled = isFirstRobotsInteractionEnabled
+        }
+    }
+    
+    var isSecondRobotsInteractionEnabled: Bool {
+        didSet {
+            secondRobotComboBox.isEnabled = isSecondRobotsInteractionEnabled
+        }
     }
     
     weak var delegate: ChooseRobotsViewControllerDelegate? {
@@ -47,6 +51,8 @@ final class ChooseRobotsViewController: NSViewController {
     init(firstRobots: [RobotProtocol], secondRobots: [RobotProtocol]) {
         self.firstRobots = firstRobots
         self.secondRobots = secondRobots
+        isFirstRobotsInteractionEnabled = false
+        isSecondRobotsInteractionEnabled = false
         super.init(nibName: "ChooseRobotsView", bundle: nil)
     }
 

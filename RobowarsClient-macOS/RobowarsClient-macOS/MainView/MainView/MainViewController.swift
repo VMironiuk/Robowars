@@ -9,6 +9,7 @@ import Cocoa
 import Robowars
 
 final class MainViewController: NSViewController {
+    
     @IBOutlet private weak var firstBattlefieldPlaceholderView: NSView!
     @IBOutlet private weak var secondBattlefieldPlaceholderView: NSView!
     @IBOutlet private weak var firstRobotNameLabel: NSTextField!
@@ -16,11 +17,12 @@ final class MainViewController: NSViewController {
     @IBOutlet private weak var firstRobotMessageLabel: NSTextField!
     @IBOutlet private weak var secondRobotMessageLabel: NSTextField!
     @IBOutlet private weak var errorView: NSView!
+    @IBOutlet private weak var errorViewLabel: NSTextField!
     @IBOutlet private weak var errorViewTopConstraint: NSLayoutConstraint!
     
     private let firstBattlefieldViewController: BattlefieldViewControllerProtocol
     private let secondBattlefieldViewController: BattlefieldViewControllerProtocol
-    private let finishedGamePopupViewController: FinishedGamePopupViewController
+    private let finishedGamePopupViewController: FinishedGamePopupViewControllerProtocol
     
     private var isErrorViewHidden: Bool = true {
         didSet {
@@ -38,7 +40,7 @@ final class MainViewController: NSViewController {
     init(
         firstBattlefieldViewController: BattlefieldViewControllerProtocol,
         secondBattlefieldViewController: BattlefieldViewControllerProtocol,
-        finishedGamePopupViewController: FinishedGamePopupViewController
+        finishedGamePopupViewController: FinishedGamePopupViewControllerProtocol
     ) {
         self.firstBattlefieldViewController = firstBattlefieldViewController
         self.secondBattlefieldViewController = secondBattlefieldViewController
@@ -62,27 +64,20 @@ final class MainViewController: NSViewController {
     }
     
     private func setupBattlefieldViews() {
-        let firstBattlefieldView = firstBattlefieldViewController.view
-        let secondBattlefieldView = secondBattlefieldViewController.view
+        setupBattlefieldView(firstBattlefieldViewController.view, in: firstBattlefieldPlaceholderView)
+        setupBattlefieldView(secondBattlefieldViewController.view, in: secondBattlefieldPlaceholderView)
+    }
+    
+    private func setupBattlefieldView(_ battlefieldView: NSView, in placeholderView: NSView) {
+        placeholderView.addSubview(battlefieldView)
         
-        firstBattlefieldPlaceholderView.addSubview(firstBattlefieldView)
-        secondBattlefieldPlaceholderView.addSubview(secondBattlefieldView)
-        
-        firstBattlefieldView.translatesAutoresizingMaskIntoConstraints = false
-        secondBattlefieldView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            firstBattlefieldView.topAnchor.constraint(equalTo: firstBattlefieldPlaceholderView.topAnchor),
-            firstBattlefieldView.bottomAnchor.constraint(equalTo: firstBattlefieldPlaceholderView.bottomAnchor),
-            firstBattlefieldView.leadingAnchor.constraint(equalTo: firstBattlefieldPlaceholderView.leadingAnchor),
-            firstBattlefieldView.trailingAnchor.constraint(equalTo: firstBattlefieldPlaceholderView.trailingAnchor)
-        ])
+        battlefieldView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            secondBattlefieldView.topAnchor.constraint(equalTo: secondBattlefieldPlaceholderView.topAnchor),
-            secondBattlefieldView.bottomAnchor.constraint(equalTo: secondBattlefieldPlaceholderView.bottomAnchor),
-            secondBattlefieldView.leadingAnchor.constraint(equalTo: secondBattlefieldPlaceholderView.leadingAnchor),
-            secondBattlefieldView.trailingAnchor.constraint(equalTo: secondBattlefieldPlaceholderView.trailingAnchor)
+            battlefieldView.topAnchor.constraint(equalTo: placeholderView.topAnchor),
+            battlefieldView.bottomAnchor.constraint(equalTo: placeholderView.bottomAnchor),
+            battlefieldView.leadingAnchor.constraint(equalTo: placeholderView.leadingAnchor),
+            battlefieldView.trailingAnchor.constraint(equalTo: placeholderView.trailingAnchor)
         ])
     }
     
@@ -180,6 +175,7 @@ extension MainViewController: SidebarViewControllerDelegate {
     }
     
     func sidebarViewController(_ sidebarViewController: SidebarViewController, didFailWithError error: Error?) {
+        errorViewLabel.stringValue = error?.localizedDescription ?? "Unknown error"
         isErrorViewHidden = false
     }
     

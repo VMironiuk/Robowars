@@ -8,11 +8,7 @@
 import Cocoa
 import Robowars
 
-protocol ChooseGameModeViewControllerDelegate: AnyObject {
-    func chooseGameModeViewController(_ viewController: ChooseGameModeViewController, gameModeDidChange gameMode: GameMode)
-}
-
-class ChooseGameModeViewController: NSViewController {
+class ChooseGameModeViewController: NSViewController, ChooseGameModeViewControllerProtocol {
     
     @IBOutlet private(set) weak var gameModeComboBox: NSComboBox!
     
@@ -20,6 +16,12 @@ class ChooseGameModeViewController: NSViewController {
     
     var selectedGameMode: GameMode {
         gameModes[gameModeComboBox.indexOfSelectedItem]
+    }
+    
+    var isGameModeInteractionEnabled: Bool {
+        didSet {
+            gameModeComboBox.isEnabled = isGameModeInteractionEnabled
+        }
     }
     
     weak var delegate: ChooseGameModeViewControllerDelegate? {
@@ -35,6 +37,7 @@ class ChooseGameModeViewController: NSViewController {
     
     init(gameModes: [GameMode]) {
         self.gameModes = gameModes
+        isGameModeInteractionEnabled = false
         super.init(nibName: "ChooseGameModeView", bundle: nil)
     }
     
